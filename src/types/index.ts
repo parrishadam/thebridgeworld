@@ -1,3 +1,22 @@
+// ── Subscription types ─────────────────────────────────────────────────────
+
+export type SubscriptionTier = "free" | "paid" | "premium";
+
+export interface UserProfile {
+  user_id:    string;
+  tier:       SubscriptionTier;
+  is_admin:   boolean;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface SubscriptionStatus {
+  tier:       SubscriptionTier;
+  isAdmin:    boolean;
+  viewCount:  number;   // unique articles viewed this calendar month
+  canView:    boolean;  // false when free tier has hit the 3-article limit
+}
+
 // ── Sanity-projected types (match GROQ query shapes) ──────────────────────
 
 export type Suit = "spades" | "hearts" | "diamonds" | "clubs";

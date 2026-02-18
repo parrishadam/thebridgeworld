@@ -1,10 +1,13 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { auth } from "@clerk/nextjs/server";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import PortableTextRenderer from "@/components/articles/PortableTextRenderer";
+import PaywallBanner from "@/components/subscription/PaywallBanner";
 import { getArticleBySlug, getArticleSlugs } from "@/lib/queries";
+import { getSubscriptionStatus, trackArticleView } from "@/lib/subscription";
 import { formatDate } from "@/lib/utils";
 
 export const revalidate = 60;
@@ -39,7 +42,7 @@ export async function generateMetadata(
   };
 }
 
-// ── Colour helper (same as ArticleCard) ───────────────────────────────────
+// ── Colour helper ──────────────────────────────────────────────────────────
 
 const colorClasses: Record<string, string> = {
   blue:    "bg-blue-100 text-blue-700",
@@ -56,18 +59,39 @@ const colorClasses: Record<string, string> = {
 export default async function ArticlePage(
   { params }: { params: { slug: string } }
 ) {
-  const article = await getArticleBySlug(params.slug);
+  // Fetch article and auth state in parallel
+  const [article, { userId }] = await Promise.all([
+    getArticleBySlug(params.slug),
+    auth(),
+  ]);
+
   if (!article) notFound();
 
-  const badgeClass =
-    colorClasses[article.category?.color ?? ""] ?? "bg-stone-100 text-stone-700";
+  // ── Subscription / paywall logic ─────────────────────────────────────────
+
+  let paywallVariant: "unauthenticated" | "limit_reached" | null = null;
+
+  if (!userId) {
+    paywallVariant = "unauthenticated";
+  } else {
+    const status = await getSubscriptionStatus(userId);
+    if (!status.canView) {
+      paywallVariant = "limit_reached";
+    } else {
+      // Track the view only when the user can actually read the article
+      await trackArticleView(userId, params.slug);
+    }
+  }
+
+  const showPaywall = paywallVariant !== null;
+  const badgeClass  = colorClasses[article.category?.color ?? ""] ?? "bg-stone-100 text-stone-700";
 
   return (
     <>
       <Header />
       <main>
 
-        {/* ── Article header ─────────────────────────────────────────── */}
+        {/* ── Article header (always visible) ────────────────────────── */}
         <div className="max-w-3xl mx-auto px-4 pt-12 pb-8">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-xs font-sans text-stone-400 mb-6">
@@ -143,7 +167,7 @@ export default async function ArticlePage(
           </div>
         </div>
 
-        {/* ── Featured image ─────────────────────────────────────────── */}
+        {/* ── Featured image (always visible) ───────────────────────────── */}
         {article.coverImageUrl && (
           <div className="max-w-5xl mx-auto px-4 mb-10">
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -155,39 +179,46 @@ export default async function ArticlePage(
           </div>
         )}
 
-        {/* ── Body content ───────────────────────────────────────────── */}
+        {/* ── Body content or paywall ────────────────────────────────────── */}
         <div className="max-w-3xl mx-auto px-4 pb-16">
-          {article.content && article.content.length > 0 ? (
-            <PortableTextRenderer content={article.content} />
+          {showPaywall ? (
+            <PaywallBanner variant={paywallVariant!} />
           ) : (
-            <p className="text-stone-400 font-sans italic">No content yet.</p>
-          )}
-
-          {/* ── Author bio ───────────────────────────────────────────── */}
-          {article.author?.bio && (
-            <div className="mt-16 pt-8 border-t border-stone-200 flex gap-4">
-              {article.author.avatarUrl && (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  src={article.author.avatarUrl}
-                  alt={article.author.name}
-                  className="w-14 h-14 rounded-full object-cover bg-stone-200 flex-shrink-0"
-                />
+            <>
+              {article.content && article.content.length > 0 ? (
+                <PortableTextRenderer content={article.content} />
+              ) : (
+                <p className="text-stone-400 font-sans italic">No content yet.</p>
               )}
-              <div>
-                <p className="font-sans text-xs uppercase tracking-wider text-stone-400 mb-1">
-                  About the author
-                </p>
-                <p className="font-serif font-bold text-stone-900 mb-1">
-                  {article.author.name}
-                </p>
-                <p className="font-sans text-sm text-stone-500 leading-relaxed">
-                  {article.author.bio}
-                </p>
-              </div>
-            </div>
+
+              {/* Author bio */}
+              {article.author?.bio && (
+                <div className="mt-16 pt-8 border-t border-stone-200 flex gap-4">
+                  {article.author.avatarUrl && (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={article.author.avatarUrl}
+                      alt={article.author.name}
+                      className="w-14 h-14 rounded-full object-cover bg-stone-200 flex-shrink-0"
+                    />
+                  )}
+                  <div>
+                    <p className="font-sans text-xs uppercase tracking-wider text-stone-400 mb-1">
+                      About the author
+                    </p>
+                    <p className="font-serif font-bold text-stone-900 mb-1">
+                      {article.author.name}
+                    </p>
+                    <p className="font-sans text-sm text-stone-500 leading-relaxed">
+                      {article.author.bio}
+                    </p>
+                  </div>
+                </div>
+              )}
+            </>
           )}
         </div>
+
       </main>
       <Footer />
     </>
