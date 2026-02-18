@@ -1,0 +1,22 @@
+{
+  "name": "bridge-world-studio",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "sanity dev",
+    "build": "sanity build",
+    "deploy": "sanity deploy",
+    "deploy-graphql": "sanity deploy --graphql"
+  },
+  "dependencies": {
+    "@sanity/vision": "^5",
+    "react": "^19",
+    "react-dom": "^19",
+    "sanity": "^5",
+    "styled-components": "^6.1.15"
+  },
+  "devDependencies": {
+    "@types/react": "^18",
+    "typescript": "^5"
+  }
+}
