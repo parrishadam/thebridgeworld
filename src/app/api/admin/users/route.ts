@@ -27,7 +27,7 @@ export async function GET() {
   const clerk = await clerkClient();
   const userIds = (profiles ?? []).map((p) => p.user_id);
 
-  let clerkUsers: Record<string, { name: string; email: string; imageUrl?: string }> = {};
+  const clerkUsers: Record<string, { name: string; email: string; imageUrl?: string }> = {};
 
   if (userIds.length > 0) {
     const { data: clerkList } = await clerk.users.getUserList({ userId: userIds, limit: 200 });

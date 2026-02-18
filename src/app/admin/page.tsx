@@ -26,7 +26,7 @@ export default async function AdminPage() {
   // Enrich with Clerk user data
   const clerk = await clerkClient();
   const userIds = (profiles ?? []).map((p) => p.user_id);
-  let clerkMap: Record<string, { name: string; email: string; imageUrl?: string }> = {};
+  const clerkMap: Record<string, { name: string; email: string; imageUrl?: string }> = {};
 
   if (userIds.length > 0) {
     const { data: clerkList } = await clerk.users.getUserList({ userId: userIds, limit: 200 });
