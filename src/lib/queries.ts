@@ -31,6 +31,7 @@ const articleCardFragment = groq`
   excerpt,
   publishedAt,
   featured,
+  access_tier,
   "coverImageUrl": featuredImage.asset->url,
   tags[]-> { _id, name, "slug": slug.current, color },
   ${categoryFragment},

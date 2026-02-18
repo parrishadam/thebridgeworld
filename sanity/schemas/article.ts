@@ -107,6 +107,23 @@ export const article = defineType({
       group: "meta",
       initialValue: false,
     }),
+    defineField({
+      name: "access_tier",
+      title: "Access tier",
+      type: "string",
+      group: "meta",
+      description: "Who can read this article.",
+      options: {
+        list: [
+          { title: "🔓 Free — anyone can read",            value: "free" },
+          { title: "🔒 Paid — requires paid or premium",   value: "paid" },
+          { title: "⭐ Premium — requires premium only",   value: "premium" },
+        ],
+        layout: "radio",
+      },
+      initialValue: "free",
+      validation: (Rule) => Rule.required(),
+    }),
 
     // ── SEO ────────────────────────────────────────────────────────
     defineField({

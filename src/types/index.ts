@@ -1,6 +1,7 @@
 // ── Subscription types ─────────────────────────────────────────────────────
 
 export type SubscriptionTier = "free" | "paid" | "premium";
+export type ArticleAccessTier = "free" | "paid" | "premium";
 
 export interface UserProfile {
   user_id:    string;
@@ -11,10 +12,8 @@ export interface UserProfile {
 }
 
 export interface SubscriptionStatus {
-  tier:       SubscriptionTier;
-  isAdmin:    boolean;
-  viewCount:  number;   // unique articles viewed this calendar month
-  canView:    boolean;  // false when free tier has hit the 3-article limit
+  tier:    SubscriptionTier;
+  isAdmin: boolean;
 }
 
 // ── Sanity-projected types (match GROQ query shapes) ──────────────────────
@@ -45,6 +44,7 @@ export interface SanityArticle {
   excerpt: string;
   publishedAt?: string;
   featured: boolean;
+  access_tier?: ArticleAccessTier;
   coverImageUrl?: string;
   category: SanityCategory;
   tags?: SanityCategory[];

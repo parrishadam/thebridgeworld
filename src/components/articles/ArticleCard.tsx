@@ -16,6 +16,24 @@ function categoryClass(color?: string) {
   return colorClasses[color ?? ""] ?? "bg-stone-100 text-stone-700";
 }
 
+function TierBadge({ tier }: { tier?: string }) {
+  if (tier === "premium") {
+    return (
+      <span className="inline-flex items-center gap-1 text-xs font-sans font-medium uppercase tracking-wide px-2 py-0.5 rounded bg-amber-100 text-amber-700">
+        ⭐ Premium
+      </span>
+    );
+  }
+  if (tier === "paid") {
+    return (
+      <span className="inline-flex items-center gap-1 text-xs font-sans font-medium uppercase tracking-wide px-2 py-0.5 rounded bg-stone-800 text-white">
+        🔒 Paid
+      </span>
+    );
+  }
+  return null;
+}
+
 interface ArticleCardProps {
   article: SanityArticle;
   variant?: "default" | "featured" | "compact";
@@ -32,9 +50,12 @@ export default function ArticleCard({ article, variant = "default" }: ArticleCar
         className="group flex gap-4 py-3 border-b border-stone-100 last:border-0"
       >
         <div className="flex-1 min-w-0">
-          <p className={`inline-block text-xs font-sans font-medium uppercase tracking-wide px-2 py-0.5 rounded mb-1 ${badgeClass}`}>
-            {categoryName}
-          </p>
+          <div className="flex items-center gap-2 mb-1">
+            <p className={`inline-block text-xs font-sans font-medium uppercase tracking-wide px-2 py-0.5 rounded ${badgeClass}`}>
+              {categoryName}
+            </p>
+            <TierBadge tier={article.access_tier} />
+          </div>
           <h3 className="font-serif text-base font-semibold text-stone-900 group-hover:text-brand-700 transition-colors leading-snug line-clamp-2">
             {article.title}
           </h3>
@@ -59,9 +80,12 @@ export default function ArticleCard({ article, variant = "default" }: ArticleCar
             />
           )}
         </div>
-        <p className={`inline-block text-xs font-sans font-medium uppercase tracking-wide px-2 py-0.5 rounded mb-2 ${badgeClass}`}>
-          {categoryName}
-        </p>
+        <div className="flex items-center gap-2 mb-2">
+          <p className={`inline-block text-xs font-sans font-medium uppercase tracking-wide px-2 py-0.5 rounded ${badgeClass}`}>
+            {categoryName}
+          </p>
+          <TierBadge tier={article.access_tier} />
+        </div>
         <h2 className="font-serif text-2xl font-bold text-stone-900 group-hover:text-brand-700 transition-colors leading-snug mb-2">
           {article.title}
         </h2>
@@ -93,9 +117,12 @@ export default function ArticleCard({ article, variant = "default" }: ArticleCar
           />
         )}
       </div>
-      <p className={`inline-block text-xs font-sans font-medium uppercase tracking-wide px-2 py-0.5 rounded mb-2 ${badgeClass}`}>
-        {categoryName}
-      </p>
+      <div className="flex items-center gap-2 mb-2">
+        <p className={`inline-block text-xs font-sans font-medium uppercase tracking-wide px-2 py-0.5 rounded ${badgeClass}`}>
+          {categoryName}
+        </p>
+        <TierBadge tier={article.access_tier} />
+      </div>
       <h3 className="font-serif text-lg font-bold text-stone-900 group-hover:text-brand-700 transition-colors leading-snug mb-1">
         {article.title}
       </h3>

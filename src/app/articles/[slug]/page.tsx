@@ -7,7 +7,7 @@ import Footer from "@/components/layout/Footer";
 import PortableTextRenderer from "@/components/articles/PortableTextRenderer";
 import PaywallBanner from "@/components/subscription/PaywallBanner";
 import { getArticleBySlug, getArticleSlugs } from "@/lib/queries";
-import { getSubscriptionStatus, trackArticleView } from "@/lib/subscription";
+import { getSubscriptionStatus } from "@/lib/subscription";
 import { formatDate } from "@/lib/utils";
 
 export const revalidate = 60;
@@ -69,17 +69,21 @@ export default async function ArticlePage(
 
   // ── Subscription / paywall logic ─────────────────────────────────────────
 
-  let paywallVariant: "unauthenticated" | "limit_reached" | null = null;
+  const articleTier = article.access_tier ?? "free";
+  let paywallVariant: "sign_in" | "upgrade_paid" | "upgrade_premium" | null = null;
 
-  if (!userId) {
-    paywallVariant = "unauthenticated";
-  } else {
-    const status = await getSubscriptionStatus(userId);
-    if (!status.canView) {
-      paywallVariant = "limit_reached";
+  if (articleTier !== "free") {
+    if (!userId) {
+      paywallVariant = "sign_in";
     } else {
-      // Track the view only when the user can actually read the article
-      await trackArticleView(userId, params.slug);
+      const status = await getSubscriptionStatus(userId);
+      if (!status.isAdmin) {
+        if (articleTier === "premium" && status.tier !== "premium") {
+          paywallVariant = "upgrade_premium";
+        } else if (articleTier === "paid" && status.tier === "free") {
+          paywallVariant = "upgrade_paid";
+        }
+      }
     }
   }
 
