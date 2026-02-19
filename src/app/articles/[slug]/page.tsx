@@ -10,8 +10,6 @@ import { getArticleBySlug, getArticleSlugs } from "@/lib/queries";
 import { getSubscriptionStatus } from "@/lib/subscription";
 import { formatDate } from "@/lib/utils";
 
-export const revalidate = 60;
-
 // ── Static params ──────────────────────────────────────────────────────────
 
 export async function generateStaticParams() {

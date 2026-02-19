@@ -110,30 +110,32 @@ export const categoriesQuery = groq`
 
 // ── Typed fetch helpers ────────────────────────────────────────────────────
 
+const revalidate = { next: { revalidate: 60 } };
+
 export async function getArticles(): Promise<SanityArticle[]> {
-  return client.fetch(articlesQuery);
+  return client.fetch(articlesQuery, {}, revalidate);
 }
 
 export async function getRecentArticles(limit = 6): Promise<SanityArticle[]> {
-  return client.fetch(recentArticlesQuery, { limit });
+  return client.fetch(recentArticlesQuery, { limit }, revalidate);
 }
 
 export async function getFeaturedArticle(): Promise<SanityArticle | null> {
-  return client.fetch(featuredArticleQuery);
+  return client.fetch(featuredArticleQuery, {}, revalidate);
 }
 
 export async function getArticleBySlug(slug: string): Promise<SanityArticle | null> {
-  return client.fetch(articleBySlugQuery, { slug });
+  return client.fetch(articleBySlugQuery, { slug }, revalidate);
 }
 
 export async function getArticlesByCategory(categorySlug: string): Promise<SanityArticle[]> {
-  return client.fetch(articlesByCategoryQuery, { categorySlug });
+  return client.fetch(articlesByCategoryQuery, { categorySlug }, revalidate);
 }
 
 export async function getArticleSlugs(): Promise<{ slug: string }[]> {
-  return client.fetch(articleSlugsQuery);
+  return client.fetch(articleSlugsQuery, {}, revalidate);
 }
 
 export async function getAuthors(): Promise<SanityAuthor[]> {
-  return client.fetch(authorsQuery);
+  return client.fetch(authorsQuery, {}, revalidate);
 }

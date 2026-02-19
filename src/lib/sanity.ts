@@ -8,7 +8,7 @@ export const config = {
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
   dataset:   process.env.NEXT_PUBLIC_SANITY_DATASET ?? "production",
   apiVersion: "2024-01-01", // pin to a stable API date
-  useCdn:    process.env.NODE_ENV === "production",
+  useCdn:    false, // disabled — Next.js fetch cache handles revalidation instead
 };
 
 /**
