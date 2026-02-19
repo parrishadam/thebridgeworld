@@ -3,7 +3,11 @@
 import Link from "next/link";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 
-export default function HeaderAuth() {
+interface HeaderAuthProps {
+  isAdmin?: boolean;
+}
+
+export default function HeaderAuth({ isAdmin }: HeaderAuthProps) {
   return (
     <div className="flex items-center gap-3">
       <SignedOut>
@@ -21,6 +25,14 @@ export default function HeaderAuth() {
       </SignedOut>
 
       <SignedIn>
+        {isAdmin && (
+          <Link
+            href="/admin"
+            className="font-sans text-sm uppercase tracking-wider text-stone-600 hover:text-stone-900 transition-colors"
+          >
+            Admin
+          </Link>
+        )}
         <Link
           href="/profile"
           className="font-sans text-sm uppercase tracking-wider text-stone-600 hover:text-stone-900 transition-colors"
