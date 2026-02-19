@@ -1,11 +1,12 @@
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import type { Metadata } from "next";
+import Link from "next/link";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import UserTierTable from "./UserTierTable";
 import { getOrCreateProfile } from "@/lib/subscription";
-import { supabaseAdmin } from "@/lib/supabase";
+import { getSupabaseAdmin } from "@/lib/supabase";
 import { clerkClient } from "@clerk/nextjs/server";
 
 export const metadata: Metadata = { title: "Admin — User Management" };
@@ -18,14 +19,15 @@ export default async function AdminPage() {
   if (!profile.is_admin) redirect("/");
 
   // Fetch all user profiles directly (avoids server-to-server loopback)
-  const { data: profiles } = await supabaseAdmin
+  const { data: profiles } = await getSupabaseAdmin()
     .from("user_profiles")
     .select("*")
     .order("created_at", { ascending: false });
 
   // Enrich with Clerk user data
   const clerk = await clerkClient();
-  const userIds = (profiles ?? []).map((p) => p.user_id);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const userIds = (profiles ?? []).map((p: any) => p.user_id);
   const clerkMap: Record<string, { name: string; email: string; imageUrl?: string }> = {};
 
   if (userIds.length > 0) {
@@ -39,7 +41,8 @@ export default async function AdminPage() {
     }
   }
 
-  const users = (profiles ?? []).map((p) => ({
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const users = (profiles ?? []).map((p: any) => ({
     ...p,
     ...(clerkMap[p.user_id] ?? { name: "Unknown", email: "—" }),
   }));
@@ -63,6 +66,37 @@ export default async function AdminPage() {
 
         <div className="bg-white border border-stone-200 rounded-sm p-6">
           <UserTierTable initialUsers={users} />
+        </div>
+
+        {/* ── Article Management ──────────────────────────────────────── */}
+        <div className="mt-12">
+          <div className="border-b-2 border-stone-900 pb-2 mb-6">
+            <h2 className="font-sans text-xs uppercase tracking-[0.25em] text-stone-500">
+              Content
+            </h2>
+          </div>
+          <div className="flex items-center justify-between mb-4">
+            <p className="font-serif text-2xl font-bold text-stone-900">Article Management</p>
+          </div>
+          <div className="bg-white border border-stone-200 rounded-sm p-6 flex items-center justify-between">
+            <p className="font-sans text-sm text-stone-500">
+              Create, edit, and publish articles using the built-in block editor.
+            </p>
+            <div className="flex gap-3">
+              <Link
+                href="/admin/articles"
+                className="font-sans text-sm border border-stone-200 text-stone-700 px-4 py-2 hover:bg-stone-50 transition-colors"
+              >
+                Manage Articles
+              </Link>
+              <Link
+                href="/editor"
+                className="font-sans text-sm bg-stone-900 text-white px-4 py-2 hover:bg-stone-700 transition-colors"
+              >
+                + New Article
+              </Link>
+            </div>
+          </div>
         </div>
 
         <div className="mt-8 bg-amber-50 border border-amber-200 rounded-sm p-4">

@@ -10,7 +10,11 @@ export async function GET() {
     }
 
     const status = await getSubscriptionStatus(userId);
-    return NextResponse.json(status);
+    return NextResponse.json({
+      tier:          status.tier,
+      isAdmin:       status.isAdmin,
+      isContributor: status.isContributor,
+    });
   } catch (err) {
     console.error("[/api/user/subscription]", err);
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });

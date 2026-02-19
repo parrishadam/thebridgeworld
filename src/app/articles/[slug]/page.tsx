@@ -5,8 +5,10 @@ import { auth } from "@clerk/nextjs/server";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import PortableTextRenderer from "@/components/articles/PortableTextRenderer";
+import SupabaseArticleRenderer from "@/components/articles/SupabaseArticleRenderer";
 import PaywallBanner from "@/components/subscription/PaywallBanner";
 import { getArticleBySlug, getArticleSlugs } from "@/lib/queries";
+import { getSupabaseArticleBySlug } from "@/lib/articles";
 import { getSubscriptionStatus } from "@/lib/subscription";
 import { formatDate } from "@/lib/utils";
 
@@ -25,6 +27,24 @@ export async function generateStaticParams() {
 export async function generateMetadata(
   { params }: { params: { slug: string } }
 ): Promise<Metadata> {
+  // Check Supabase first
+  const supabaseArticle = await getSupabaseArticleBySlug(params.slug);
+  if (supabaseArticle && supabaseArticle.status === "published") {
+    return {
+      title:       supabaseArticle.title,
+      description: supabaseArticle.excerpt ?? undefined,
+      openGraph: {
+        title:       supabaseArticle.title,
+        description: supabaseArticle.excerpt ?? undefined,
+        type:        "article",
+        publishedTime: supabaseArticle.published_at ?? undefined,
+        ...(supabaseArticle.featured_image_url && {
+          images: [{ url: supabaseArticle.featured_image_url }],
+        }),
+      },
+    };
+  }
+
   const article = await getArticleBySlug(params.slug);
   if (!article) return {};
 
@@ -32,9 +52,9 @@ export async function generateMetadata(
     title: article.seoTitle ?? article.title,
     description: article.seoDescription ?? article.excerpt,
     openGraph: {
-      title: article.seoTitle ?? article.title,
+      title:       article.seoTitle ?? article.title,
       description: article.seoDescription ?? article.excerpt,
-      type: "article",
+      type:        "article",
       publishedTime: article.publishedAt,
       ...(article.coverImageUrl && {
         images: [{ url: article.coverImageUrl }],
@@ -60,11 +80,126 @@ const colorClasses: Record<string, string> = {
 export default async function ArticlePage(
   { params }: { params: { slug: string } }
 ) {
-  // Fetch article and auth state in parallel
-  const [article, { userId }] = await Promise.all([
-    getArticleBySlug(params.slug),
-    auth(),
-  ]);
+  const { userId } = await auth();
+
+  // ── Try Supabase first ───────────────────────────────────────────────────
+
+  const supabaseArticle = await getSupabaseArticleBySlug(params.slug);
+
+  if (supabaseArticle && supabaseArticle.status === "published") {
+    const articleTier = supabaseArticle.access_tier ?? "free";
+    let paywallVariant: "sign_in" | "upgrade_paid" | "upgrade_premium" | null = null;
+
+    if (articleTier !== "free") {
+      if (!userId) {
+        paywallVariant = "sign_in";
+      } else {
+        const status = await getSubscriptionStatus(userId);
+        if (!status.isAdmin) {
+          if (articleTier === "premium" && status.tier !== "premium") {
+            paywallVariant = "upgrade_premium";
+          } else if (articleTier === "paid" && status.tier === "free") {
+            paywallVariant = "upgrade_paid";
+          }
+        }
+      }
+    }
+
+    const showPaywall = paywallVariant !== null;
+    const catSlug = supabaseArticle.category?.toLowerCase().replace(/\s+/g, "-") ?? "";
+
+    return (
+      <>
+        <Header />
+        <main>
+          <div className="max-w-3xl mx-auto px-4 pt-12 pb-8">
+            {/* Breadcrumb */}
+            <nav className="flex items-center gap-2 text-xs font-sans text-stone-400 mb-6">
+              <Link href="/" className="hover:text-stone-600 transition-colors">Home</Link>
+              <span>/</span>
+              <Link href="/articles" className="hover:text-stone-600 transition-colors">Articles</Link>
+              {supabaseArticle.category && (
+                <>
+                  <span>/</span>
+                  <Link
+                    href={`/articles?category=${catSlug}`}
+                    className="hover:text-stone-600 transition-colors"
+                  >
+                    {supabaseArticle.category}
+                  </Link>
+                </>
+              )}
+            </nav>
+
+            {/* Category badge */}
+            {supabaseArticle.category && (
+              <Link
+                href={`/articles?category=${catSlug}`}
+                className="inline-block text-xs font-sans font-medium uppercase tracking-wide px-2 py-0.5 rounded mb-4 bg-stone-100 text-stone-700"
+              >
+                {supabaseArticle.category}
+              </Link>
+            )}
+
+            {/* Title */}
+            <h1 className="font-serif text-4xl md:text-5xl font-bold text-stone-900 leading-tight mb-4">
+              {supabaseArticle.title}
+            </h1>
+
+            {/* Byline */}
+            <div className="flex items-center gap-3 border-t border-b border-stone-100 py-4 mb-8">
+              <div className="font-sans text-sm">
+                {supabaseArticle.author_name && (
+                  <p className="font-semibold text-stone-900">{supabaseArticle.author_name}</p>
+                )}
+                {supabaseArticle.published_at && (
+                  <p className="text-stone-400">{formatDate(supabaseArticle.published_at)}</p>
+                )}
+              </div>
+              {supabaseArticle.tags && supabaseArticle.tags.length > 0 && (
+                <div className="ml-auto flex flex-wrap gap-1.5 justify-end">
+                  {supabaseArticle.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-xs font-sans text-stone-400 border border-stone-200 rounded px-2 py-0.5"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Featured image */}
+          {supabaseArticle.featured_image_url && (
+            <div className="max-w-5xl mx-auto px-4 mb-10">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={supabaseArticle.featured_image_url}
+                alt={supabaseArticle.title}
+                className="w-full rounded-sm object-cover max-h-[520px]"
+              />
+            </div>
+          )}
+
+          {/* Body */}
+          <div className="max-w-3xl mx-auto px-4 pb-16">
+            {showPaywall ? (
+              <PaywallBanner variant={paywallVariant!} />
+            ) : (
+              <SupabaseArticleRenderer blocks={supabaseArticle.content_blocks} />
+            )}
+          </div>
+        </main>
+        <Footer />
+      </>
+    );
+  }
+
+  // ── Fall through to Sanity ───────────────────────────────────────────────
+
+  const [article] = await Promise.all([getArticleBySlug(params.slug)]);
 
   if (!article) notFound();
 

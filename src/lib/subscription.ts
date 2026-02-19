@@ -33,7 +33,8 @@ export async function getOrCreateProfile(userId: string): Promise<UserProfile> {
 export async function getSubscriptionStatus(userId: string): Promise<SubscriptionStatus> {
   const profile = await getOrCreateProfile(userId);
   return {
-    tier:    profile.tier as SubscriptionTier,
-    isAdmin: profile.is_admin,
+    tier:          profile.tier as SubscriptionTier,
+    isAdmin:       profile.is_admin,
+    isContributor: profile.is_contributor ?? false,
   };
 }

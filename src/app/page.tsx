@@ -2,22 +2,35 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import ArticleCard from "@/components/articles/ArticleCard";
 import { getFeaturedArticle, getRecentArticles } from "@/lib/queries";
+import { getPublishedSupabaseArticles, mapSupabaseToCardShape } from "@/lib/articles";
+import type { SanityArticle } from "@/types";
 
 export const revalidate = 60; // ISR — refresh at most every 60s
 
 export default async function HomePage() {
-  const [featured, recent] = await Promise.all([
+  const [featured, recent, supabaseArticles] = await Promise.all([
     getFeaturedArticle(),
     getRecentArticles(7),
+    getPublishedSupabaseArticles(10),
   ]);
 
-  // If a featured article exists, exclude it from the "recent" grid
-  const grid = featured
-    ? recent.filter((a) => a._id !== featured._id).slice(0, 6)
-    : recent.slice(0, 6);
+  // Map Supabase articles to the SanityArticle card shape
+  const supabaseMapped: SanityArticle[] = supabaseArticles.map(mapSupabaseToCardShape);
 
-  // "Also in this issue" sidebar: first 4 non-featured recent articles
-  const sidebar = recent.filter((a) => a._id !== featured?._id).slice(0, 4);
+  // Merge Sanity + Supabase articles, sort by date descending
+  const allArticles: SanityArticle[] = [...recent, ...supabaseMapped].sort((a, b) => {
+    const dateA = a.publishedAt ? new Date(a.publishedAt).getTime() : 0;
+    const dateB = b.publishedAt ? new Date(b.publishedAt).getTime() : 0;
+    return dateB - dateA;
+  });
+
+  // If a featured article exists, exclude it from the grid/sidebar
+  const nonFeatured = featured
+    ? allArticles.filter((a) => a._id !== featured._id)
+    : allArticles;
+
+  const grid    = nonFeatured.slice(0, 6);
+  const sidebar = nonFeatured.slice(0, 4);
 
   return (
     <>

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import AdminLink from "./AdminLink";
+import WriteLink from "./WriteLink";
 
 export default function HeaderAuth() {
   return (
@@ -22,6 +23,7 @@ export default function HeaderAuth() {
       </SignedOut>
 
       <SignedIn>
+        <WriteLink />
         <AdminLink />
         <Link
           href="/profile"
