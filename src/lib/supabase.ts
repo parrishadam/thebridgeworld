@@ -1,22 +1,37 @@
-import { createClient } from "@supabase/supabase-js";
+import { createClient, SupabaseClient } from "@supabase/supabase-js";
 
-const url     = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
-const svcKey  = process.env.SUPABASE_SERVICE_ROLE_KEY!;
+// Lazy singletons — clients are created on first use, not at module load time.
+// This prevents "supabaseUrl is required" crashes during Next.js cold starts
+// when env vars may not yet be available at module evaluation time.
+
+let _supabase: SupabaseClient | null = null;
+let _supabaseAdmin: SupabaseClient | null = null;
 
 /**
  * Public anon client — respects Row Level Security.
- * Safe to use in browser contexts (currently has no RLS policies open,
- * so it effectively has no read/write access).
  */
-export const supabase = createClient(url, anonKey);
+export function getSupabase(): SupabaseClient {
+  if (!_supabase) {
+    const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+    if (!url || !key) throw new Error("Missing Supabase anon env vars");
+    _supabase = createClient(url, key);
+  }
+  return _supabase;
+}
 
 /**
  * Service-role admin client — bypasses RLS.
  * ⚠️  SERVER-SIDE ONLY. Never import this in a Client Component.
- *     The env var SUPABASE_SERVICE_ROLE_KEY has no NEXT_PUBLIC_ prefix,
- *     so Next.js will not bundle it into client code.
  */
-export const supabaseAdmin = createClient(url, svcKey, {
-  auth: { autoRefreshToken: false, persistSession: false },
-});
+export function getSupabaseAdmin(): SupabaseClient {
+  if (!_supabaseAdmin) {
+    const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+    if (!url || !key) throw new Error("Missing Supabase service role env vars");
+    _supabaseAdmin = createClient(url, key, {
+      auth: { autoRefreshToken: false, persistSession: false },
+    });
+  }
+  return _supabaseAdmin;
+}

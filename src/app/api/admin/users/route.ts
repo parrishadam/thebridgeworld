@@ -1,6 +1,6 @@
 import { auth, clerkClient } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
-import { supabaseAdmin } from "@/lib/supabase";
+import { getSupabaseAdmin } from "@/lib/supabase";
 import { getOrCreateProfile } from "@/lib/subscription";
 
 export async function GET() {
@@ -14,7 +14,7 @@ export async function GET() {
     return NextResponse.json({ error: "Forbidden" }, { status: 403 });
   }
 
-  const { data: profiles, error } = await supabaseAdmin
+  const { data: profiles, error } = await getSupabaseAdmin()
     .from("user_profiles")
     .select("*")
     .order("created_at", { ascending: false });

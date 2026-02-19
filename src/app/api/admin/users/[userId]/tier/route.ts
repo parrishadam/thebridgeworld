@@ -1,6 +1,6 @@
 import { auth } from "@clerk/nextjs/server";
 import { NextRequest, NextResponse } from "next/server";
-import { supabaseAdmin } from "@/lib/supabase";
+import { getSupabaseAdmin } from "@/lib/supabase";
 import { getOrCreateProfile } from "@/lib/subscription";
 import type { SubscriptionTier } from "@/types";
 
@@ -30,7 +30,7 @@ export async function PATCH(
     );
   }
 
-  const { data, error } = await supabaseAdmin
+  const { data, error } = await getSupabaseAdmin()
     .from("user_profiles")
     .update({ tier })
     .eq("user_id", params.userId)

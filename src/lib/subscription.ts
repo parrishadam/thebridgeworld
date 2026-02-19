@@ -2,7 +2,7 @@
  * Subscription helpers — server-side only.
  * Never import this file in a Client Component.
  */
-import { supabaseAdmin } from "./supabase";
+import { getSupabaseAdmin } from "./supabase";
 import type { SubscriptionStatus, SubscriptionTier, UserProfile } from "@/types";
 
 // ── Profile ────────────────────────────────────────────────────────────────
@@ -12,6 +12,8 @@ import type { SubscriptionStatus, SubscriptionTier, UserProfile } from "@/types"
  * if it doesn't exist yet.
  */
 export async function getOrCreateProfile(userId: string): Promise<UserProfile> {
+  const supabaseAdmin = getSupabaseAdmin();
+
   await supabaseAdmin
     .from("user_profiles")
     .upsert({ user_id: userId }, { onConflict: "user_id", ignoreDuplicates: true });
