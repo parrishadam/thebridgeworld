@@ -1,6 +1,4 @@
 import Link from "next/link";
-import { auth } from "@clerk/nextjs/server";
-import { getSubscriptionStatus } from "@/lib/subscription";
 import HeaderAuth from "./HeaderAuth";
 
 const navLinks = [
@@ -11,14 +9,7 @@ const navLinks = [
   { href: "/articles?category=tournaments", label: "Tournaments" },
 ];
 
-export default async function Header() {
-  const { userId } = await auth();
-  let isAdmin = false;
-  if (userId) {
-    const status = await getSubscriptionStatus(userId);
-    isAdmin = status.isAdmin;
-  }
-
+export default function Header() {
   return (
     <header className="border-b border-stone-200 bg-white">
       {/* Masthead */}
@@ -42,7 +33,7 @@ export default async function Header() {
 
           {/* Auth controls — right-aligned */}
           <div className="flex-1 flex justify-end">
-            <HeaderAuth isAdmin={isAdmin} />
+            <HeaderAuth />
           </div>
         </div>
       </div>
