@@ -10,6 +10,9 @@ import { getArticleBySlug, getArticleSlugs } from "@/lib/queries";
 import { getSubscriptionStatus } from "@/lib/subscription";
 import { formatDate } from "@/lib/utils";
 
+// Never statically cache — paywall checks must run fresh on every request
+export const dynamic = "force-dynamic";
+
 // ── Static params ──────────────────────────────────────────────────────────
 
 export async function generateStaticParams() {
