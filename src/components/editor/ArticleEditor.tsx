@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback, useRef } from "react";
+import Link from "next/link";
 import type { ContentBlock, SupabaseArticle } from "@/types";
 import BlockList from "./BlockList";
 import SupabaseArticleRenderer from "@/components/articles/SupabaseArticleRenderer";
@@ -179,6 +180,13 @@ export default function ArticleEditor({ article, isAdmin }: ArticleEditorProps) 
     <div className="min-h-screen bg-stone-50">
       {/* ── Top bar ──────────────────────────────────────────────────────── */}
       <div className="sticky top-0 z-30 bg-white border-b border-stone-200 px-4 py-3 flex items-center gap-3">
+        <Link
+          href="/"
+          className="font-serif text-sm font-bold text-stone-900 hover:text-stone-600 transition-colors whitespace-nowrap shrink-0"
+        >
+          The Bridge World
+        </Link>
+        <span className="text-stone-300 shrink-0">/</span>
         <input
           type="text"
           value={meta.title}

@@ -3,27 +3,185 @@
 import { useState } from "react";
 import type { BiddingTableBlock } from "@/types";
 
-interface BiddingTableModalProps {
-  initial?: BiddingTableBlock["data"];
-  onSave: (data: BiddingTableBlock["data"]) => void;
-  onClose: () => void;
-}
+// ── Constants ─────────────────────────────────────────────────────────────
 
 const DEALER_OFFSET: Record<string, number> = {
   West: 0, North: 1, East: 2, South: 3,
 };
 
+// Seat names indexed by position in the W-N-E-S grid column order
+const SEATS = ["West", "North", "East", "South"];
+
+// Suit rank for bid-legality comparison: C=0 D=1 H=2 S=3 NT=4
+const SUIT_RANK: Record<string, number> = { C: 0, D: 1, H: 2, S: 3, NT: 4 };
+
 const LEVELS = ["1", "2", "3", "4", "5", "6", "7"];
 const DENOMINATIONS = [
   { label: "♣", value: "C", red: false },
-  { label: "♦", value: "D", red: true },
-  { label: "♥", value: "H", red: true },
+  { label: "♦", value: "D", red: true  },
+  { label: "♥", value: "H", red: true  },
   { label: "♠", value: "S", red: false },
   { label: "NT", value: "NT", red: false },
 ];
 
+// ── Bid helpers ───────────────────────────────────────────────────────────
+
+/**
+ * Numeric rank of a suit/NT bid: 1C=0, 1D=1, … 7NT=34.
+ * Higher rank = higher call.
+ */
+function getBidRank(bidText: string): number {
+  const level = parseInt(bidText[0], 10);
+  const denom = bidText.slice(1);
+  return (level - 1) * 5 + (SUIT_RANK[denom] ?? 0);
+}
+
+/** True when the stored bid text is a red-suit call (H or D). */
 function isBidRed(text: string): boolean {
-  return /[HD]/.test(text) && !/[SCNT]/.test(text.slice(-1));
+  if (text === "Pass" || text === "Dbl" || text === "Rdbl") return false;
+  const denom = text.slice(1); // strip the level digit
+  return denom === "H" || denom === "D";
+}
+
+/** Convert stored codes (1C, 3NT …) to display symbols (1♣, 3NT …). */
+function displayBid(text: string): string {
+  if (text === "Pass" || text === "Dbl" || text === "Rdbl") return text;
+  return text
+    .replace(/C$/, "♣")
+    .replace(/D$/, "♦")
+    .replace(/H$/, "♥")
+    .replace(/S$/, "♠");
+}
+
+// ── Auction state engine ──────────────────────────────────────────────────
+
+interface AuctionState {
+  /** Numeric rank of the last suit/NT bid, −1 if none yet. */
+  lastContractBidRank: number;
+  /** Stored text of the last suit/NT bid (e.g. "3NT"). */
+  lastContractBidText: string;
+  /** Team (0=EW, 1=NS) that made the last suit/NT bid, −1 if none. */
+  lastContractBidTeam: number;
+  doubleState: "none" | "doubled" | "redoubled";
+  /** Team that made the most recent Dbl/Rdbl, −1 if none. */
+  doublingTeam: number;
+  contractBidMade: boolean;
+  isOver: boolean;
+  /** Display-form final contract, e.g. "3♠ Dbl" or "All Pass". */
+  finalContract: string | null;
+}
+
+function computeAuctionState(
+  bids: Array<{ text: string }>,
+  dealer: string,
+): AuctionState {
+  const dealerOffset = DEALER_OFFSET[dealer] ?? 0;
+
+  let lastContractBidRank = -1;
+  let lastContractBidText = "";
+  let lastContractBidTeam = -1;
+  let doubleState: AuctionState["doubleState"] = "none";
+  let doublingTeam = -1;
+  let contractBidMade = false;
+  let consecutivePasses = 0;
+
+  for (let i = 0; i < bids.length; i++) {
+    const text = bids[i].text;
+    // Seat index 0-3 (W=0 N=1 E=2 S=3); team: even=EW, odd=NS
+    const seatIndex = (dealerOffset + i) % 4;
+    const team = seatIndex % 2; // 0=EW, 1=NS
+
+    if (text === "Pass") {
+      consecutivePasses++;
+    } else {
+      consecutivePasses = 0;
+      if (text === "Dbl") {
+        doubleState = "doubled";
+        doublingTeam = team;
+      } else if (text === "Rdbl") {
+        doubleState = "redoubled";
+        doublingTeam = team;
+      } else {
+        // Suit/NT bid resets doubling
+        contractBidMade = true;
+        doubleState = "none";
+        doublingTeam = -1;
+        lastContractBidRank = getBidRank(text);
+        lastContractBidText = text;
+        lastContractBidTeam = team;
+      }
+    }
+
+    // Three consecutive passes after any bid → auction over
+    if (contractBidMade && consecutivePasses >= 3) {
+      const suffix =
+        doubleState === "redoubled" ? " Rdbl" :
+        doubleState === "doubled"   ? " Dbl"  : "";
+      return {
+        lastContractBidRank, lastContractBidText, lastContractBidTeam,
+        doubleState, doublingTeam, contractBidMade,
+        isOver: true,
+        finalContract: displayBid(lastContractBidText) + suffix,
+      };
+    }
+    // Four passes with no bid → passed-out board
+    if (!contractBidMade && consecutivePasses >= 4) {
+      return {
+        lastContractBidRank, lastContractBidText, lastContractBidTeam,
+        doubleState, doublingTeam, contractBidMade,
+        isOver: true,
+        finalContract: "All Pass",
+      };
+    }
+  }
+
+  return {
+    lastContractBidRank, lastContractBidText, lastContractBidTeam,
+    doubleState, doublingTeam, contractBidMade,
+    isOver: false,
+    finalContract: null,
+  };
+}
+
+function isLegalCall(
+  callText: string,
+  state: AuctionState,
+  currentTeam: number,
+): boolean {
+  if (state.isOver) return false;
+
+  if (callText === "Pass") return true;
+
+  if (callText === "Dbl") {
+    // Legal only when: there is a standing contract bid, it is not already
+    // doubled/redoubled, and the current bidder's side did NOT make it.
+    return (
+      state.lastContractBidRank >= 0 &&
+      state.doubleState === "none" &&
+      state.lastContractBidTeam !== -1 &&
+      state.lastContractBidTeam !== currentTeam
+    );
+  }
+
+  if (callText === "Rdbl") {
+    // Legal only when the contract is doubled by the opponents.
+    return (
+      state.doubleState === "doubled" &&
+      state.doublingTeam !== -1 &&
+      state.doublingTeam !== currentTeam
+    );
+  }
+
+  // Suit/NT bid: must strictly exceed the current highest bid.
+  return getBidRank(callText) > state.lastContractBidRank;
+}
+
+// ── Component ─────────────────────────────────────────────────────────────
+
+interface BiddingTableModalProps {
+  initial?: BiddingTableBlock["data"];
+  onSave: (data: BiddingTableBlock["data"]) => void;
+  onClose: () => void;
 }
 
 export default function BiddingTableModal({
@@ -31,38 +189,69 @@ export default function BiddingTableModal({
   onSave,
   onClose,
 }: BiddingTableModalProps) {
-  const [dealer, setDealer] = useState(initial?.dealer ?? "North");
-  const [bids, setBids]     = useState<Array<{ text: string; alert: string | null }>>(
+  const [dealer, setDealer]         = useState(initial?.dealer ?? "North");
+  const [bids, setBids]             = useState<Array<{ text: string; alert: string | null }>>(
     initial?.bids ?? []
   );
-  const [alertInput, setAlertInput] = useState<string>("");
+  const [alertInput, setAlertInput] = useState("");
   const [editingAlert, setEditingAlert] = useState<number | null>(null);
 
+  // ── Derived auction state ──────────────────────────────────────────────
+
+  const auctionState    = computeAuctionState(bids, dealer);
+  const dealerOffset    = DEALER_OFFSET[dealer] ?? 0;
+  const currentSeatIdx  = (dealerOffset + bids.length) % 4;
+  const currentTeam     = currentSeatIdx % 2; // 0=EW, 1=NS
+  const currentSeatName = SEATS[currentSeatIdx];
+
+  function legal(callText: string): boolean {
+    return isLegalCall(callText, auctionState, currentTeam);
+  }
+
+  // ── Current contract label (live, before auction ends) ────────────────
+
+  let contractLabel = "No bid yet";
+  if (auctionState.lastContractBidText) {
+    const dblSuffix =
+      auctionState.doubleState === "redoubled" ? " Rdbl" :
+      auctionState.doubleState === "doubled"   ? " Dbl"  : "";
+    contractLabel = displayBid(auctionState.lastContractBidText) + dblSuffix;
+  }
+
+  // ── Bid actions ────────────────────────────────────────────────────────
+
   function addBid(text: string) {
+    if (!isLegalCall(text, auctionState, currentTeam)) return;
     setBids((prev) => [...prev, { text, alert: null }]);
+    setEditingAlert(null);
   }
 
   function removeLastBid() {
     setBids((prev) => prev.slice(0, -1));
+    setEditingAlert(null);
   }
 
-  function setAlert(index: number, alert: string) {
+  function setAlert(index: number, value: string) {
     setBids((prev) =>
-      prev.map((b, i) => (i === index ? { ...b, alert: alert || null } : b))
+      prev.map((b, i) => (i === index ? { ...b, alert: value || null } : b))
     );
   }
 
-  // Build preview cells
-  const offset = DEALER_OFFSET[dealer] ?? 1;
+  // ── Preview grid cells ─────────────────────────────────────────────────
+
+  const offset = dealerOffset;
   const cells: Array<{ text: string; alert: string | null } | null> = [
     ...Array(offset).fill(null),
     ...bids,
   ];
   while (cells.length % 4 !== 0) cells.push(null);
 
+  // ── Render ─────────────────────────────────────────────────────────────
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 overflow-y-auto">
       <div className="bg-white rounded-sm shadow-xl w-full max-w-xl mx-4 my-8 overflow-hidden">
+
         {/* Header */}
         <div className="bg-stone-800 text-white px-4 py-3 flex items-center justify-between">
           <h2 className="font-sans text-sm font-semibold uppercase tracking-wider">
@@ -77,7 +266,8 @@ export default function BiddingTableModal({
         </div>
 
         <div className="p-6 space-y-5 overflow-y-auto max-h-[70vh]">
-          {/* Dealer */}
+
+          {/* Dealer selector */}
           <div>
             <label className="block text-xs font-sans font-semibold uppercase tracking-wider text-stone-500 mb-1">
               Dealer
@@ -93,22 +283,65 @@ export default function BiddingTableModal({
             </select>
           </div>
 
-          {/* Bid entry buttons */}
+          {/* Live auction status bar */}
+          <div className="bg-stone-50 border border-stone-200 rounded px-3 py-2 flex items-center justify-between text-xs font-sans gap-4">
+            <span className="text-stone-500 shrink-0">
+              Contract:{" "}
+              <span className="font-semibold text-stone-800 font-mono">{contractLabel}</span>
+            </span>
+            {auctionState.isOver ? (
+              <span className="font-semibold text-emerald-700 shrink-0">
+                Final: {auctionState.finalContract}
+              </span>
+            ) : (
+              <span className="text-stone-500 shrink-0">
+                Next:{" "}
+                <span className="font-semibold text-stone-800">{currentSeatName}</span>
+              </span>
+            )}
+          </div>
+
+          {/* Auction-complete banner */}
+          {auctionState.isOver && (
+            <div className="bg-stone-100 border border-stone-300 rounded px-4 py-3 text-center">
+              <p className="font-sans text-xs font-semibold uppercase tracking-wider text-stone-500 mb-0.5">
+                Auction Complete
+              </p>
+              <p className="font-mono text-xl font-bold text-stone-900">
+                {auctionState.finalContract}
+              </p>
+              <p className="font-sans text-xs text-stone-400 mt-1">
+                Use &ldquo;Remove Last&rdquo; to undo
+              </p>
+            </div>
+          )}
+
+          {/* Bid entry */}
           <div>
             <p className="text-xs font-sans font-semibold uppercase tracking-wider text-stone-500 mb-2">
               Add Bid
             </p>
-            {/* Pass / Dbl / Rdbl */}
+
+            {/* Pass / Dbl / Rdbl row */}
             <div className="flex gap-2 mb-3">
-              {["Pass", "Dbl", "Rdbl"].map((b) => (
-                <button
-                  key={b}
-                  onClick={() => addBid(b)}
-                  className="font-mono text-sm border border-stone-300 px-3 py-1.5 rounded hover:bg-stone-50 transition-colors text-stone-700"
-                >
-                  {b}
-                </button>
-              ))}
+              {(["Pass", "Dbl", "Rdbl"] as const).map((call) => {
+                const ok = legal(call);
+                return (
+                  <button
+                    key={call}
+                    onClick={() => addBid(call)}
+                    disabled={!ok}
+                    title={!ok ? "Illegal at this point in the auction" : undefined}
+                    className={`font-mono text-sm border px-3 py-1.5 rounded transition-colors ${
+                      ok
+                        ? "border-stone-300 text-stone-700 hover:bg-stone-50"
+                        : "border-stone-100 text-stone-300 cursor-not-allowed bg-white"
+                    }`}
+                  >
+                    {call}
+                  </button>
+                );
+              })}
               <button
                 onClick={removeLastBid}
                 disabled={bids.length === 0}
@@ -128,7 +361,7 @@ export default function BiddingTableModal({
                       <th
                         key={d.value}
                         className={`px-2 pb-1 text-center font-sans text-xs font-semibold uppercase tracking-wider ${
-                          d.red ? "text-red-600" : "text-stone-700"
+                          d.red ? "text-red-500" : "text-stone-600"
                         }`}
                       >
                         {d.label}
@@ -139,16 +372,24 @@ export default function BiddingTableModal({
                 <tbody>
                   {LEVELS.map((level) => (
                     <tr key={level}>
-                      <td className="font-sans text-xs text-stone-500 pr-2 text-right">{level}</td>
+                      <td className="font-sans text-xs text-stone-400 pr-2 text-right">
+                        {level}
+                      </td>
                       {DENOMINATIONS.map((d) => {
                         const bidText = `${level}${d.value}`;
-                        const isRed = d.red;
+                        const ok = legal(bidText);
                         return (
                           <td key={d.value} className="p-0.5">
                             <button
                               onClick={() => addBid(bidText)}
-                              className={`w-10 py-1 border border-stone-200 rounded text-xs hover:bg-stone-50 transition-colors ${
-                                isRed ? "text-red-600" : "text-stone-800"
+                              disabled={!ok}
+                              title={!ok ? "Illegal bid" : undefined}
+                              className={`w-10 py-1 border rounded text-xs transition-colors ${
+                                ok
+                                  ? `border-stone-200 hover:bg-stone-50 ${
+                                      d.red ? "text-red-600" : "text-stone-800"
+                                    }`
+                                  : "border-stone-100 text-stone-200 bg-stone-50 cursor-not-allowed"
                               }`}
                             >
                               {level}{d.label}
@@ -170,23 +411,28 @@ export default function BiddingTableModal({
                 Add Alert (click a bid below)
               </p>
               <div className="flex flex-wrap gap-1 mb-2">
-                {bids.map((bid, i) => (
-                  <button
-                    key={i}
-                    onClick={() => {
-                      setEditingAlert(editingAlert === i ? null : i);
-                      setAlertInput(bid.alert ?? "");
-                    }}
-                    className={`font-mono text-xs border px-2 py-1 rounded transition-colors ${
-                      bid.alert
-                        ? "border-blue-300 bg-blue-50 text-blue-700"
-                        : "border-stone-200 text-stone-700 hover:bg-stone-50"
-                    } ${editingAlert === i ? "ring-2 ring-blue-400" : ""}`}
-                  >
-                    {bid.text}
-                    {bid.alert && <sup className="text-blue-600 ml-0.5">*</sup>}
-                  </button>
-                ))}
+                {bids.map((bid, i) => {
+                  const red = isBidRed(bid.text);
+                  return (
+                    <button
+                      key={i}
+                      onClick={() => {
+                        setEditingAlert(editingAlert === i ? null : i);
+                        setAlertInput(bid.alert ?? "");
+                      }}
+                      className={`font-mono text-xs border px-2 py-1 rounded transition-colors ${
+                        red ? "text-red-600" : "text-stone-700"
+                      } ${
+                        bid.alert
+                          ? "border-blue-300 bg-blue-50"
+                          : "border-stone-200 hover:bg-stone-50"
+                      } ${editingAlert === i ? "ring-2 ring-blue-400" : ""}`}
+                    >
+                      {displayBid(bid.text)}
+                      {bid.alert && <sup className="text-blue-600 ml-0.5">*</sup>}
+                    </button>
+                  );
+                })}
               </div>
               {editingAlert !== null && (
                 <div className="flex gap-2">
@@ -194,7 +440,7 @@ export default function BiddingTableModal({
                     type="text"
                     value={alertInput}
                     onChange={(e) => setAlertInput(e.target.value)}
-                    placeholder="Alert explanation..."
+                    placeholder="Alert explanation…"
                     className="flex-1 border border-stone-200 rounded px-3 py-1.5 text-sm font-sans focus:outline-none focus:ring-1 focus:ring-stone-400"
                   />
                   <button
@@ -229,17 +475,18 @@ export default function BiddingTableModal({
                     </div>
                   ))}
                   {cells.map((cell, i) => {
-                    if (!cell)
-                      return <div key={i} className="py-0.5" />;
+                    if (!cell) return <div key={i} className="py-0.5" />;
                     const red = isBidRed(cell.text);
                     return (
                       <div
                         key={i}
-                        className={`text-center py-0.5 ${red ? "text-red-600" : "text-stone-800"}`}
+                        className={`text-center py-0.5 text-xs ${
+                          red ? "text-red-600" : "text-stone-800"
+                        }`}
                       >
-                        {cell.text}
+                        {displayBid(cell.text)}
                         {cell.alert && (
-                          <sup className="text-blue-600 text-xs ml-0.5">*</sup>
+                          <sup className="text-blue-600 ml-0.5">*</sup>
                         )}
                       </div>
                     );
@@ -248,6 +495,7 @@ export default function BiddingTableModal({
               </div>
             </div>
           )}
+
         </div>
 
         {/* Footer */}
