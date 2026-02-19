@@ -3,11 +3,16 @@ import { NextResponse } from "next/server";
 import { getSubscriptionStatus } from "@/lib/subscription";
 
 export async function GET() {
-  const { userId } = await auth();
-  if (!userId) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
+  try {
+    const { userId } = await auth();
+    if (!userId) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
 
-  const status = await getSubscriptionStatus(userId);
-  return NextResponse.json(status);
+    const status = await getSubscriptionStatus(userId);
+    return NextResponse.json(status);
+  } catch (err) {
+    console.error("[/api/user/subscription]", err);
+    return NextResponse.json({ error: "Internal server error" }, { status: 500 });
+  }
 }

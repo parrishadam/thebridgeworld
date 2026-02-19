@@ -10,10 +10,19 @@ export default function AdminLink() {
 
   useEffect(() => {
     if (!isSignedIn) return;
-    fetch("/api/user/subscription")
-      .then((r) => r.json())
-      .then((data) => setIsAdmin(data.isAdmin === true))
-      .catch(() => {});
+
+    async function checkAdmin() {
+      try {
+        const res = await fetch("/api/user/subscription");
+        if (!res.ok) return;
+        const data = await res.json();
+        setIsAdmin(data.isAdmin === true);
+      } catch {
+        // API unavailable — fail silently, no admin link shown
+      }
+    }
+
+    checkAdmin();
   }, [isSignedIn]);
 
   if (!isAdmin) return null;
