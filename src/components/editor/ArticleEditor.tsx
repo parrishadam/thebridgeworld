@@ -16,7 +16,7 @@ interface ArticleEditorProps {
   isAdmin:     boolean;
   isAuthor:    boolean;
   currentUser: { id: string; name: string };
-  authorList?: { id: string; name: string; email: string }[];
+  authorList?: { id: string; name: string; email: string; isLegacy: boolean }[];
 }
 
 interface EditorMeta {
@@ -72,7 +72,7 @@ export default function ArticleEditor({
     authorId:         article?.author_id ?? currentUser.id,
     category:         article?.category ?? "",
     tags:             (article?.tags ?? []).join(", "),
-    accessTier:       article?.access_tier ?? "free",
+    accessTier:       article?.access_tier ?? (isAdmin ? "free" : "paid"),
     excerpt:          article?.excerpt ?? "",
     status:           article?.status ?? "draft",
     featuredImageUrl: article?.featured_image_url ?? "",
@@ -227,6 +227,13 @@ export default function ArticleEditor({
           The Bridge World
         </button>
         <span className="text-stone-300 shrink-0">/</span>
+        <button
+          onClick={() => navigateAway(isAdmin ? "/admin/articles" : "/my-articles")}
+          className="font-sans text-xs text-stone-500 hover:text-stone-900 transition-colors whitespace-nowrap shrink-0"
+        >
+          ← Back to Articles
+        </button>
+        <span className="text-stone-300 shrink-0">/</span>
         <input
           type="text"
           value={meta.title}
@@ -346,7 +353,7 @@ export default function ArticleEditor({
                 >
                   {authorList.map((a) => (
                     <option key={a.id} value={a.id}>
-                      {a.name} ({a.email})
+                      {a.name} {a.isLegacy ? "(Archive)" : `(${a.email})`}
                     </option>
                   ))}
                 </select>
@@ -384,24 +391,26 @@ export default function ArticleEditor({
               />
             </div>
 
-            {/* Access tier */}
-            <div>
-              <label className="block text-xs font-sans text-stone-500 mb-1">Access Tier</label>
-              <div className="flex gap-3">
-                {(["free", "paid", "premium"] as const).map((tier) => (
-                  <label key={tier} className="flex items-center gap-1 cursor-pointer">
-                    <input
-                      type="radio"
-                      name="accessTier"
-                      value={tier}
-                      checked={meta.accessTier === tier}
-                      onChange={() => updateMeta("accessTier", tier)}
-                    />
-                    <span className="text-xs font-sans text-stone-600 capitalize">{tier}</span>
-                  </label>
-                ))}
+            {/* Access tier — admin only */}
+            {isAdmin && (
+              <div>
+                <label className="block text-xs font-sans text-stone-500 mb-1">Access Tier</label>
+                <div className="flex gap-3">
+                  {(["free", "paid", "premium"] as const).map((tier) => (
+                    <label key={tier} className="flex items-center gap-1 cursor-pointer">
+                      <input
+                        type="radio"
+                        name="accessTier"
+                        value={tier}
+                        checked={meta.accessTier === tier}
+                        onChange={() => updateMeta("accessTier", tier)}
+                      />
+                      <span className="text-xs font-sans text-stone-600 capitalize">{tier}</span>
+                    </label>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
 
             {/* Featured image */}
             <div>

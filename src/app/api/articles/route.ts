@@ -100,6 +100,9 @@ export async function POST(request: Request) {
   const resolvedAuthorId =
     profile.is_admin && typeof authorId === "string" && authorId ? authorId : userId;
 
+  // Authors cannot set access_tier — always defaults to "paid"
+  const resolvedAccessTier = profile.is_admin ? (access_tier ?? "free") : "paid";
+
   const published_at =
     resolvedStatus === "published" ? new Date().toISOString() : null;
 
@@ -113,7 +116,7 @@ export async function POST(request: Request) {
       author_id:          resolvedAuthorId,
       category:           category ?? null,
       tags:               tags ?? [],
-      access_tier:        access_tier ?? "free",
+      access_tier:        resolvedAccessTier,
       excerpt:            excerpt ?? null,
       status:             resolvedStatus,
       content_blocks:     content_blocks ?? [],

@@ -8,12 +8,19 @@
 -- We do NOT use Supabase Auth — authentication is handled by Clerk.
 
 CREATE TABLE IF NOT EXISTS user_profiles (
-  user_id     TEXT PRIMARY KEY,
-  tier        TEXT NOT NULL DEFAULT 'free'
-                CHECK (tier IN ('free', 'paid', 'premium')),
-  is_admin    BOOLEAN NOT NULL DEFAULT false,
-  created_at  TIMESTAMPTZ NOT NULL DEFAULT now(),
-  updated_at  TIMESTAMPTZ NOT NULL DEFAULT now()
+  user_id        TEXT PRIMARY KEY,
+  tier           TEXT NOT NULL DEFAULT 'free'
+                   CHECK (tier IN ('free', 'paid', 'premium')),
+  is_admin       BOOLEAN NOT NULL DEFAULT false,
+  is_contributor BOOLEAN NOT NULL DEFAULT false,
+  is_author      BOOLEAN NOT NULL DEFAULT false,
+  is_legacy      BOOLEAN NOT NULL DEFAULT false,
+  bio            TEXT,
+  first_name     TEXT,
+  last_name      TEXT,
+  email          TEXT,
+  created_at     TIMESTAMPTZ NOT NULL DEFAULT now(),
+  updated_at     TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 
 -- ── Article views ──────────────────────────────────────────────────────────

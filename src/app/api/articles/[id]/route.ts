@@ -106,6 +106,9 @@ export async function PUT(
   const resolvedAuthorId =
     profile.is_admin && typeof authorId === "string" && authorId ? authorId : undefined;
 
+  // Authors cannot change access_tier; fetch existing value to preserve it
+  const resolvedAccessTier = profile.is_admin ? (access_tier ?? "free") : undefined;
+
   // Set published_at when transitioning to published
   let published_at = existing.published_at;
   if (resolvedStatus === "published" && !existing.published_at) {
@@ -123,7 +126,7 @@ export async function PUT(
       ...(resolvedAuthorId !== undefined && { author_id: resolvedAuthorId }),
       category:           category ?? null,
       tags:               tags ?? [],
-      access_tier:        access_tier ?? "free",
+      ...(resolvedAccessTier !== undefined && { access_tier: resolvedAccessTier }),
       excerpt:            excerpt ?? null,
       status:             resolvedStatus,
       content_blocks:     content_blocks ?? [],

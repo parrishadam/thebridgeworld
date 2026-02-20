@@ -4,14 +4,16 @@ import { useState } from "react";
 import type { SubscriptionTier } from "@/types";
 
 interface AdminUser {
-  user_id:    string;
-  tier:       SubscriptionTier;
-  is_admin:   boolean;
-  is_author:  boolean;
-  created_at: string;
-  name:       string;
-  email:      string;
-  imageUrl?:  string;
+  user_id:     string;
+  tier:        SubscriptionTier;
+  is_admin:    boolean;
+  is_author:   boolean;
+  is_legacy:   boolean;
+  bio:         string | null;
+  created_at:  string;
+  name:        string;
+  email:       string;
+  imageUrl?:   string;
   first_name?: string | null;
   last_name?:  string | null;
 }
@@ -24,10 +26,29 @@ const tierBadge: Record<SubscriptionTier, string> = {
   premium: "bg-amber-100 text-amber-700",
 };
 
-interface AddForm { firstName: string; lastName: string; email: string; tier: SubscriptionTier }
-interface EditForm { firstName: string; lastName: string; email: string }
+interface AddForm {
+  firstName: string;
+  lastName:  string;
+  email:     string;
+  tier:      SubscriptionTier;
+  isLegacy:  boolean;
+  bio:       string;
+}
 
-export default function UserTierTable({ initialUsers, currentUserId }: { initialUsers: AdminUser[]; currentUserId: string }) {
+interface EditForm {
+  firstName: string;
+  lastName:  string;
+  email:     string;
+  bio:       string;
+}
+
+export default function UserTierTable({
+  initialUsers,
+  currentUserId,
+}: {
+  initialUsers: AdminUser[];
+  currentUserId: string;
+}) {
   const [users, setUsers] = useState<AdminUser[]>(initialUsers);
 
   // ── Tier-change state ─────────────────────────────────────────────────────
@@ -35,23 +56,25 @@ export default function UserTierTable({ initialUsers, currentUserId }: { initial
   const [tierError,  setTierError]  = useState<string | null>(null);
 
   // ── Add-user state ────────────────────────────────────────────────────────
-  const [showAdd,      setShowAdd]      = useState(false);
-  const [addForm,      setAddForm]      = useState<AddForm>({ firstName: "", lastName: "", email: "", tier: "free" });
-  const [addSaving,    setAddSaving]    = useState(false);
-  const [addError,     setAddError]     = useState<string | null>(null);
-  const [addSuccess,   setAddSuccess]   = useState<{ name: string; email: string } | null>(null);
+  const [showAdd,    setShowAdd]    = useState(false);
+  const [addForm,    setAddForm]    = useState<AddForm>({
+    firstName: "", lastName: "", email: "", tier: "free", isLegacy: false, bio: "",
+  });
+  const [addSaving,  setAddSaving]  = useState(false);
+  const [addError,   setAddError]   = useState<string | null>(null);
+  const [addSuccess, setAddSuccess] = useState<{ name: string; email: string } | null>(null);
   const [tempPassword, setTempPassword] = useState<string | null>(null);
 
   // ── Row-edit state ────────────────────────────────────────────────────────
-  const [editingId,   setEditingId]   = useState<string | null>(null);
-  const [editForm,    setEditForm]    = useState<EditForm>({ firstName: "", lastName: "", email: "" });
-  const [editSaving,  setEditSaving]  = useState(false);
-  const [editError,   setEditError]   = useState<string | null>(null);
+  const [editingId,  setEditingId]  = useState<string | null>(null);
+  const [editForm,   setEditForm]   = useState<EditForm>({ firstName: "", lastName: "", email: "", bio: "" });
+  const [editSaving, setEditSaving] = useState(false);
+  const [editError,  setEditError]  = useState<string | null>(null);
 
   // ── Reset-password state ──────────────────────────────────────────────────
-  const [resettingId,  setResettingId]  = useState<string | null>(null);
-  const [resetResult,  setResetResult]  = useState<{ name: string; email: string; tempPassword: string } | null>(null);
-  const [resetError,   setResetError]   = useState<{ userId: string; message: string } | null>(null);
+  const [resettingId, setResettingId] = useState<string | null>(null);
+  const [resetResult, setResetResult] = useState<{ name: string; email: string; tempPassword: string } | null>(null);
+  const [resetError,  setResetError]  = useState<{ userId: string; message: string } | null>(null);
 
   // ── Admin-toggle state ────────────────────────────────────────────────────
   const [adminSaving, setAdminSaving] = useState<string | null>(null);
@@ -102,7 +125,7 @@ export default function UserTierTable({ initialUsers, currentUserId }: { initial
       setUsers((prev) => [newUser, ...prev]);
       setTempPassword(pw ?? null);
       setAddSuccess({ name: newUser.name, email: newUser.email });
-      setAddForm({ firstName: "", lastName: "", email: "", tier: "free" });
+      setAddForm({ firstName: "", lastName: "", email: "", tier: "free", isLegacy: false, bio: "" });
       setShowAdd(false);
     } catch (err) {
       setAddError(err instanceof Error ? err.message : "Unknown error");
@@ -118,6 +141,7 @@ export default function UserTierTable({ initialUsers, currentUserId }: { initial
       firstName: user.first_name ?? "",
       lastName:  user.last_name  ?? "",
       email:     user.email !== "—" ? user.email : "",
+      bio:       user.bio ?? "",
     });
   }
 
@@ -129,11 +153,22 @@ export default function UserTierTable({ initialUsers, currentUserId }: { initial
   async function handleEditSave(userId: string) {
     setEditSaving(true);
     setEditError(null);
+    const user = users.find((u) => u.user_id === userId);
     try {
+      const body: Record<string, unknown> = { bio: editForm.bio };
+      // Legacy authors: only update name + bio (no email, no Clerk sync needed)
+      if (!user?.is_legacy) {
+        body.firstName = editForm.firstName;
+        body.lastName  = editForm.lastName;
+        body.email     = editForm.email;
+      } else {
+        body.firstName = editForm.firstName;
+        body.lastName  = editForm.lastName;
+      }
       const res = await fetch(`/api/admin/users/${userId}/profile`, {
         method:  "PATCH",
         headers: { "Content-Type": "application/json" },
-        body:    JSON.stringify(editForm),
+        body:    JSON.stringify(body),
       });
       if (!res.ok) {
         const { error: msg } = await res.json();
@@ -143,9 +178,20 @@ export default function UserTierTable({ initialUsers, currentUserId }: { initial
       setUsers((prev) =>
         prev.map((u) =>
           u.user_id === userId
-            ? { ...u, name: newName, email: editForm.email.trim() || u.email,
-                first_name: editForm.firstName.trim() || null,
-                last_name:  editForm.lastName.trim()  || null }
+            ? {
+                ...u,
+                name:       newName,
+                bio:        editForm.bio.trim() || null,
+                ...(u.is_legacy ? {} : {
+                  email:      editForm.email.trim() || u.email,
+                  first_name: editForm.firstName.trim() || null,
+                  last_name:  editForm.lastName.trim()  || null,
+                }),
+                ...(!u.is_legacy ? {} : {
+                  first_name: editForm.firstName.trim() || null,
+                  last_name:  editForm.lastName.trim()  || null,
+                }),
+              }
             : u
         )
       );
@@ -272,8 +318,22 @@ export default function UserTierTable({ initialUsers, currentUserId }: { initial
         ) : (
           <div className="border border-stone-200 rounded-sm bg-stone-50 p-5 space-y-4">
             <p className="font-sans text-xs font-semibold uppercase tracking-wider text-stone-500">
-              Add Manual User
+              Add User
             </p>
+
+            {/* Legacy toggle */}
+            <label className="flex items-center gap-2 cursor-pointer">
+              <input
+                type="checkbox"
+                checked={addForm.isLegacy}
+                onChange={(e) => setAddForm((f) => ({ ...f, isLegacy: e.target.checked, email: "" }))}
+                className="w-4 h-4 rounded border-stone-300 text-stone-900 focus:ring-stone-400"
+              />
+              <span className="text-sm font-sans text-stone-700">
+                Legacy author (no login)
+              </span>
+            </label>
+
             <div className="grid grid-cols-2 gap-3">
               <div>
                 <label className="block text-xs font-sans text-stone-500 mb-1">First name</label>
@@ -296,36 +356,55 @@ export default function UserTierTable({ initialUsers, currentUserId }: { initial
                 />
               </div>
               <div>
-                <label className="block text-xs font-sans text-stone-500 mb-1">Email address</label>
+                <label className="block text-xs font-sans text-stone-500 mb-1">
+                  Email address{addForm.isLegacy && <span className="text-stone-400 ml-1">(optional)</span>}
+                </label>
                 <input
                   type="email"
                   value={addForm.email}
                   onChange={(e) => setAddForm((f) => ({ ...f, email: e.target.value }))}
-                  placeholder="jane@example.com"
+                  placeholder={addForm.isLegacy ? "Optional" : "jane@example.com"}
                   className={inputCls}
                 />
               </div>
-              <div>
-                <label className="block text-xs font-sans text-stone-500 mb-1">Tier</label>
-                <select
-                  value={addForm.tier}
-                  onChange={(e) => setAddForm((f) => ({ ...f, tier: e.target.value as SubscriptionTier }))}
-                  className={inputCls}
-                >
-                  {TIERS.map((t) => <option key={t} value={t}>{t}</option>)}
-                </select>
-              </div>
+              {!addForm.isLegacy && (
+                <div>
+                  <label className="block text-xs font-sans text-stone-500 mb-1">Tier</label>
+                  <select
+                    value={addForm.tier}
+                    onChange={(e) => setAddForm((f) => ({ ...f, tier: e.target.value as SubscriptionTier }))}
+                    className={inputCls}
+                  >
+                    {TIERS.map((t) => <option key={t} value={t}>{t}</option>)}
+                  </select>
+                </div>
+              )}
             </div>
+
+            {/* Bio field — only for legacy authors */}
+            {addForm.isLegacy && (
+              <div>
+                <label className="block text-xs font-sans text-stone-500 mb-1">Bio</label>
+                <textarea
+                  value={addForm.bio}
+                  onChange={(e) => setAddForm((f) => ({ ...f, bio: e.target.value }))}
+                  placeholder="Short author biography…"
+                  rows={3}
+                  className="border border-stone-200 rounded px-2 py-1.5 text-sm font-sans focus:outline-none focus:ring-1 focus:ring-stone-400 w-full resize-none"
+                />
+              </div>
+            )}
+
             {addError && (
               <p className="text-xs font-sans text-red-600">{addError}</p>
             )}
             <div className="flex gap-2">
               <button
                 onClick={handleAddUser}
-                disabled={addSaving || !addForm.email.trim()}
+                disabled={addSaving || (!addForm.isLegacy && !addForm.email.trim())}
                 className="font-sans text-sm bg-stone-900 text-white px-4 py-2 hover:bg-stone-700 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
               >
-                {addSaving ? "Adding…" : "Add User"}
+                {addSaving ? "Adding…" : addForm.isLegacy ? "Add Legacy Author" : "Add User"}
               </button>
               <button
                 onClick={() => { setShowAdd(false); setAddError(null); }}
@@ -340,7 +419,9 @@ export default function UserTierTable({ initialUsers, currentUserId }: { initial
         {addSuccess && (
           <div className="mt-3 bg-green-50 border border-green-200 rounded-sm p-4 space-y-2">
             <p className="font-sans text-sm font-semibold text-green-800">
-              ✓ Account created for {addSuccess.name} ({addSuccess.email})
+              ✓ {addSuccess.email !== "—"
+                  ? `Account created for ${addSuccess.name} (${addSuccess.email})`
+                  : `Legacy author profile created for ${addSuccess.name}`}
             </p>
             {tempPassword && (
               <>
@@ -420,13 +501,24 @@ export default function UserTierTable({ initialUsers, currentUserId }: { initial
                             className="border border-stone-200 rounded px-2 py-1 text-xs font-sans focus:outline-none focus:ring-1 focus:ring-stone-400 w-full"
                           />
                         </div>
-                        <input
-                          type="email"
-                          value={editForm.email}
-                          onChange={(e) => setEditForm((f) => ({ ...f, email: e.target.value }))}
-                          placeholder="Email address"
-                          className="border border-stone-200 rounded px-2 py-1 text-xs font-sans focus:outline-none focus:ring-1 focus:ring-stone-400 w-full"
-                        />
+                        {!user.is_legacy && (
+                          <input
+                            type="email"
+                            value={editForm.email}
+                            onChange={(e) => setEditForm((f) => ({ ...f, email: e.target.value }))}
+                            placeholder="Email address"
+                            className="border border-stone-200 rounded px-2 py-1 text-xs font-sans focus:outline-none focus:ring-1 focus:ring-stone-400 w-full"
+                          />
+                        )}
+                        {user.is_legacy && (
+                          <textarea
+                            value={editForm.bio}
+                            onChange={(e) => setEditForm((f) => ({ ...f, bio: e.target.value }))}
+                            placeholder="Author bio…"
+                            rows={3}
+                            className="border border-stone-200 rounded px-2 py-1 text-xs font-sans focus:outline-none focus:ring-1 focus:ring-stone-400 w-full resize-none"
+                          />
+                        )}
                         {editError && (
                           <p className="text-xs text-red-600">{editError}</p>
                         )}
@@ -446,8 +538,18 @@ export default function UserTierTable({ initialUsers, currentUserId }: { initial
                           </div>
                         )}
                         <div className="min-w-0">
-                          <p className="font-medium text-stone-900 truncate">{user.name}</p>
+                          <div className="flex items-center gap-1.5">
+                            <p className="font-medium text-stone-900 truncate">{user.name}</p>
+                            {user.is_legacy && (
+                              <span className="shrink-0 text-xs font-sans font-medium uppercase tracking-wide px-1.5 py-0.5 rounded bg-stone-100 text-stone-500">
+                                Legacy
+                              </span>
+                            )}
+                          </div>
                           <p className="text-stone-400 text-xs truncate">{user.email}</p>
+                          {user.is_legacy && user.bio && (
+                            <p className="text-stone-400 text-xs truncate mt-0.5 italic">{user.bio}</p>
+                          )}
                         </div>
                       </div>
                     )}
@@ -466,14 +568,16 @@ export default function UserTierTable({ initialUsers, currentUserId }: { initial
                       <span className={`inline-block text-xs font-medium uppercase tracking-wide px-2 py-0.5 rounded ${tierBadge[user.tier]}`}>
                         {user.tier}
                       </span>
-                      <select
-                        value={user.tier}
-                        disabled={tierSaving === user.user_id}
-                        onChange={(e) => handleTierChange(user.user_id, e.target.value as SubscriptionTier)}
-                        className="text-xs border border-stone-200 rounded px-2 py-1 text-stone-600 bg-white hover:border-stone-300 focus:outline-none focus:ring-1 focus:ring-stone-400 disabled:opacity-50"
-                      >
-                        {TIERS.map((t) => <option key={t} value={t}>{t}</option>)}
-                      </select>
+                      {!user.is_legacy && (
+                        <select
+                          value={user.tier}
+                          disabled={tierSaving === user.user_id}
+                          onChange={(e) => handleTierChange(user.user_id, e.target.value as SubscriptionTier)}
+                          className="text-xs border border-stone-200 rounded px-2 py-1 text-stone-600 bg-white hover:border-stone-300 focus:outline-none focus:ring-1 focus:ring-stone-400 disabled:opacity-50"
+                        >
+                          {TIERS.map((t) => <option key={t} value={t}>{t}</option>)}
+                        </select>
+                      )}
                       {tierSaving === user.user_id && (
                         <span className="text-xs text-stone-400">Saving…</span>
                       )}
@@ -482,23 +586,27 @@ export default function UserTierTable({ initialUsers, currentUserId }: { initial
 
                   {/* ── Admin toggle ── */}
                   <td className="py-3 pr-6">
-                    <div className="flex flex-col gap-1">
-                      <label className={`inline-flex items-center gap-2 ${currentUserId === user.user_id ? "cursor-not-allowed opacity-50" : "cursor-pointer"}`}>
-                        <input
-                          type="checkbox"
-                          checked={user.is_admin}
-                          disabled={adminSaving === user.user_id || currentUserId === user.user_id}
-                          onChange={(e) => handleAdminToggle(user.user_id, e.target.checked)}
-                          className="w-4 h-4 rounded border-stone-300 text-stone-900 focus:ring-stone-400 cursor-pointer disabled:cursor-not-allowed"
-                        />
-                        <span className="text-xs font-sans text-stone-600">
-                          {adminSaving === user.user_id ? "Saving…" : "Admin"}
-                        </span>
-                      </label>
-                      {adminError?.userId === user.user_id && (
-                        <span className="text-xs text-red-600">{adminError.message}</span>
-                      )}
-                    </div>
+                    {!user.is_legacy ? (
+                      <div className="flex flex-col gap-1">
+                        <label className={`inline-flex items-center gap-2 ${currentUserId === user.user_id ? "cursor-not-allowed opacity-50" : "cursor-pointer"}`}>
+                          <input
+                            type="checkbox"
+                            checked={user.is_admin}
+                            disabled={adminSaving === user.user_id || currentUserId === user.user_id}
+                            onChange={(e) => handleAdminToggle(user.user_id, e.target.checked)}
+                            className="w-4 h-4 rounded border-stone-300 text-stone-900 focus:ring-stone-400 cursor-pointer disabled:cursor-not-allowed"
+                          />
+                          <span className="text-xs font-sans text-stone-600">
+                            {adminSaving === user.user_id ? "Saving…" : "Admin"}
+                          </span>
+                        </label>
+                        {adminError?.userId === user.user_id && (
+                          <span className="text-xs text-red-600">{adminError.message}</span>
+                        )}
+                      </div>
+                    ) : (
+                      <span className="text-xs text-stone-300">—</span>
+                    )}
                   </td>
 
                   {/* ── Author toggle ── */}
@@ -556,7 +664,7 @@ export default function UserTierTable({ initialUsers, currentUserId }: { initial
                         >
                           Edit
                         </button>
-                        {!user.user_id.startsWith("manual_") && (
+                        {!user.is_legacy && !user.user_id.startsWith("manual_") && (
                           <button
                             onClick={() => handleResetPassword(user.user_id, user.name, user.email)}
                             disabled={resettingId === user.user_id}

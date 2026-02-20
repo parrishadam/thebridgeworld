@@ -9,6 +9,8 @@ export interface UserProfile {
   is_admin:       boolean;
   is_contributor: boolean;
   is_author:      boolean;
+  is_legacy:      boolean;
+  bio:            string | null;
   created_at:     string;
   updated_at:     string;
 }

@@ -30,25 +30,54 @@ export async function POST(req: NextRequest) {
   if (!caller.is_admin) return NextResponse.json({ error: "Forbidden" }, { status: 403 });
 
   const body = await req.json().catch(() => ({}));
-  const { firstName, lastName, email, tier } = body as {
+  const { firstName, lastName, email, tier, isLegacy, bio } = body as {
     firstName?: string; lastName?: string; email?: string; tier?: SubscriptionTier;
+    isLegacy?: boolean; bio?: string;
   };
 
+  const resolvedTier: SubscriptionTier = VALID_TIERS.includes(tier!) ? tier! : "free";
+
+  // ── Legacy author: no Clerk account ────────────────────────────────────
+  if (isLegacy) {
+    const legacyId = `legacy_${crypto.randomUUID()}`;
+    const { data, error } = await getSupabaseAdmin()
+      .from("user_profiles")
+      .insert({
+        user_id:    legacyId,
+        first_name: firstName?.trim() || null,
+        last_name:  lastName?.trim()  || null,
+        email:      email?.trim()     || null,
+        tier:       resolvedTier,
+        is_author:  true,
+        is_legacy:  true,
+        bio:        bio?.trim()       || null,
+      })
+      .select()
+      .single();
+
+    if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+
+    const name = [firstName?.trim(), lastName?.trim()].filter(Boolean).join(" ") || "—";
+    return NextResponse.json(
+      { ...data, name, email: email?.trim() || "—" },
+      { status: 201 },
+    );
+  }
+
+  // ── Regular user: create Clerk account ─────────────────────────────────
   if (!email?.trim()) {
     return NextResponse.json({ error: "Email is required" }, { status: 400 });
   }
-  const resolvedTier: SubscriptionTier = VALID_TIERS.includes(tier!) ? tier! : "free";
   const tempPassword = generateTempPassword();
 
-  // 1. Create the user in Clerk
   const clerk = await clerkClient();
   let clerkUser;
   try {
     clerkUser = await clerk.users.createUser({
-      firstName:         firstName?.trim() || undefined,
-      lastName:          lastName?.trim()  || undefined,
-      emailAddress:      [email.trim()],
-      password:          tempPassword,
+      firstName:          firstName?.trim() || undefined,
+      lastName:           lastName?.trim()  || undefined,
+      emailAddress:       [email.trim()],
+      password:           tempPassword,
       skipPasswordChecks: true,
     });
   } catch (err: unknown) {
@@ -57,7 +86,6 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: msg }, { status: 422 });
   }
 
-  // 2. Create the matching user_profiles row in Supabase
   const { data, error } = await getSupabaseAdmin()
     .from("user_profiles")
     .insert({

@@ -14,8 +14,8 @@ export async function PATCH(
   if (!caller.is_admin) return NextResponse.json({ error: "Forbidden" }, { status: 403 });
 
   const body = await req.json().catch(() => ({}));
-  const { firstName, lastName, email, isAdmin, isAuthor } = body as {
-    firstName?: string; lastName?: string; email?: string; isAdmin?: boolean; isAuthor?: boolean;
+  const { firstName, lastName, email, isAdmin, isAuthor, bio } = body as {
+    firstName?: string; lastName?: string; email?: string; isAdmin?: boolean; isAuthor?: boolean; bio?: string | null;
   };
 
   // Prevent an admin from removing their own admin status
@@ -30,6 +30,7 @@ export async function PATCH(
   if (email     !== undefined) update.email      = email?.trim()     || null;
   if (isAdmin   !== undefined) update.is_admin   = isAdmin;
   if (isAuthor  !== undefined) update.is_author  = isAuthor;
+  if (bio       !== undefined) update.bio        = bio?.trim()       || null;
 
   if (Object.keys(update).length === 0) {
     return NextResponse.json({ error: "No fields to update" }, { status: 400 });

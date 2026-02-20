@@ -132,7 +132,16 @@ export default async function ArticlePage(
           <div className="flex items-center gap-3 border-t border-b border-stone-100 py-4 mb-8">
             <div className="font-sans text-sm">
               {article.author_name && (
-                <p className="font-semibold text-stone-900">{article.author_name}</p>
+                article.author_id ? (
+                  <Link
+                    href={`/authors/${article.author_id}`}
+                    className="font-semibold text-stone-900 hover:text-stone-600 transition-colors"
+                  >
+                    {article.author_name}
+                  </Link>
+                ) : (
+                  <p className="font-semibold text-stone-900">{article.author_name}</p>
+                )
               )}
               {article.published_at && (
                 <p className="text-stone-400">{formatDate(article.published_at)}</p>
