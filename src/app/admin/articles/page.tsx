@@ -7,10 +7,13 @@ import Footer from "@/components/layout/Footer";
 import AdminArticlesTable from "./AdminArticlesTable";
 import { getOrCreateProfile } from "@/lib/subscription";
 import { getSupabaseAdmin } from "@/lib/supabase";
+import { getSanityArticleCount } from "@/lib/queries";
 import type { SupabaseArticle } from "@/types";
 
 export const metadata: Metadata = { title: "Admin — Article Management" };
 export const dynamic = "force-dynamic";
+
+const PAGE_SIZE = 15;
 
 export default async function AdminArticlesPage() {
   const { userId } = await auth();
@@ -19,10 +22,17 @@ export default async function AdminArticlesPage() {
   const profile = await getOrCreateProfile(userId);
   if (!profile.is_admin) redirect("/");
 
-  const { data: articles } = await getSupabaseAdmin()
-    .from("articles")
-    .select("*")
-    .order("created_at", { ascending: false });
+  // Fetch page 1 (default sort: created_at desc) and total count in parallel with Sanity count
+  const [{ data: articles, count }, sanityCount] = await Promise.all([
+    getSupabaseAdmin()
+      .from("articles")
+      .select("*", { count: "exact" })
+      .order("created_at", { ascending: false })
+      .range(0, PAGE_SIZE - 1),
+    getSanityArticleCount().catch(() => 0),
+  ]);
+
+  const total = count ?? 0;
 
   return (
     <>
@@ -37,8 +47,7 @@ export default async function AdminArticlesPage() {
           <div>
             <p className="font-serif text-2xl font-bold text-stone-900">Article Management</p>
             <p className="font-sans text-sm text-stone-400 mt-1">
-              {(articles ?? []).length}{" "}
-              {(articles ?? []).length === 1 ? "article" : "articles"}
+              {total} {total === 1 ? "article" : "articles"} in Supabase
             </p>
           </div>
           <Link
@@ -49,8 +58,24 @@ export default async function AdminArticlesPage() {
           </Link>
         </div>
 
+        {/* Sanity notice */}
+        {sanityCount > 0 && (
+          <div className="mb-6 bg-stone-50 border border-stone-200 rounded-sm px-4 py-3 flex items-start gap-3">
+            <span className="text-stone-400 mt-0.5 shrink-0">ℹ</span>
+            <p className="font-sans text-sm text-stone-600">
+              <span className="font-semibold">{sanityCount} {sanityCount === 1 ? "article" : "articles"}</span>
+              {" "}from Sanity CMS {sanityCount === 1 ? "is" : "are"} not shown here — they are managed
+              separately in the Sanity Studio and cannot be edited in this interface.
+            </p>
+          </div>
+        )}
+
         <div className="bg-white border border-stone-200 rounded-sm p-6">
-          <AdminArticlesTable initialArticles={(articles ?? []) as SupabaseArticle[]} />
+          <AdminArticlesTable
+            initialArticles={(articles ?? []) as SupabaseArticle[]}
+            initialTotal={total}
+            pageSize={PAGE_SIZE}
+          />
         </div>
 
         <div className="mt-6">

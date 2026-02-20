@@ -1,12 +1,18 @@
 import { auth } from "@clerk/nextjs/server";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { getSupabaseAdmin } from "@/lib/supabase";
 import { getOrCreateProfile } from "@/lib/subscription";
 
+const VALID_SORT_COLUMNS = [
+  "created_at", "title", "author_name", "category", "status", "access_tier",
+] as const;
+type SortColumn = typeof VALID_SORT_COLUMNS[number];
+
 // ── GET /api/articles ──────────────────────────────────────────────────────
 // Admin: returns all articles. Contributor: returns own articles only.
+// Query params: page (default 1), limit (default 15), sortBy, sortOrder
 
-export async function GET() {
+export async function GET(request: NextRequest) {
   const { userId } = await auth();
   if (!userId) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -17,19 +23,35 @@ export async function GET() {
     return NextResponse.json({ error: "Forbidden" }, { status: 403 });
   }
 
+  const { searchParams } = request.nextUrl;
+  const page  = Math.max(1, parseInt(searchParams.get("page")  ?? "1",  10));
+  const limit = Math.min(100, Math.max(1, parseInt(searchParams.get("limit") ?? "15", 10)));
+  const rawSort = searchParams.get("sortBy") ?? "created_at";
+  const sortBy: SortColumn = (VALID_SORT_COLUMNS as readonly string[]).includes(rawSort)
+    ? rawSort as SortColumn
+    : "created_at";
+  const ascending = searchParams.get("sortOrder") === "asc";
+
+  const from = (page - 1) * limit;
+  const to   = from + limit - 1;
+
   const supabase = getSupabaseAdmin();
-  let query = supabase.from("articles").select("*").order("created_at", { ascending: false });
+  let query = supabase
+    .from("articles")
+    .select("*", { count: "exact" })
+    .order(sortBy, { ascending })
+    .range(from, to);
 
   if (!profile.is_admin) {
     query = query.eq("author_id", userId);
   }
 
-  const { data, error } = await query;
+  const { data, count, error } = await query;
   if (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 
-  return NextResponse.json(data ?? []);
+  return NextResponse.json({ data: data ?? [], total: count ?? 0, page, limit });
 }
 
 // ── POST /api/articles ─────────────────────────────────────────────────────

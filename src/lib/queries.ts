@@ -139,3 +139,7 @@ export async function getArticleSlugs(): Promise<{ slug: string }[]> {
 export async function getAuthors(): Promise<SanityAuthor[]> {
   return client.fetch(authorsQuery, {}, revalidate);
 }
+
+export async function getSanityArticleCount(): Promise<number> {
+  return client.fetch(groq`count(*[_type == "article"])`, {}, revalidate);
+}
