@@ -7,6 +7,7 @@ interface AdminUser {
   user_id:    string;
   tier:       SubscriptionTier;
   is_admin:   boolean;
+  is_author:  boolean;
   created_at: string;
   name:       string;
   email:      string;
@@ -55,6 +56,10 @@ export default function UserTierTable({ initialUsers, currentUserId }: { initial
   // ── Admin-toggle state ────────────────────────────────────────────────────
   const [adminSaving, setAdminSaving] = useState<string | null>(null);
   const [adminError,  setAdminError]  = useState<{ userId: string; message: string } | null>(null);
+
+  // ── Author-toggle state ───────────────────────────────────────────────────
+  const [authorSaving, setAuthorSaving] = useState<string | null>(null);
+  const [authorError,  setAuthorError]  = useState<{ userId: string; message: string } | null>(null);
 
   // ── Handlers ──────────────────────────────────────────────────────────────
 
@@ -170,6 +175,27 @@ export default function UserTierTable({ initialUsers, currentUserId }: { initial
       setAdminError({ userId, message: err instanceof Error ? err.message : "Update failed" });
     } finally {
       setAdminSaving(null);
+    }
+  }
+
+  async function handleAuthorToggle(userId: string, newValue: boolean) {
+    setAuthorSaving(userId);
+    setAuthorError(null);
+    try {
+      const res = await fetch(`/api/admin/users/${userId}/profile`, {
+        method:  "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body:    JSON.stringify({ isAuthor: newValue }),
+      });
+      if (!res.ok) {
+        const { error: msg } = await res.json();
+        throw new Error(msg ?? "Update failed");
+      }
+      setUsers((prev) => prev.map((u) => u.user_id === userId ? { ...u, is_author: newValue } : u));
+    } catch (err) {
+      setAuthorError({ userId, message: err instanceof Error ? err.message : "Update failed" });
+    } finally {
+      setAuthorSaving(null);
     }
   }
 
@@ -363,6 +389,7 @@ export default function UserTierTable({ initialUsers, currentUserId }: { initial
               <th className="pb-3 text-xs uppercase tracking-wider text-stone-400 font-medium pr-6">ID</th>
               <th className="pb-3 text-xs uppercase tracking-wider text-stone-400 font-medium pr-6">Tier</th>
               <th className="pb-3 text-xs uppercase tracking-wider text-stone-400 font-medium pr-6">Admin</th>
+              <th className="pb-3 text-xs uppercase tracking-wider text-stone-400 font-medium pr-6">Author</th>
               <th className="pb-3 text-xs uppercase tracking-wider text-stone-400 font-medium pr-6">Since</th>
               <th className="pb-3 text-xs uppercase tracking-wider text-stone-400 font-medium">Actions</th>
             </tr>
@@ -470,6 +497,27 @@ export default function UserTierTable({ initialUsers, currentUserId }: { initial
                       </label>
                       {adminError?.userId === user.user_id && (
                         <span className="text-xs text-red-600">{adminError.message}</span>
+                      )}
+                    </div>
+                  </td>
+
+                  {/* ── Author toggle ── */}
+                  <td className="py-3 pr-6">
+                    <div className="flex flex-col gap-1">
+                      <label className={`inline-flex items-center gap-2 ${user.is_admin ? "cursor-not-allowed opacity-50" : "cursor-pointer"}`}>
+                        <input
+                          type="checkbox"
+                          checked={user.is_author || user.is_admin}
+                          disabled={authorSaving === user.user_id || user.is_admin}
+                          onChange={(e) => handleAuthorToggle(user.user_id, e.target.checked)}
+                          className="w-4 h-4 rounded border-stone-300 text-stone-900 focus:ring-stone-400 cursor-pointer disabled:cursor-not-allowed"
+                        />
+                        <span className="text-xs font-sans text-stone-600">
+                          {authorSaving === user.user_id ? "Saving…" : "Author"}
+                        </span>
+                      </label>
+                      {authorError?.userId === user.user_id && (
+                        <span className="text-xs text-red-600">{authorError.message}</span>
                       )}
                     </div>
                   </td>

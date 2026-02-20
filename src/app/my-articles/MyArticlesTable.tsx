@@ -7,7 +7,7 @@ import { formatDate } from "@/lib/utils";
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
-type SortColumn = "title" | "author_name" | "category" | "status" | "access_tier" | "created_at";
+type SortColumn = "title" | "category" | "status" | "created_at";
 type SortOrder  = "asc" | "desc";
 
 // ── Badge maps ─────────────────────────────────────────────────────────────
@@ -18,10 +18,10 @@ const statusBadge: Record<string, string> = {
   published: "bg-emerald-100 text-emerald-700",
 };
 
-const tierBadge: Record<string, string> = {
-  free:    "bg-stone-100 text-stone-600",
-  paid:    "bg-blue-100 text-blue-700",
-  premium: "bg-amber-100 text-amber-700",
+const statusLabel: Record<string, string> = {
+  draft:     "Draft",
+  submitted: "Submitted",
+  published: "Published",
 };
 
 // ── Props ──────────────────────────────────────────────────────────────────
@@ -34,19 +34,18 @@ interface Props {
 
 // ── Component ──────────────────────────────────────────────────────────────
 
-export default function AdminArticlesTable({
+export default function MyArticlesTable({
   initialArticles,
   initialTotal,
   pageSize = 15,
 }: Props) {
-  const [articles,   setArticles]   = useState<SupabaseArticle[]>(initialArticles);
-  const [total,      setTotal]      = useState(initialTotal);
-  const [page,       setPage]       = useState(1);
-  const [sortBy,     setSortBy]     = useState<SortColumn>("created_at");
-  const [sortOrder,  setSortOrder]  = useState<SortOrder>("desc");
-  const [fetching,   setFetching]   = useState(false);
-  const [actionId,   setActionId]   = useState<string | null>(null);
-  const [error,      setError]      = useState<string | null>(null);
+  const [articles,  setArticles]  = useState<SupabaseArticle[]>(initialArticles);
+  const [total,     setTotal]     = useState(initialTotal);
+  const [page,      setPage]      = useState(1);
+  const [sortBy,    setSortBy]    = useState<SortColumn>("created_at");
+  const [sortOrder, setSortOrder] = useState<SortOrder>("desc");
+  const [fetching,  setFetching]  = useState(false);
+  const [error,     setError]     = useState<string | null>(null);
 
   // ── Fetch a page from the API ────────────────────────────────────────────
 
@@ -90,51 +89,6 @@ export default function AdminArticlesTable({
     fetchPage(1, col, nextOrder);
   }
 
-  // ── Publish / delete ─────────────────────────────────────────────────────
-
-  async function handlePublish(id: string) {
-    setActionId(id);
-    setError(null);
-    try {
-      const article = articles.find((a) => a.id === id);
-      if (!article) return;
-      const res = await fetch(`/api/articles/${id}`, {
-        method:  "PUT",
-        headers: { "Content-Type": "application/json" },
-        body:    JSON.stringify({ ...article, status: "published" }),
-      });
-      if (!res.ok) {
-        const { error: msg } = await res.json();
-        throw new Error(msg ?? "Failed to publish");
-      }
-      const updated = await res.json();
-      setArticles((prev) => prev.map((a) => a.id === id ? updated : a));
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Unknown error");
-    } finally {
-      setActionId(null);
-    }
-  }
-
-  async function handleDelete(id: string) {
-    if (!confirm("Delete this article? This cannot be undone.")) return;
-    setActionId(id);
-    setError(null);
-    try {
-      const res = await fetch(`/api/articles/${id}`, { method: "DELETE" });
-      if (!res.ok) {
-        const { error: msg } = await res.json();
-        throw new Error(msg ?? "Failed to delete");
-      }
-      setArticles((prev) => prev.filter((a) => a.id !== id));
-      setTotal((n) => n - 1);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Unknown error");
-    } finally {
-      setActionId(null);
-    }
-  }
-
   // ── Pagination helpers ───────────────────────────────────────────────────
 
   const totalPages = Math.ceil(total / pageSize);
@@ -148,9 +102,7 @@ export default function AdminArticlesTable({
     return <span className="ml-1">{sortOrder === "asc" ? "↑" : "↓"}</span>;
   }
 
-  function ColHeader({
-    col, label, className,
-  }: { col: SortColumn; label: string; className?: string }) {
+  function ColHeader({ col, label, className }: { col: SortColumn; label: string; className?: string }) {
     return (
       <th className={`pb-3 text-left ${className ?? ""}`}>
         <button
@@ -177,12 +129,10 @@ export default function AdminArticlesTable({
         <table className="w-full font-sans text-sm">
           <thead>
             <tr className="border-b border-stone-200">
-              <ColHeader col="title"       label="Title"   className="pr-4" />
-              <ColHeader col="author_name" label="Author"  className="pr-4" />
-              <ColHeader col="category"    label="Category" className="pr-4" />
-              <ColHeader col="status"      label="Status"  className="pr-4" />
-              <ColHeader col="access_tier" label="Tier"    className="pr-4" />
-              <ColHeader col="created_at"  label="Date"    className="pr-4" />
+              <ColHeader col="title"      label="Title"    className="pr-4" />
+              <ColHeader col="status"     label="Status"   className="pr-4" />
+              <ColHeader col="category"   label="Category" className="pr-4" />
+              <ColHeader col="created_at" label="Date"     className="pr-4" />
               <th className="pb-3 text-xs uppercase tracking-wider text-stone-400 font-medium text-left">
                 Actions
               </th>
@@ -195,50 +145,26 @@ export default function AdminArticlesTable({
                   <p className="font-medium text-stone-900 truncate">{article.title || "Untitled"}</p>
                   <p className="text-xs text-stone-400 font-mono truncate">{article.slug}</p>
                 </td>
-                <td className="py-3 pr-4 text-stone-600 text-xs">
-                  {article.author_name ?? "—"}
+                <td className="py-3 pr-4">
+                  <span className={`inline-block text-xs font-medium uppercase tracking-wide px-2 py-0.5 rounded ${statusBadge[article.status] ?? "bg-stone-100 text-stone-600"}`}>
+                    {statusLabel[article.status] ?? article.status}
+                  </span>
                 </td>
                 <td className="py-3 pr-4 text-stone-600 text-xs">
                   {article.category ?? "—"}
-                </td>
-                <td className="py-3 pr-4">
-                  <span className={`inline-block text-xs font-medium uppercase tracking-wide px-2 py-0.5 rounded ${statusBadge[article.status] ?? "bg-stone-100 text-stone-600"}`}>
-                    {article.status}
-                  </span>
-                </td>
-                <td className="py-3 pr-4">
-                  <span className={`inline-block text-xs font-medium uppercase tracking-wide px-2 py-0.5 rounded ${tierBadge[article.access_tier] ?? "bg-stone-100 text-stone-600"}`}>
-                    {article.access_tier}
-                  </span>
                 </td>
                 <td className="py-3 pr-4 text-xs text-stone-400 whitespace-nowrap">
                   {formatDate(article.published_at ?? article.created_at)}
                 </td>
                 <td className="py-3">
-                  <div className="flex items-center gap-2">
+                  {article.status !== "published" && (
                     <Link
                       href={`/editor/${article.id}`}
                       className="text-xs font-sans text-stone-600 hover:text-stone-900 border border-stone-200 px-2 py-1 rounded hover:bg-stone-50 transition-colors"
                     >
                       Edit
                     </Link>
-                    {article.status !== "published" && (
-                      <button
-                        onClick={() => handlePublish(article.id)}
-                        disabled={actionId === article.id}
-                        className="text-xs font-sans text-emerald-700 border border-emerald-200 px-2 py-1 rounded hover:bg-emerald-50 transition-colors disabled:opacity-50"
-                      >
-                        {actionId === article.id ? "…" : "Publish"}
-                      </button>
-                    )}
-                    <button
-                      onClick={() => handleDelete(article.id)}
-                      disabled={actionId === article.id}
-                      className="text-xs font-sans text-red-600 border border-red-200 px-2 py-1 rounded hover:bg-red-50 transition-colors disabled:opacity-50"
-                    >
-                      Delete
-                    </button>
-                  </div>
+                  )}
                 </td>
               </tr>
             ))}
@@ -247,7 +173,7 @@ export default function AdminArticlesTable({
 
         {articles.length === 0 && !fetching && (
           <p className="py-8 text-center text-sm text-stone-400 font-sans italic">
-            No articles yet. Create one in the editor.
+            No articles yet. Click &ldquo;+ New Article&rdquo; to get started.
           </p>
         )}
       </div>

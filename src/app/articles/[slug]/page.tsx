@@ -101,7 +101,7 @@ export default async function ArticlePage(
             )}
           </nav>
 
-          {/* Draft / review banner for admins */}
+          {/* Draft / submitted banner for admins */}
           {isAdmin && article.status !== "published" && (
             <div className="mb-6 bg-amber-50 border border-amber-200 rounded-sm px-4 py-2 flex items-center gap-3">
               <span className="font-sans text-xs font-semibold uppercase tracking-wider text-amber-700">

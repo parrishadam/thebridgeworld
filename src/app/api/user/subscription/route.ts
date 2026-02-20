@@ -14,6 +14,7 @@ export async function GET() {
       tier:          status.tier,
       isAdmin:       status.isAdmin,
       isContributor: status.isContributor,
+      isAuthor:      status.isAuthor,
     });
   } catch (err) {
     console.error("[/api/user/subscription]", err);

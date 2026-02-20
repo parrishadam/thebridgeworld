@@ -36,5 +36,6 @@ export async function getSubscriptionStatus(userId: string): Promise<Subscriptio
     tier:          profile.tier as SubscriptionTier,
     isAdmin:       profile.is_admin,
     isContributor: profile.is_contributor ?? false,
+    isAuthor:      (profile.is_author ?? false) || profile.is_admin,
   };
 }

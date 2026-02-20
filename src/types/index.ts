@@ -8,6 +8,7 @@ export interface UserProfile {
   tier:           SubscriptionTier;
   is_admin:       boolean;
   is_contributor: boolean;
+  is_author:      boolean;
   created_at:     string;
   updated_at:     string;
 }
@@ -16,6 +17,7 @@ export interface SubscriptionStatus {
   tier:          SubscriptionTier;
   isAdmin:       boolean;
   isContributor: boolean;
+  isAuthor:      boolean;
 }
 
 // ── Sanity-projected types (match GROQ query shapes) ──────────────────────
@@ -185,7 +187,7 @@ export interface SupabaseArticle {
   tags:              string[];
   access_tier:       ArticleAccessTier;
   excerpt:           string | null;
-  status:            "draft" | "review" | "published";
+  status:            "draft" | "submitted" | "published";
   content_blocks:    ContentBlock[];
   featured_image_url: string | null;
   created_at:        string;

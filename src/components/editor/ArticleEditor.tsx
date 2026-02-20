@@ -8,18 +8,22 @@ import SupabaseArticleRenderer from "@/components/articles/SupabaseArticleRender
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
-type ArticleStatus = "draft" | "review" | "published";
+type ArticleStatus = "draft" | "submitted" | "published";
 type EditorMode = "edit" | "preview";
 
 interface ArticleEditorProps {
-  article?: SupabaseArticle;
-  isAdmin: boolean;
+  article?:    SupabaseArticle;
+  isAdmin:     boolean;
+  isAuthor:    boolean;
+  currentUser: { id: string; name: string };
+  authorList?: { id: string; name: string; email: string }[];
 }
 
 interface EditorMeta {
   title:             string;
   slug:              string;
   authorName:        string;
+  authorId:          string;
   category:          string;
   tags:              string;
   accessTier:        "free" | "paid" | "premium";
@@ -54,12 +58,18 @@ const CATEGORIES = [
 
 // ── Component ──────────────────────────────────────────────────────────────
 
-export default function ArticleEditor({ article, isAdmin }: ArticleEditorProps) {
+export default function ArticleEditor({
+  article,
+  isAdmin,
+  currentUser,
+  authorList,
+}: ArticleEditorProps) {
   const router = useRouter();
   const [meta, setMeta] = useState<EditorMeta>({
     title:            article?.title ?? "",
     slug:             article?.slug ?? "",
-    authorName:       article?.author_name ?? "",
+    authorName:       article?.author_name ?? currentUser.name,
+    authorId:         article?.author_id ?? currentUser.id,
     category:         article?.category ?? "",
     tags:             (article?.tags ?? []).join(", "),
     accessTier:       article?.access_tier ?? "free",
@@ -134,6 +144,7 @@ export default function ArticleEditor({ article, isAdmin }: ArticleEditorProps) 
       title:              meta.title,
       slug:               meta.slug,
       author_name:        meta.authorName || null,
+      author_id:          meta.authorId,
       category:           meta.category || null,
       tags:               meta.tags
         .split(",")
@@ -192,9 +203,16 @@ export default function ArticleEditor({ article, isAdmin }: ArticleEditorProps) 
     return () => clearInterval(interval);
   }, [save]);
 
-  const statusOptions: ArticleStatus[] = isAdmin
-    ? ["draft", "review", "published"]
-    : ["draft", "review"];
+  const statusOptions: { value: ArticleStatus; label: string }[] = isAdmin
+    ? [
+        { value: "draft",     label: "Draft" },
+        { value: "submitted", label: "Submit for Publication" },
+        { value: "published", label: "Published" },
+      ]
+    : [
+        { value: "draft",     label: "Draft" },
+        { value: "submitted", label: "Submit for Publication" },
+      ];
 
   // ── Render ───────────────────────────────────────────────────────────────
 
@@ -223,9 +241,9 @@ export default function ArticleEditor({ article, isAdmin }: ArticleEditorProps) 
           onChange={(e) => updateMeta("status", e.target.value as ArticleStatus)}
           className="font-sans text-xs border border-stone-200 rounded px-2 py-1.5 text-stone-600 bg-white focus:outline-none focus:ring-1 focus:ring-stone-400"
         >
-          {statusOptions.map((s) => (
-            <option key={s} value={s}>
-              {s.charAt(0).toUpperCase() + s.slice(1)}
+          {statusOptions.map((opt) => (
+            <option key={opt.value} value={opt.value}>
+              {opt.label}
             </option>
           ))}
         </select>
@@ -306,16 +324,35 @@ export default function ArticleEditor({ article, isAdmin }: ArticleEditorProps) 
               />
             </div>
 
-            {/* Author name */}
+            {/* Author */}
             <div>
-              <label className="block text-xs font-sans text-stone-500 mb-1">Author Name</label>
-              <input
-                type="text"
-                value={meta.authorName}
-                onChange={(e) => updateMeta("authorName", e.target.value)}
-                placeholder="Author name"
-                className="w-full border border-stone-200 rounded px-2 py-1.5 text-xs font-sans text-stone-700 focus:outline-none focus:ring-1 focus:ring-stone-400"
-              />
+              <label className="block text-xs font-sans text-stone-500 mb-1">Author</label>
+              {isAdmin && authorList && authorList.length > 0 ? (
+                <select
+                  value={meta.authorId}
+                  onChange={(e) => {
+                    const chosen = authorList.find((a) => a.id === e.target.value);
+                    if (chosen) {
+                      setMeta((prev) => ({
+                        ...prev,
+                        authorId:   chosen.id,
+                        authorName: chosen.name,
+                      }));
+                      setIsDirty(true);
+                      setSaveStatus("idle");
+                    }
+                  }}
+                  className="w-full border border-stone-200 rounded px-2 py-1.5 text-xs font-sans text-stone-700 focus:outline-none focus:ring-1 focus:ring-stone-400"
+                >
+                  {authorList.map((a) => (
+                    <option key={a.id} value={a.id}>
+                      {a.name} ({a.email})
+                    </option>
+                  ))}
+                </select>
+              ) : (
+                <p className="text-xs font-sans text-stone-700 py-1">{currentUser.name}</p>
+              )}
             </div>
 
             {/* Category */}

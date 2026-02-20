@@ -18,7 +18,7 @@ export default function WriteLink() {
         if (!res.ok) return;
         const data = await res.json();
         setIsAdmin(data.isAdmin === true);
-        setCanWrite(data.isAdmin === true || data.isContributor === true);
+        setCanWrite(data.isAdmin === true || data.isAuthor === true);
       } catch {
         // API unavailable — fail silently
       }
@@ -42,10 +42,10 @@ export default function WriteLink() {
 
   return (
     <Link
-      href="/editor"
+      href="/my-articles"
       className="font-sans text-sm uppercase tracking-wider text-stone-600 hover:text-stone-900 transition-colors"
     >
-      Write
+      My Articles
     </Link>
   );
 }

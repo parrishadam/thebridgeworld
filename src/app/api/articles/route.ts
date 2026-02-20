@@ -9,8 +9,9 @@ const VALID_SORT_COLUMNS = [
 type SortColumn = typeof VALID_SORT_COLUMNS[number];
 
 // ── GET /api/articles ──────────────────────────────────────────────────────
-// Admin: returns all articles. Contributor: returns own articles only.
-// Query params: page (default 1), limit (default 15), sortBy, sortOrder
+// Admin: returns all articles (or filtered by authorId param).
+// Author: returns own articles only.
+// Query params: page (default 1), limit (default 15), sortBy, sortOrder, authorId (admin only)
 
 export async function GET(request: NextRequest) {
   const { userId } = await auth();
@@ -19,7 +20,7 @@ export async function GET(request: NextRequest) {
   }
 
   const profile = await getOrCreateProfile(userId);
-  if (!profile.is_admin && !profile.is_contributor) {
+  if (!profile.is_admin && !profile.is_author) {
     return NextResponse.json({ error: "Forbidden" }, { status: 403 });
   }
 
@@ -31,6 +32,7 @@ export async function GET(request: NextRequest) {
     ? rawSort as SortColumn
     : "created_at";
   const ascending = searchParams.get("sortOrder") === "asc";
+  const authorIdParam = searchParams.get("authorId");
 
   const from = (page - 1) * limit;
   const to   = from + limit - 1;
@@ -44,6 +46,8 @@ export async function GET(request: NextRequest) {
 
   if (!profile.is_admin) {
     query = query.eq("author_id", userId);
+  } else if (authorIdParam) {
+    query = query.eq("author_id", authorIdParam);
   }
 
   const { data, count, error } = await query;
@@ -55,7 +59,7 @@ export async function GET(request: NextRequest) {
 }
 
 // ── POST /api/articles ─────────────────────────────────────────────────────
-// Creates a new article. Admin or contributor only.
+// Creates a new article. Admin or author only.
 
 export async function POST(request: Request) {
   const { userId } = await auth();
@@ -64,7 +68,7 @@ export async function POST(request: Request) {
   }
 
   const profile = await getOrCreateProfile(userId);
-  if (!profile.is_admin && !profile.is_contributor) {
+  if (!profile.is_admin && !profile.is_author) {
     return NextResponse.json({ error: "Forbidden" }, { status: 403 });
   }
 
@@ -79,6 +83,7 @@ export async function POST(request: Request) {
     title,
     slug,
     author_name,
+    author_id: authorId,
     category,
     tags,
     access_tier,
@@ -88,9 +93,12 @@ export async function POST(request: Request) {
     featured_image_url,
   } = body as Record<string, unknown>;
 
-  // Contributors can only set draft or review, not published
+  // Authors cannot publish directly; admins can set any status
   const resolvedStatus =
     !profile.is_admin && status === "published" ? "draft" : (status ?? "draft");
+
+  const resolvedAuthorId =
+    profile.is_admin && typeof authorId === "string" && authorId ? authorId : userId;
 
   const published_at =
     resolvedStatus === "published" ? new Date().toISOString() : null;
@@ -102,7 +110,7 @@ export async function POST(request: Request) {
       title:              title ?? "",
       slug:               slug ?? "",
       author_name:        author_name ?? null,
-      author_id:          userId,
+      author_id:          resolvedAuthorId,
       category:           category ?? null,
       tags:               tags ?? [],
       access_tier:        access_tier ?? "free",

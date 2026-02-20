@@ -15,7 +15,7 @@ export async function GET(
   }
 
   const profile = await getOrCreateProfile(userId);
-  if (!profile.is_admin && !profile.is_contributor) {
+  if (!profile.is_admin && !profile.is_author) {
     return NextResponse.json({ error: "Forbidden" }, { status: 403 });
   }
 
@@ -50,7 +50,7 @@ export async function PUT(
   }
 
   const profile = await getOrCreateProfile(userId);
-  if (!profile.is_admin && !profile.is_contributor) {
+  if (!profile.is_admin && !profile.is_author) {
     return NextResponse.json({ error: "Forbidden" }, { status: 403 });
   }
 
@@ -71,6 +71,11 @@ export async function PUT(
     return NextResponse.json({ error: "Forbidden" }, { status: 403 });
   }
 
+  // Authors cannot edit published articles
+  if (!profile.is_admin && existing.status === "published") {
+    return NextResponse.json({ error: "Published articles cannot be edited" }, { status: 403 });
+  }
+
   let body: Record<string, unknown>;
   try {
     body = await request.json();
@@ -82,6 +87,7 @@ export async function PUT(
     title,
     slug,
     author_name,
+    author_id: authorId,
     category,
     tags,
     access_tier,
@@ -91,11 +97,14 @@ export async function PUT(
     featured_image_url,
   } = body as Record<string, unknown>;
 
-  // Contributors cannot publish
+  // Authors cannot publish
   const resolvedStatus =
     !profile.is_admin && status === "published"
       ? existing.status
       : (status ?? existing.status);
+
+  const resolvedAuthorId =
+    profile.is_admin && typeof authorId === "string" && authorId ? authorId : undefined;
 
   // Set published_at when transitioning to published
   let published_at = existing.published_at;
@@ -111,6 +120,7 @@ export async function PUT(
       title:              title,
       slug:               slug,
       author_name:        author_name ?? null,
+      ...(resolvedAuthorId !== undefined && { author_id: resolvedAuthorId }),
       category:           category ?? null,
       tags:               tags ?? [],
       access_tier:        access_tier ?? "free",

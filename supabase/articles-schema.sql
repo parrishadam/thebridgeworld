@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS articles (
                         CHECK (access_tier IN ('free', 'paid', 'premium')),
   excerpt             TEXT,
   status              TEXT        NOT NULL DEFAULT 'draft'
-                        CHECK (status IN ('draft', 'review', 'published')),
+                        CHECK (status IN ('draft', 'submitted', 'published')),
   content_blocks      JSONB       NOT NULL DEFAULT '[]',
   featured_image_url  TEXT,
   created_at          TIMESTAMPTZ NOT NULL DEFAULT now(),
