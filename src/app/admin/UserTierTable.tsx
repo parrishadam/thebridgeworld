@@ -47,6 +47,11 @@ export default function UserTierTable({ initialUsers }: { initialUsers: AdminUse
   const [editSaving,  setEditSaving]  = useState(false);
   const [editError,   setEditError]   = useState<string | null>(null);
 
+  // ── Reset-password state ──────────────────────────────────────────────────
+  const [resettingId,  setResettingId]  = useState<string | null>(null);
+  const [resetResult,  setResetResult]  = useState<{ name: string; email: string; tempPassword: string } | null>(null);
+  const [resetError,   setResetError]   = useState<{ userId: string; message: string } | null>(null);
+
   // ── Handlers ──────────────────────────────────────────────────────────────
 
   async function handleTierChange(userId: string, newTier: SubscriptionTier) {
@@ -143,6 +148,24 @@ export default function UserTierTable({ initialUsers }: { initialUsers: AdminUse
     }
   }
 
+  async function handleResetPassword(userId: string, name: string, email: string) {
+    setResettingId(userId);
+    setResetError(null);
+    try {
+      const res = await fetch(`/api/admin/users/${userId}/reset-password`, { method: "PATCH" });
+      if (!res.ok) {
+        const { error: msg } = await res.json();
+        throw new Error(msg ?? "Reset failed");
+      }
+      const { tempPassword: pw } = await res.json();
+      setResetResult({ name, email, tempPassword: pw });
+    } catch (err) {
+      setResetError({ userId, message: err instanceof Error ? err.message : "Reset failed" });
+    } finally {
+      setResettingId(null);
+    }
+  }
+
   // ── Shared input className ─────────────────────────────────────────────────
 
   const inputCls = "border border-stone-200 rounded px-2 py-1.5 text-sm font-sans focus:outline-none focus:ring-1 focus:ring-stone-400 w-full";
@@ -151,6 +174,41 @@ export default function UserTierTable({ initialUsers }: { initialUsers: AdminUse
 
   return (
     <>
+      {/* ── Reset Password modal ── */}
+      {resetResult && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
+          <div className="bg-white rounded-sm shadow-xl border border-stone-200 max-w-md w-full mx-4 p-6 space-y-4">
+            <p className="font-sans text-sm font-semibold text-stone-900">
+              Password reset for {resetResult.name}
+            </p>
+            <p className="font-sans text-xs text-stone-500">{resetResult.email}</p>
+            <p className="font-sans text-xs text-stone-600">
+              Share this temporary password with the user — they should change it on first login:
+            </p>
+            <div className="flex items-center gap-3">
+              <code className="bg-stone-50 border border-stone-200 rounded px-3 py-2 font-mono text-base font-bold text-stone-900 tracking-widest select-all flex-1">
+                {resetResult.tempPassword}
+              </code>
+              <button
+                onClick={() => navigator.clipboard.writeText(resetResult.tempPassword)}
+                className="font-sans text-xs border border-stone-300 text-stone-600 px-3 py-2 rounded hover:bg-stone-50 transition-colors whitespace-nowrap"
+              >
+                Copy
+              </button>
+            </div>
+            <p className="font-sans text-xs text-amber-700 italic">
+              This password will not be shown again.
+            </p>
+            <button
+              onClick={() => setResetResult(null)}
+              className="font-sans text-sm bg-stone-900 text-white px-4 py-2 hover:bg-stone-700 transition-colors"
+            >
+              Dismiss
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* ── Add User form ── */}
       <div className="mb-6">
         {!showAdd ? (
@@ -406,12 +464,26 @@ export default function UserTierTable({ initialUsers }: { initialUsers: AdminUse
                         </button>
                       </div>
                     ) : (
-                      <button
-                        onClick={() => startEdit(user)}
-                        className="font-sans text-xs border border-stone-200 text-stone-600 px-3 py-1.5 rounded hover:bg-stone-50 hover:border-stone-300 transition-colors"
-                      >
-                        Edit
-                      </button>
+                      <div className="flex gap-2">
+                        <button
+                          onClick={() => startEdit(user)}
+                          className="font-sans text-xs border border-stone-200 text-stone-600 px-3 py-1.5 rounded hover:bg-stone-50 hover:border-stone-300 transition-colors"
+                        >
+                          Edit
+                        </button>
+                        {!user.user_id.startsWith("manual_") && (
+                          <button
+                            onClick={() => handleResetPassword(user.user_id, user.name, user.email)}
+                            disabled={resettingId === user.user_id}
+                            className="font-sans text-xs border border-stone-200 text-stone-600 px-3 py-1.5 rounded hover:bg-stone-50 hover:border-stone-300 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+                          >
+                            {resettingId === user.user_id ? "Resetting…" : "Reset Password"}
+                          </button>
+                        )}
+                        {resetError?.userId === user.user_id && (
+                          <span className="text-xs text-red-600 self-center">{resetError.message}</span>
+                        )}
+                      </div>
                     )}
                   </td>
                 </tr>
