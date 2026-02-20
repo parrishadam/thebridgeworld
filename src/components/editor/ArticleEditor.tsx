@@ -55,8 +55,6 @@ const CATEGORIES = [
 // ── Component ──────────────────────────────────────────────────────────────
 
 export default function ArticleEditor({ article, isAdmin }: ArticleEditorProps) {
-  const isEdit = !!article;
-
   const [meta, setMeta] = useState<EditorMeta>({
     title:            article?.title ?? "",
     slug:             article?.slug ?? "",

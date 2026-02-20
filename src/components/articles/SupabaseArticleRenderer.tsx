@@ -54,7 +54,6 @@ function BridgeHandRenderer({ block }: { block: BridgeHandBlock }) {
     None: "None", "N-S": "N/S", "E-W": "E/W", All: "All",
   };
 
-  const dirs: Direction[] = ["north", "south", "east", "west"];
   const defaultHand: HandCards = { S: "", H: "", D: "", C: "" };
 
   return (

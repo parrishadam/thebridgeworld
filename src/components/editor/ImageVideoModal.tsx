@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import type { ImageBlock, VideoBlock } from "@/types";
 
 type ModalType = "image" | "video";
 
