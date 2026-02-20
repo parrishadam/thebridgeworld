@@ -47,32 +47,75 @@ export async function getPublishedSupabaseArticles(
   return data as SupabaseArticle[];
 }
 
+const SORT_COLUMN: Record<string, string> = {
+  date:   "published_at",
+  name:   "title",
+  author: "author_name",
+};
+
 export async function getPublishedSupabaseArticlesPaginated(options: {
-  page?: number;
-  limit?: number;
-  category?: string;
+  page?:      number;
+  limit?:     number;
+  category?:  string;
+  author?:    string;
+  tag?:       string;
+  sortBy?:    string;
+  sortOrder?: string;
 }): Promise<{ articles: SupabaseArticle[]; total: number }> {
-  const { page = 1, limit = 15, category } = options;
-  const supabase = getSupabaseAdmin();
-  const from = (page - 1) * limit;
-  const to   = from + limit - 1;
+  const {
+    page = 1, limit = 15,
+    category, author, tag,
+    sortBy = "date", sortOrder = "desc",
+  } = options;
+
+  const supabase  = getSupabaseAdmin();
+  const from      = (page - 1) * limit;
+  const to        = from + limit - 1;
+  const column    = SORT_COLUMN[sortBy] ?? "published_at";
+  const ascending = sortOrder === "asc";
 
   let query = supabase
     .from("articles")
     .select("*", { count: "exact" })
     .eq("status", "published")
-    .order("published_at", { ascending: false })
+    .order(column, { ascending })
     .range(from, to);
 
   if (category) {
-    // Convert URL slug back to a pattern for case-insensitive matching
-    // e.g. "bidding-systems" → ilike "bidding systems"
+    // Support both raw names ("Bidding Systems") and URL slugs ("bidding-systems")
     query = query.ilike("category", category.replace(/-/g, " "));
+  }
+  if (author) {
+    query = query.ilike("author_name", author);
+  }
+  if (tag) {
+    query = query.contains("tags", [tag]);
   }
 
   const { data, count, error } = await query;
   if (error || !data) return { articles: [], total: 0 };
   return { articles: data as SupabaseArticle[], total: count ?? 0 };
+}
+
+export async function getArticleFilterOptions(): Promise<{
+  categories: string[];
+  authors:    string[];
+  tags:       string[];
+}> {
+  const { data } = await getSupabaseAdmin()
+    .from("articles")
+    .select("category, author_name, tags")
+    .eq("status", "published");
+
+  if (!data) return { categories: [], authors: [], tags: [] };
+
+  const categories = Array.from(new Set(data.map((r) => r.category).filter(Boolean))).sort() as string[];
+  const authors    = Array.from(new Set(data.map((r) => r.author_name).filter(Boolean))).sort() as string[];
+  const tags       = Array.from(new Set(
+    data.flatMap((r) => (Array.isArray(r.tags) ? r.tags : [])).filter(Boolean)
+  )).sort() as string[];
+
+  return { categories, authors, tags };
 }
 
 // ── Shape adapter ─────────────────────────────────────────────────────────

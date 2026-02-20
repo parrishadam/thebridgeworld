@@ -1,9 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Suspense } from "react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import ArticleCard from "@/components/articles/ArticleCard";
-import { getPublishedSupabaseArticlesPaginated, mapSupabaseToCardShape } from "@/lib/articles";
+import ArticlesFilterBar from "./ArticlesFilterBar";
+import {
+  getPublishedSupabaseArticlesPaginated,
+  getArticleFilterOptions,
+  mapSupabaseToCardShape,
+} from "@/lib/articles";
 
 export const metadata: Metadata = { title: "Articles" };
 export const dynamic = "force-dynamic";
@@ -13,16 +19,30 @@ const PAGE_SIZE = 15;
 export default async function ArticlesPage({
   searchParams,
 }: {
-  searchParams: { page?: string; category?: string };
+  searchParams: {
+    page?:      string;
+    category?:  string;
+    author?:    string;
+    tag?:       string;
+    sortBy?:    string;
+    sortOrder?: string;
+  };
 }) {
-  const page     = Math.max(1, parseInt(searchParams.page ?? "1", 10));
-  const category = searchParams.category;
+  const page      = Math.max(1, parseInt(searchParams.page ?? "1", 10));
+  const category  = searchParams.category;
+  const author    = searchParams.author;
+  const tag       = searchParams.tag;
+  const sortBy    = searchParams.sortBy    ?? "date";
+  const sortOrder = searchParams.sortOrder ?? "desc";
 
-  const { articles, total } = await getPublishedSupabaseArticlesPaginated({
-    page,
-    limit: PAGE_SIZE,
-    category,
-  });
+  const [{ articles, total }, filterOptions] = await Promise.all([
+    getPublishedSupabaseArticlesPaginated({
+      page, limit: PAGE_SIZE,
+      category, author, tag,
+      sortBy, sortOrder,
+    }),
+    getArticleFilterOptions(),
+  ]);
 
   const mapped     = articles.map(mapSupabaseToCardShape);
   const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
@@ -31,11 +51,18 @@ export default async function ArticlesPage({
 
   function pageHref(p: number) {
     const params = new URLSearchParams();
-    if (p > 1) params.set("page", String(p));
-    if (category) params.set("category", category);
+    if (p > 1)      params.set("page",      String(p));
+    if (category)   params.set("category",  category);
+    if (author)     params.set("author",    author);
+    if (tag)        params.set("tag",       tag);
+    if (sortBy    !== "date")  params.set("sortBy",    sortBy);
+    if (sortOrder !== "desc")  params.set("sortOrder", sortOrder);
     const qs = params.toString();
     return `/articles${qs ? `?${qs}` : ""}`;
   }
+
+  const hasFilters = !!(category || author || tag);
+  const isNonDefault = sortBy !== "date" || sortOrder !== "desc";
 
   return (
     <>
@@ -54,18 +81,33 @@ export default async function ArticlesPage({
           )}
         </div>
 
-        {/* ── Active category filter ── */}
-        {category && (
-          <div className="mb-8 flex items-center gap-3">
-            <p className="font-serif text-xl font-bold text-stone-900 capitalize">
-              {category.replace(/-/g, " ")}
-            </p>
-            <Link
-              href="/articles"
-              className="font-sans text-xs text-stone-400 hover:text-stone-700 border border-stone-200 px-2 py-1 rounded transition-colors"
-            >
-              Clear filter
-            </Link>
+        {/* ── Filter bar ── */}
+        <Suspense fallback={null}>
+          <ArticlesFilterBar
+            categories={filterOptions.categories}
+            authors={filterOptions.authors}
+            tags={filterOptions.tags}
+          />
+        </Suspense>
+
+        {/* ── Active filter label ── */}
+        {(hasFilters || isNonDefault) && (
+          <div className="flex flex-wrap gap-2 mb-6">
+            {category && (
+              <span className="font-sans text-xs bg-stone-100 text-stone-700 px-2 py-1 rounded capitalize">
+                Category: {category.replace(/-/g, " ")}
+              </span>
+            )}
+            {author && (
+              <span className="font-sans text-xs bg-stone-100 text-stone-700 px-2 py-1 rounded">
+                Author: {author}
+              </span>
+            )}
+            {tag && (
+              <span className="font-sans text-xs bg-stone-100 text-stone-700 px-2 py-1 rounded">
+                Tag: {tag}
+              </span>
+            )}
           </div>
         )}
 
@@ -117,7 +159,9 @@ export default async function ArticlesPage({
           </>
         ) : (
           <p className="py-16 text-center font-sans text-sm text-stone-400 italic">
-            {category ? "No articles in this category yet." : "No articles published yet."}
+            {hasFilters
+              ? "No articles match the selected filters."
+              : "No articles published yet."}
           </p>
         )}
 
