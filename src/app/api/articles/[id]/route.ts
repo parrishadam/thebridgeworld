@@ -109,6 +109,18 @@ export async function PUT(
   // Authors cannot change access_tier; fetch existing value to preserve it
   const resolvedAccessTier = profile.is_admin ? (access_tier ?? "free") : undefined;
 
+  // Denormalize author photo (use new authorId if set, else existing)
+  const finalAuthorId = resolvedAuthorId ?? existing.author_id;
+  let author_photo_url: string | null = null;
+  if (finalAuthorId) {
+    const { data: authorProfile } = await supabase
+      .from("user_profiles")
+      .select("photo_url")
+      .eq("user_id", finalAuthorId)
+      .single();
+    author_photo_url = (authorProfile as { photo_url: string | null } | null)?.photo_url ?? null;
+  }
+
   // Set published_at when transitioning to published
   let published_at = existing.published_at;
   if (resolvedStatus === "published" && !existing.published_at) {
@@ -131,6 +143,7 @@ export async function PUT(
       status:             resolvedStatus,
       content_blocks:     content_blocks ?? [],
       featured_image_url: featured_image_url ?? null,
+      author_photo_url,
       published_at,
     })
     .eq("id", params.id)

@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { CSSProperties } from "react";
 import { SanityArticle } from "@/types";
 import { formatDate } from "@/lib/utils";
+import ArticleCardImage from "./ArticleCardImage";
 
 const colorClasses: Record<string, string> = {
   blue:    "bg-blue-100 text-blue-700",
@@ -78,12 +79,25 @@ export default function ArticleCard({ article, variant = "default" }: ArticleCar
     return (
       <Link href={`/articles/${article.slug}`} className="group block">
         <div className="aspect-[16/9] bg-stone-200 rounded-sm mb-4 overflow-hidden">
-          {article.coverImageUrl && (
+          {article.coverImageUrl ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img
               src={article.coverImageUrl}
               alt={article.title}
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+          ) : (
+            <ArticleCardImage
+              fill
+              variant="featured"
+              title={article.title}
+              author={article.author?.name}
+              authorPhoto={article.author?.avatarUrl}
+              category={article.category?.name}
+              categoryColor={article.category?.color}
+              contract={article.handData?.contract}
+              declarer={article.handData?.declarer}
+              hand={article.handData}
             />
           )}
         </div>
@@ -115,12 +129,25 @@ export default function ArticleCard({ article, variant = "default" }: ArticleCar
   return (
     <Link href={`/articles/${article.slug}`} className="group block">
       <div className="aspect-[3/2] bg-stone-200 rounded-sm mb-3 overflow-hidden">
-        {article.coverImageUrl && (
+        {article.coverImageUrl ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src={article.coverImageUrl}
             alt={article.title}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+        ) : (
+          <ArticleCardImage
+            fill
+            variant="default"
+            title={article.title}
+            author={article.author?.name}
+            authorPhoto={article.author?.avatarUrl}
+            category={article.category?.name}
+            categoryColor={article.category?.color}
+            contract={article.handData?.contract}
+            declarer={article.handData?.declarer}
+            hand={article.handData}
           />
         )}
       </div>

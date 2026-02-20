@@ -10,6 +10,7 @@ interface AdminUser {
   is_author:   boolean;
   is_legacy:   boolean;
   bio:         string | null;
+  photo_url:   string | null;
   created_at:  string;
   name:        string;
   email:       string;
@@ -40,6 +41,7 @@ interface EditForm {
   lastName:  string;
   email:     string;
   bio:       string;
+  photoUrl:  string;
 }
 
 export default function UserTierTable({
@@ -67,7 +69,7 @@ export default function UserTierTable({
 
   // ── Row-edit state ────────────────────────────────────────────────────────
   const [editingId,  setEditingId]  = useState<string | null>(null);
-  const [editForm,   setEditForm]   = useState<EditForm>({ firstName: "", lastName: "", email: "", bio: "" });
+  const [editForm,   setEditForm]   = useState<EditForm>({ firstName: "", lastName: "", email: "", bio: "", photoUrl: "" });
   const [editSaving, setEditSaving] = useState(false);
   const [editError,  setEditError]  = useState<string | null>(null);
 
@@ -141,7 +143,8 @@ export default function UserTierTable({
       firstName: user.first_name ?? "",
       lastName:  user.last_name  ?? "",
       email:     user.email !== "—" ? user.email : "",
-      bio:       user.bio ?? "",
+      bio:       user.bio      ?? "",
+      photoUrl:  user.photo_url ?? "",
     });
   }
 
@@ -155,7 +158,10 @@ export default function UserTierTable({
     setEditError(null);
     const user = users.find((u) => u.user_id === userId);
     try {
-      const body: Record<string, unknown> = { bio: editForm.bio };
+      const body: Record<string, unknown> = {
+        bio:      editForm.bio,
+        photoUrl: editForm.photoUrl,
+      };
       // Legacy authors: only update name + bio (no email, no Clerk sync needed)
       if (!user?.is_legacy) {
         body.firstName = editForm.firstName;
@@ -181,7 +187,8 @@ export default function UserTierTable({
             ? {
                 ...u,
                 name:       newName,
-                bio:        editForm.bio.trim() || null,
+                bio:        editForm.bio.trim()      || null,
+                photo_url:  editForm.photoUrl.trim() || null,
                 ...(u.is_legacy ? {} : {
                   email:      editForm.email.trim() || u.email,
                   first_name: editForm.firstName.trim() || null,
@@ -519,16 +526,34 @@ export default function UserTierTable({
                             className="border border-stone-200 rounded px-2 py-1 text-xs font-sans focus:outline-none focus:ring-1 focus:ring-stone-400 w-full resize-none"
                           />
                         )}
+                        <div className="flex items-center gap-1.5">
+                          {editForm.photoUrl && (
+                            // eslint-disable-next-line @next/next/no-img-element
+                            <img
+                              src={editForm.photoUrl}
+                              alt="Preview"
+                              className="w-7 h-7 rounded-full object-cover bg-stone-200 shrink-0"
+                              onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
+                            />
+                          )}
+                          <input
+                            type="url"
+                            value={editForm.photoUrl}
+                            onChange={(e) => setEditForm((f) => ({ ...f, photoUrl: e.target.value }))}
+                            placeholder="Photo URL (https://…)"
+                            className="border border-stone-200 rounded px-2 py-1 text-xs font-sans focus:outline-none focus:ring-1 focus:ring-stone-400 w-full"
+                          />
+                        </div>
                         {editError && (
                           <p className="text-xs text-red-600">{editError}</p>
                         )}
                       </div>
                     ) : (
                       <div className="flex items-center gap-3">
-                        {user.imageUrl ? (
+                        {(user.photo_url || user.imageUrl) ? (
                           // eslint-disable-next-line @next/next/no-img-element
                           <img
-                            src={user.imageUrl}
+                            src={user.photo_url || user.imageUrl}
                             alt={user.name}
                             className="w-8 h-8 rounded-full object-cover bg-stone-200 flex-shrink-0"
                           />

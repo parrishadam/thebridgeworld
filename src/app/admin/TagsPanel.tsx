@@ -13,6 +13,10 @@ interface Props {
 
 export default function TagsPanel({ initialTags }: Props) {
   const [tags,        setTags]        = useState<TagWithCount[]>(initialTags);
+  const [showAdd,     setShowAdd]     = useState(false);
+  const [addName,     setAddName]     = useState("");
+  const [addSaving,   setAddSaving]   = useState(false);
+  const [addError,    setAddError]    = useState<string | null>(null);
   const [editingId,   setEditingId]   = useState<string | null>(null);
   const [editName,    setEditName]    = useState("");
   const [editSaving,  setEditSaving]  = useState(false);
@@ -25,6 +29,37 @@ export default function TagsPanel({ initialTags }: Props) {
   const [mergeError,  setMergeError]  = useState<string | null>(null);
 
   const inputCls = "border border-stone-200 rounded px-2 py-1.5 text-sm font-sans focus:outline-none focus:ring-1 focus:ring-stone-400";
+
+  // ── Add ───────────────────────────────────────────────────────────────────
+
+  async function handleAdd() {
+    setAddSaving(true);
+    setAddError(null);
+    try {
+      const res = await fetch("/api/tags", {
+        method:  "POST",
+        headers: { "Content-Type": "application/json" },
+        body:    JSON.stringify({ name: addName.trim() }),
+      });
+      if (!res.ok) {
+        const { error: msg } = await res.json();
+        throw new Error(msg ?? "Failed to create tag");
+      }
+      const created = await res.json();
+      // If the tag already existed the API returns 200; avoid duplicates in list
+      setTags((prev) => {
+        if (prev.some((t) => t.id === created.id)) return prev;
+        return [...prev, { ...created, article_count: 0 }]
+          .sort((a, b) => a.name.localeCompare(b.name));
+      });
+      setAddName("");
+      setShowAdd(false);
+    } catch (err) {
+      setAddError(err instanceof Error ? err.message : "Unknown error");
+    } finally {
+      setAddSaving(false);
+    }
+  }
 
   // ── Rename ────────────────────────────────────────────────────────────────
 
@@ -139,7 +174,52 @@ export default function TagsPanel({ initialTags }: Props) {
   // ── Render ────────────────────────────────────────────────────────────────
 
   return (
-    <div>
+    <div className="space-y-6">
+
+      {/* ── Add form ── */}
+      {!showAdd ? (
+        <button
+          onClick={() => { setShowAdd(true); setAddError(null); }}
+          className="font-sans text-sm bg-stone-900 text-white px-4 py-2 hover:bg-stone-700 transition-colors"
+        >
+          + Add Tag
+        </button>
+      ) : (
+        <div className="border border-stone-200 rounded-sm bg-stone-50 p-5 space-y-4">
+          <p className="font-sans text-xs font-semibold uppercase tracking-wider text-stone-500">
+            New Tag
+          </p>
+          <div className="flex items-center gap-3">
+            <input
+              type="text"
+              value={addName}
+              onChange={(e) => setAddName(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") handleAdd();
+                if (e.key === "Escape") { setShowAdd(false); setAddName(""); }
+              }}
+              placeholder="e.g. squeeze"
+              className={`${inputCls} flex-1`}
+              autoFocus
+            />
+            <button
+              onClick={handleAdd}
+              disabled={addSaving || !addName.trim()}
+              className="font-sans text-sm bg-stone-900 text-white px-4 py-2 hover:bg-stone-700 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+            >
+              {addSaving ? "Saving…" : "Add Tag"}
+            </button>
+            <button
+              onClick={() => { setShowAdd(false); setAddName(""); setAddError(null); }}
+              className="font-sans text-sm border border-stone-200 text-stone-600 px-4 py-2 hover:bg-stone-50 transition-colors"
+            >
+              Cancel
+            </button>
+          </div>
+          {addError && <p className="text-xs font-sans text-red-600">{addError}</p>}
+        </div>
+      )}
+
       {/* ── Tag list ── */}
       <div className="divide-y divide-stone-100">
         {tags.length === 0 && (

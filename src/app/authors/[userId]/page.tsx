@@ -13,7 +13,7 @@ export const dynamic = "force-dynamic";
 export async function generateMetadata(
   { params }: { params: { userId: string } }
 ): Promise<Metadata> {
-  const profile = await fetchProfile(params.userId);
+  const profile = await fetchProfile(params.userId) as AuthorProfile | null;
   if (!profile) return {};
   const name = await resolveName(profile);
   return { title: name };
@@ -24,18 +24,22 @@ export async function generateMetadata(
 async function fetchProfile(userId: string) {
   const { data } = await getSupabaseAdmin()
     .from("user_profiles")
-    .select("user_id, first_name, last_name, is_legacy, bio")
+    .select("user_id, first_name, last_name, is_legacy, bio, photo_url")
     .eq("user_id", userId)
     .single();
   return data ?? null;
 }
 
-async function resolveName(profile: {
-  user_id: string;
+type AuthorProfile = {
+  user_id:    string;
   first_name: string | null;
-  last_name: string | null;
-  is_legacy: boolean;
-}): Promise<string> {
+  last_name:  string | null;
+  is_legacy:  boolean;
+  bio:        string | null;
+  photo_url:  string | null;
+};
+
+async function resolveName(profile: AuthorProfile): Promise<string> {
   const dbName = [profile.first_name, profile.last_name].filter(Boolean).join(" ");
   if (dbName) return dbName;
   if (profile.is_legacy) return "—";
@@ -56,7 +60,7 @@ export default async function AuthorPage({
 }: {
   params: { userId: string };
 }) {
-  const profile = await fetchProfile(params.userId);
+  const profile = await fetchProfile(params.userId) as AuthorProfile | null;
   if (!profile) notFound();
 
   const [name, { data: articles }] = await Promise.all([
@@ -91,9 +95,18 @@ export default async function AuthorPage({
         {/* Author header */}
         <div className="border-b border-stone-100 pb-8 mb-10">
           <div className="flex items-center gap-4 mb-3">
-            <div className="w-14 h-14 rounded-full bg-stone-200 flex items-center justify-center text-xl font-semibold text-stone-500 shrink-0">
-              {name?.[0]?.toUpperCase() ?? "?"}
-            </div>
+            {profile.photo_url ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={profile.photo_url}
+                alt={name}
+                className="w-14 h-14 rounded-full object-cover bg-stone-200 shrink-0"
+              />
+            ) : (
+              <div className="w-14 h-14 rounded-full bg-stone-200 flex items-center justify-center text-xl font-semibold text-stone-500 shrink-0">
+                {name?.[0]?.toUpperCase() ?? "?"}
+              </div>
+            )}
             <div>
               <h1 className="font-serif text-3xl font-bold text-stone-900">{name}</h1>
               {profile.is_legacy && (

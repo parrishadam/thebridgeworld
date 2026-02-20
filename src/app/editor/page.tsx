@@ -2,8 +2,6 @@ import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import { clerkClient } from "@clerk/nextjs/server";
 import { getOrCreateProfile } from "@/lib/subscription";
-import { getSupabaseAdmin } from "@/lib/supabase";
-import ArticleEditor from "@/components/editor/ArticleEditor";
 import { buildAuthorList } from "@/lib/authorList";
 
 export const dynamic = "force-dynamic";

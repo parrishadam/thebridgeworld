@@ -107,6 +107,15 @@ export async function POST(request: Request) {
     resolvedStatus === "published" ? new Date().toISOString() : null;
 
   const supabase = getSupabaseAdmin();
+
+  // Denormalize author photo so list queries don't need a join
+  const { data: authorProfile } = await supabase
+    .from("user_profiles")
+    .select("photo_url")
+    .eq("user_id", resolvedAuthorId)
+    .single();
+  const author_photo_url = (authorProfile as { photo_url: string | null } | null)?.photo_url ?? null;
+
   const { data, error } = await supabase
     .from("articles")
     .insert({
@@ -121,6 +130,7 @@ export async function POST(request: Request) {
       status:             resolvedStatus,
       content_blocks:     content_blocks ?? [],
       featured_image_url: featured_image_url ?? null,
+      author_photo_url,
       published_at,
     })
     .select("id")

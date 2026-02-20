@@ -3,7 +3,10 @@
  * Never import this file in a Client Component.
  */
 import { getSupabaseAdmin } from "./supabase";
-import type { SupabaseArticle, SanityArticle, SanityCategory, ArticleAccessTier, Category } from "@/types";
+import type {
+  SupabaseArticle, SanityArticle, SanityCategory, ArticleAccessTier, Category,
+  ContentBlock, BridgeHandBlock, PlayHandBlock, HandSummary,
+} from "@/types";
 
 // ── Slug helper ────────────────────────────────────────────────────────────
 
@@ -118,6 +121,40 @@ export async function getArticleFilterOptions(): Promise<{
   return { categories, authors, tags };
 }
 
+// ── Hand extractor ─────────────────────────────────────────────────────────
+
+const SEAT_TO_DIR: Record<string, string> = {
+  N: "North", S: "South", E: "East", W: "West",
+};
+
+export function extractHandData(blocks: ContentBlock[]): HandSummary | undefined {
+  for (const block of blocks) {
+    if (block.type !== "bridgeHand" && block.type !== "playHand") continue;
+
+    const data = (block as BridgeHandBlock | PlayHandBlock).data;
+    const south = data.hands?.south;
+    if (!south) continue;
+
+    const hand: HandSummary = {
+      S:        south.S || undefined,
+      H:        south.H || undefined,
+      D:        south.D || undefined,
+      C:        south.C || undefined,
+      contract: data.contract || undefined,
+    };
+
+    if (block.type === "playHand") {
+      const d = (block as PlayHandBlock).data.declarer;
+      hand.declarer = SEAT_TO_DIR[d] ?? d;
+    } else {
+      hand.declarer = (block as BridgeHandBlock).data.dealer || undefined;
+    }
+
+    if (hand.S || hand.H || hand.D || hand.C) return hand;
+  }
+  return undefined;
+}
+
 // ── Shape adapter ─────────────────────────────────────────────────────────
 
 /**
@@ -156,11 +193,13 @@ export function mapSupabaseToCardShape(
     coverImageUrl: article.featured_image_url ?? undefined,
     category,
     tags,
+    handData:     extractHandData(article.content_blocks ?? []),
     author: article.author_name
       ? {
-          _id:  article.author_id ?? slugify(article.author_name),
-          name: article.author_name,
-          slug: slugify(article.author_name),
+          _id:      article.author_id ?? slugify(article.author_name),
+          name:     article.author_name,
+          slug:     slugify(article.author_name),
+          avatarUrl: article.author_photo_url ?? undefined,
         }
       : undefined,
   };

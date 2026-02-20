@@ -6,7 +6,9 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import SupabaseArticleRenderer from "@/components/articles/SupabaseArticleRenderer";
 import PaywallBanner from "@/components/subscription/PaywallBanner";
-import { getSupabaseArticleBySlug } from "@/lib/articles";
+import { getSupabaseArticleBySlug, extractHandData } from "@/lib/articles";
+import { getSupabaseAdmin } from "@/lib/supabase";
+import ArticleCardImage from "@/components/articles/ArticleCardImage";
 import { getSubscriptionStatus } from "@/lib/subscription";
 import { getCategoryByName } from "@/lib/categories";
 import { formatDate } from "@/lib/utils";
@@ -21,6 +23,9 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const article = await getSupabaseArticleBySlug(params.slug);
   if (!article) return {};
+  const ogImage = article.featured_image_url
+    ? article.featured_image_url
+    : `/api/og/${params.slug}`;
   return {
     title:       article.title,
     description: article.excerpt ?? undefined,
@@ -29,9 +34,7 @@ export async function generateMetadata(
       description:   article.excerpt ?? undefined,
       type:          "article",
       publishedTime: article.published_at ?? undefined,
-      ...(article.featured_image_url && {
-        images: [{ url: article.featured_image_url }],
-      }),
+      images:        [{ url: ogImage, width: 1200, height: 630 }],
     },
   };
 }
@@ -70,8 +73,20 @@ export default async function ArticlePage(
   const showPaywall = paywallVariant !== null;
   const catSlug = article.category?.toLowerCase().replace(/\s+/g, "-") ?? "";
 
-  const catEntry = article.category ? await getCategoryByName(article.category) : null;
-  const catColor = catEntry?.color ?? null;
+  const [catEntry, authorProfile] = await Promise.all([
+    article.category ? getCategoryByName(article.category) : null,
+    article.author_id
+      ? getSupabaseAdmin()
+          .from("user_profiles")
+          .select("photo_url")
+          .eq("user_id", article.author_id)
+          .single()
+          .then(({ data }) => data as { photo_url: string | null } | null)
+      : null,
+  ]);
+  const catColor    = catEntry?.color ?? null;
+  const authorPhoto = authorProfile?.photo_url ?? null;
+  const handData    = extractHandData(article.content_blocks ?? []);
 
   return (
     <>
@@ -135,6 +150,14 @@ export default async function ArticlePage(
 
           {/* Byline */}
           <div className="flex items-center gap-3 border-t border-b border-stone-100 py-4 mb-8">
+            {authorPhoto && (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={authorPhoto}
+                alt={article.author_name ?? "Author"}
+                className="w-10 h-10 rounded-full object-cover bg-stone-200 shrink-0"
+              />
+            )}
             <div className="font-sans text-sm">
               {article.author_name && (
                 article.author_id ? (
@@ -167,17 +190,32 @@ export default async function ArticlePage(
           </div>
         </div>
 
-        {/* Featured image */}
-        {article.featured_image_url && (
-          <div className="max-w-5xl mx-auto px-4 mb-10">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
+        {/* Hero image or generated card */}
+        <div className="max-w-5xl mx-auto px-4 mb-10">
+          {article.featured_image_url ? (
+            // eslint-disable-next-line @next/next/no-img-element
             <img
               src={article.featured_image_url}
               alt={article.title}
               className="w-full rounded-sm object-cover max-h-[520px]"
             />
-          </div>
-        )}
+          ) : (
+            <div className="w-full rounded-sm overflow-hidden" style={{ height: 340 }}>
+              <ArticleCardImage
+                fill
+                variant="featured"
+                title={article.title}
+                author={article.author_name ?? undefined}
+                authorPhoto={authorPhoto ?? undefined}
+                category={article.category ?? undefined}
+                categoryColor={catColor ?? undefined}
+                contract={handData?.contract}
+                declarer={handData?.declarer}
+                hand={handData}
+              />
+            </div>
+          )}
+        </div>
 
         {/* Body */}
         <div className="max-w-3xl mx-auto px-4 pb-16">

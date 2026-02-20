@@ -11,6 +11,7 @@ export interface UserProfile {
   is_author:      boolean;
   is_legacy:      boolean;
   bio:            string | null;
+  photo_url:      string | null;
   created_at:     string;
   updated_at:     string;
 }
@@ -62,6 +63,16 @@ export interface SanityAuthor {
   avatarUrl?: string;
 }
 
+// Card-image hand summary extracted from the first hand block
+export interface HandSummary {
+  S?:        string;
+  H?:        string;
+  D?:        string;
+  C?:        string;
+  contract?: string;
+  declarer?: string;
+}
+
 /** Shape returned by articleCardFragment + detail query */
 export interface SanityArticle {
   _id: string;
@@ -76,6 +87,7 @@ export interface SanityArticle {
   category: SanityCategory;
   tags?: SanityCategory[];
   author?: SanityAuthor;
+  handData?: HandSummary;
   // Only present on detail query
   content?: SanityBlock[];
   seoTitle?: string;
@@ -213,6 +225,7 @@ export interface SupabaseArticle {
   status:            "draft" | "submitted" | "published";
   content_blocks:    ContentBlock[];
   featured_image_url: string | null;
+  author_photo_url:  string | null;
   created_at:        string;
   updated_at:        string;
   published_at:      string | null;

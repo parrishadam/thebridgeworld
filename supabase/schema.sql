@@ -16,6 +16,7 @@ CREATE TABLE IF NOT EXISTS user_profiles (
   is_author      BOOLEAN NOT NULL DEFAULT false,
   is_legacy      BOOLEAN NOT NULL DEFAULT false,
   bio            TEXT,
+  photo_url      TEXT,
   first_name     TEXT,
   last_name      TEXT,
   email          TEXT,
