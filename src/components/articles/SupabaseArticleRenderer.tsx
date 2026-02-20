@@ -3,7 +3,6 @@ import type {
   BridgeHandBlock,
   BiddingTableBlock,
   HandCards,
-  Direction,
 } from "@/types";
 
 // ── Suit helpers ───────────────────────────────────────────────────────────
