@@ -190,6 +190,16 @@ export interface ParsedPBN {
    * BridgeComposer suit escapes (\S \H \D \C) are converted to symbols.
    */
   commentary?: string;
+  /**
+   * Display-form opening lead extracted from the [Play] section, e.g. "♥J".
+   * Suitable for showing in the UI.
+   */
+  lead?: string;
+  /**
+   * Structured opening lead for the game engine: { suit: "H", rank: "J" }.
+   * suit is S/H/D/C; rank is A/K/Q/J/T/2-9.
+   */
+  openingLead?: { suit: string; rank: string };
 }
 
 export type PBNResult =
@@ -221,6 +231,37 @@ function parseCommentary(raw: string): string | undefined {
     if (text) blocks.push(text);
   }
   return blocks.length > 0 ? blocks.join("\n\n") : undefined;
+}
+
+// ── Play section ───────────────────────────────────────────────────────────
+
+const PLAY_SUIT_SYMBOL: Record<string, string> = { S: "♠", H: "♥", D: "♦", C: "♣" };
+
+/**
+ * Extract the opening lead from the text that follows a [Play "seat"] tag.
+ * Standard PBN card format is <suit><rank>: "HJ" = Jack of Hearts.
+ * Returns null if the first playable card cannot be identified.
+ */
+function parseOpeningLead(
+  playText: string,
+): { suit: string; rank: string } | null {
+  for (const line of playText.split("\n")) {
+    // Strip inline comments and whitespace
+    const stripped = line.replace(/\{[^}]*\}/g, " ").trim();
+    if (!stripped || stripped.startsWith("%")) continue;
+
+    for (const tok of stripped.split(/\s+/)) {
+      if (tok === "-" || tok === "*") continue; // placeholder / void
+      const u = tok.toUpperCase();
+      if (u.length === 2 && "SHDC".includes(u[0]) && "AKQJT98765432".includes(u[1])) {
+        return { suit: u[0], rank: u[1] };
+      }
+      // Only consider the first meaningful token on the first meaningful line
+      break;
+    }
+    break;
+  }
+  return null;
 }
 
 // ── Main entry point ───────────────────────────────────────────────────────
@@ -299,6 +340,20 @@ export function parsePBN(raw: string): PBNResult {
     // Propagate auction dealer if no [Dealer] tag was present
     if (!pbn.dealer) {
       pbn.dealer = auctionDealer;
+    }
+  }
+
+  // ── [Play] ──────────────────────────────────────────────────────────────
+  // [Play "W"] (or N/E/S) followed by lines of played cards; first card = opening lead.
+  const playTag = getTagWithEnd(raw, "Play");
+  if (playTag) {
+    const afterTag   = raw.slice(playTag.end);
+    const nextBracket = afterTag.indexOf("[");
+    const playText   = nextBracket === -1 ? afterTag : afterTag.slice(0, nextBracket);
+    const lead = parseOpeningLead(playText);
+    if (lead) {
+      pbn.openingLead = lead;
+      pbn.lead = (PLAY_SUIT_SYMBOL[lead.suit] ?? lead.suit) + lead.rank;
     }
   }
 

@@ -36,6 +36,7 @@ interface GameState extends GameSnapshot {
   target: number;
   aiPending: boolean;
   undoStack: GameSnapshot[];
+  openingLead: { suit: string; rank: string } | null;
 }
 
 // ── Constants ───────────────────────────────────────────────────────────────
@@ -68,9 +69,10 @@ const TO_SEAT: Record<string, Seat> = {
 function parseHand(hand: HandCards): Card[] {
   const cards: Card[] = [];
   for (const suit of SUIT_ORDER) {
-    const ranks = (hand[suit] || "").trim().split(/\s+/).filter(Boolean);
+    // Strip spaces (editor may use "A K Q" or PBN uses "AKQ"); split into individual rank chars
+    const ranks = (hand[suit] || "").replace(/\s/g, "").split("").filter((r) => r && r !== "-");
     for (const rank of ranks) {
-      if (rank !== "-") cards.push({ suit, rank, id: `${suit}${rank}` });
+      cards.push({ suit, rank, id: `${suit}${rank}` });
     }
   }
   return cards;
@@ -126,23 +128,6 @@ function getLegalCards(hand: Card[], leadSuit: GameSuit | null): Card[] {
   if (!leadSuit) return hand;
   const suited = hand.filter((c) => c.suit === leadSuit);
   return suited.length > 0 ? suited : hand;
-}
-
-/** Parse a display-form lead string ("♥J", "HJ", "♠A") → structured form. */
-function parseLead(lead?: string): { suit: GameSuit; rank: string } | null {
-  if (!lead) return null;
-  const prefixes: [string, GameSuit][] = [
-    ["♠", "S"], ["♥", "H"], ["♦", "D"], ["♣", "C"],
-    ["S", "S"], ["H", "H"], ["D", "D"], ["C", "C"],
-  ];
-  for (const [prefix, suit] of prefixes) {
-    if (lead.startsWith(prefix)) {
-      const rank = lead.slice(prefix.length).trim().toUpperCase();
-      if (rank && rank in RANK_VALUES) return { suit, rank };
-      return null;
-    }
-  }
-  return null;
 }
 
 // ── AI ──────────────────────────────────────────────────────────────────────
@@ -247,8 +232,7 @@ function FaceDownStack({ count, label }: { count: number; label: string }) {
   return (
     <div style={{
       display: "flex", flexDirection: "column", alignItems: "center",
-      width: 36, height: 260, justifyContent: "flex-start",
-      paddingTop: 8, position: "relative",
+      width: 36,
     }}>
       {Array.from({ length: count }).map((_, i) => (
         <div key={i} style={{
@@ -262,7 +246,7 @@ function FaceDownStack({ count, label }: { count: number; label: string }) {
       <div style={{
         fontSize: 10, color: "rgba(255,255,255,0.4)", fontFamily: "system-ui",
         textTransform: "uppercase", letterSpacing: 0.5,
-        position: "absolute", bottom: 8,
+        marginTop: 14,
       }}>
         {label}
       </div>
@@ -284,7 +268,6 @@ export default function BridgePlayTable({ deal }: { deal: PlayHandBlock["data"] 
   const rerender = () => forceRender((n) => n + 1);
 
   const declarer = (TO_SEAT[deal.declarer] ?? "S") as Seat;
-  const parsedLead = parseLead(deal.lead);
 
   // Single mutable game state — no stale closures
   const _ref = useRef<GameState>(null!);
@@ -309,6 +292,7 @@ export default function BridgePlayTable({ deal }: { deal: PlayHandBlock["data"] 
       target:       getTarget(deal.contract),
       aiPending:    false,
       undoStack:    [],
+      openingLead:  deal.openingLead ?? null,
     };
   }
   const g = _ref.current;
@@ -393,9 +377,9 @@ export default function BridgePlayTable({ deal }: { deal: PlayHandBlock["data"] 
       if (!h || h.length === 0) return;
 
       let card: Card | undefined;
-      // Use specified opening lead for first trick
-      if (g.currentTrick.length === 0 && g.trickCount === 0 && parsedLead) {
-        const leadId = `${parsedLead.suit}${parsedLead.rank}`;
+      // Use specified opening lead for the very first play
+      if (g.currentTrick.length === 0 && g.trickCount === 0 && g.openingLead) {
+        const leadId = g.openingLead.suit + g.openingLead.rank;
         card = h.find((c) => c.id === leadId);
       }
       if (!card) card = aiSelectCard(h, g.currentTrick, g.trumpSuit);
@@ -426,6 +410,7 @@ export default function BridgePlayTable({ deal }: { deal: PlayHandBlock["data"] 
     g.gameOver     = false;
     g.aiPending    = false;
     g.undoStack    = [];
+    g.openingLead  = deal.openingLead ?? null;
     g.message      = `Contract: ${deal.contract}. ${SEAT_NAMES[leader]} leads.`;
     rerender();
     setTimeout(() => maybeAI(), 100);
@@ -502,14 +487,8 @@ export default function BridgePlayTable({ deal }: { deal: PlayHandBlock["data"] 
           const play = trickToShow.find((p) => p.seat === seat);
           if (!play) return null;
           return (
-            <div key={seat} style={{
-              position: "absolute", ...positions[seat],
-              background: "#fff", border: "1.5px solid #ddd", borderRadius: 5,
-              padding: "6px 10px", boxShadow: "0 2px 6px rgba(0,0,0,0.1)",
-            }}>
-              <span style={{ color: SUIT_INFO[play.card.suit].color, fontWeight: 700, fontSize: 16 }}>
-                {play.card.rank === "T" ? "10" : play.card.rank}{SUIT_INFO[play.card.suit].symbol}
-              </span>
+            <div key={seat} style={{ position: "absolute", ...positions[seat] }}>
+              <CardFace card={play.card} playable={false} />
             </div>
           );
         })}

@@ -130,8 +130,10 @@ export type PlayHandBlock = {
     contract: string;
     /** Seat code of the declarer: "N" | "E" | "S" | "W" */
     declarer: string;
-    /** Display-form opening lead, e.g. "♥J".  Used to pre-play the AI's first card. */
+    /** Display-form opening lead, e.g. "♥J". Shown in the UI header. */
     lead?: string;
+    /** Structured opening lead used by the game engine to pre-play the AI's first card. */
+    openingLead?: { suit: string; rank: string };
     hands: Record<Direction, HandCards>;
     visibleHands: Record<Direction, boolean>;
     /** Auction embedded in the block (shown in the overlay). */

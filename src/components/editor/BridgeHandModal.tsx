@@ -5,6 +5,50 @@ import type { BridgeHandBlock, PlayHandBlock, BiddingTableBlock, Direction, Hand
 import { parsePBN, parsePBNDeals } from "@/lib/pbn";
 import type { ParsedPBN } from "@/lib/pbn";
 
+// ── Lead parsing helpers ─────────────────────────────────────────────────
+
+const LEAD_SUIT_SYMBOLS: Record<string, string> = { S: "♠", H: "♥", D: "♦", C: "♣" };
+const LEAD_SYMBOL_TO_SUIT: Record<string, string> = { "♠": "S", "♥": "H", "♦": "D", "♣": "C" };
+const LEAD_RANK_CHARS  = new Set(["A","K","Q","J","T","2","3","4","5","6","7","8","9"]);
+const LEAD_SUIT_LETTERS = new Set(["S","H","D","C"]);
+
+/**
+ * Parse any lead input format to { suit, rank } or null.
+ * Accepts: "♥J", "J♥", "HJ", "JH", "hj", "jh" (case-insensitive).
+ */
+function parseLeadInput(raw: string): { suit: string; rank: string } | null {
+  if (!raw) return null;
+  const s = raw.trim();
+
+  // Symbol-first: "♥J"
+  for (const [sym, suit] of Object.entries(LEAD_SYMBOL_TO_SUIT)) {
+    if (s.startsWith(sym)) {
+      const rank = s.slice(sym.length).trim().toUpperCase();
+      if (LEAD_RANK_CHARS.has(rank)) return { suit, rank };
+    }
+  }
+  // Symbol-last: "J♥"
+  for (const [sym, suit] of Object.entries(LEAD_SYMBOL_TO_SUIT)) {
+    if (s.endsWith(sym)) {
+      const rank = s.slice(0, s.length - sym.length).trim().toUpperCase();
+      if (LEAD_RANK_CHARS.has(rank)) return { suit, rank };
+    }
+  }
+  // Two-letter: "HJ" (suit+rank) or "JH" (rank+suit), case-insensitive
+  const u = s.toUpperCase();
+  if (u.length === 2) {
+    const [c0, c1] = [u[0], u[1]];
+    if (LEAD_SUIT_LETTERS.has(c0) && LEAD_RANK_CHARS.has(c1)) return { suit: c0, rank: c1 };
+    if (LEAD_RANK_CHARS.has(c0) && LEAD_SUIT_LETTERS.has(c1)) return { suit: c1, rank: c0 };
+  }
+  return null;
+}
+
+/** Format a parsed lead to display form: "♥J". */
+function formatLead(lead: { suit: string; rank: string }): string {
+  return (LEAD_SUIT_SYMBOLS[lead.suit] ?? lead.suit) + lead.rank;
+}
+
 interface BridgeHandModalProps {
   /** "bridgeHand" (default) shows a static hand block; "playHand" adds a Declarer field. */
   mode?: "bridgeHand" | "playHand";
@@ -129,6 +173,8 @@ export default function BridgeHandModal({
       if (pbn.dealer)        next.dealer        = pbn.dealer;
       if (pbn.vulnerability) next.vulnerability = pbn.vulnerability;
       if (pbn.contract)      next.contract      = pbn.contract;
+      // Populate lead from [Play] section (already in display form "♥J")
+      if (pbn.lead)          next.lead          = pbn.lead;
       if (pbn.deal) {
         next.hands = {
           north: { ...DEFAULT_HAND, ...pbn.deal.north },
@@ -170,10 +216,12 @@ export default function BridgeHandModal({
     }
 
     if (mode === "playHand") {
-      // Embed auction into the block; no separate biddingTable block
+      // Embed auction and lead into the block; no separate biddingTable block
       const handData: PlayHandBlock["data"] = {
         ...base,
-        declarer: pbn.declarer ?? "S",
+        declarer:    pbn.declarer ?? "S",
+        lead:        pbn.lead,
+        openingLead: pbn.openingLead,
         auction: pbn.auction
           ? { dealer: pbn.auction.dealer, bids: pbn.auction.bids }
           : undefined,
@@ -479,7 +527,11 @@ export default function BridgeHandModal({
                 type="text"
                 value={data.lead}
                 onChange={(e) => setField("lead", e.target.value)}
-                placeholder="e.g. ♥K"
+                onBlur={(e) => {
+                  const parsed = parseLeadInput(e.target.value);
+                  if (parsed) setField("lead", formatLead(parsed));
+                }}
+                placeholder="e.g. ♥K or HK or KH"
                 className="w-full border border-stone-200 rounded px-3 py-2 text-sm font-sans focus:outline-none focus:ring-1 focus:ring-stone-400"
               />
             </div>
@@ -602,10 +654,13 @@ export default function BridgeHandModal({
           <button
             onClick={() => {
               if (mode === "playHand") {
+                const parsedLead = data.lead ? parseLeadInput(data.lead) : null;
                 onSave({
                   ...data,
                   declarer,
                   auction: pendingAuction ?? undefined,
+                  lead: parsedLead ? formatLead(parsedLead) : data.lead,
+                  openingLead: parsedLead ?? undefined,
                 });
               } else {
                 onSave(
