@@ -23,7 +23,7 @@ export default async function HomePage() {
         <section className="mb-16">
           <div className="border-b-2 border-stone-900 pb-2 mb-8">
             <h2 className="font-sans text-xs uppercase tracking-[0.25em] text-stone-500">
-              Latest Issue
+              Latest Article
             </h2>
           </div>
 
@@ -36,7 +36,7 @@ export default async function HomePage() {
               {sidebar.length > 0 && (
                 <div className="lg:col-span-5 lg:border-l lg:border-stone-200 lg:pl-8">
                   <h3 className="font-sans text-xs uppercase tracking-wider text-stone-500 border-b border-stone-100 pb-2 mb-2">
-                    Also in this issue
+                    Recent articles
                   </h3>
                   {sidebar.map((article) => (
                     <ArticleCard key={article._id} article={article} variant="compact" />
