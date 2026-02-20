@@ -34,11 +34,12 @@ export default function UserTierTable({ initialUsers }: { initialUsers: AdminUse
   const [tierError,  setTierError]  = useState<string | null>(null);
 
   // ── Add-user state ────────────────────────────────────────────────────────
-  const [showAdd,    setShowAdd]    = useState(false);
-  const [addForm,    setAddForm]    = useState<AddForm>({ firstName: "", lastName: "", email: "", tier: "free" });
-  const [addSaving,  setAddSaving]  = useState(false);
-  const [addError,   setAddError]   = useState<string | null>(null);
-  const [addSuccess, setAddSuccess] = useState(false);
+  const [showAdd,      setShowAdd]      = useState(false);
+  const [addForm,      setAddForm]      = useState<AddForm>({ firstName: "", lastName: "", email: "", tier: "free" });
+  const [addSaving,    setAddSaving]    = useState(false);
+  const [addError,     setAddError]     = useState<string | null>(null);
+  const [addSuccess,   setAddSuccess]   = useState<{ name: string; email: string } | null>(null);
+  const [tempPassword, setTempPassword] = useState<string | null>(null);
 
   // ── Row-edit state ────────────────────────────────────────────────────────
   const [editingId,   setEditingId]   = useState<string | null>(null);
@@ -83,12 +84,12 @@ export default function UserTierTable({ initialUsers }: { initialUsers: AdminUse
         const { error: msg } = await res.json();
         throw new Error(msg ?? "Failed to add user");
       }
-      const newUser = await res.json();
+      const { tempPassword: pw, ...newUser } = await res.json();
       setUsers((prev) => [newUser, ...prev]);
+      setTempPassword(pw ?? null);
+      setAddSuccess({ name: newUser.name, email: newUser.email });
       setAddForm({ firstName: "", lastName: "", email: "", tier: "free" });
       setShowAdd(false);
-      setAddSuccess(true);
-      setTimeout(() => setAddSuccess(false), 5000);
     } catch (err) {
       setAddError(err instanceof Error ? err.message : "Unknown error");
     } finally {
@@ -228,8 +229,37 @@ export default function UserTierTable({ initialUsers }: { initialUsers: AdminUse
         )}
 
         {addSuccess && (
-          <div className="mt-3 bg-green-50 border border-green-200 text-green-800 text-sm font-sans px-4 py-3 rounded-sm">
-            ✓ User added successfully.
+          <div className="mt-3 bg-green-50 border border-green-200 rounded-sm p-4 space-y-2">
+            <p className="font-sans text-sm font-semibold text-green-800">
+              ✓ Account created for {addSuccess.name} ({addSuccess.email})
+            </p>
+            {tempPassword && (
+              <>
+                <p className="font-sans text-xs text-green-700">
+                  Share this temporary password with the user — they should change it on first login:
+                </p>
+                <div className="flex items-center gap-3">
+                  <code className="bg-white border border-green-300 rounded px-3 py-1.5 font-mono text-base font-bold text-green-900 tracking-widest select-all">
+                    {tempPassword}
+                  </code>
+                  <button
+                    onClick={() => navigator.clipboard.writeText(tempPassword)}
+                    className="font-sans text-xs border border-green-300 text-green-700 px-3 py-1.5 rounded hover:bg-green-100 transition-colors"
+                  >
+                    Copy
+                  </button>
+                </div>
+                <p className="font-sans text-xs text-green-600 italic">
+                  This password will not be shown again.
+                </p>
+              </>
+            )}
+            <button
+              onClick={() => { setAddSuccess(null); setTempPassword(null); }}
+              className="block font-sans text-xs text-green-600 hover:text-green-900 underline mt-1"
+            >
+              Dismiss
+            </button>
           </div>
         )}
       </div>
