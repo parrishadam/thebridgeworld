@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { useRouter } from "next/navigation";
 import type { ContentBlock, SupabaseArticle, Category } from "@/types";
 import BlockList from "./BlockList";
+import TagPicker from "./TagPicker";
 import SupabaseArticleRenderer from "@/components/articles/SupabaseArticleRenderer";
 
 // ── Types ──────────────────────────────────────────────────────────────────
@@ -25,7 +26,7 @@ interface EditorMeta {
   authorName:        string;
   authorId:          string;
   category:          string;
-  tags:              string;
+  tags:              string[];
   accessTier:        "free" | "paid" | "premium";
   excerpt:           string;
   status:            ArticleStatus;
@@ -59,7 +60,7 @@ export default function ArticleEditor({
     authorName:       article?.author_name ?? currentUser.name,
     authorId:         article?.author_id ?? currentUser.id,
     category:         article?.category ?? "",
-    tags:             (article?.tags ?? []).join(", "),
+    tags:             article?.tags ?? [],
     accessTier:       article?.access_tier ?? (isAdmin ? "free" : "paid"),
     excerpt:          article?.excerpt ?? "",
     status:           article?.status ?? "draft",
@@ -142,10 +143,7 @@ export default function ArticleEditor({
       author_name:        meta.authorName || null,
       author_id:          meta.authorId,
       category:           meta.category || null,
-      tags:               meta.tags
-        .split(",")
-        .map((t) => t.trim())
-        .filter(Boolean),
+      tags:               meta.tags,
       access_tier:        meta.accessTier,
       excerpt:            meta.excerpt || null,
       status:             meta.status,
@@ -386,15 +384,10 @@ export default function ArticleEditor({
 
             {/* Tags */}
             <div>
-              <label className="block text-xs font-sans text-stone-500 mb-1">
-                Tags (comma-separated)
-              </label>
-              <input
-                type="text"
-                value={meta.tags}
-                onChange={(e) => updateMeta("tags", e.target.value)}
-                placeholder="tag1, tag2"
-                className="w-full border border-stone-200 rounded px-2 py-1.5 text-xs font-sans text-stone-700 focus:outline-none focus:ring-1 focus:ring-stone-400"
+              <label className="block text-xs font-sans text-stone-500 mb-1">Tags</label>
+              <TagPicker
+                selectedTags={meta.tags}
+                onChange={(tags) => updateMeta("tags", tags)}
               />
             </div>
 

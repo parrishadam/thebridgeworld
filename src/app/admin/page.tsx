@@ -6,10 +6,12 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import UserTierTable from "./UserTierTable";
 import CategoriesPanel from "./CategoriesPanel";
+import TagsPanel from "./TagsPanel";
 import { getOrCreateProfile } from "@/lib/subscription";
 import { getSupabaseAdmin } from "@/lib/supabase";
 import { clerkClient } from "@clerk/nextjs/server";
 import { getCategoriesWithCounts } from "@/lib/categories";
+import { getTagsWithCounts } from "@/lib/tags";
 
 export const metadata: Metadata = { title: "Admin — User Management" };
 
@@ -43,7 +45,10 @@ export default async function AdminPage() {
     }
   }
 
-  const categories = await getCategoriesWithCounts();
+  const [categories, tags] = await Promise.all([
+    getCategoriesWithCounts(),
+    getTagsWithCounts(),
+  ]);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const users = (profiles ?? []).map((p: any) => {
@@ -116,6 +121,24 @@ export default async function AdminPage() {
           <p className="font-serif text-2xl font-bold text-stone-900 mb-6">Categories</p>
           <div className="bg-white border border-stone-200 rounded-sm p-6">
             <CategoriesPanel initialCategories={categories} />
+          </div>
+        </div>
+
+        {/* ── Tags ────────────────────────────────────────────────────────── */}
+        <div className="mt-12">
+          <div className="border-b-2 border-stone-900 pb-2 mb-6">
+            <h2 className="font-sans text-xs uppercase tracking-[0.25em] text-stone-500">
+              Tags
+            </h2>
+          </div>
+          <div className="flex items-center justify-between mb-6">
+            <p className="font-serif text-2xl font-bold text-stone-900">Tags</p>
+            <p className="font-sans text-sm text-stone-400">
+              {tags.length} {tags.length === 1 ? "tag" : "tags"}
+            </p>
+          </div>
+          <div className="bg-white border border-stone-200 rounded-sm p-6">
+            <TagsPanel initialTags={tags} />
           </div>
         </div>
 

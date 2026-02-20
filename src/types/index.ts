@@ -34,6 +34,15 @@ export interface Category {
   created_at:   string;
 }
 
+// ── Tag ────────────────────────────────────────────────────────────────────
+
+export interface Tag {
+  id:         string;
+  name:       string;
+  slug:       string;
+  created_at: string;
+}
+
 // ── Sanity-projected types (match GROQ query shapes) ──────────────────────
 
 export type Suit = "spades" | "hearts" | "diamonds" | "clubs";

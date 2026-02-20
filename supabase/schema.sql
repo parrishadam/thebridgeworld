@@ -96,3 +96,26 @@ INSERT INTO categories (name, slug, description, color, sort_order) VALUES
   ('Puzzle',             'puzzle',             'Bridge puzzles and problems',                '#be185d', 90),
   ('Editorial',          'editorial',          'Commentary and opinion',                     '#64748b', 100)
 ON CONFLICT (name) DO NOTHING;
+
+-- ── Tags ───────────────────────────────────────────────────────────────────
+
+CREATE TABLE IF NOT EXISTS tags (
+  id         UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  name       TEXT NOT NULL UNIQUE,
+  slug       TEXT NOT NULL UNIQUE,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
+CREATE INDEX IF NOT EXISTS idx_tags_name ON tags (name);
+
+ALTER TABLE tags ENABLE ROW LEVEL SECURITY;
+
+-- Migrate existing tags from articles into the tags table
+-- (safe to re-run; ON CONFLICT DO NOTHING skips duplicates)
+INSERT INTO tags (name, slug)
+SELECT DISTINCT
+  lower(trim(tag))                                                      AS name,
+  lower(regexp_replace(trim(tag), '[^a-z0-9]+', '-', 'g'))              AS slug
+FROM articles, unnest(tags) AS tag
+WHERE trim(tag) <> ''
+ON CONFLICT (name) DO NOTHING;
