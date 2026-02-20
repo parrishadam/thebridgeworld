@@ -14,17 +14,29 @@ export async function PATCH(
   if (!caller.is_admin) return NextResponse.json({ error: "Forbidden" }, { status: 403 });
 
   const body = await req.json().catch(() => ({}));
-  const { firstName, lastName, email } = body as {
-    firstName?: string; lastName?: string; email?: string;
+  const { firstName, lastName, email, isAdmin } = body as {
+    firstName?: string; lastName?: string; email?: string; isAdmin?: boolean;
   };
+
+  // Prevent an admin from removing their own admin status
+  if (isAdmin === false && params.userId === callerId) {
+    return NextResponse.json({ error: "You cannot remove your own admin status" }, { status: 403 });
+  }
+
+  // Build a partial update — only include fields that were explicitly provided
+  const update: Record<string, unknown> = {};
+  if (firstName !== undefined) update.first_name = firstName?.trim() || null;
+  if (lastName  !== undefined) update.last_name  = lastName?.trim()  || null;
+  if (email     !== undefined) update.email      = email?.trim()     || null;
+  if (isAdmin   !== undefined) update.is_admin   = isAdmin;
+
+  if (Object.keys(update).length === 0) {
+    return NextResponse.json({ error: "No fields to update" }, { status: 400 });
+  }
 
   const { data, error } = await getSupabaseAdmin()
     .from("user_profiles")
-    .update({
-      first_name: firstName?.trim() ?? null,
-      last_name:  lastName?.trim()  ?? null,
-      email:      email?.trim()     ?? null,
-    })
+    .update(update)
     .eq("user_id", params.userId)
     .select()
     .single();

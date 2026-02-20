@@ -26,7 +26,7 @@ const tierBadge: Record<SubscriptionTier, string> = {
 interface AddForm { firstName: string; lastName: string; email: string; tier: SubscriptionTier }
 interface EditForm { firstName: string; lastName: string; email: string }
 
-export default function UserTierTable({ initialUsers }: { initialUsers: AdminUser[] }) {
+export default function UserTierTable({ initialUsers, currentUserId }: { initialUsers: AdminUser[]; currentUserId: string }) {
   const [users, setUsers] = useState<AdminUser[]>(initialUsers);
 
   // ── Tier-change state ─────────────────────────────────────────────────────
@@ -51,6 +51,10 @@ export default function UserTierTable({ initialUsers }: { initialUsers: AdminUse
   const [resettingId,  setResettingId]  = useState<string | null>(null);
   const [resetResult,  setResetResult]  = useState<{ name: string; email: string; tempPassword: string } | null>(null);
   const [resetError,   setResetError]   = useState<{ userId: string; message: string } | null>(null);
+
+  // ── Admin-toggle state ────────────────────────────────────────────────────
+  const [adminSaving, setAdminSaving] = useState<string | null>(null);
+  const [adminError,  setAdminError]  = useState<{ userId: string; message: string } | null>(null);
 
   // ── Handlers ──────────────────────────────────────────────────────────────
 
@@ -145,6 +149,27 @@ export default function UserTierTable({ initialUsers }: { initialUsers: AdminUse
       setEditError(err instanceof Error ? err.message : "Update failed");
     } finally {
       setEditSaving(false);
+    }
+  }
+
+  async function handleAdminToggle(userId: string, newValue: boolean) {
+    setAdminSaving(userId);
+    setAdminError(null);
+    try {
+      const res = await fetch(`/api/admin/users/${userId}/profile`, {
+        method:  "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body:    JSON.stringify({ isAdmin: newValue }),
+      });
+      if (!res.ok) {
+        const { error: msg } = await res.json();
+        throw new Error(msg ?? "Update failed");
+      }
+      setUsers((prev) => prev.map((u) => u.user_id === userId ? { ...u, is_admin: newValue } : u));
+    } catch (err) {
+      setAdminError({ userId, message: err instanceof Error ? err.message : "Update failed" });
+    } finally {
+      setAdminSaving(null);
     }
   }
 
@@ -428,13 +453,25 @@ export default function UserTierTable({ initialUsers }: { initialUsers: AdminUse
                     </div>
                   </td>
 
-                  {/* ── Admin badge ── */}
+                  {/* ── Admin toggle ── */}
                   <td className="py-3 pr-6">
-                    {user.is_admin && (
-                      <span className="text-xs bg-rose-100 text-rose-700 font-medium px-2 py-0.5 rounded uppercase tracking-wide">
-                        Admin
-                      </span>
-                    )}
+                    <div className="flex flex-col gap-1">
+                      <label className={`inline-flex items-center gap-2 ${currentUserId === user.user_id ? "cursor-not-allowed opacity-50" : "cursor-pointer"}`}>
+                        <input
+                          type="checkbox"
+                          checked={user.is_admin}
+                          disabled={adminSaving === user.user_id || currentUserId === user.user_id}
+                          onChange={(e) => handleAdminToggle(user.user_id, e.target.checked)}
+                          className="w-4 h-4 rounded border-stone-300 text-stone-900 focus:ring-stone-400 cursor-pointer disabled:cursor-not-allowed"
+                        />
+                        <span className="text-xs font-sans text-stone-600">
+                          {adminSaving === user.user_id ? "Saving…" : "Admin"}
+                        </span>
+                      </label>
+                      {adminError?.userId === user.user_id && (
+                        <span className="text-xs text-red-600">{adminError.message}</span>
+                      )}
+                    </div>
                   </td>
 
                   {/* ── Since ── */}

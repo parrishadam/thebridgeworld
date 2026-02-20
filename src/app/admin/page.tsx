@@ -68,7 +68,7 @@ export default async function AdminPage() {
         </div>
 
         <div className="bg-white border border-stone-200 rounded-sm p-6">
-          <UserTierTable initialUsers={users} />
+          <UserTierTable initialUsers={users} currentUserId={userId} />
         </div>
 
         {/* ── Article Management ──────────────────────────────────────── */}
