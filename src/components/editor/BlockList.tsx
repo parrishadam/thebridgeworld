@@ -139,7 +139,7 @@ export default function BlockList({ blocks, onChange }: BlockListProps) {
   }
 
   // When modal saves for a new block, add it
-  function handleModalSave(data: unknown) {
+  function handleModalSave(data: unknown, auctionData?: BiddingTableBlock["data"]) {
     if (!modal) return;
     const id = newId();
     if (modal.blockId !== null) {
@@ -162,8 +162,35 @@ export default function BlockList({ blocks, onChange }: BlockListProps) {
       } else {
         newBlock = { id, type: "video", data: data as VideoBlock["data"] };
       }
-      onChange([...blocks, newBlock]);
+      // If a PBN import included an auction, append a bidding table block immediately after
+      if (auctionData) {
+        const auctionBlock: ContentBlock = {
+          id: newId(),
+          type: "biddingTable",
+          data: auctionData,
+        };
+        onChange([...blocks, newBlock, auctionBlock]);
+      } else {
+        onChange([...blocks, newBlock]);
+      }
     }
+    setModal(null);
+  }
+
+  function handleModalSaveAll(
+    deals: Array<{ handData: BridgeHandBlock["data"]; auctionData?: BiddingTableBlock["data"]; commentary?: string }>,
+  ) {
+    const newBlocks: ContentBlock[] = [];
+    for (const { handData, auctionData, commentary } of deals) {
+      newBlocks.push({ id: newId(), type: "bridgeHand", data: handData });
+      if (auctionData) {
+        newBlocks.push({ id: newId(), type: "biddingTable", data: auctionData });
+      }
+      if (commentary) {
+        newBlocks.push({ id: newId(), type: "text", data: { text: commentary } });
+      }
+    }
+    onChange([...blocks, ...newBlocks]);
     setModal(null);
   }
 
@@ -282,6 +309,7 @@ export default function BlockList({ blocks, onChange }: BlockListProps) {
               : undefined
           }
           onSave={handleModalSave}
+          onSaveAll={modal.blockId === null ? handleModalSaveAll : undefined}
           onClose={() => setModal(null)}
         />
       )}

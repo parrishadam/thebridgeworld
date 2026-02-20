@@ -1,11 +1,25 @@
 "use client";
 
-import { useState } from "react";
-import type { BridgeHandBlock, Direction, HandCards } from "@/types";
+import { useState, useRef } from "react";
+import type { BridgeHandBlock, BiddingTableBlock, Direction, HandCards } from "@/types";
+import { parsePBN, parsePBNDeals } from "@/lib/pbn";
+import type { ParsedPBN } from "@/lib/pbn";
 
 interface BridgeHandModalProps {
   initial?: BridgeHandBlock["data"];
-  onSave: (data: BridgeHandBlock["data"]) => void;
+  /**
+   * Called when the user saves a single hand.  If a PBN auction was imported
+   * and opted in, `auctionData` is provided so the parent can insert a
+   * companion Bidding Table block.
+   */
+  onSave: (data: BridgeHandBlock["data"], auctionData?: BiddingTableBlock["data"]) => void;
+  /**
+   * Called when the user clicks "Import All" on a multi-deal PBN.  The parent
+   * should create one Bridge Hand block (+ optional Bidding Table) per deal.
+   * When undefined the "Import All" button is hidden (e.g. when editing an
+   * existing block rather than creating a new one).
+   */
+  onSaveAll?: (deals: Array<{ handData: BridgeHandBlock["data"]; auctionData?: BiddingTableBlock["data"]; commentary?: string }>) => void;
   onClose: () => void;
 }
 
@@ -44,15 +58,30 @@ function defaultData(): BridgeHandBlock["data"] {
 export default function BridgeHandModal({
   initial,
   onSave,
+  onSaveAll,
   onClose,
 }: BridgeHandModalProps) {
   const [data, setData] = useState<BridgeHandBlock["data"]>(
     initial ?? defaultData()
   );
 
+  // ── PBN import state ────────────────────────────────────────────────────
+  const [showImport,    setShowImport]    = useState(false);
+  const [importText,    setImportText]    = useState("");
+  const [importError,   setImportError]   = useState<string | null>(null);
+  /** Auction parsed from PBN — offered to user as an optional extra block. */
+  const [pendingAuction, setPendingAuction] =
+    useState<BiddingTableBlock["data"] | null>(null);
+  const [includeAuction, setIncludeAuction] = useState(true);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  /** Non-null when a multi-deal PBN was imported and user hasn't picked yet. */
+  const [pendingDeals, setPendingDeals] = useState<ParsedPBN[] | null>(null);
+
+  // ── Field helpers ────────────────────────────────────────────────────────
+
   function setField<K extends keyof BridgeHandBlock["data"]>(
     key: K,
-    value: BridgeHandBlock["data"][K]
+    value: BridgeHandBlock["data"][K],
   ) {
     setData((prev) => ({ ...prev, [key]: value }));
   }
@@ -77,9 +106,99 @@ export default function BridgeHandModal({
     }));
   }
 
+  // ── PBN import handlers ──────────────────────────────────────────────────
+
+  /** Apply a single parsed deal to the form fields. */
+  function applySingleDeal(pbn: ParsedPBN) {
+    setData((prev) => {
+      const next = { ...prev };
+      if (pbn.dealer)        next.dealer        = pbn.dealer;
+      if (pbn.vulnerability) next.vulnerability = pbn.vulnerability;
+      if (pbn.contract)      next.contract      = pbn.contract;
+      if (pbn.deal) {
+        next.hands = {
+          north: { ...DEFAULT_HAND, ...pbn.deal.north },
+          south: { ...DEFAULT_HAND, ...pbn.deal.south },
+          east:  { ...DEFAULT_HAND, ...pbn.deal.east  },
+          west:  { ...DEFAULT_HAND, ...pbn.deal.west  },
+        };
+        next.visibleHands = { north: true, south: true, east: true, west: true };
+      }
+      return next;
+    });
+    if (pbn.auction) {
+      setPendingAuction({ dealer: pbn.auction.dealer, bids: pbn.auction.bids });
+      setIncludeAuction(true);
+    } else {
+      setPendingAuction(null);
+    }
+  }
+
+  /** Convert a ParsedPBN to the { handData, auctionData, commentary } shape for onSaveAll. */
+  function pbnToExport(pbn: ParsedPBN): {
+    handData: BridgeHandBlock["data"];
+    auctionData?: BiddingTableBlock["data"];
+    commentary?: string;
+  } {
+    const handData = defaultData();
+    if (pbn.dealer)        handData.dealer        = pbn.dealer;
+    if (pbn.vulnerability) handData.vulnerability = pbn.vulnerability;
+    if (pbn.contract)      handData.contract      = pbn.contract;
+    if (pbn.deal) {
+      handData.hands = {
+        north: { ...DEFAULT_HAND, ...pbn.deal.north },
+        south: { ...DEFAULT_HAND, ...pbn.deal.south },
+        east:  { ...DEFAULT_HAND, ...pbn.deal.east  },
+        west:  { ...DEFAULT_HAND, ...pbn.deal.west  },
+      };
+      handData.visibleHands = { north: true, south: true, east: true, west: true };
+    }
+    const auctionData = pbn.auction
+      ? { dealer: pbn.auction.dealer, bids: pbn.auction.bids }
+      : undefined;
+    return { handData, auctionData, commentary: pbn.commentary };
+  }
+
+  function applyImport(text: string) {
+    setImportError(null);
+    const deals = parsePBNDeals(text);
+
+    if (deals.length === 0) {
+      // Fall back to single-deal parser to surface a meaningful error message
+      const single = parsePBN(text);
+      setImportError(!single.ok ? single.error : "No valid deals found in this PBN.");
+      return;
+    }
+
+    setShowImport(false);
+    setImportText("");
+
+    if (deals.length === 1) {
+      applySingleDeal(deals[0]);
+    } else {
+      setPendingDeals(deals);
+    }
+  }
+
+  function handleImport() {
+    applyImport(importText);
+  }
+
+  function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (ev) => applyImport((ev.target?.result as string) ?? "");
+    reader.readAsText(file);
+    e.target.value = "";
+  }
+
+  // ── Render ───────────────────────────────────────────────────────────────
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 overflow-y-auto">
       <div className="bg-white rounded-sm shadow-xl w-full max-w-2xl mx-4 my-8 overflow-hidden">
+
         {/* Header */}
         <div className="bg-stone-800 text-white px-4 py-3 flex items-center justify-between">
           <h2 className="font-sans text-sm font-semibold uppercase tracking-wider">
@@ -95,6 +214,145 @@ export default function BridgeHandModal({
 
         {/* Body */}
         <div className="p-6 space-y-5 overflow-y-auto max-h-[70vh]">
+
+          {/* ── PBN import panel ── */}
+          {!showImport ? (
+            <button
+              onClick={() => { setShowImport(true); setImportError(null); }}
+              className="w-full text-left text-xs font-sans text-stone-400 hover:text-stone-700 border border-dashed border-stone-200 hover:border-stone-400 rounded px-3 py-2 transition-colors"
+            >
+              ↓ Import from PBN
+            </button>
+          ) : (
+            <div className="border border-stone-300 rounded bg-stone-50 p-4 space-y-3">
+              <div className="flex items-center justify-between">
+                <p className="text-xs font-sans font-semibold uppercase tracking-wider text-stone-500">
+                  Import from PBN
+                </p>
+                <button
+                  onClick={() => { setShowImport(false); setImportError(null); }}
+                  className="text-xs font-sans text-stone-400 hover:text-stone-700 transition-colors"
+                >
+                  Cancel
+                </button>
+              </div>
+              <textarea
+                value={importText}
+                onChange={(e) => setImportText(e.target.value)}
+                placeholder={
+                  '[Dealer "N"]\n[Vulnerable "NS"]\n[Deal "N:AK76.QJ5.K83.AT4 T84.K7.AQ32.AT92 Q532.AT96.75.J76 J9.8432.T96.KQ85"]\n[Contract "3NT"]\n[Auction "N"]\n1C Pass 1S Pass\n2NT Pass 3NT Pass\nPass Pass'
+                }
+                rows={7}
+                spellCheck={false}
+                className="w-full font-mono text-xs border border-stone-200 rounded px-2 py-1.5 resize-y focus:outline-none focus:ring-1 focus:ring-stone-400 bg-white"
+              />
+              {importError && (
+                <p className="text-xs font-sans text-red-600">{importError}</p>
+              )}
+              <div className="flex items-center gap-2">
+                <input
+                  ref={fileInputRef}
+                  type="file"
+                  accept=".pbn,.txt"
+                  className="hidden"
+                  onChange={handleFileChange}
+                />
+                <button
+                  onClick={() => fileInputRef.current?.click()}
+                  className="font-sans text-xs border border-stone-300 text-stone-600 px-3 py-1.5 rounded hover:bg-stone-50 transition-colors"
+                >
+                  Choose .pbn file
+                </button>
+                <button
+                  onClick={handleImport}
+                  disabled={!importText.trim()}
+                  className="font-sans text-xs bg-stone-800 text-white px-4 py-1.5 rounded hover:bg-stone-700 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+                >
+                  Import
+                </button>
+              </div>
+            </div>
+          )}
+
+          {/* ── Multi-deal selector (shows after importing a multi-deal PBN) ── */}
+          {pendingDeals && (
+            <div className="border border-stone-300 rounded bg-stone-50 p-4 space-y-3">
+              <div className="flex items-center justify-between">
+                <p className="text-xs font-sans font-semibold uppercase tracking-wider text-stone-500">
+                  {pendingDeals.length} deals found — pick one
+                </p>
+                <button
+                  onClick={() => setPendingDeals(null)}
+                  className="text-xs font-sans text-stone-400 hover:text-stone-700 transition-colors"
+                >
+                  Dismiss
+                </button>
+              </div>
+              <div className="space-y-1.5">
+                {pendingDeals.map((pbn, i) => {
+                  const label = pbn.board ? `Board ${pbn.board}` : `Deal ${i + 1}`;
+                  const meta = [
+                    pbn.dealer        && `Dealer: ${pbn.dealer}`,
+                    pbn.vulnerability && `Vul: ${pbn.vulnerability}`,
+                    pbn.contract      && `Contract: ${pbn.contract}`,
+                  ].filter(Boolean).join(" · ");
+                  return (
+                    <div
+                      key={i}
+                      className="flex items-center justify-between bg-white border border-stone-200 rounded px-3 py-2 gap-3"
+                    >
+                      <div className="min-w-0">
+                        <p className="font-sans text-sm font-semibold text-stone-800 truncate">
+                          {label}
+                        </p>
+                        {meta && (
+                          <p className="font-sans text-xs text-stone-400 truncate">{meta}</p>
+                        )}
+                      </div>
+                      <button
+                        onClick={() => {
+                          applySingleDeal(pbn);
+                          setPendingDeals(null);
+                        }}
+                        className="font-sans text-xs border border-stone-300 text-stone-700 px-3 py-1 rounded hover:bg-stone-50 transition-colors shrink-0"
+                      >
+                        Use this
+                      </button>
+                    </div>
+                  );
+                })}
+              </div>
+              {onSaveAll && (
+                <button
+                  onClick={() => {
+                    onSaveAll(pendingDeals.map(pbnToExport));
+                    setPendingDeals(null);
+                  }}
+                  className="w-full font-sans text-xs bg-stone-800 text-white px-4 py-2 rounded hover:bg-stone-700 transition-colors"
+                >
+                  Import All ({pendingDeals.length} hands)
+                </button>
+              )}
+            </div>
+          )}
+
+          {/* Auction-import offer (shows after a successful PBN import with auction) */}
+          {pendingAuction && (
+            <div className="bg-blue-50 border border-blue-200 rounded px-3 py-2.5 flex items-center gap-3">
+              <input
+                id="include-auction"
+                type="checkbox"
+                checked={includeAuction}
+                onChange={(e) => setIncludeAuction(e.target.checked)}
+                className="rounded"
+              />
+              <label htmlFor="include-auction" className="text-xs font-sans text-blue-800 cursor-pointer leading-snug">
+                Also insert a <strong>Bidding Table</strong> block with the imported auction
+                ({pendingAuction.bids.length} calls, dealer: {pendingAuction.dealer})
+              </label>
+            </div>
+          )}
+
           {/* Title */}
           <div>
             <label className="block text-xs font-sans font-semibold uppercase tracking-wider text-stone-500 mb-1">
@@ -284,7 +542,12 @@ export default function BridgeHandModal({
             Cancel
           </button>
           <button
-            onClick={() => onSave(data)}
+            onClick={() =>
+              onSave(
+                data,
+                includeAuction && pendingAuction ? pendingAuction : undefined,
+              )
+            }
             className="font-sans text-sm bg-stone-900 text-white px-4 py-2 hover:bg-stone-700 transition-colors"
           >
             Save

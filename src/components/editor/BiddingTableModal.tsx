@@ -1,7 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import type { BiddingTableBlock } from "@/types";
+import { parsePBN, parsePBNDeals } from "@/lib/pbn";
+import type { ParsedPBN } from "@/lib/pbn";
 
 // ── Constants ─────────────────────────────────────────────────────────────
 
@@ -196,6 +198,61 @@ export default function BiddingTableModal({
   const [alertInput, setAlertInput] = useState("");
   const [editingAlert, setEditingAlert] = useState<number | null>(null);
 
+  // ── PBN import state ────────────────────────────────────────────────────
+  const [showImport,    setShowImport]    = useState(false);
+  const [importText,    setImportText]    = useState("");
+  const [importError,   setImportError]   = useState<string | null>(null);
+  const [pendingDeals,  setPendingDeals]  = useState<ParsedPBN[] | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  /** Apply a single parsed deal's auction to the form. */
+  function applySingleAuction(pbn: ParsedPBN) {
+    if (pbn.dealer) setDealer(pbn.dealer);
+    setBids(pbn.auction!.bids);
+    setEditingAlert(null);
+  }
+
+  function applyImport(text: string) {
+    setImportError(null);
+    const deals = parsePBNDeals(text);
+
+    if (deals.length === 0) {
+      const single = parsePBN(text);
+      setImportError(!single.ok ? single.error : "No valid deals found in this PBN.");
+      return;
+    }
+
+    // Keep only deals that have an auction
+    const withAuction = deals.filter((d) => d.auction);
+
+    if (withAuction.length === 0) {
+      setImportError("No [Auction] section found in this PBN.");
+      return;
+    }
+
+    setShowImport(false);
+    setImportText("");
+
+    if (withAuction.length === 1) {
+      applySingleAuction(withAuction[0]);
+    } else {
+      setPendingDeals(withAuction);
+    }
+  }
+
+  function handleImport() {
+    applyImport(importText);
+  }
+
+  function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (ev) => applyImport((ev.target?.result as string) ?? "");
+    reader.readAsText(file);
+    e.target.value = "";
+  }
+
   // ── Derived auction state ──────────────────────────────────────────────
 
   const auctionState    = computeAuctionState(bids, dealer);
@@ -266,6 +323,116 @@ export default function BiddingTableModal({
         </div>
 
         <div className="p-6 space-y-5 overflow-y-auto max-h-[70vh]">
+
+          {/* ── PBN import panel ── */}
+          {!showImport ? (
+            <button
+              onClick={() => { setShowImport(true); setImportError(null); }}
+              className="w-full text-left text-xs font-sans text-stone-400 hover:text-stone-700 border border-dashed border-stone-200 hover:border-stone-400 rounded px-3 py-2 transition-colors"
+            >
+              ↓ Import from PBN
+            </button>
+          ) : (
+            <div className="border border-stone-300 rounded bg-stone-50 p-4 space-y-3">
+              <div className="flex items-center justify-between">
+                <p className="text-xs font-sans font-semibold uppercase tracking-wider text-stone-500">
+                  Import from PBN
+                </p>
+                <button
+                  onClick={() => { setShowImport(false); setImportError(null); }}
+                  className="text-xs font-sans text-stone-400 hover:text-stone-700 transition-colors"
+                >
+                  Cancel
+                </button>
+              </div>
+              <textarea
+                value={importText}
+                onChange={(e) => setImportText(e.target.value)}
+                placeholder={
+                  '[Dealer "N"]\n[Auction "N"]\n1C Pass 1S Pass\n2NT Pass 3NT Pass\nPass Pass'
+                }
+                rows={5}
+                spellCheck={false}
+                className="w-full font-mono text-xs border border-stone-200 rounded px-2 py-1.5 resize-y focus:outline-none focus:ring-1 focus:ring-stone-400 bg-white"
+              />
+              {importError && (
+                <p className="text-xs font-sans text-red-600">{importError}</p>
+              )}
+              <div className="flex items-center gap-2">
+                <input
+                  ref={fileInputRef}
+                  type="file"
+                  accept=".pbn,.txt"
+                  className="hidden"
+                  onChange={handleFileChange}
+                />
+                <button
+                  onClick={() => fileInputRef.current?.click()}
+                  className="font-sans text-xs border border-stone-300 text-stone-600 px-3 py-1.5 rounded hover:bg-stone-50 transition-colors"
+                >
+                  Choose .pbn file
+                </button>
+                <button
+                  onClick={handleImport}
+                  disabled={!importText.trim()}
+                  className="font-sans text-xs bg-stone-800 text-white px-4 py-1.5 rounded hover:bg-stone-700 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+                >
+                  Import
+                </button>
+              </div>
+            </div>
+          )}
+
+          {/* ── Multi-deal selector (shows after importing a multi-deal PBN) ── */}
+          {pendingDeals && (
+            <div className="border border-stone-300 rounded bg-stone-50 p-4 space-y-3">
+              <div className="flex items-center justify-between">
+                <p className="text-xs font-sans font-semibold uppercase tracking-wider text-stone-500">
+                  {pendingDeals.length} auctions found — pick one
+                </p>
+                <button
+                  onClick={() => setPendingDeals(null)}
+                  className="text-xs font-sans text-stone-400 hover:text-stone-700 transition-colors"
+                >
+                  Dismiss
+                </button>
+              </div>
+              <div className="space-y-1.5">
+                {pendingDeals.map((pbn, i) => {
+                  const label = pbn.board ? `Board ${pbn.board}` : `Deal ${i + 1}`;
+                  const meta = [
+                    pbn.dealer   && `Dealer: ${pbn.dealer}`,
+                    pbn.contract && `Contract: ${pbn.contract}`,
+                    pbn.auction  && `${pbn.auction.bids.length} bids`,
+                  ].filter(Boolean).join(" · ");
+                  return (
+                    <div
+                      key={i}
+                      className="flex items-center justify-between bg-white border border-stone-200 rounded px-3 py-2 gap-3"
+                    >
+                      <div className="min-w-0">
+                        <p className="font-sans text-sm font-semibold text-stone-800 truncate">
+                          {label}
+                        </p>
+                        {meta && (
+                          <p className="font-sans text-xs text-stone-400 truncate">{meta}</p>
+                        )}
+                      </div>
+                      <button
+                        onClick={() => {
+                          applySingleAuction(pbn);
+                          setPendingDeals(null);
+                        }}
+                        className="font-sans text-xs border border-stone-300 text-stone-700 px-3 py-1 rounded hover:bg-stone-50 transition-colors shrink-0"
+                      >
+                        Use this
+                      </button>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
 
           {/* Dealer selector */}
           <div>
