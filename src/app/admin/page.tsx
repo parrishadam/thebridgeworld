@@ -42,10 +42,13 @@ export default async function AdminPage() {
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const users = (profiles ?? []).map((p: any) => ({
-    ...p,
-    ...(clerkMap[p.user_id] ?? { name: "Unknown", email: "—" }),
-  }));
+  const users = (profiles ?? []).map((p: any) => {
+    const clerkData = clerkMap[p.user_id];
+    // For manual users (no Clerk record) fall back to DB columns
+    const name  = clerkData?.name  || [p.first_name, p.last_name].filter(Boolean).join(" ") || "—";
+    const email = clerkData?.email || p.email || "—";
+    return { ...p, name, email, imageUrl: clerkData?.imageUrl };
+  });
 
   return (
     <>

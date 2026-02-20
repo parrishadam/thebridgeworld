@@ -153,11 +153,11 @@ export default function BlockList({ blocks, onChange }: BlockListProps) {
   }
 
   // When modal saves for a new block, add it
-  function handleModalSave(data: unknown, auctionData?: BiddingTableBlock["data"]) {
+  function handleModalSave(data: unknown, auctionData?: BiddingTableBlock["data"], commentaryText?: string) {
     if (!modal) return;
     const id = newId();
     if (modal.blockId !== null) {
-      // Editing existing block
+      // Editing existing block — just update in-place; commentary/auction already handled on creation
       const index = blocks.findIndex((b) => b.id === modal.blockId);
       if (index !== -1) {
         const existing = blocks[index];
@@ -178,17 +178,15 @@ export default function BlockList({ blocks, onChange }: BlockListProps) {
       } else {
         newBlock = { id, type: "video", data: data as VideoBlock["data"] };
       }
-      // If a PBN import included an auction, append a bidding table block immediately after
+      // Append companion blocks in order: hand → [auction] → [commentary]
+      const extras: ContentBlock[] = [];
       if (auctionData) {
-        const auctionBlock: ContentBlock = {
-          id: newId(),
-          type: "biddingTable",
-          data: auctionData,
-        };
-        onChange([...blocks, newBlock, auctionBlock]);
-      } else {
-        onChange([...blocks, newBlock]);
+        extras.push({ id: newId(), type: "biddingTable", data: auctionData });
       }
+      if (commentaryText) {
+        extras.push({ id: newId(), type: "text", data: { text: commentaryText } });
+      }
+      onChange([...blocks, newBlock, ...extras]);
     }
     setModal(null);
   }

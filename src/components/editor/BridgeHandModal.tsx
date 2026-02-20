@@ -58,8 +58,9 @@ interface BridgeHandModalProps {
    * In bridgeHand mode, auctionData is provided when a PBN auction was imported
    * so the parent can insert a companion Bidding Table block.
    * In playHand mode, the auction is embedded in the block data; auctionData is unused.
+   * commentaryText, when present, asks the parent to insert a text block after the hand block.
    */
-  onSave: (data: BridgeHandBlock["data"] | PlayHandBlock["data"], auctionData?: BiddingTableBlock["data"]) => void;
+  onSave: (data: BridgeHandBlock["data"] | PlayHandBlock["data"], auctionData?: BiddingTableBlock["data"], commentaryText?: string) => void;
   /**
    * Called when the user clicks "Import All" on a multi-deal PBN.
    * When undefined the "Import All" button is hidden (e.g. when editing an existing block).
@@ -134,6 +135,8 @@ export default function BridgeHandModal({
   const fileInputRef = useRef<HTMLInputElement>(null);
   /** Non-null when a multi-deal PBN was imported and user hasn't picked yet. */
   const [pendingDeals, setPendingDeals] = useState<ParsedPBN[] | null>(null);
+  /** Commentary text from the most recent single-deal PBN import; passed to onSave. */
+  const [pendingCommentary, setPendingCommentary] = useState<string | null>(null);
 
   // ── Field helpers ────────────────────────────────────────────────────────
 
@@ -193,6 +196,7 @@ export default function BridgeHandModal({
     } else {
       setPendingAuction(null);
     }
+    setPendingCommentary(pbn.commentary ?? null);
   }
 
   /** Convert a ParsedPBN to the { handData, auctionData, commentary } shape for onSaveAll. */
@@ -655,17 +659,22 @@ export default function BridgeHandModal({
             onClick={() => {
               if (mode === "playHand") {
                 const parsedLead = data.lead ? parseLeadInput(data.lead) : null;
-                onSave({
-                  ...data,
-                  declarer,
-                  auction: pendingAuction ?? undefined,
-                  lead: parsedLead ? formatLead(parsedLead) : data.lead,
-                  openingLead: parsedLead ?? undefined,
-                });
+                onSave(
+                  {
+                    ...data,
+                    declarer,
+                    auction: pendingAuction ?? undefined,
+                    lead: parsedLead ? formatLead(parsedLead) : data.lead,
+                    openingLead: parsedLead ?? undefined,
+                  },
+                  undefined,
+                  pendingCommentary ?? undefined,
+                );
               } else {
                 onSave(
                   data,
                   includeAuction && pendingAuction ? pendingAuction : undefined,
+                  pendingCommentary ?? undefined,
                 );
               }
             }}

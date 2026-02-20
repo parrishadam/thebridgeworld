@@ -1,7 +1,49 @@
 import { auth, clerkClient } from "@clerk/nextjs/server";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { getSupabaseAdmin } from "@/lib/supabase";
 import { getOrCreateProfile } from "@/lib/subscription";
+import type { SubscriptionTier } from "@/types";
+
+const VALID_TIERS: SubscriptionTier[] = ["free", "paid", "premium"];
+
+export async function POST(req: NextRequest) {
+  const { userId: callerId } = await auth();
+  if (!callerId) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+
+  const caller = await getOrCreateProfile(callerId);
+  if (!caller.is_admin) return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+
+  const body = await req.json().catch(() => ({}));
+  const { firstName, lastName, email, tier } = body as {
+    firstName?: string; lastName?: string; email?: string; tier?: SubscriptionTier;
+  };
+
+  if (!email?.trim()) {
+    return NextResponse.json({ error: "Email is required" }, { status: 400 });
+  }
+  const resolvedTier: SubscriptionTier = VALID_TIERS.includes(tier!) ? tier! : "free";
+
+  // Generate a manual user ID (not a Clerk ID)
+  const userId = "manual_" + crypto.randomUUID();
+
+  const { data, error } = await getSupabaseAdmin()
+    .from("user_profiles")
+    .insert({
+      user_id:    userId,
+      first_name: firstName?.trim() || null,
+      last_name:  lastName?.trim()  || null,
+      email:      email.trim(),
+      tier:       resolvedTier,
+    })
+    .select()
+    .single();
+
+  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+
+  // Return enriched shape matching the admin table's AdminUser interface
+  const name = [firstName?.trim(), lastName?.trim()].filter(Boolean).join(" ") || "—";
+  return NextResponse.json({ ...data, name, email: email.trim() }, { status: 201 });
+}
 
 export async function GET() {
   const { userId } = await auth();
