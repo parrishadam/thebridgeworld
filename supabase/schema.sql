@@ -66,3 +66,33 @@ ALTER TABLE article_views  ENABLE ROW LEVEL SECURITY;
 
 -- No RLS policies are defined — service role bypasses RLS automatically.
 -- Add policies here if you ever allow direct browser access via the anon key.
+
+-- ── Categories ─────────────────────────────────────────────────────────────
+
+CREATE TABLE IF NOT EXISTS categories (
+  id          UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  name        TEXT NOT NULL UNIQUE,
+  slug        TEXT NOT NULL UNIQUE,
+  description TEXT,
+  color       TEXT,                 -- hex string e.g. '#2563eb'
+  sort_order  INTEGER NOT NULL DEFAULT 0,
+  created_at  TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
+CREATE INDEX IF NOT EXISTS idx_categories_sort_order ON categories (sort_order);
+
+ALTER TABLE categories ENABLE ROW LEVEL SECURITY;
+
+-- Seed data (safe to re-run — INSERT … ON CONFLICT DO NOTHING)
+INSERT INTO categories (name, slug, description, color, sort_order) VALUES
+  ('Bidding',            'bidding',            'Bidding systems, conventions, and theory',  '#2563eb', 10),
+  ('Play',               'play',               'Declarer play techniques and cardplay',      '#16a34a', 20),
+  ('Defense',            'defense',            'Defensive technique and signals',            '#dc2626', 30),
+  ('Convention',         'convention',         'Convention descriptions and how-to guides',  '#7c3aed', 40),
+  ('Tournament Report',  'tournament-report',  'Results and stories from tournaments',       '#0891b2', 50),
+  ('Humor',              'humor',              'Light-hearted bridge fun',                   '#d97706', 60),
+  ('History',            'history',            'Bridge history and notable players',         '#92400e', 70),
+  ('Profile',            'profile',            'Player profiles and interviews',             '#0f766e', 80),
+  ('Puzzle',             'puzzle',             'Bridge puzzles and problems',                '#be185d', 90),
+  ('Editorial',          'editorial',          'Commentary and opinion',                     '#64748b', 100)
+ON CONFLICT (name) DO NOTHING;

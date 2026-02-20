@@ -3,7 +3,7 @@
  * Never import this file in a Client Component.
  */
 import { getSupabaseAdmin } from "./supabase";
-import type { SupabaseArticle, SanityArticle, SanityCategory, ArticleAccessTier } from "@/types";
+import type { SupabaseArticle, SanityArticle, SanityCategory, ArticleAccessTier, Category } from "@/types";
 
 // ── Slug helper ────────────────────────────────────────────────────────────
 
@@ -124,15 +124,19 @@ export async function getArticleFilterOptions(): Promise<{
  * Maps a SupabaseArticle to the SanityArticle card shape so ArticleCard
  * can render Supabase articles without any changes.
  */
-export function mapSupabaseToCardShape(article: SupabaseArticle): SanityArticle {
+export function mapSupabaseToCardShape(
+  article: SupabaseArticle,
+  categoryMap?: Record<string, Category>
+): SanityArticle {
   const catName  = article.category ?? "Uncategorized";
   const catSlug  = slugify(catName);
+  const catColor = categoryMap?.[catName]?.color ?? undefined;
 
   const category: SanityCategory = {
     _id:   catSlug,
     name:  catName,
     slug:  catSlug,
-    color: "stone",
+    color: catColor,
   };
 
   const tags: SanityCategory[] = (article.tags ?? []).map((t) => ({

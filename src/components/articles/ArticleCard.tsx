@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { CSSProperties } from "react";
 import { SanityArticle } from "@/types";
 import { formatDate } from "@/lib/utils";
 
@@ -12,8 +13,14 @@ const colorClasses: Record<string, string> = {
   stone:   "bg-stone-100 text-stone-700",
 };
 
-function categoryClass(color?: string) {
-  return colorClasses[color ?? ""] ?? "bg-stone-100 text-stone-700";
+const BASE_BADGE = "inline-block text-xs font-sans font-medium uppercase tracking-wide px-2 py-0.5 rounded";
+
+function categoryBadge(color?: string | null): { className: string; style?: CSSProperties } {
+  if (color?.startsWith("#") && color.length === 7) {
+    return { className: BASE_BADGE, style: { backgroundColor: color + "26", color } };
+  }
+  const cls = colorClasses[color ?? ""] ?? "bg-stone-100 text-stone-700";
+  return { className: `${BASE_BADGE} ${cls}` };
 }
 
 function TierBadge({ tier }: { tier?: string }) {
@@ -40,7 +47,7 @@ interface ArticleCardProps {
 }
 
 export default function ArticleCard({ article, variant = "default" }: ArticleCardProps) {
-  const badgeClass = categoryClass(article.category?.color);
+  const badge = categoryBadge(article.category?.color);
   const categoryName = article.category?.name ?? "";
 
   if (variant === "compact") {
@@ -51,7 +58,7 @@ export default function ArticleCard({ article, variant = "default" }: ArticleCar
       >
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 mb-1">
-            <p className={`inline-block text-xs font-sans font-medium uppercase tracking-wide px-2 py-0.5 rounded ${badgeClass}`}>
+            <p className={badge.className} style={badge.style}>
               {categoryName}
             </p>
             <TierBadge tier={article.access_tier} />
@@ -81,7 +88,7 @@ export default function ArticleCard({ article, variant = "default" }: ArticleCar
           )}
         </div>
         <div className="flex items-center gap-2 mb-2">
-          <p className={`inline-block text-xs font-sans font-medium uppercase tracking-wide px-2 py-0.5 rounded ${badgeClass}`}>
+          <p className={badge.className} style={badge.style}>
             {categoryName}
           </p>
           <TierBadge tier={article.access_tier} />
@@ -118,7 +125,7 @@ export default function ArticleCard({ article, variant = "default" }: ArticleCar
         )}
       </div>
       <div className="flex items-center gap-2 mb-2">
-        <p className={`inline-block text-xs font-sans font-medium uppercase tracking-wide px-2 py-0.5 rounded ${badgeClass}`}>
+        <p className={badge.className} style={badge.style}>
           {categoryName}
         </p>
         <TierBadge tier={article.access_tier} />

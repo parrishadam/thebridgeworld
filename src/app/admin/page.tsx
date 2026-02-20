@@ -5,9 +5,11 @@ import Link from "next/link";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import UserTierTable from "./UserTierTable";
+import CategoriesPanel from "./CategoriesPanel";
 import { getOrCreateProfile } from "@/lib/subscription";
 import { getSupabaseAdmin } from "@/lib/supabase";
 import { clerkClient } from "@clerk/nextjs/server";
+import { getCategoriesWithCounts } from "@/lib/categories";
 
 export const metadata: Metadata = { title: "Admin — User Management" };
 
@@ -40,6 +42,8 @@ export default async function AdminPage() {
       };
     }
   }
+
+  const categories = await getCategoriesWithCounts();
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const users = (profiles ?? []).map((p: any) => {
@@ -99,6 +103,19 @@ export default async function AdminPage() {
                 + New Article
               </Link>
             </div>
+          </div>
+        </div>
+
+        {/* ── Categories ──────────────────────────────────────────────── */}
+        <div className="mt-12">
+          <div className="border-b-2 border-stone-900 pb-2 mb-6">
+            <h2 className="font-sans text-xs uppercase tracking-[0.25em] text-stone-500">
+              Taxonomy
+            </h2>
+          </div>
+          <p className="font-serif text-2xl font-bold text-stone-900 mb-6">Categories</p>
+          <div className="bg-white border border-stone-200 rounded-sm p-6">
+            <CategoriesPanel initialCategories={categories} />
           </div>
         </div>
 

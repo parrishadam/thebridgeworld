@@ -8,6 +8,7 @@ import SupabaseArticleRenderer from "@/components/articles/SupabaseArticleRender
 import PaywallBanner from "@/components/subscription/PaywallBanner";
 import { getSupabaseArticleBySlug } from "@/lib/articles";
 import { getSubscriptionStatus } from "@/lib/subscription";
+import { getCategoryByName } from "@/lib/categories";
 import { formatDate } from "@/lib/utils";
 
 // Never statically cache — paywall checks must run fresh on every request
@@ -69,6 +70,9 @@ export default async function ArticlePage(
   const showPaywall = paywallVariant !== null;
   const catSlug = article.category?.toLowerCase().replace(/\s+/g, "-") ?? "";
 
+  const catEntry = article.category ? await getCategoryByName(article.category) : null;
+  const catColor = catEntry?.color ?? null;
+
   return (
     <>
       <Header />
@@ -117,7 +121,8 @@ export default async function ArticlePage(
           {article.category && (
             <Link
               href={`/articles?category=${catSlug}`}
-              className="inline-block text-xs font-sans font-medium uppercase tracking-wide px-2 py-0.5 rounded mb-4 bg-stone-100 text-stone-700"
+              className={`inline-block text-xs font-sans font-medium uppercase tracking-wide px-2 py-0.5 rounded mb-4${catColor?.startsWith("#") ? "" : " bg-stone-100 text-stone-700"}`}
+              style={catColor?.startsWith("#") ? { backgroundColor: catColor + "26", color: catColor } : undefined}
             >
               {article.category}
             </Link>

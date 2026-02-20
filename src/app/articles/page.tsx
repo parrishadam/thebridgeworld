@@ -10,6 +10,7 @@ import {
   getArticleFilterOptions,
   mapSupabaseToCardShape,
 } from "@/lib/articles";
+import { getAllCategories, buildCategoryMap } from "@/lib/categories";
 
 export const metadata: Metadata = { title: "Articles" };
 export const dynamic = "force-dynamic";
@@ -35,16 +36,18 @@ export default async function ArticlesPage({
   const sortBy    = searchParams.sortBy    ?? "date";
   const sortOrder = searchParams.sortOrder ?? "desc";
 
-  const [{ articles, total }, filterOptions] = await Promise.all([
+  const [{ articles, total }, filterOptions, allCategories] = await Promise.all([
     getPublishedSupabaseArticlesPaginated({
       page, limit: PAGE_SIZE,
       category, author, tag,
       sortBy, sortOrder,
     }),
     getArticleFilterOptions(),
+    getAllCategories(),
   ]);
 
-  const mapped     = articles.map(mapSupabaseToCardShape);
+  const catMap = buildCategoryMap(allCategories);
+  const mapped = articles.map((a) => mapSupabaseToCardShape(a, catMap));
   const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
   const rangeFrom  = total === 0 ? 0 : (page - 1) * PAGE_SIZE + 1;
   const rangeTo    = Math.min(page * PAGE_SIZE, total);

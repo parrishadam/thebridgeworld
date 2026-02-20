@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import { useRouter } from "next/navigation";
-import type { ContentBlock, SupabaseArticle } from "@/types";
+import type { ContentBlock, SupabaseArticle, Category } from "@/types";
 import BlockList from "./BlockList";
 import SupabaseArticleRenderer from "@/components/articles/SupabaseArticleRenderer";
 
@@ -43,18 +43,6 @@ function slugify(str: string): string {
     .replace(/^-|-$/g, "");
 }
 
-const CATEGORIES = [
-  "Bidding Systems",
-  "Card Play",
-  "Defence",
-  "Hand Analysis",
-  "Match Commentary",
-  "Opening Leads",
-  "Slam Bidding",
-  "Teaching",
-  "Tournament Report",
-  "Two Over One",
-];
 
 // ── Component ──────────────────────────────────────────────────────────────
 
@@ -86,6 +74,14 @@ export default function ArticleEditor({
   const [saveStatus, setSaveStatus]   = useState<"idle" | "saved" | "error">("idle");
   const [articleId, setArticleId]     = useState<string | null>(article?.id ?? null);
   const [slugManual, setSlugManual]   = useState(!!article?.slug);
+  const [categories, setCategories]   = useState<Category[]>([]);
+
+  useEffect(() => {
+    fetch("/api/categories")
+      .then((r) => r.json())
+      .then((data: Category[]) => setCategories(data))
+      .catch(() => null);
+  }, []);
 
   const isDirtyRef = useRef(isDirty);
   isDirtyRef.current = isDirty;
@@ -365,16 +361,27 @@ export default function ArticleEditor({
             {/* Category */}
             <div>
               <label className="block text-xs font-sans text-stone-500 mb-1">Category</label>
-              <select
-                value={meta.category}
-                onChange={(e) => updateMeta("category", e.target.value)}
-                className="w-full border border-stone-200 rounded px-2 py-1.5 text-xs font-sans text-stone-700 focus:outline-none focus:ring-1 focus:ring-stone-400"
-              >
-                <option value="">— Select —</option>
-                {CATEGORIES.map((c) => (
-                  <option key={c} value={c}>{c}</option>
-                ))}
-              </select>
+              <div className="flex items-center gap-2">
+                {(() => {
+                  const cat = categories.find((c) => c.name === meta.category);
+                  return cat?.color ? (
+                    <span
+                      className="w-3 h-3 rounded-full shrink-0 border border-black/10"
+                      style={{ backgroundColor: cat.color }}
+                    />
+                  ) : null;
+                })()}
+                <select
+                  value={meta.category}
+                  onChange={(e) => updateMeta("category", e.target.value)}
+                  className="flex-1 border border-stone-200 rounded px-2 py-1.5 text-xs font-sans text-stone-700 focus:outline-none focus:ring-1 focus:ring-stone-400"
+                >
+                  <option value="">— Select —</option>
+                  {categories.map((c) => (
+                    <option key={c.id} value={c.name}>{c.name}</option>
+                  ))}
+                </select>
+              </div>
             </div>
 
             {/* Tags */}

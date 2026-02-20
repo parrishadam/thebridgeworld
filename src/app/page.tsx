@@ -3,12 +3,17 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import ArticleCard from "@/components/articles/ArticleCard";
 import { getPublishedSupabaseArticles, mapSupabaseToCardShape } from "@/lib/articles";
+import { getAllCategories, buildCategoryMap } from "@/lib/categories";
 
 export const revalidate = 60;
 
 export default async function HomePage() {
-  const supabaseArticles = await getPublishedSupabaseArticles(20);
-  const articles = supabaseArticles.map(mapSupabaseToCardShape);
+  const [supabaseArticles, allCategories] = await Promise.all([
+    getPublishedSupabaseArticles(20),
+    getAllCategories(),
+  ]);
+  const catMap  = buildCategoryMap(allCategories);
+  const articles = supabaseArticles.map((a) => mapSupabaseToCardShape(a, catMap));
 
   const featured = articles[0] ?? null;
   const sidebar  = articles.slice(1, 5);  // up to 4 beside the hero

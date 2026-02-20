@@ -22,6 +22,18 @@ export interface SubscriptionStatus {
   isAuthor:      boolean;
 }
 
+// ── Category ───────────────────────────────────────────────────────────────
+
+export interface Category {
+  id:           string;
+  name:         string;
+  slug:         string;
+  description:  string | null;
+  color:        string | null;
+  sort_order:   number;
+  created_at:   string;
+}
+
 // ── Sanity-projected types (match GROQ query shapes) ──────────────────────
 
 export type Suit = "spades" | "hearts" | "diamonds" | "clubs";
