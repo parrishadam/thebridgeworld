@@ -47,6 +47,34 @@ export async function getPublishedSupabaseArticles(
   return data as SupabaseArticle[];
 }
 
+export async function getPublishedSupabaseArticlesPaginated(options: {
+  page?: number;
+  limit?: number;
+  category?: string;
+}): Promise<{ articles: SupabaseArticle[]; total: number }> {
+  const { page = 1, limit = 15, category } = options;
+  const supabase = getSupabaseAdmin();
+  const from = (page - 1) * limit;
+  const to   = from + limit - 1;
+
+  let query = supabase
+    .from("articles")
+    .select("*", { count: "exact" })
+    .eq("status", "published")
+    .order("published_at", { ascending: false })
+    .range(from, to);
+
+  if (category) {
+    // Convert URL slug back to a pattern for case-insensitive matching
+    // e.g. "bidding-systems" → ilike "bidding systems"
+    query = query.ilike("category", category.replace(/-/g, " "));
+  }
+
+  const { data, count, error } = await query;
+  if (error || !data) return { articles: [], total: 0 };
+  return { articles: data as SupabaseArticle[], total: count ?? 0 };
+}
+
 // ── Shape adapter ─────────────────────────────────────────────────────────
 
 /**

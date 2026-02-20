@@ -4,10 +4,8 @@ import Link from "next/link";
 import { auth } from "@clerk/nextjs/server";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import PortableTextRenderer from "@/components/articles/PortableTextRenderer";
 import SupabaseArticleRenderer from "@/components/articles/SupabaseArticleRenderer";
 import PaywallBanner from "@/components/subscription/PaywallBanner";
-import { getArticleBySlug, getArticleSlugs } from "@/lib/queries";
 import { getSupabaseArticleBySlug } from "@/lib/articles";
 import { getSubscriptionStatus } from "@/lib/subscription";
 import { formatDate } from "@/lib/utils";
@@ -15,65 +13,27 @@ import { formatDate } from "@/lib/utils";
 // Never statically cache — paywall checks must run fresh on every request
 export const dynamic = "force-dynamic";
 
-// ── Static params ──────────────────────────────────────────────────────────
-
-export async function generateStaticParams() {
-  const slugs = await getArticleSlugs();
-  return slugs.map(({ slug }) => ({ slug }));
-}
-
 // ── Metadata ───────────────────────────────────────────────────────────────
 
 export async function generateMetadata(
   { params }: { params: { slug: string } }
 ): Promise<Metadata> {
-  // Check Supabase first
-  const supabaseArticle = await getSupabaseArticleBySlug(params.slug);
-  if (supabaseArticle && supabaseArticle.status === "published") {
-    return {
-      title:       supabaseArticle.title,
-      description: supabaseArticle.excerpt ?? undefined,
-      openGraph: {
-        title:       supabaseArticle.title,
-        description: supabaseArticle.excerpt ?? undefined,
-        type:        "article",
-        publishedTime: supabaseArticle.published_at ?? undefined,
-        ...(supabaseArticle.featured_image_url && {
-          images: [{ url: supabaseArticle.featured_image_url }],
-        }),
-      },
-    };
-  }
-
-  const article = await getArticleBySlug(params.slug);
+  const article = await getSupabaseArticleBySlug(params.slug);
   if (!article) return {};
-
   return {
-    title: article.seoTitle ?? article.title,
-    description: article.seoDescription ?? article.excerpt,
+    title:       article.title,
+    description: article.excerpt ?? undefined,
     openGraph: {
-      title:       article.seoTitle ?? article.title,
-      description: article.seoDescription ?? article.excerpt,
-      type:        "article",
-      publishedTime: article.publishedAt,
-      ...(article.coverImageUrl && {
-        images: [{ url: article.coverImageUrl }],
+      title:         article.title,
+      description:   article.excerpt ?? undefined,
+      type:          "article",
+      publishedTime: article.published_at ?? undefined,
+      ...(article.featured_image_url && {
+        images: [{ url: article.featured_image_url }],
       }),
     },
   };
 }
-
-// ── Colour helper ──────────────────────────────────────────────────────────
-
-const colorClasses: Record<string, string> = {
-  blue:    "bg-blue-100 text-blue-700",
-  emerald: "bg-emerald-100 text-emerald-700",
-  violet:  "bg-violet-100 text-violet-700",
-  amber:   "bg-amber-100 text-amber-700",
-  rose:    "bg-rose-100 text-rose-700",
-  sky:     "bg-sky-100 text-sky-700",
-  stone:   "bg-stone-100 text-stone-700",
-};
 
 // ── Page ───────────────────────────────────────────────────────────────────
 
@@ -82,152 +42,14 @@ export default async function ArticlePage(
 ) {
   const { userId } = await auth();
 
-  // ── Try Supabase first ───────────────────────────────────────────────────
-
-  const supabaseArticle = await getSupabaseArticleBySlug(params.slug);
-
-  if (supabaseArticle) {
-    const status = userId ? await getSubscriptionStatus(userId) : null;
-    const isAdmin = status?.isAdmin ?? false;
-
-    // Non-admins only see published articles; admins can preview any status
-    if (supabaseArticle.status === "published" || isAdmin) {
-      const articleTier = supabaseArticle.access_tier ?? "free";
-
-    let paywallVariant: "sign_in" | "upgrade_paid" | "upgrade_premium" | null = null;
-
-    if (articleTier !== "free") {
-      if (!userId) {
-        paywallVariant = "sign_in";
-      } else if (!isAdmin) {
-        if (articleTier === "premium" && status?.tier !== "premium") {
-          paywallVariant = "upgrade_premium";
-        } else if (articleTier === "paid" && status?.tier === "free") {
-          paywallVariant = "upgrade_paid";
-        }
-      }
-    }
-
-    const showPaywall = paywallVariant !== null;
-    const catSlug = supabaseArticle.category?.toLowerCase().replace(/\s+/g, "-") ?? "";
-
-    return (
-      <>
-        <Header />
-        <main>
-          <div className="max-w-3xl mx-auto px-4 pt-12 pb-8">
-            {/* Breadcrumb */}
-            <nav className="flex items-center gap-2 text-xs font-sans text-stone-400 mb-6">
-              <Link href="/" className="hover:text-stone-600 transition-colors">Home</Link>
-              <span>/</span>
-              <Link href="/articles" className="hover:text-stone-600 transition-colors">Articles</Link>
-              {supabaseArticle.category && (
-                <>
-                  <span>/</span>
-                  <Link
-                    href={`/articles?category=${catSlug}`}
-                    className="hover:text-stone-600 transition-colors"
-                  >
-                    {supabaseArticle.category}
-                  </Link>
-                </>
-              )}
-              {isAdmin && (
-                <Link
-                  href={`/editor/${supabaseArticle.id}`}
-                  className="ml-auto font-sans text-xs border border-stone-200 text-stone-600 px-3 py-1 rounded hover:bg-stone-50 hover:border-stone-300 transition-colors"
-                >
-                  Edit
-                </Link>
-              )}
-            </nav>
-
-            {/* Draft / review banner for admins */}
-            {isAdmin && supabaseArticle.status !== "published" && (
-              <div className="mb-6 bg-amber-50 border border-amber-200 rounded-sm px-4 py-2 flex items-center gap-3">
-                <span className="font-sans text-xs font-semibold uppercase tracking-wider text-amber-700">
-                  {supabaseArticle.status}
-                </span>
-                <span className="font-sans text-xs text-amber-600">
-                  This article is not published and is only visible to admins.
-                </span>
-              </div>
-            )}
-
-            {/* Category badge */}
-            {supabaseArticle.category && (
-              <Link
-                href={`/articles?category=${catSlug}`}
-                className="inline-block text-xs font-sans font-medium uppercase tracking-wide px-2 py-0.5 rounded mb-4 bg-stone-100 text-stone-700"
-              >
-                {supabaseArticle.category}
-              </Link>
-            )}
-
-            {/* Title */}
-            <h1 className="font-serif text-4xl md:text-5xl font-bold text-stone-900 leading-tight mb-4">
-              {supabaseArticle.title}
-            </h1>
-
-            {/* Byline */}
-            <div className="flex items-center gap-3 border-t border-b border-stone-100 py-4 mb-8">
-              <div className="font-sans text-sm">
-                {supabaseArticle.author_name && (
-                  <p className="font-semibold text-stone-900">{supabaseArticle.author_name}</p>
-                )}
-                {supabaseArticle.published_at && (
-                  <p className="text-stone-400">{formatDate(supabaseArticle.published_at)}</p>
-                )}
-              </div>
-              {supabaseArticle.tags && supabaseArticle.tags.length > 0 && (
-                <div className="ml-auto flex flex-wrap gap-1.5 justify-end">
-                  {supabaseArticle.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-xs font-sans text-stone-400 border border-stone-200 rounded px-2 py-0.5"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              )}
-            </div>
-          </div>
-
-          {/* Featured image */}
-          {supabaseArticle.featured_image_url && (
-            <div className="max-w-5xl mx-auto px-4 mb-10">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={supabaseArticle.featured_image_url}
-                alt={supabaseArticle.title}
-                className="w-full rounded-sm object-cover max-h-[520px]"
-              />
-            </div>
-          )}
-
-          {/* Body */}
-          <div className="max-w-3xl mx-auto px-4 pb-16">
-            {showPaywall ? (
-              <PaywallBanner variant={paywallVariant!} />
-            ) : (
-              <SupabaseArticleRenderer blocks={supabaseArticle.content_blocks} />
-            )}
-          </div>
-        </main>
-        <Footer />
-      </>
-    );
-    } // end if (published || isAdmin)
-  } // end if (supabaseArticle)
-
-  // ── Fall through to Sanity ───────────────────────────────────────────────
-
-  const [article] = await Promise.all([getArticleBySlug(params.slug)]);
-
+  const article = await getSupabaseArticleBySlug(params.slug);
   if (!article) notFound();
 
-  // ── Subscription / paywall logic ─────────────────────────────────────────
+  const status  = userId ? await getSubscriptionStatus(userId) : null;
+  const isAdmin = status?.isAdmin ?? false;
+
+  // Non-admins only see published articles
+  if (article.status !== "published" && !isAdmin) notFound();
 
   const articleTier = article.access_tier ?? "free";
   let paywallVariant: "sign_in" | "upgrade_paid" | "upgrade_premium" | null = null;
@@ -235,28 +57,24 @@ export default async function ArticlePage(
   if (articleTier !== "free") {
     if (!userId) {
       paywallVariant = "sign_in";
-    } else {
-      const status = await getSubscriptionStatus(userId);
-      if (!status.isAdmin) {
-        if (articleTier === "premium" && status.tier !== "premium") {
-          paywallVariant = "upgrade_premium";
-        } else if (articleTier === "paid" && status.tier === "free") {
-          paywallVariant = "upgrade_paid";
-        }
+    } else if (!isAdmin) {
+      if (articleTier === "premium" && status?.tier !== "premium") {
+        paywallVariant = "upgrade_premium";
+      } else if (articleTier === "paid" && status?.tier === "free") {
+        paywallVariant = "upgrade_paid";
       }
     }
   }
 
   const showPaywall = paywallVariant !== null;
-  const badgeClass  = colorClasses[article.category?.color ?? ""] ?? "bg-stone-100 text-stone-700";
+  const catSlug = article.category?.toLowerCase().replace(/\s+/g, "-") ?? "";
 
   return (
     <>
       <Header />
       <main>
-
-        {/* ── Article header (always visible) ────────────────────────── */}
         <div className="max-w-3xl mx-auto px-4 pt-12 pb-8">
+
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-xs font-sans text-stone-400 mb-6">
             <Link href="/" className="hover:text-stone-600 transition-colors">Home</Link>
@@ -266,22 +84,42 @@ export default async function ArticlePage(
               <>
                 <span>/</span>
                 <Link
-                  href={`/articles?category=${article.category.slug}`}
+                  href={`/articles?category=${catSlug}`}
                   className="hover:text-stone-600 transition-colors"
                 >
-                  {article.category.name}
+                  {article.category}
                 </Link>
               </>
             )}
+            {isAdmin && (
+              <Link
+                href={`/editor/${article.id}`}
+                className="ml-auto font-sans text-xs border border-stone-200 text-stone-600 px-3 py-1 rounded hover:bg-stone-50 hover:border-stone-300 transition-colors"
+              >
+                Edit
+              </Link>
+            )}
           </nav>
+
+          {/* Draft / review banner for admins */}
+          {isAdmin && article.status !== "published" && (
+            <div className="mb-6 bg-amber-50 border border-amber-200 rounded-sm px-4 py-2 flex items-center gap-3">
+              <span className="font-sans text-xs font-semibold uppercase tracking-wider text-amber-700">
+                {article.status}
+              </span>
+              <span className="font-sans text-xs text-amber-600">
+                This article is not published and is only visible to admins.
+              </span>
+            </div>
+          )}
 
           {/* Category badge */}
           {article.category && (
             <Link
-              href={`/articles?category=${article.category.slug}`}
-              className={`inline-block text-xs font-sans font-medium uppercase tracking-wide px-2 py-0.5 rounded mb-4 ${badgeClass}`}
+              href={`/articles?category=${catSlug}`}
+              className="inline-block text-xs font-sans font-medium uppercase tracking-wide px-2 py-0.5 rounded mb-4 bg-stone-100 text-stone-700"
             >
-              {article.category.name}
+              {article.category}
             </Link>
           )}
 
@@ -290,99 +128,51 @@ export default async function ArticlePage(
             {article.title}
           </h1>
 
-          {/* Subtitle / deck */}
-          {article.subtitle && (
-            <p className="font-serif text-xl md:text-2xl text-stone-500 mb-6">
-              {article.subtitle}
-            </p>
-          )}
-
           {/* Byline */}
           <div className="flex items-center gap-3 border-t border-b border-stone-100 py-4 mb-8">
-            {article.author?.avatarUrl && (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                src={article.author.avatarUrl}
-                alt={article.author.name}
-                className="w-10 h-10 rounded-full object-cover bg-stone-200"
-              />
-            )}
             <div className="font-sans text-sm">
-              {article.author && (
-                <p className="font-semibold text-stone-900">{article.author.name}</p>
+              {article.author_name && (
+                <p className="font-semibold text-stone-900">{article.author_name}</p>
               )}
-              {article.publishedAt && (
-                <p className="text-stone-400">{formatDate(article.publishedAt)}</p>
+              {article.published_at && (
+                <p className="text-stone-400">{formatDate(article.published_at)}</p>
               )}
             </div>
             {article.tags && article.tags.length > 0 && (
               <div className="ml-auto flex flex-wrap gap-1.5 justify-end">
                 {article.tags.map((tag) => (
-                  <Link
-                    key={tag._id}
-                    href={`/articles?category=${tag.slug}`}
-                    className="text-xs font-sans text-stone-400 hover:text-stone-600 border border-stone-200 rounded px-2 py-0.5 transition-colors"
+                  <span
+                    key={tag}
+                    className="text-xs font-sans text-stone-400 border border-stone-200 rounded px-2 py-0.5"
                   >
-                    {tag.name}
-                  </Link>
+                    {tag}
+                  </span>
                 ))}
               </div>
             )}
           </div>
         </div>
 
-        {/* ── Featured image (always visible) ───────────────────────────── */}
-        {article.coverImageUrl && (
+        {/* Featured image */}
+        {article.featured_image_url && (
           <div className="max-w-5xl mx-auto px-4 mb-10">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={article.coverImageUrl}
+              src={article.featured_image_url}
               alt={article.title}
               className="w-full rounded-sm object-cover max-h-[520px]"
             />
           </div>
         )}
 
-        {/* ── Body content or paywall ────────────────────────────────────── */}
+        {/* Body */}
         <div className="max-w-3xl mx-auto px-4 pb-16">
           {showPaywall ? (
             <PaywallBanner variant={paywallVariant!} />
           ) : (
-            <>
-              {article.content && article.content.length > 0 ? (
-                <PortableTextRenderer content={article.content} />
-              ) : (
-                <p className="text-stone-400 font-sans italic">No content yet.</p>
-              )}
-
-              {/* Author bio */}
-              {article.author?.bio && (
-                <div className="mt-16 pt-8 border-t border-stone-200 flex gap-4">
-                  {article.author.avatarUrl && (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img
-                      src={article.author.avatarUrl}
-                      alt={article.author.name}
-                      className="w-14 h-14 rounded-full object-cover bg-stone-200 flex-shrink-0"
-                    />
-                  )}
-                  <div>
-                    <p className="font-sans text-xs uppercase tracking-wider text-stone-400 mb-1">
-                      About the author
-                    </p>
-                    <p className="font-serif font-bold text-stone-900 mb-1">
-                      {article.author.name}
-                    </p>
-                    <p className="font-sans text-sm text-stone-500 leading-relaxed">
-                      {article.author.bio}
-                    </p>
-                  </div>
-                </div>
-              )}
-            </>
+            <SupabaseArticleRenderer blocks={article.content_blocks} />
           )}
         </div>
-
       </main>
       <Footer />
     </>

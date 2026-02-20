@@ -1,43 +1,25 @@
+import Link from "next/link";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import ArticleCard from "@/components/articles/ArticleCard";
-import { getFeaturedArticle, getRecentArticles } from "@/lib/queries";
 import { getPublishedSupabaseArticles, mapSupabaseToCardShape } from "@/lib/articles";
-import type { SanityArticle } from "@/types";
 
-export const revalidate = 60; // ISR — refresh at most every 60s
+export const revalidate = 60;
 
 export default async function HomePage() {
-  const [featured, recent, supabaseArticles] = await Promise.all([
-    getFeaturedArticle(),
-    getRecentArticles(7),
-    getPublishedSupabaseArticles(10),
-  ]);
+  const supabaseArticles = await getPublishedSupabaseArticles(20);
+  const articles = supabaseArticles.map(mapSupabaseToCardShape);
 
-  // Map Supabase articles to the SanityArticle card shape
-  const supabaseMapped: SanityArticle[] = supabaseArticles.map(mapSupabaseToCardShape);
-
-  // Merge Sanity + Supabase articles, sort by date descending
-  const allArticles: SanityArticle[] = [...recent, ...supabaseMapped].sort((a, b) => {
-    const dateA = a.publishedAt ? new Date(a.publishedAt).getTime() : 0;
-    const dateB = b.publishedAt ? new Date(b.publishedAt).getTime() : 0;
-    return dateB - dateA;
-  });
-
-  // If a featured article exists, exclude it from the grid/sidebar
-  const nonFeatured = featured
-    ? allArticles.filter((a) => a._id !== featured._id)
-    : allArticles;
-
-  const grid    = nonFeatured.slice(0, 6);
-  const sidebar = nonFeatured.slice(0, 4);
+  const featured = articles[0] ?? null;
+  const sidebar  = articles.slice(1, 5);  // up to 4 beside the hero
+  const grid     = articles.slice(5);     // remaining in the grid below
 
   return (
     <>
       <Header />
       <main className="max-w-7xl mx-auto px-4 py-12">
 
-        {/* ── Hero ────────────────────────────────────────────────── */}
+        {/* ── Hero ─────────────────────────────────────────────────── */}
         <section className="mb-16">
           <div className="border-b-2 border-stone-900 pb-2 mb-8">
             <h2 className="font-sans text-xs uppercase tracking-[0.25em] text-stone-500">
@@ -63,16 +45,15 @@ export default async function HomePage() {
               )}
             </div>
           ) : (
-            // No featured article — show a simple message
             <p className="font-sans text-stone-400 text-sm">
-              No featured article yet. Mark an article as featured in the Studio.
+              No articles published yet.
             </p>
           )}
         </section>
 
-        {/* ── Recent articles grid ─────────────────────────────────── */}
+        {/* ── Recent articles grid ──────────────────────────────────── */}
         {grid.length > 0 && (
-          <section className="mb-16">
+          <section className="mb-10">
             <div className="border-b-2 border-stone-900 pb-2 mb-8">
               <h2 className="font-sans text-xs uppercase tracking-[0.25em] text-stone-500">
                 Recent Articles
@@ -84,6 +65,18 @@ export default async function HomePage() {
               ))}
             </div>
           </section>
+        )}
+
+        {/* ── Browse all ────────────────────────────────────────────── */}
+        {articles.length > 0 && (
+          <div className="text-center mt-6">
+            <Link
+              href="/articles"
+              className="font-sans text-sm border border-stone-200 text-stone-700 px-6 py-2.5 rounded hover:bg-stone-50 hover:border-stone-300 transition-colors"
+            >
+              Browse all articles →
+            </Link>
+          </div>
         )}
 
       </main>
