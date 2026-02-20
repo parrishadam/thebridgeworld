@@ -4,6 +4,7 @@ import type {
   BiddingTableBlock,
   HandCards,
 } from "@/types";
+import BridgePlayTable from "@/components/play/BridgePlayTable";
 
 // ── Suit helpers ───────────────────────────────────────────────────────────
 
@@ -275,6 +276,9 @@ export default function SupabaseArticleRenderer({
 
           case "biddingTable":
             return <BiddingTableRenderer key={block.id} block={block} />;
+
+          case "playHand":
+            return <BridgePlayTable key={block.id} deal={block.data} />;
 
           case "image":
             return (

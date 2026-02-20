@@ -1,25 +1,26 @@
 "use client";
 
 import { useState, useRef } from "react";
-import type { BridgeHandBlock, BiddingTableBlock, Direction, HandCards } from "@/types";
+import type { BridgeHandBlock, PlayHandBlock, BiddingTableBlock, Direction, HandCards } from "@/types";
 import { parsePBN, parsePBNDeals } from "@/lib/pbn";
 import type { ParsedPBN } from "@/lib/pbn";
 
 interface BridgeHandModalProps {
-  initial?: BridgeHandBlock["data"];
+  /** "bridgeHand" (default) shows a static hand block; "playHand" adds a Declarer field. */
+  mode?: "bridgeHand" | "playHand";
+  initial?: BridgeHandBlock["data"] | PlayHandBlock["data"];
   /**
-   * Called when the user saves a single hand.  If a PBN auction was imported
-   * and opted in, `auctionData` is provided so the parent can insert a
-   * companion Bidding Table block.
+   * Called when the user saves a single hand.
+   * In bridgeHand mode, auctionData is provided when a PBN auction was imported
+   * so the parent can insert a companion Bidding Table block.
+   * In playHand mode, the auction is embedded in the block data; auctionData is unused.
    */
-  onSave: (data: BridgeHandBlock["data"], auctionData?: BiddingTableBlock["data"]) => void;
+  onSave: (data: BridgeHandBlock["data"] | PlayHandBlock["data"], auctionData?: BiddingTableBlock["data"]) => void;
   /**
-   * Called when the user clicks "Import All" on a multi-deal PBN.  The parent
-   * should create one Bridge Hand block (+ optional Bidding Table) per deal.
-   * When undefined the "Import All" button is hidden (e.g. when editing an
-   * existing block rather than creating a new one).
+   * Called when the user clicks "Import All" on a multi-deal PBN.
+   * When undefined the "Import All" button is hidden (e.g. when editing an existing block).
    */
-  onSaveAll?: (deals: Array<{ handData: BridgeHandBlock["data"]; auctionData?: BiddingTableBlock["data"]; commentary?: string }>) => void;
+  onSaveAll?: (deals: Array<{ handData: BridgeHandBlock["data"] | PlayHandBlock["data"]; auctionData?: BiddingTableBlock["data"]; commentary?: string }>) => void;
   onClose: () => void;
 }
 
@@ -56,22 +57,35 @@ function defaultData(): BridgeHandBlock["data"] {
 }
 
 export default function BridgeHandModal({
+  mode = "bridgeHand",
   initial,
   onSave,
   onSaveAll,
   onClose,
 }: BridgeHandModalProps) {
   const [data, setData] = useState<BridgeHandBlock["data"]>(
-    initial ?? defaultData()
+    (initial as BridgeHandBlock["data"]) ?? defaultData()
+  );
+
+  // Extra state for playHand mode
+  const [declarer, setDeclarer] = useState<string>(
+    (initial as PlayHandBlock["data"] | undefined)?.declarer ?? "S"
   );
 
   // ── PBN import state ────────────────────────────────────────────────────
   const [showImport,    setShowImport]    = useState(false);
   const [importText,    setImportText]    = useState("");
   const [importError,   setImportError]   = useState<string | null>(null);
-  /** Auction parsed from PBN — offered to user as an optional extra block. */
+  /**
+   * In bridgeHand mode: auction parsed from PBN, offered as an optional companion block.
+   * In playHand mode: auction is embedded in the block; initialise from existing data when editing.
+   */
   const [pendingAuction, setPendingAuction] =
-    useState<BiddingTableBlock["data"] | null>(null);
+    useState<BiddingTableBlock["data"] | null>(
+      mode === "playHand"
+        ? ((initial as PlayHandBlock["data"] | undefined)?.auction ?? null)
+        : null,
+    );
   const [includeAuction, setIncludeAuction] = useState(true);
   const fileInputRef = useRef<HTMLInputElement>(null);
   /** Non-null when a multi-deal PBN was imported and user hasn't picked yet. */
@@ -126,6 +140,7 @@ export default function BridgeHandModal({
       }
       return next;
     });
+    if (pbn.declarer) setDeclarer(pbn.declarer);
     if (pbn.auction) {
       setPendingAuction({ dealer: pbn.auction.dealer, bids: pbn.auction.bids });
       setIncludeAuction(true);
@@ -136,27 +151,41 @@ export default function BridgeHandModal({
 
   /** Convert a ParsedPBN to the { handData, auctionData, commentary } shape for onSaveAll. */
   function pbnToExport(pbn: ParsedPBN): {
-    handData: BridgeHandBlock["data"];
+    handData: BridgeHandBlock["data"] | PlayHandBlock["data"];
     auctionData?: BiddingTableBlock["data"];
     commentary?: string;
   } {
-    const handData = defaultData();
-    if (pbn.dealer)        handData.dealer        = pbn.dealer;
-    if (pbn.vulnerability) handData.vulnerability = pbn.vulnerability;
-    if (pbn.contract)      handData.contract      = pbn.contract;
+    const base = defaultData();
+    if (pbn.dealer)        base.dealer        = pbn.dealer;
+    if (pbn.vulnerability) base.vulnerability = pbn.vulnerability;
+    if (pbn.contract)      base.contract      = pbn.contract;
     if (pbn.deal) {
-      handData.hands = {
+      base.hands = {
         north: { ...DEFAULT_HAND, ...pbn.deal.north },
         south: { ...DEFAULT_HAND, ...pbn.deal.south },
         east:  { ...DEFAULT_HAND, ...pbn.deal.east  },
         west:  { ...DEFAULT_HAND, ...pbn.deal.west  },
       };
-      handData.visibleHands = { north: true, south: true, east: true, west: true };
+      base.visibleHands = { north: true, south: true, east: true, west: true };
     }
+
+    if (mode === "playHand") {
+      // Embed auction into the block; no separate biddingTable block
+      const handData: PlayHandBlock["data"] = {
+        ...base,
+        declarer: pbn.declarer ?? "S",
+        auction: pbn.auction
+          ? { dealer: pbn.auction.dealer, bids: pbn.auction.bids }
+          : undefined,
+      };
+      return { handData, commentary: pbn.commentary };
+    }
+
+    // bridgeHand mode: auction goes in a companion BiddingTable block
     const auctionData = pbn.auction
       ? { dealer: pbn.auction.dealer, bids: pbn.auction.bids }
       : undefined;
-    return { handData, auctionData, commentary: pbn.commentary };
+    return { handData: base, auctionData, commentary: pbn.commentary };
   }
 
   function applyImport(text: string) {
@@ -202,7 +231,7 @@ export default function BridgeHandModal({
         {/* Header */}
         <div className="bg-stone-800 text-white px-4 py-3 flex items-center justify-between">
           <h2 className="font-sans text-sm font-semibold uppercase tracking-wider">
-            Bridge Hand Block
+            {mode === "playHand" ? "Play Hand Block" : "Bridge Hand Block"}
           </h2>
           <button
             onClick={onClose}
@@ -337,7 +366,7 @@ export default function BridgeHandModal({
           )}
 
           {/* Auction-import offer (shows after a successful PBN import with auction) */}
-          {pendingAuction && (
+          {pendingAuction && mode === "bridgeHand" && (
             <div className="bg-blue-50 border border-blue-200 rounded px-3 py-2.5 flex items-center gap-3">
               <input
                 id="include-auction"
@@ -350,6 +379,19 @@ export default function BridgeHandModal({
                 Also insert a <strong>Bidding Table</strong> block with the imported auction
                 ({pendingAuction.bids.length} calls, dealer: {pendingAuction.dealer})
               </label>
+            </div>
+          )}
+          {pendingAuction && mode === "playHand" && (
+            <div className="bg-blue-50 border border-blue-200 rounded px-3 py-2.5 flex items-center justify-between gap-3">
+              <p className="text-xs font-sans text-blue-800 leading-snug">
+                Auction loaded: <strong>{pendingAuction.bids.length} calls</strong>, dealer: {pendingAuction.dealer} — will be embedded in block.
+              </p>
+              <button
+                onClick={() => setPendingAuction(null)}
+                className="text-xs font-sans text-blue-500 hover:text-blue-800 transition-colors shrink-0"
+              >
+                Remove
+              </button>
             </div>
           )}
 
@@ -399,8 +441,8 @@ export default function BridgeHandModal({
             </div>
           </div>
 
-          {/* Contract / Lead */}
-          <div className="grid grid-cols-2 gap-4">
+          {/* Contract / Declarer (playHand only) / Lead */}
+          <div className={`grid gap-4 ${mode === "playHand" ? "grid-cols-3" : "grid-cols-2"}`}>
             <div>
               <label className="block text-xs font-sans font-semibold uppercase tracking-wider text-stone-500 mb-1">
                 Contract
@@ -413,6 +455,22 @@ export default function BridgeHandModal({
                 className="w-full border border-stone-200 rounded px-3 py-2 text-sm font-sans focus:outline-none focus:ring-1 focus:ring-stone-400"
               />
             </div>
+            {mode === "playHand" && (
+              <div>
+                <label className="block text-xs font-sans font-semibold uppercase tracking-wider text-stone-500 mb-1">
+                  Declarer
+                </label>
+                <select
+                  value={declarer}
+                  onChange={(e) => setDeclarer(e.target.value)}
+                  className="w-full border border-stone-200 rounded px-3 py-2 text-sm font-sans focus:outline-none focus:ring-1 focus:ring-stone-400"
+                >
+                  {["N", "E", "S", "W"].map((s) => (
+                    <option key={s} value={s}>{s}</option>
+                  ))}
+                </select>
+              </div>
+            )}
             <div>
               <label className="block text-xs font-sans font-semibold uppercase tracking-wider text-stone-500 mb-1">
                 Lead
@@ -542,12 +600,20 @@ export default function BridgeHandModal({
             Cancel
           </button>
           <button
-            onClick={() =>
-              onSave(
-                data,
-                includeAuction && pendingAuction ? pendingAuction : undefined,
-              )
-            }
+            onClick={() => {
+              if (mode === "playHand") {
+                onSave({
+                  ...data,
+                  declarer,
+                  auction: pendingAuction ?? undefined,
+                });
+              } else {
+                onSave(
+                  data,
+                  includeAuction && pendingAuction ? pendingAuction : undefined,
+                );
+              }
+            }}
             className="font-sans text-sm bg-stone-900 text-white px-4 py-2 hover:bg-stone-700 transition-colors"
           >
             Save

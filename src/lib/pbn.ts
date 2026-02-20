@@ -177,6 +177,8 @@ export interface ParsedPBN {
   deal?: Record<Direction, HandCards>;
   /** Display-form contract string, e.g. "3♠ Dbl". */
   contract?: string;
+  /** Seat code of the declarer: "N" | "E" | "S" | "W". */
+  declarer?: string;
   /** Parsed auction ready to drop into a BiddingTableBlock. */
   auction?: {
     dealer: string;
@@ -264,6 +266,15 @@ export function parsePBN(raw: string): PBNResult {
   const contractRaw = getTag(raw, "Contract");
   if (contractRaw) {
     pbn.contract = parseContract(contractRaw);
+  }
+
+  // ── [Declarer] ──────────────────────────────────────────────────────────
+  const declarerRaw = getTag(raw, "Declarer");
+  if (declarerRaw) {
+    const seat = declarerRaw.trim().toUpperCase();
+    if (seat === "N" || seat === "E" || seat === "S" || seat === "W") {
+      pbn.declarer = seat;
+    }
   }
 
   // ── [Auction] ───────────────────────────────────────────────────────────

@@ -118,6 +118,30 @@ export type BridgeHandBlock = {
   };
 };
 
+export type PlayHandBlock = {
+  id: string;
+  type: "playHand";
+  data: {
+    title?: string;
+    /** "North" | "South" | "East" | "West" — same as BridgeHandBlock */
+    dealer: string;
+    vulnerability: string;
+    /** Display-form contract, e.g. "3♠" or "3♠ Dbl" */
+    contract: string;
+    /** Seat code of the declarer: "N" | "E" | "S" | "W" */
+    declarer: string;
+    /** Display-form opening lead, e.g. "♥J".  Used to pre-play the AI's first card. */
+    lead?: string;
+    hands: Record<Direction, HandCards>;
+    visibleHands: Record<Direction, boolean>;
+    /** Auction embedded in the block (shown in the overlay). */
+    auction?: {
+      dealer: string;
+      bids: Array<{ text: string; alert: string | null }>;
+    };
+  };
+};
+
 export type BiddingTableBlock = {
   id: string;
   type: "biddingTable";
@@ -142,6 +166,7 @@ export type VideoBlock = {
 export type ContentBlock =
   | TextBlock
   | BridgeHandBlock
+  | PlayHandBlock
   | BiddingTableBlock
   | ImageBlock
   | VideoBlock;

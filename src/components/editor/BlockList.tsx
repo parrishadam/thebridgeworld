@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import type {
   ContentBlock,
   BridgeHandBlock,
+  PlayHandBlock,
   BiddingTableBlock,
   ImageBlock,
   VideoBlock,
@@ -19,6 +20,7 @@ interface BlockListProps {
 
 type ModalState =
   | { type: "bridgeHand"; blockId: string | null }
+  | { type: "playHand"; blockId: string | null }
   | { type: "biddingTable"; blockId: string | null }
   | { type: "image"; blockId: string | null }
   | { type: "video"; blockId: string | null }
@@ -67,6 +69,15 @@ function BlockSummary({ block }: { block: ContentBlock }) {
           <span className="font-semibold text-stone-700">{block.data.title || "Bridge Hand"}</span>
           {" — "}
           Dealer: {block.data.dealer}, Vul: {block.data.vulnerability}
+        </div>
+      );
+    case "playHand":
+      return (
+        <div className="text-xs font-sans text-stone-500">
+          <span className="font-semibold text-stone-700">{block.data.title || "Play Hand"}</span>
+          {" — "}
+          {block.data.contract && `${block.data.contract} by ${block.data.declarer}`}
+          {block.data.dealer && `, Dealer: ${block.data.dealer}`}
         </div>
       );
     case "biddingTable":
@@ -126,6 +137,9 @@ export default function BlockList({ blocks, onChange }: BlockListProps) {
       case "bridgeHand":
         setModal({ type: "bridgeHand", blockId: null });
         break;
+      case "playHand":
+        setModal({ type: "playHand", blockId: null });
+        break;
       case "biddingTable":
         setModal({ type: "biddingTable", blockId: null });
         break;
@@ -155,6 +169,8 @@ export default function BlockList({ blocks, onChange }: BlockListProps) {
       let newBlock: ContentBlock;
       if (modal.type === "bridgeHand") {
         newBlock = { id, type: "bridgeHand", data: data as BridgeHandBlock["data"] };
+      } else if (modal.type === "playHand") {
+        newBlock = { id, type: "playHand", data: data as PlayHandBlock["data"] };
       } else if (modal.type === "biddingTable") {
         newBlock = { id, type: "biddingTable", data: data as BiddingTableBlock["data"] };
       } else if (modal.type === "image") {
@@ -178,13 +194,19 @@ export default function BlockList({ blocks, onChange }: BlockListProps) {
   }
 
   function handleModalSaveAll(
-    deals: Array<{ handData: BridgeHandBlock["data"]; auctionData?: BiddingTableBlock["data"]; commentary?: string }>,
+    deals: Array<{ handData: BridgeHandBlock["data"] | PlayHandBlock["data"]; auctionData?: BiddingTableBlock["data"]; commentary?: string }>,
   ) {
+    const isPlayHand = modal?.type === "playHand";
     const newBlocks: ContentBlock[] = [];
     for (const { handData, auctionData, commentary } of deals) {
-      newBlocks.push({ id: newId(), type: "bridgeHand", data: handData });
-      if (auctionData) {
-        newBlocks.push({ id: newId(), type: "biddingTable", data: auctionData });
+      if (isPlayHand) {
+        newBlocks.push({ id: newId(), type: "playHand", data: handData as PlayHandBlock["data"] });
+        // In playHand mode the auction is already embedded; no companion biddingTable
+      } else {
+        newBlocks.push({ id: newId(), type: "bridgeHand", data: handData as BridgeHandBlock["data"] });
+        if (auctionData) {
+          newBlocks.push({ id: newId(), type: "biddingTable", data: auctionData });
+        }
       }
       if (commentary) {
         newBlocks.push({ id: newId(), type: "text", data: { text: commentary } });
@@ -196,7 +218,7 @@ export default function BlockList({ blocks, onChange }: BlockListProps) {
 
   function openEditModal(block: ContentBlock) {
     if (block.type === "text") return; // text blocks are inline edited
-    setModal({ type: block.type as Exclude<ContentBlock["type"], "text">, blockId: block.id });
+    setModal({ type: block.type as Exclude<ContentBlock["type"], "text" | "playHand"> | "playHand", blockId: block.id });
   }
 
   // Get initial data for modal when editing
@@ -216,6 +238,8 @@ export default function BlockList({ blocks, onChange }: BlockListProps) {
             <span className="text-xs font-sans font-semibold uppercase tracking-wider text-stone-400 flex-1">
               {block.type === "bridgeHand"
                 ? "Bridge Hand"
+                : block.type === "playHand"
+                ? "Play Hand"
                 : block.type === "biddingTable"
                 ? "Bidding Table"
                 : block.type.charAt(0).toUpperCase() + block.type.slice(1)}
@@ -285,6 +309,7 @@ export default function BlockList({ blocks, onChange }: BlockListProps) {
           [
             { type: "text" as const, label: "Text" },
             { type: "bridgeHand" as const, label: "Bridge Hand" },
+            { type: "playHand" as const, label: "Play Hand" },
             { type: "biddingTable" as const, label: "Bidding Table" },
             { type: "image" as const, label: "Image" },
             { type: "video" as const, label: "Video" },
@@ -305,6 +330,19 @@ export default function BlockList({ blocks, onChange }: BlockListProps) {
         <BridgeHandModal
           initial={
             editingBlock?.type === "bridgeHand"
+              ? editingBlock.data
+              : undefined
+          }
+          onSave={handleModalSave}
+          onSaveAll={modal.blockId === null ? handleModalSaveAll : undefined}
+          onClose={() => setModal(null)}
+        />
+      )}
+      {modal?.type === "playHand" && (
+        <BridgeHandModal
+          mode="playHand"
+          initial={
+            editingBlock?.type === "playHand"
               ? editingBlock.data
               : undefined
           }
