@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { clerkClient } from "@clerk/nextjs/server";
 import { getOrCreateProfile } from "@/lib/subscription";
 import { buildAuthorList } from "@/lib/authorList";
+import ArticleEditor from "@/components/editor/ArticleEditor";
 
 export const dynamic = "force-dynamic";
 
