@@ -86,11 +86,13 @@ export default async function ArticlePage(
 
   const supabaseArticle = await getSupabaseArticleBySlug(params.slug);
 
-  if (supabaseArticle && supabaseArticle.status === "published") {
-    const articleTier = supabaseArticle.access_tier ?? "free";
-
+  if (supabaseArticle) {
     const status = userId ? await getSubscriptionStatus(userId) : null;
     const isAdmin = status?.isAdmin ?? false;
+
+    // Non-admins only see published articles; admins can preview any status
+    if (supabaseArticle.status === "published" || isAdmin) {
+      const articleTier = supabaseArticle.access_tier ?? "free";
 
     let paywallVariant: "sign_in" | "upgrade_paid" | "upgrade_premium" | null = null;
 
@@ -139,6 +141,18 @@ export default async function ArticlePage(
                 </Link>
               )}
             </nav>
+
+            {/* Draft / review banner for admins */}
+            {isAdmin && supabaseArticle.status !== "published" && (
+              <div className="mb-6 bg-amber-50 border border-amber-200 rounded-sm px-4 py-2 flex items-center gap-3">
+                <span className="font-sans text-xs font-semibold uppercase tracking-wider text-amber-700">
+                  {supabaseArticle.status}
+                </span>
+                <span className="font-sans text-xs text-amber-600">
+                  This article is not published and is only visible to admins.
+                </span>
+              </div>
+            )}
 
             {/* Category badge */}
             {supabaseArticle.category && (
@@ -204,7 +218,8 @@ export default async function ArticlePage(
         <Footer />
       </>
     );
-  }
+    } // end if (published || isAdmin)
+  } // end if (supabaseArticle)
 
   // ── Fall through to Sanity ───────────────────────────────────────────────
 
