@@ -88,19 +88,20 @@ export default async function ArticlePage(
 
   if (supabaseArticle && supabaseArticle.status === "published") {
     const articleTier = supabaseArticle.access_tier ?? "free";
+
+    const status = userId ? await getSubscriptionStatus(userId) : null;
+    const isAdmin = status?.isAdmin ?? false;
+
     let paywallVariant: "sign_in" | "upgrade_paid" | "upgrade_premium" | null = null;
 
     if (articleTier !== "free") {
       if (!userId) {
         paywallVariant = "sign_in";
-      } else {
-        const status = await getSubscriptionStatus(userId);
-        if (!status.isAdmin) {
-          if (articleTier === "premium" && status.tier !== "premium") {
-            paywallVariant = "upgrade_premium";
-          } else if (articleTier === "paid" && status.tier === "free") {
-            paywallVariant = "upgrade_paid";
-          }
+      } else if (!isAdmin) {
+        if (articleTier === "premium" && status?.tier !== "premium") {
+          paywallVariant = "upgrade_premium";
+        } else if (articleTier === "paid" && status?.tier === "free") {
+          paywallVariant = "upgrade_paid";
         }
       }
     }
@@ -128,6 +129,14 @@ export default async function ArticlePage(
                     {supabaseArticle.category}
                   </Link>
                 </>
+              )}
+              {isAdmin && (
+                <Link
+                  href={`/editor/${supabaseArticle.id}`}
+                  className="ml-auto font-sans text-xs border border-stone-200 text-stone-600 px-3 py-1 rounded hover:bg-stone-50 hover:border-stone-300 transition-colors"
+                >
+                  Edit
+                </Link>
               )}
             </nav>
 
