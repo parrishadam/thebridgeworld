@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback, useRef } from "react";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import type { ContentBlock, SupabaseArticle } from "@/types";
 import BlockList from "./BlockList";
 import SupabaseArticleRenderer from "@/components/articles/SupabaseArticleRenderer";
@@ -55,6 +55,7 @@ const CATEGORIES = [
 // ── Component ──────────────────────────────────────────────────────────────
 
 export default function ArticleEditor({ article, isAdmin }: ArticleEditorProps) {
+  const router = useRouter();
   const [meta, setMeta] = useState<EditorMeta>({
     title:            article?.title ?? "",
     slug:             article?.slug ?? "",
@@ -78,6 +79,29 @@ export default function ArticleEditor({ article, isAdmin }: ArticleEditorProps) 
 
   const isDirtyRef = useRef(isDirty);
   isDirtyRef.current = isDirty;
+
+  // Warn on browser-level navigation (refresh, close, address bar, back button)
+  useEffect(() => {
+    const handler = (e: BeforeUnloadEvent) => {
+      if (isDirtyRef.current) {
+        e.preventDefault();
+        e.returnValue = "";
+      }
+    };
+    window.addEventListener("beforeunload", handler);
+    return () => window.removeEventListener("beforeunload", handler);
+  }, []);
+
+  // Guarded in-app navigation
+  function navigateAway(href: string) {
+    if (isDirtyRef.current) {
+      const ok = window.confirm(
+        "Are you sure you want to leave this page? Edits have not been saved and will be lost."
+      );
+      if (!ok) return;
+    }
+    router.push(href);
+  }
 
   // Auto-generate slug from title (only when not manually edited)
   useEffect(() => {
@@ -178,12 +202,12 @@ export default function ArticleEditor({ article, isAdmin }: ArticleEditorProps) 
     <div className="min-h-screen bg-stone-50">
       {/* ── Top bar ──────────────────────────────────────────────────────── */}
       <div className="sticky top-0 z-30 bg-white border-b border-stone-200 px-4 py-3 flex items-center gap-3">
-        <Link
-          href="/"
+        <button
+          onClick={() => navigateAway("/")}
           className="font-serif text-sm font-bold text-stone-900 hover:text-stone-600 transition-colors whitespace-nowrap shrink-0"
         >
           The Bridge World
-        </Link>
+        </button>
         <span className="text-stone-300 shrink-0">/</span>
         <input
           type="text"
