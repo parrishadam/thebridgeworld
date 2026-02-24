@@ -7,6 +7,7 @@ import type {
   SupabaseArticle, SanityArticle, SanityCategory, ArticleAccessTier, Category,
   ContentBlock, BridgeHandBlock, PlayHandBlock, HandSummary,
 } from "@/types";
+import { issueMonthYear } from "@/lib/utils";
 
 // ── Slug helper ────────────────────────────────────────────────────────────
 
@@ -182,6 +183,9 @@ export function mapSupabaseToCardShape(
     slug: slugify(t),
   }));
 
+  // Build "Month Year" string for legacy/imported articles
+  const issueDate = issueMonthYear(article.month, article.year);
+
   return {
     _id:          article.id,
     title:        article.title,
@@ -195,6 +199,7 @@ export function mapSupabaseToCardShape(
     category,
     tags,
     handData:     extractHandData(article.content_blocks ?? []),
+    issueDate,
     author: article.author_name
       ? {
           _id:      article.author_id ?? slugify(article.author_name),

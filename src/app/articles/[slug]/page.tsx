@@ -11,7 +11,7 @@ import { getSupabaseAdmin } from "@/lib/supabase";
 import ArticleCardImage from "@/components/articles/ArticleCardImage";
 import { getSubscriptionStatus } from "@/lib/subscription";
 import { getCategoryByName } from "@/lib/categories";
-import { formatDate } from "@/lib/utils";
+import { formatDate, formatArticleDate, issueMonthYear } from "@/lib/utils";
 
 // Never statically cache — paywall checks must run fresh on every request
 export const dynamic = "force-dynamic";
@@ -172,7 +172,7 @@ export default async function ArticlePage(
                 )
               )}
               {article.published_at && (
-                <p className="text-stone-400">{formatDate(article.published_at)}</p>
+                <p className="text-stone-400">{formatArticleDate(article.published_at, issueMonthYear(article.month, article.year))}</p>
               )}
             </div>
             {article.tags && article.tags.length > 0 && (

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import { SanityArticle } from "@/types";
-import { formatDate } from "@/lib/utils";
+import { formatArticleDate } from "@/lib/utils";
 import ArticleCardImage from "./ArticleCardImage";
 import LevelBadge from "./LevelBadge";
 
@@ -93,7 +93,7 @@ export default function ArticleCard({ article, variant = "default" }: ArticleCar
             {article.title}
           </h3>
           {article.publishedAt && (
-            <p className="text-xs text-stone-400 mt-1 font-sans">{formatDate(article.publishedAt)}</p>
+            <p className="text-xs text-stone-400 mt-1 font-sans">{formatArticleDate(article.publishedAt, article.issueDate)}</p>
           )}
         </div>
       </Link>
@@ -144,7 +144,7 @@ export default function ArticleCard({ article, variant = "default" }: ArticleCar
         <p className="font-sans text-xs text-stone-400 mt-3">
           {article.author?.name}
           {article.author?.name && article.publishedAt && " · "}
-          {article.publishedAt && formatDate(article.publishedAt)}
+          {article.publishedAt && formatArticleDate(article.publishedAt, article.issueDate)}
         </p>
       </Link>
     );
@@ -191,7 +191,7 @@ export default function ArticleCard({ article, variant = "default" }: ArticleCar
       <p className="font-sans text-xs text-stone-400 mt-2">
         {article.author?.name}
         {article.author?.name && article.publishedAt && " · "}
-        {article.publishedAt && formatDate(article.publishedAt)}
+        {article.publishedAt && formatArticleDate(article.publishedAt, article.issueDate)}
       </p>
     </Link>
   );

@@ -5,7 +5,7 @@ import { clerkClient } from "@clerk/nextjs/server";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { getSupabaseAdmin } from "@/lib/supabase";
-import { formatDate } from "@/lib/utils";
+import { formatArticleDate, issueMonthYear } from "@/lib/utils";
 import type { SupabaseArticle } from "@/types";
 
 export const dynamic = "force-dynamic";
@@ -67,7 +67,7 @@ export default async function AuthorPage({
     resolveName(profile),
     getSupabaseAdmin()
       .from("articles")
-      .select("id, title, slug, category, excerpt, published_at, access_tier, featured_image_url")
+      .select("id, title, slug, category, excerpt, published_at, access_tier, featured_image_url, month, year")
       .contains("author_ids", [params.userId])
       .eq("status", "published")
       .order("published_at", { ascending: false }),
@@ -75,7 +75,7 @@ export default async function AuthorPage({
 
   const publishedArticles = (articles ?? []) as Pick<
     SupabaseArticle,
-    "id" | "title" | "slug" | "category" | "excerpt" | "published_at" | "access_tier" | "featured_image_url"
+    "id" | "title" | "slug" | "category" | "excerpt" | "published_at" | "access_tier" | "featured_image_url" | "month" | "year"
   >[];
 
   return (
@@ -152,7 +152,7 @@ export default async function AuthorPage({
                       </p>
                     )}
                     <p className="font-sans text-xs text-stone-400">
-                      {formatDate(article.published_at ?? "")}
+                      {formatArticleDate(article.published_at ?? "", issueMonthYear(article.month, article.year))}
                     </p>
                   </Link>
                 </li>

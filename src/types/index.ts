@@ -97,6 +97,8 @@ export interface SanityArticle {
   tags?: SanityCategory[];
   author?: SanityAuthor;
   handData?: HandSummary;
+  /** "Month Year" string for legacy/imported articles (e.g. "April 2025") */
+  issueDate?: string;
   // Only present on detail query
   content?: SanityBlock[];
   seoTitle?: string;

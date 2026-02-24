@@ -219,7 +219,8 @@ async function main() {
 
   // ── Create or find issue record ──────────────────────────────────────────
 
-  const publishedAt = new Date(year, month - 1, 1).toISOString();
+  // Use noon UTC to avoid timezone shifts (midnight UTC displays as previous day in US timezones)
+  const publishedAt = `${year}-${String(month).padStart(2, "0")}-01T12:00:00.000Z`;
 
   const { data: existingIssue } = await supabase
     .from("issues")
@@ -394,8 +395,8 @@ async function main() {
         category: article.category || null,
         tags: article.tags || [],
         level: article.level || null,
-        month: article.month ?? month,
-        year: article.year ?? year,
+        month,
+        year,
         access_tier: "paid",
         excerpt: article.excerpt || null,
         status: "draft",
