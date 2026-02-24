@@ -15,7 +15,7 @@ import {
   inferLevel,
 } from "@/lib/postProcess";
 
-export const maxDuration = 600; // Allow up to 10 minutes — image batches of 3 pages need more calls
+export const maxDuration = 300; // Max for Vercel hobby plan (5 minutes)
 
 interface TocArticle {
   title: string;
