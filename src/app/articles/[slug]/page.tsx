@@ -11,7 +11,7 @@ import { getSupabaseAdmin } from "@/lib/supabase";
 import ArticleCardImage from "@/components/articles/ArticleCardImage";
 import { getSubscriptionStatus } from "@/lib/subscription";
 import { getCategoryByName } from "@/lib/categories";
-import { formatDate, formatArticleDate, issueMonthYear } from "@/lib/utils";
+import { formatArticleDate, issueMonthYear } from "@/lib/utils";
 
 // Never statically cache — paywall checks must run fresh on every request
 export const dynamic = "force-dynamic";
