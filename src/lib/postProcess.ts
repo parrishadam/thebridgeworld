@@ -596,6 +596,128 @@ function clipPageRanges(ranges: number[][], excluded: Set<number>): number[][] {
   return result;
 }
 
+// ── Strip author from title ──────────────────────────────────────────────────
+
+/**
+ * Strips trailing "by Author Name", "conducted by Author Name",
+ * "edited by Author Name" from article titles.
+ * Returns the cleaned title and the extracted author name (if any).
+ */
+export function stripAuthorFromTitle(
+  title: string,
+  knownAuthor?: string,
+): { title: string; extractedAuthor: string | null } {
+  // Pattern: title + "conducted by / edited by / by" + author name
+  // Author name = 2-5 capitalized words, optionally with initials like "B."
+  const pattern = /\s+(?:conducted|edited|moderated|presented)?\s*by\s+([A-Z][a-zA-Z.]+(?:\s+[A-Z][a-zA-Z.]+){0,4})\s*$/;
+  const match = title.match(pattern);
+  if (!match) return { title, extractedAuthor: null };
+
+  const extractedAuthor = match[1].trim();
+  const cleaned = title.slice(0, match.index!).trim();
+
+  // Sanity check: don't strip if it would leave a very short title
+  if (cleaned.length < 3) return { title, extractedAuthor: null };
+
+  // If we have a known author, only strip if the extracted name is similar
+  if (knownAuthor && knownAuthor.toLowerCase() !== extractedAuthor.toLowerCase()) {
+    // Check if extracted name is a subset/superset of known author
+    const extractedLower = extractedAuthor.toLowerCase();
+    const knownLower = knownAuthor.toLowerCase();
+    if (!knownLower.includes(extractedLower) && !extractedLower.includes(knownLower)) {
+      return { title, extractedAuthor: null };
+    }
+  }
+
+  return { title: cleaned, extractedAuthor };
+}
+
+// ── Slug length capping ─────────────────────────────────────────────────────
+
+/**
+ * Truncates a slugified string to approximately `maxLen` characters,
+ * cutting at a word (hyphen) boundary to avoid partial words.
+ */
+export function truncateSlug(slug: string, maxLen = 40): string {
+  if (slug.length <= maxLen) return slug;
+  // Find the last hyphen before maxLen
+  const cut = slug.lastIndexOf("-", maxLen);
+  if (cut <= 0) return slug.slice(0, maxLen);
+  return slug.slice(0, cut);
+}
+
+// ── Deduplicate near-identical TOC articles ─────────────────────────────────
+
+/**
+ * Normalizes a title for comparison: lowercase, strip punctuation, collapse whitespace.
+ */
+function normalizeTitle(title: string): string {
+  return title
+    .toLowerCase()
+    .replace(/[^a-z0-9\s]/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+/**
+ * Detects near-duplicate articles in a TOC list and merges them.
+ * Two articles are considered duplicates if they share the same category
+ * and their normalized titles are very similar (one contains the other,
+ * or they differ by ≤ 3 words).
+ * The article with more page coverage is kept; the other's pages are merged in.
+ */
+export function deduplicateTocArticles(tocArticles: TocArticle[]): TocArticle[] {
+  const merged = new Set<number>();
+
+  for (let i = 0; i < tocArticles.length; i++) {
+    if (merged.has(i)) continue;
+    const a = tocArticles[i];
+    const normA = normalizeTitle(a.title);
+    const wordsA = normA.split(" ");
+
+    for (let j = i + 1; j < tocArticles.length; j++) {
+      if (merged.has(j)) continue;
+      const b = tocArticles[j];
+
+      // Must share the same category (or both empty)
+      if ((a.category || "").toLowerCase() !== (b.category || "").toLowerCase()) continue;
+
+      const normB = normalizeTitle(b.title);
+
+      // Check: one title contains the other
+      const isSubset = normA.includes(normB) || normB.includes(normA);
+
+      if (!isSubset) {
+        // Check: titles differ by ≤ 3 words (symmetric difference)
+        const wordsB = normB.split(" ");
+        const setA = new Set(wordsA);
+        const setB = new Set(wordsB);
+        const diff = [...Array.from(setA).filter(w => !setB.has(w)), ...Array.from(setB).filter(w => !setA.has(w))];
+        if (diff.length > 3) continue;
+      }
+
+      // Merge: keep the article with more page coverage, absorb the other's pages
+      const pagesA = a.pdf_pages.reduce((sum, [s, e]) => sum + (e - s + 1), 0);
+      const pagesB = b.pdf_pages.reduce((sum, [s, e]) => sum + (e - s + 1), 0);
+
+      if (pagesA >= pagesB) {
+        a.pdf_pages = [...a.pdf_pages, ...b.pdf_pages].sort((x, y) => x[0] - y[0]);
+        console.log(`[dedup] Merged "${b.title}" into "${a.title}"`);
+        merged.add(j);
+      } else {
+        b.pdf_pages = [...b.pdf_pages, ...a.pdf_pages].sort((x, y) => x[0] - y[0]);
+        console.log(`[dedup] Merged "${a.title}" into "${b.title}"`);
+        merged.add(i);
+        break; // a is merged away, stop comparing it
+      }
+    }
+  }
+
+  if (merged.size === 0) return tocArticles;
+  console.log(`[dedup] Removed ${merged.size} duplicate article(s)`);
+  return tocArticles.filter((_, i) => !merged.has(i));
+}
+
 // ── Category mapping ────────────────────────────────────────────────────────
 
 const CATEGORY_MAP: Record<string, string> = {

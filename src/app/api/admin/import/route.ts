@@ -8,6 +8,8 @@ import type { ContentBlock, BridgeHandBlock, PlayHandBlock, BiddingTableBlock, S
 import { jsonrepair } from "jsonrepair";
 import {
   stripCrossReferences,
+  stripAuthorFromTitle,
+  deduplicateTocArticles,
   mapCategory,
   inferCategoryFromTitle,
   inferLevel,
@@ -158,7 +160,7 @@ const TEXT_ONLY_CATEGORIES = new Set([
   "another look",
 ]);
 
-function useImageParsing(category: string): boolean {
+function shouldParseWithImages(category: string): boolean {
   const catLower = (category || "").toLowerCase();
   // If exact match on a text-only category, use text extraction
   if (TEXT_ONLY_CATEGORIES.has(catLower)) return false;
@@ -1409,7 +1411,10 @@ export async function POST(request: NextRequest) {
 
     tocArticles = filterNextMonthArticles(tocArticles, issue.month);
 
-    console.log(`[import] After merge/filter: ${tocArticles.length} articles`);
+    // Deduplicate near-identical articles
+    tocArticles = deduplicateTocArticles(tocArticles);
+
+    console.log(`[import] After merge/filter/dedup: ${tocArticles.length} articles`);
 
     const articles: ParsedArticle[] = tocArticles.map((a) => {
       let articleText = sliceArticleText(pageTexts, a.pdf_pages);
@@ -1504,11 +1509,11 @@ export async function POST(request: NextRequest) {
         console.log(`[import]   📁 Wrote full MSC raw text to /tmp/msc-raw-text.txt (${article._sourceText.length} chars)`);
       }
 
-      const shouldUseImages = useImageParsing(article.category);
+      const shouldUseImages = shouldParseWithImages(article.category);
 
       try {
         const allBlocks: ContentBlock[] = [];
-        let totalUsage: CallUsage = {
+        const totalUsage: CallUsage = {
           model: articleModel,
           inputTokens: 0,
           outputTokens: 0,
@@ -1757,6 +1762,21 @@ export async function POST(request: NextRequest) {
         if (crResult.stripped > 0) {
           articles[i].content_blocks = crResult.blocks;
           console.log(`[import]   Stripped cross-references from ${crResult.stripped} block(s) in "${articles[i].title}"`);
+        }
+      }
+
+      // Strip author from title (e.g. "Kantar for the Defense by Edwin B. Kantar")
+      {
+        const { title: cleanTitle, extractedAuthor } = stripAuthorFromTitle(
+          articles[i].title,
+          articles[i].author_name || undefined,
+        );
+        if (extractedAuthor) {
+          console.log(`[import]   Stripped author from title: "${articles[i].title}" → "${cleanTitle}"`);
+          if (!articles[i].author_name) {
+            articles[i].author_name = extractedAuthor;
+          }
+          articles[i].title = cleanTitle;
         }
       }
 

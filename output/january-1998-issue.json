@@ -15,118 +15,55 @@
       "tags": [
         "January 1998"
       ],
+      "level": "beginner",
+      "month": 1,
+      "year": 1998,
       "source_page": 2,
-      "excerpt": "The editor discusses the year ahead and upcoming content.",
+      "excerpt": "Monthly editorial commentary on bridge topics.",
       "block_count": 4,
       "warnings": [
-        "Manual review: east in block b4: Hand has 10 cards, expected 8",
-        "Block 3 (bridgeHand): south has 4 cards (expected 8)",
-        "Block 3 (bridgeHand): east has 10 cards (expected 8)"
+        "Block 1 (bridgeHand): north has 10 cards (expected 13)",
+        "Block 1 (bridgeHand): south has 12 cards (expected 13)",
+        "Block 1 (bridgeHand): east has 8 cards (expected 13)",
+        "Block 3 (bridgeHand): south has 8 cards (expected 7)"
       ]
     },
     {
-      "title": "The View from Vu-Graph by Kit Woolsey",
-      "slug": "the-view-from-vu-graph-by-kit-woolsey",
+      "title": "The View from Yu-Graph by Kit Woolsey",
+      "slug": "the-view-from-yu-graph-by-kit-woolsey",
       "author_name": "Kit Woolsey",
       "category": "Tournament Report",
       "tags": [
         "January 1998",
         "Kit Woolsey",
-        "Vu-Graph"
+        "Yu-Graph"
       ],
+      "level": "intermediate",
+      "month": 1,
+      "year": 1998,
       "source_page": 5,
-      "excerpt": "Analysis of hands from recent major tournaments viewed through Vu-Graph.",
-      "block_count": 0,
+      "excerpt": "Analysis of hands from recent tournaments using Yu-Graph technology.",
+      "block_count": 23,
       "warnings": [
-        "No content blocks found"
-      ]
-    },
-    {
-      "title": "Edgar Kaplan Remembered, II by Jeff Rubens",
-      "slug": "edgar-kaplan-remembered-ii-by-jeff-rubens",
-      "author_name": "Jeff Rubens",
-      "category": "History",
-      "tags": [
-        "January 1998",
-        "Edgar Kaplan",
-        "Jeff Rubens"
-      ],
-      "source_page": 16,
-      "excerpt": "The second part of a tribute to Edgar Kaplan and his contributions to bridge.",
-      "block_count": 7,
-      "warnings": []
-    },
-    {
-      "title": "Life Masters' Individual by Edgar Kaplan",
-      "slug": "life-masters-individual-by-edgar-kaplan",
-      "author_name": "Edgar Kaplan",
-      "category": "Tournament Report",
-      "tags": [
-        "January 1998",
-        "Edgar Kaplan",
-        "Individual"
-      ],
-      "source_page": 17,
-      "excerpt": "Report on the prestigious Life Masters' Individual championship.",
-      "block_count": 28,
-      "warnings": []
-    },
-    {
-      "title": "Analysis of the 1958 World Championship by Edgar Kaplan",
-      "slug": "analysis-of-the-1958-world-championship-by-edgar-kaplan",
-      "author_name": "Edgar Kaplan",
-      "category": "Tournament Report",
-      "tags": [
-        "January 1998",
-        "Edgar Kaplan",
-        "World Championship",
-        "1958"
-      ],
-      "source_page": 19,
-      "excerpt": "Analysis of key deals from the historic 1958 World Championship match.",
-      "block_count": 12,
-      "warnings": [
-        "Manual review: south in block b41: Hand has 16 cards, expected 13",
-        "Manual review: east in block b41: Hand has 15 cards, expected 13",
-        "Block 1 (bridgeHand): north has 12 cards (expected 13)",
-        "Block 1 (bridgeHand): south has 16 cards (expected 13)",
-        "Block 1 (bridgeHand): east has 15 cards (expected 13)"
-      ]
-    },
-    {
-      "title": "A Jacobean Proposal by Henry Bethe",
-      "slug": "a-jacobean-proposal-by-henry-bethe",
-      "author_name": "Henry Bethe",
-      "category": "Bidding Theory",
-      "tags": [
-        "January 1998",
-        "Henry Bethe",
-        "Jacoby",
-        "conventions"
-      ],
-      "source_page": 30,
-      "excerpt": "A proposed modification to Jacoby transfer sequences.",
-      "block_count": 0,
-      "warnings": [
-        "No content blocks found"
+        "Block 17 (bridgeHand): west has 9 cards (expected 12)"
       ]
     },
     {
       "title": "Test Your Play",
       "slug": "test-your-play",
       "author_name": "",
-      "category": "Test Your Play",
+      "category": "Card Play",
       "tags": [
         "January 1998",
-        "card play"
+        "test your play"
       ],
+      "level": "intermediate",
+      "month": 1,
+      "year": 1998,
       "source_page": 9,
-      "excerpt": "Card play problems to test your declarer play skills.",
-      "block_count": 9,
-      "warnings": [
-        "Block 6 (bridgeHand): north has 14 cards (expected 13)",
-        "Block 7 (biddingTable): Invalid bids: Double"
-      ]
+      "excerpt": "Card play problems to test and improve declarer technique.",
+      "block_count": 10,
+      "warnings": []
     },
     {
       "title": "Fifty Years Ago",
@@ -134,14 +71,17 @@
       "author_name": "",
       "category": "History",
       "tags": [
-        "January 1998",
-        "history"
+        "January 1998"
       ],
+      "level": "intermediate",
+      "month": 1,
+      "year": 1998,
       "source_page": 11,
-      "excerpt": "Looking back at Bridge World content from 50 years ago.",
-      "block_count": 0,
+      "excerpt": "A look back at bridge articles and events from 50 years ago.",
+      "block_count": 6,
       "warnings": [
-        "No content blocks found"
+        "Block 1 (bridgeHand): north has 12 cards (expected 13)",
+        "Block 2 (biddingTable): Auction must end with 3 consecutive passes (got: Pass, 1D, 1S)"
       ]
     },
     {
@@ -151,11 +91,13 @@
       "category": "Defense",
       "tags": [
         "January 1998",
-        "Edwin Kantar",
-        "defense"
+        "Edwin B. Kantar"
       ],
+      "level": "intermediate",
+      "month": 1,
+      "year": 1998,
       "source_page": 13,
-      "excerpt": "Defense tips and problems from master teacher Eddie Kantar.",
+      "excerpt": "Defensive tips and techniques from master teacher Edwin Kantar.",
       "block_count": 0,
       "warnings": [
         "No content blocks found"
@@ -169,31 +111,47 @@
       "tags": [
         "January 1998"
       ],
+      "level": "beginner",
+      "month": 1,
+      "year": 1998,
       "source_page": 31,
-      "excerpt": "Reviews of recent bridge books and publications.",
-      "block_count": 0,
+      "excerpt": "Reviews of recently published bridge books.",
+      "block_count": 32,
       "warnings": [
-        "No content blocks found"
+        "Manual review: west in block b67: Hand has 15 cards, expected 13",
+        "Block 7 (bridgeHand): north has 14 cards (expected 13)",
+        "Block 20 (bridgeHand): south has 12 cards (expected 13)",
+        "Block 23 (bridgeHand): south has 12 cards (expected 13)",
+        "Block 23 (bridgeHand): west has 15 cards (expected 13)",
+        "Block 25 (bridgeHand): east has 5 cards (expected 12)",
+        "Block 25 (bridgeHand): west has 5 cards (expected 12)"
       ]
     },
     {
-      "title": "Challenge the Champs conducted by Philip Alder",
-      "slug": "challenge-the-champs-conducted-by-philip-alder",
-      "author_name": "Philip Alder",
+      "title": "Challenge the Champs conducted by Phillip Alder",
+      "slug": "challenge-the-champs-conducted-by-phillip-alder",
+      "author_name": "Phillip Alder",
       "category": "Challenge the Champs",
       "tags": [
         "January 1998",
-        "Philip Alder"
+        "CTC",
+        "Phillip Alder"
       ],
+      "level": "advanced",
+      "month": 1,
+      "year": 1998,
       "source_page": 33,
-      "excerpt": "Match your bidding against champion pairs in this interactive feature.",
-      "block_count": 32,
+      "excerpt": "Bidding challenge where readers compete against champion pairs.",
+      "block_count": 51,
       "warnings": [
-        "Manual review: west in block b66: Hand has 16 cards, expected 14",
-        "Block 0 (bridgeHand): west has 14 cards (expected 16)",
-        "Block 5 (bridgeHand): west has 16 cards (expected 14)",
-        "Block 14 (bridgeHand): west has 14 cards (expected 15)",
-        "Block 20 (bridgeHand): west has 16 cards (expected 17)"
+        "Manual review: west in block b94: Hand has 16 cards, expected 13",
+        "Manual review: west in block b114: Hand has 26 cards, expected 22",
+        "Block 18 (bridgeHand): west has 16 cards (expected 13)",
+        "Block 38 (bridgeHand): west has 26 cards (expected 22)",
+        "Block 41 (bridgeHand): east has 14 cards (expected 13)",
+        "Block 42 (biddingTable): Invalid bids: 2♣",
+        "Block 47 (biddingTable): Invalid bids: 3♣",
+        "Block 48 (biddingTable): Invalid bids: 2♣, 2♦, 3♣"
       ]
     },
     {
@@ -203,24 +161,133 @@
       "category": "Master Solvers' Club",
       "tags": [
         "January 1998",
-        "bidding"
+        "MSC"
       ],
+      "level": "advanced",
+      "month": 1,
+      "year": 1998,
       "source_page": 39,
-      "excerpt": "Eight bidding problems with expert panel responses and scoring.",
-      "block_count": 29,
+      "excerpt": "Monthly bidding problems with expert panel solutions and scoring.",
+      "block_count": 121,
       "warnings": [
-        "Manual review: south in block b98: Hand has 16 cards, expected 14",
-        "Block 2 (bridgeHand): north has 13 cards (expected 15)",
-        "Block 5 (bridgeHand): south has 16 cards (expected 14)",
-        "Block 22 (bridgeHand): north has 12 cards (expected 13)"
+        "Manual review: south in block b129: Hand has 20 cards, expected 14",
+        "Manual review: east in block b129: Hand has 34 cards, expected 14",
+        "Manual review: west in block b129: Hand has 28 cards, expected 14",
+        "Manual review: north in block b174: Hand has 15 cards, expected 13",
+        "Block 2 (bridgeHand): south has 20 cards (expected 14)",
+        "Block 2 (bridgeHand): east has 34 cards (expected 14)",
+        "Block 2 (bridgeHand): west has 28 cards (expected 14)",
+        "Block 21 (bridgeHand): south has 12 cards (expected 13)",
+        "Block 28 (bridgeHand): east has 11 cards (expected 13)",
+        "Block 41 (bridgeHand): south has 12 cards (expected 13)",
+        "Block 47 (bridgeHand): north has 15 cards (expected 13)",
+        "Block 47 (bridgeHand): west has 12 cards (expected 13)",
+        "Block 48 (biddingTable): Invalid bids: 3♦, 4♠, 4♥",
+        "Block 48 (biddingTable): Auction must end with 3 consecutive passes (got: Pass, 4♥, Pass)",
+        "Block 55 (bridgeHand): east has 4 cards (expected 13)",
+        "Block 57 (bridgeHand): east has 12 cards (expected 13)",
+        "Block 64 (bridgeHand): west has 12 cards (expected 13)",
+        "Block 74 (biddingTable): Invalid bids: 2♦",
+        "Block 90 (bridgeHand): north has 12 cards (expected 13)",
+        "Block 90 (bridgeHand): south has 12 cards (expected 13)",
+        "Block 95 (biddingTable): Invalid bids: West, North, East"
+      ]
+    },
+    {
+      "title": "A Jacobean Proposal by Henry Bethe",
+      "slug": "a-jacobean-proposal-by-henry-bethe",
+      "author_name": "Henry Bethe",
+      "category": "Bidding",
+      "tags": [
+        "January 1998",
+        "Henry Bethe"
+      ],
+      "level": "intermediate",
+      "month": 1,
+      "year": 1998,
+      "source_page": 30,
+      "excerpt": "A proposal for modifications to Jacoby transfer sequences.",
+      "block_count": 6,
+      "warnings": []
+    },
+    {
+      "title": "Analysis of the 1958 World Championship by Edgar Kaplan",
+      "slug": "analysis-of-the-1958-world-championship-by-edgar-kaplan",
+      "author_name": "Edgar Kaplan",
+      "category": "History",
+      "tags": [
+        "January 1998",
+        "Edgar Kaplan",
+        "World Championship",
+        "1958"
+      ],
+      "level": "intermediate",
+      "month": 1,
+      "year": 1998,
+      "source_page": 19,
+      "excerpt": "Historical analysis of key hands from the 1958 World Championship.",
+      "block_count": 23,
+      "warnings": [
+        "Manual review: east in block b270: Duplicate honor cards in suit(s): H",
+        "Manual review: west in block b274: Hand has 15 cards, expected 13",
+        "Manual review: north in block b278: Hand has 15 cards, expected 12",
+        "Block 2 (bridgeHand): north has 14 cards (expected 13)",
+        "Block 2 (bridgeHand): west has 14 cards (expected 13)",
+        "Block 5 (bridgeHand): north has 12 cards (expected 13)",
+        "Block 12 (bridgeHand): south has 12 cards (expected 13)",
+        "Block 12 (bridgeHand): east has 14 cards (expected 13)",
+        "Block 14 (bridgeHand): east has 13 cards (expected 14)",
+        "Block 16 (bridgeHand): west has 15 cards (expected 13)",
+        "Block 20 (bridgeHand): north has 15 cards (expected 12)",
+        "Block 20 (bridgeHand): south has 11 cards (expected 12)"
+      ]
+    },
+    {
+      "title": "Life Masters Individual by Edgar Kaplan",
+      "slug": "life-masters-individual-by-edgar-kaplan",
+      "author_name": "Edgar Kaplan",
+      "category": "Tournament Report",
+      "tags": [
+        "January 1998",
+        "Edgar Kaplan",
+        "Life Masters Individual"
+      ],
+      "level": "intermediate",
+      "month": 1,
+      "year": 1998,
+      "source_page": 17,
+      "excerpt": "Report on the Life Masters Individual tournament.",
+      "block_count": 15,
+      "warnings": [
+        "Block 10 (biddingTable): Invalid bids: 4 ♦, T0, 14"
+      ]
+    },
+    {
+      "title": "Edgar Kaplan Remembered, II by Jeff Rubens",
+      "slug": "edgar-kaplan-remembered-ii-by-jeff-rubens",
+      "author_name": "Jeff Rubens",
+      "category": "Editorial",
+      "tags": [
+        "January 1998",
+        "Jeff Rubens",
+        "Edgar Kaplan"
+      ],
+      "level": "beginner",
+      "month": 1,
+      "year": 1998,
+      "source_page": 16,
+      "excerpt": "Second part of a tribute to Edgar Kaplan.",
+      "block_count": 0,
+      "warnings": [
+        "No content blocks found"
       ]
     }
   ],
   "stats": {
-    "totalDurationMs": 2149777,
-    "apiCalls": 21,
-    "inputTokens": 190427,
-    "outputTokens": 65871,
-    "costUsd": 7.79673
+    "totalDurationMs": 2025636,
+    "apiCalls": 22,
+    "inputTokens": 200985,
+    "outputTokens": 63163,
+    "costUsd": 7.752
   }
 }

@@ -31,11 +31,6 @@ const DIR_LABELS: Record<string, Direction> = {
   n: "north", s: "south", e: "east", w: "west",
 };
 
-const DEALER_LONG: Record<string, string> = {
-  north: "North", south: "South", east: "East", west: "West",
-  n: "North", s: "South", e: "East", w: "West",
-};
-
 // ── PDF encoding fix ────────────────────────────────────────────────────────
 
 /**
@@ -286,8 +281,7 @@ function parseSpatialGrid(lines: string[]): Record<Direction, HandCards> | null 
 
   if (groups.length === 3) {
     // Assume N, center (W+E mixed), S — assign by indent comparison
-    const sorted = [...groups].sort((a, b) => a.indent - b.indent);
-    // Smallest indent → W or S, largest → E or N?  Fall back to positional.
+    // Fall back to positional assignment.
     hands.north = makeHandCards(groups[0].suits);
     hands.south = makeHandCards(groups[2].suits);
     // Middle group: treat as West for now
@@ -396,11 +390,6 @@ const COLUMN_PATTERNS: Array<{ re: RegExp; dirs: string[] }> = [
     dirs: ["South", "West", "North", "East"],
   },
 ];
-
-// Maps dealer name to its W-N-E-S column index (for bids-array offset)
-const DEALER_OFFSET: Record<string, number> = {
-  West: 0, North: 1, East: 2, South: 3,
-};
 
 /**
  * Parse a W-N-E-S grid auction table.

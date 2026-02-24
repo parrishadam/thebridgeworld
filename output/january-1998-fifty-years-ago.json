@@ -4,14 +4,152 @@
   "author_name": "",
   "category": "History",
   "tags": [
-    "January 1998",
-    "history"
+    "January 1998"
   ],
+  "level": "intermediate",
+  "month": 1,
+  "year": 1998,
   "source_page": 11,
-  "excerpt": "Looking back at Bridge World content from 50 years ago.",
+  "excerpt": "A look back at bridge articles and events from 50 years ago.",
   "status": "draft",
-  "content_blocks": [],
+  "content_blocks": [
+    {
+      "id": "b38",
+      "type": "text",
+      "data": {
+        "text": "**Fifty Years Ago**\n\nMany of the top players of 1947 years ago had a great flair for card play. Often, they seemed to conjure up a brilliant line of play or defense with little or no calculation, as though a little birdie whispered in their ears. Four hearts was a popular contract around the room. The defense attacked spades, and most Souths discarded diamonds on the second and third rounds of the suit, keeping control—except that hearts broke five-one so the contract could not be made\n\nFishbein was the only South to make four hearts. He ruffed the second spade, cashed two clubs, and crossruffed for ten tricks. Notice that discarding at trick two and three relies on better than five-one breaks in two suits; hearts and clubs, while the winning line requires only one decent break in clubs. Still, we doubt that Fishbein calculated the exact odds."
+      }
+    },
+    {
+      "id": "b39",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "J54",
+            "H": "",
+            "D": "KJTT",
+            "C": "J9832"
+          },
+          "south": {
+            "S": "QT",
+            "H": "AQJ",
+            "D": "Q64",
+            "C": "AK852"
+          },
+          "east": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "west": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": false,
+          "west": false
+        },
+        "dealer": "",
+        "vulnerability": "",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b40",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "South",
+        "bids": [
+          {
+            "text": "1C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1D",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {}
+      }
+    },
+    {
+      "id": "b41",
+      "type": "text",
+      "data": {
+        "text": "A popular start to the auction was:\n\nFifty years ago had a great flair for card play. Often, they seemed to conjure up a brilliant line of play or defense with little or no calculation, as though a little birdie whispered in their ears. Four hearts was a popular contract around the room. The defense attacked spades, and most Souths discarded diamonds on the second and third rounds of the suit, keeping control—except that hearts broke five-one so the con-tract was defeated.\n\nFishbein was the only South to make four hearts. He ruffed the second spade, cashed two clubs, and crossruffed for ten tricks. Notice that discarding at trick two and three relies on better than five-one breaks in two suits, hearts and clubs, while the winning line re-quires only one decent break, in clubs. Still, we doubt that Fishbein calculated the exact odds."
+      }
+    },
+    {
+      "id": "b42",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "J54",
+            "H": "",
+            "D": "KJTT",
+            "C": "J9832"
+          },
+          "south": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "east": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "west": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": false,
+          "east": false,
+          "west": false
+        },
+        "dealer": "",
+        "vulnerability": "",
+        "contract": "",
+        "lead": "",
+        "title": "World."
+      }
+    },
+    {
+      "id": "b43",
+      "type": "text",
+      "data": {
+        "text": "1947 Winter Nationals, was reported in the January, 1948, issue of The Bridge World."
+      }
+    }
+  ],
   "warnings": [
-    "No content blocks found"
+    "Block 1 (bridgeHand): north has 12 cards (expected 13)",
+    "Block 2 (biddingTable): Auction must end with 3 consecutive passes (got: Pass, 1D, 1S)"
   ]
 }

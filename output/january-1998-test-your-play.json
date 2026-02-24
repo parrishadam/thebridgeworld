@@ -2,38 +2,48 @@
   "title": "Test Your Play",
   "slug": "test-your-play",
   "author_name": "",
-  "category": "Test Your Play",
+  "category": "Card Play",
   "tags": [
     "January 1998",
-    "card play"
+    "test your play"
   ],
+  "level": "intermediate",
+  "month": 1,
+  "year": 1998,
   "source_page": 9,
-  "excerpt": "Card play problems to test your declarer play skills.",
+  "excerpt": "Card play problems to test and improve declarer technique.",
   "status": "draft",
   "content_blocks": [
     {
-      "id": "b52",
+      "id": "b28",
       "type": "text",
       "data": {
-        "text": "**Test Your Play**\n\nProblem A"
+        "text": "**Test Your Play**"
       }
     },
     {
-      "id": "b53",
+      "id": "b29",
+      "type": "text",
+      "data": {
+        "text": "**Problem A**\n\nRubber bridge\nSouth dealer\nNorth-South vulnerable"
+      }
+    },
+    {
+      "id": "b30",
       "type": "bridgeHand",
       "data": {
         "hands": {
           "north": {
             "S": "8642",
             "H": "AKT6",
-            "D": "T543",
+            "D": "7543",
             "C": "T"
           },
           "south": {
             "S": "AKQJ5",
-            "H": "Q9",
-            "D": "AKJ",
-            "C": "J94"
+            "H": "QJ9",
+            "D": "AK8",
+            "C": "A9"
           },
           "east": {
             "S": "",
@@ -54,35 +64,19 @@
           "east": false,
           "west": false
         },
-        "dealer": "",
-        "vulnerability": "North-South vulnerable",
+        "dealer": "South",
+        "vulnerability": "N-S",
         "contract": "",
         "lead": "",
         "title": ""
       }
     },
     {
-      "id": "b54",
+      "id": "b31",
       "type": "biddingTable",
       "data": {
-        "dealer": "North",
+        "dealer": "South",
         "bids": [
-          {
-            "text": "Pass",
-            "alert": null
-          },
-          {
-            "text": "Pass",
-            "alert": null
-          },
-          {
-            "text": "1S",
-            "alert": null
-          },
-          {
-            "text": "Pass",
-            "alert": null
-          },
           {
             "text": "2NT",
             "alert": null
@@ -100,7 +94,15 @@
             "alert": null
           },
           {
-            "text": "4S",
+            "text": "5NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "6S",
             "alert": null
           },
           {
@@ -121,42 +123,101 @@
       }
     },
     {
-      "id": "b55",
+      "id": "b32",
       "type": "text",
       "data": {
         "text": "West leads the heart king.\n\nPlan the play."
       }
     },
     {
-      "id": "b56",
-      "type": "text",
+      "id": "b33",
+      "type": "solution",
       "data": {
-        "text": "**Solution A**\n\n(Solutions on page 58.)"
+        "label": "Solution A",
+        "blocks": [
+          {
+            "id": "b6",
+            "type": "text",
+            "data": {
+              "text": "**Solution A**\n\nSuppose you play trumps early; take hearts, the defender with four trumps may be able to ruff in and lead a trump, leaving you a trick short. Alternatively, if you take two club ruffs after the see-and trump you will still face a dilemma: whether you lead a fourth round of trumps when you lead a low trump to dummy, drawling may have annoyed the foul-trump defender when the actual king. On the lie of the cards, all plays fine of play would have succeeded, were blocked for success, so the result line would two was duplicated."
+            }
+          },
+          {
+            "id": "b7",
+            "type": "bridgeHand",
+            "data": {
+              "hands": {
+                "north": {
+                  "S": "8642",
+                  "H": "AKT6",
+                  "D": "7543",
+                  "C": "T"
+                },
+                "south": {
+                  "S": "AKQJ5",
+                  "H": "QJ9",
+                  "D": "AK8",
+                  "C": "A9"
+                },
+                "east": {
+                  "S": "T",
+                  "H": "8743",
+                  "D": "QT92",
+                  "C": "Q975"
+                },
+                "west": {
+                  "S": "973",
+                  "H": "52",
+                  "D": "J6",
+                  "C": "KJ8643"
+                }
+              },
+              "visibleHands": {
+                "north": true,
+                "south": true,
+                "east": true,
+                "west": true
+              },
+              "dealer": "South",
+              "vulnerability": "N-S",
+              "contract": "6S",
+              "lead": "HK",
+              "title": ""
+            }
+          },
+          {
+            "id": "b8",
+            "type": "text",
+            "data": {
+              "text": "Six spades by South. Lead: ♥K\n\nA superior plan is to duck a trump at trick two."
+            }
+          }
+        ]
       }
     },
     {
-      "id": "b57",
+      "id": "b34",
       "type": "text",
       "data": {
-        "text": "Problem B"
+        "text": "**Problem B**\n\nRubber bridge\nNorth dealer\nEast-West vulnerable"
       }
     },
     {
-      "id": "b58",
+      "id": "b35",
       "type": "bridgeHand",
       "data": {
         "hands": {
           "north": {
-            "S": "AKT8",
-            "H": "AT",
-            "D": "AKQJ8753",
-            "C": ""
+            "S": "AT6",
+            "H": "AT85",
+            "D": "AK",
+            "C": "J864"
           },
           "south": {
-            "S": "J864",
-            "H": "KQJ8753",
-            "D": "3",
-            "C": "K"
+            "S": "KQJ875",
+            "H": "3",
+            "D": "J0943",
+            "C": "A"
           },
           "east": {
             "S": "",
@@ -177,21 +238,21 @@
           "east": false,
           "west": false
         },
-        "dealer": "",
-        "vulnerability": "East-West vulnerable",
+        "dealer": "North",
+        "vulnerability": "E-W",
         "contract": "",
         "lead": "",
         "title": ""
       }
     },
     {
-      "id": "b59",
+      "id": "b36",
       "type": "biddingTable",
       "data": {
         "dealer": "North",
         "bids": [
           {
-            "text": "1D",
+            "text": "1C",
             "alert": null
           },
           {
@@ -199,23 +260,7 @@
             "alert": null
           },
           {
-            "text": "1H",
-            "alert": null
-          },
-          {
-            "text": "Pass",
-            "alert": null
-          },
-          {
-            "text": "3D",
-            "alert": null
-          },
-          {
-            "text": "Pass",
-            "alert": null
-          },
-          {
-            "text": "4D",
+            "text": "1S",
             "alert": null
           },
           {
@@ -224,38 +269,6 @@
           },
           {
             "text": "4S",
-            "alert": null
-          },
-          {
-            "text": "Pass",
-            "alert": null
-          },
-          {
-            "text": "5H",
-            "alert": null
-          },
-          {
-            "text": "Pass",
-            "alert": null
-          },
-          {
-            "text": "6D",
-            "alert": null
-          },
-          {
-            "text": "Pass",
-            "alert": null
-          },
-          {
-            "text": "Pass",
-            "alert": null
-          },
-          {
-            "text": "Double",
-            "alert": null
-          },
-          {
-            "text": "6NT",
             "alert": null
           },
           {
@@ -276,15 +289,12 @@
       }
     },
     {
-      "id": "b60",
+      "id": "b37",
       "type": "text",
       "data": {
-        "text": "West leads the heart king.\n\nPlan the play.\n\n*minors\n\n**JANUARY 1998**"
+        "text": "West leads the heart king.\n\nPlan the play."
       }
     }
   ],
-  "warnings": [
-    "Block 6 (bridgeHand): north has 14 cards (expected 13)",
-    "Block 7 (biddingTable): Invalid bids: Double"
-  ]
+  "warnings": []
 }

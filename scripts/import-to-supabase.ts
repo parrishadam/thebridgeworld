@@ -59,6 +59,66 @@ function splitAuthorNames(authorName: string): string[] {
     .filter(Boolean);
 }
 
+/**
+ * Levenshtein edit distance between two strings.
+ */
+function levenshtein(a: string, b: string): number {
+  const m = a.length;
+  const n = b.length;
+  const dp: number[][] = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+  for (let i = 0; i <= m; i++) dp[i][0] = i;
+  for (let j = 0; j <= n; j++) dp[0][j] = j;
+  for (let i = 1; i <= m; i++) {
+    for (let j = 1; j <= n; j++) {
+      dp[i][j] = a[i - 1] === b[j - 1]
+        ? dp[i - 1][j - 1]
+        : 1 + Math.min(dp[i - 1][j - 1], dp[i - 1][j], dp[i][j - 1]);
+    }
+  }
+  return dp[m][n];
+}
+
+/**
+ * Normalize a name for fuzzy matching:
+ * - lowercase
+ * - remove middle initials (single letters followed by optional period)
+ * - collapse whitespace
+ */
+function normalizeName(name: string): string {
+  return name
+    .toLowerCase()
+    .replace(/\b[a-z]\.\s*/g, "")   // remove "B. " style initials
+    .replace(/\b[a-z]\b/g, "")       // remove single-letter words
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+/**
+ * Find a fuzzy match for `name` in the existing name→id map.
+ * Returns the matched name key or null.
+ */
+function findFuzzyAuthorMatch(
+  name: string,
+  existingNames: Map<string, string>,
+): string | null {
+  const normInput = normalizeName(name);
+
+  for (const [existingName] of Array.from(existingNames.entries())) {
+    const normExisting = normalizeName(existingName);
+
+    // Exact normalized match (catches "Edwin B. Kantar" vs "Edwin Kantar")
+    if (normInput === normExisting) return existingName;
+
+    // Levenshtein on original lowercase (catches "Philip" vs "Phillip")
+    if (levenshtein(name.toLowerCase(), existingName.toLowerCase()) <= 2) return existingName;
+
+    // Levenshtein on normalized form
+    if (levenshtein(normInput, normExisting) <= 2) return existingName;
+  }
+
+  return null;
+}
+
 function parseIssueName(issueName: string): { month: number; year: number; monthName: string } {
   // Expected format: "April 2025", "January 1990", etc.
   const parts = issueName.trim().split(/\s+/);
@@ -249,29 +309,39 @@ async function main() {
         authorIdMap.set(name, existing);
         console.log(`  FOUND  "${name}" → ${existing}`);
       } else {
-        // Create a new legacy author profile
-        const legacyId = `legacy_${crypto.randomUUID()}`;
-        const nameParts = name.split(/\s+/);
-        const firstName = nameParts[0] || "";
-        const lastName = nameParts.slice(1).join(" ") || "";
-
-        const { error: createErr } = await supabase
-          .from("user_profiles")
-          .insert({
-            user_id: legacyId,
-            display_name: name,
-            first_name: firstName,
-            last_name: lastName,
-            is_legacy: true,
-            is_author: true,
-            tier: "free",
-          });
-
-        if (createErr) {
-          console.log(`  FAIL   "${name}": ${createErr.message}`);
+        // Check for fuzzy match before creating a new profile
+        const fuzzyMatch = findFuzzyAuthorMatch(name, profileByName);
+        if (fuzzyMatch) {
+          const matchedId = profileByName.get(fuzzyMatch.toLowerCase())!;
+          authorIdMap.set(name, matchedId);
+          console.log(`  FUZZY  "${name}" ≈ "${fuzzyMatch}" → ${matchedId}`);
         } else {
-          authorIdMap.set(name, legacyId);
-          console.log(`  CREATE "${name}" → ${legacyId}`);
+          // Create a new legacy author profile
+          const legacyId = `legacy_${crypto.randomUUID()}`;
+          const nameParts = name.split(/\s+/);
+          const firstName = nameParts[0] || "";
+          const lastName = nameParts.slice(1).join(" ") || "";
+
+          const { error: createErr } = await supabase
+            .from("user_profiles")
+            .insert({
+              user_id: legacyId,
+              display_name: name,
+              first_name: firstName,
+              last_name: lastName,
+              is_legacy: true,
+              is_author: true,
+              tier: "free",
+            });
+
+          if (createErr) {
+            console.log(`  FAIL   "${name}": ${createErr.message}`);
+          } else {
+            authorIdMap.set(name, legacyId);
+            // Also add to profileByName so subsequent names can fuzzy-match against it
+            profileByName.set(name.toLowerCase(), legacyId);
+            console.log(`  CREATE "${name}" → ${legacyId}`);
+          }
         }
       }
     }

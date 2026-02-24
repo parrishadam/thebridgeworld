@@ -6,15 +6,18 @@
   "tags": [
     "January 1998"
   ],
+  "level": "beginner",
+  "month": 1,
+  "year": 1998,
   "source_page": 2,
-  "excerpt": "The editor discusses the year ahead and upcoming content.",
+  "excerpt": "Monthly editorial commentary on bridge topics.",
   "status": "draft",
   "content_blocks": [
     {
       "id": "b1",
       "type": "text",
       "data": {
-        "text": "**JANUARY 1998**\n\n**Solution B**\n\ntrick two. This lets you keep all-around started with the sole guard in diamonds control, in effect to get the fourth round and clubs (as in the diagram), he will of trumps played when it is convenient. have been squeezed. You guess the suit You plan to win the (say, red-suit) re- he has unguarded, then cash the ace of turn, ruff a club, cross to hand with a that suit to take the rest of the tricks. trump, ruff a second club, return to the However, that line of play is overly tramp, ruff a third club, return to the optimistic. West cannot be expected to trump, and draw trumps and claim. oppress his shape. If East has reduced to Only a red-suit void or a horrific club two of fewer diamonds, you play on split will doom this plan. Note that you diamonds to make an overtrick. Other-would be slightly more exposed to a wise, East has at most two clubs; you ruff or an overruff if you trumped any continue with club ace, diamond king, clubs before losing a spade trick. shift to a club at trick two; bye bye squeeze!\n\n**Solution B**\n\nA better try is to win with the heart ace and run spades, to reach:"
+        "text": "**JANUARY 1998**\n\ntrick two. This lets you keep all-around control, in effect to get the fourth round and clubs (as in the diagram), he will have been squeezed. You guess the suit of trumps played when it is convenient. have been squeezed. You guess the suit he has unguarded, then cash the ace of turn, ruff a club, cross to hand with a that suit to take the rest of the tricks.\n\nHowever, that line of play is overly trump, ruff a second club, return to the optimistic. West cannot be expected to Other red suit, draw trumps and claim. Only a red-suit void or a horrific club believe like a trained seal. He can tell, just as well as you, that East's hand split will doom this plan. Note that you looks something like I=0=6, Given would be slightly more exposed to a ruff or an overruff if you trumped any the opportunity, a competent West will shift to a club at trick two; bye bye clubs before losing a spade trick.\n\nSolution B squeeze!\n\nA better try is to win with the heart ace and run spades, to reach:"
       }
     },
     {
@@ -23,28 +26,28 @@
       "data": {
         "hands": {
           "north": {
-            "S": "",
-            "H": "AT",
-            "D": "AT865",
-            "C": "AK"
+            "S": "AT65",
+            "H": "AK",
+            "D": "",
+            "C": "J864"
           },
           "south": {
             "S": "",
-            "H": "8",
-            "D": "J864",
-            "C": "T943"
+            "H": "Q",
+            "D": "T9743",
+            "C": "KQ9742"
           },
           "east": {
             "S": "",
-            "H": "964",
-            "D": "KQ974",
-            "C": "2"
+            "H": "2",
+            "D": "QJ8765",
+            "C": "5"
           },
           "west": {
-            "S": "",
-            "H": "KQJ754",
-            "D": "2",
-            "C": "Q2"
+            "S": "964",
+            "H": "T9864",
+            "D": "K",
+            "C": "1864"
           }
         },
         "visibleHands": {
@@ -64,7 +67,7 @@
       "id": "b3",
       "type": "text",
       "data": {
-        "text": "Assuming East has the sole minor-suit guards, he will have been squeezed. As in the standard criss-cross squeeze, As in the standard criss-cross squeeze, described above, you must guess his shape. If East has reduced to two or fewer diamonds, you play on diamonds to make an overtrick. Otherwise, East has at most two clubs; you continue with club ace, diamond king, club, to set up the dummy.\n\n**OUR INTERNET ADDRESS**\n\nYou can enjoy services and entertainment at our World Wide Web site: www.bridgeworld.com. Please tell your friends that there is plentiful material there for beginners as well as for players East can keep only three cards. If he at all other skill levels."
+        "text": "Now you can enjoy services and entertainment. You could win diamond leads at most two clubs; you squeeze against East. You would win diamonds to make an overtrick. Other- with the run winners, to reach: wise, East has at most two clubs; you continue with club ace, diamond king, club, to set up the dummy.\n\nOUR INTERNET ADDRESS\n\nYou can enjoy services and entertainment at our World Wide Web site: www.bridgeworld.com. Please tell your friends that there is plentiful material there for beginners as well as for players familiar with material at all other skill levels.\n\nEast can keep only three cards. If he at all other skill levels."
       }
     },
     {
@@ -74,34 +77,34 @@
         "hands": {
           "north": {
             "S": "",
-            "H": "J8",
-            "D": "T943",
-            "C": "AK"
+            "H": "Q",
+            "D": "T9643",
+            "C": "A"
           },
           "south": {
             "S": "",
-            "H": "—",
-            "D": "—",
-            "C": "T943"
+            "H": "K",
+            "D": "QJ8765",
+            "C": "5"
           },
           "east": {
             "S": "",
-            "H": "964",
-            "D": "KQ9742",
-            "C": "2"
+            "H": "",
+            "D": "K",
+            "C": "T9643"
           },
           "west": {
             "S": "",
-            "H": "KQJ754",
-            "D": "2",
-            "C": "Q"
+            "H": "A",
+            "D": "T9 ",
+            "C": "T 9"
           }
         },
         "visibleHands": {
           "north": true,
           "south": true,
-          "east": true,
-          "west": true
+          "east": false,
+          "west": false
         },
         "dealer": "",
         "vulnerability": "",
@@ -112,8 +115,9 @@
     }
   ],
   "warnings": [
-    "Manual review: east in block b4: Hand has 10 cards, expected 8",
-    "Block 3 (bridgeHand): south has 4 cards (expected 8)",
-    "Block 3 (bridgeHand): east has 10 cards (expected 8)"
+    "Block 1 (bridgeHand): north has 10 cards (expected 13)",
+    "Block 1 (bridgeHand): south has 12 cards (expected 13)",
+    "Block 1 (bridgeHand): east has 8 cards (expected 13)",
+    "Block 3 (bridgeHand): south has 8 cards (expected 7)"
   ]
 }

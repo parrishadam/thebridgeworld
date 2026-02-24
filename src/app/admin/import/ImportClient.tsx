@@ -14,6 +14,7 @@ interface ParsedArticle {
   author_name: string;
   category: string;
   tags: string[];
+  level?: string;
   source_page: number;
   excerpt: string;
   content_blocks: ContentBlock[];
@@ -535,6 +536,9 @@ export default function ImportClient() {
                 category: article.category || null,
                 tags,
                 access_tier: "paid",
+                level: article.level || null,
+                month: issueMeta.month,
+                year: issueMeta.year,
                 excerpt: article.excerpt || null,
                 status: targetStatus,
                 content_blocks: article.content_blocks,
@@ -1273,12 +1277,14 @@ export default function ImportClient() {
 // ── Helpers ─────────────────────────────────────────────────────────────────
 
 function slugify(text: string): string {
-  return text
+  const slug = text
     .toLowerCase()
     .replace(/['']/g, "")
     .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-|-$/g, "")
-    .slice(0, 60);
+    .replace(/^-|-$/g, "");
+  if (slug.length <= 40) return slug;
+  const cut = slug.lastIndexOf("-", 40);
+  return cut > 0 ? slug.slice(0, cut) : slug.slice(0, 40);
 }
 
 function fmtDuration(ms: number): string {

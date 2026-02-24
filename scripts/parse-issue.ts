@@ -35,6 +35,9 @@ import {
   stripNextMonthBlocks,
   stripBoilerplateBlocks,
   stripCrossReferences,
+  stripAuthorFromTitle,
+  deduplicateTocArticles,
+  truncateSlug,
   mapCategory,
   inferCategoryFromTitle,
   inferLevel,
@@ -1254,6 +1257,9 @@ async function main() {
     }
   }
 
+  // Deduplicate near-identical articles (e.g. two CTC or two Vu-Graph entries)
+  toc.articles = deduplicateTocArticles(toc.articles);
+
   // Annotate interleaved articles
   annotateInterleavedArticles(toc.articles);
 
@@ -1394,11 +1400,12 @@ async function main() {
 
     if (blocks.length === 0) {
       console.log(`  Warning: No blocks found for "${tocArticle.title}"`);
+      const { title: emptyCleanTitle } = stripAuthorFromTitle(tocArticle.title, tocArticle.author_name || undefined);
       outputArticles.push({
-        title: tocArticle.title,
-        slug: slugify(tocArticle.title),
+        title: emptyCleanTitle,
+        slug: truncateSlug(slugify(emptyCleanTitle)),
         author_name: tocArticle.author_name,
-        category: mapCategory(tocArticle.category) || inferCategoryFromTitle(tocArticle.title) || tocArticle.category,
+        category: mapCategory(tocArticle.category) || inferCategoryFromTitle(emptyCleanTitle) || tocArticle.category,
         tags: tocArticle.tags,
         level: inferLevel(tocArticle.category, tocArticle.tags),
         month: toc.issue.month,
@@ -1483,17 +1490,30 @@ async function main() {
     for (const b of blocks) typeCounts[b.type] = (typeCounts[b.type] || 0) + 1;
     console.log(`  "${tocArticle.title}": ${blocks.length} blocks (${Object.entries(typeCounts).map(([k, v]) => `${v} ${k}`).join(", ")})${warnings.length > 0 ? ` — ${warnings.length} warning(s)` : ""}`);
 
+    // Strip author from title (e.g. "Challenge the Champs conducted by Philip Alder" → "Challenge the Champs")
+    const { title: cleanTitle, extractedAuthor } = stripAuthorFromTitle(
+      tocArticle.title,
+      tocArticle.author_name || undefined,
+    );
+    if (extractedAuthor) {
+      console.log(`  Stripped author from title: "${tocArticle.title}" → "${cleanTitle}"`);
+      // If no author_name was set, use the extracted one
+      if (!tocArticle.author_name) {
+        tocArticle.author_name = extractedAuthor;
+      }
+    }
+
     // Apply category mapping and inference
     let category = tocArticle.category
       ? mapCategory(tocArticle.category)
-      : inferCategoryFromTitle(tocArticle.title) ?? "";
+      : inferCategoryFromTitle(cleanTitle) ?? "";
     if (!category) category = tocArticle.category;
 
     const level = inferLevel(category, tocArticle.tags);
 
     outputArticles.push({
-      title: tocArticle.title,
-      slug: slugify(tocArticle.title),
+      title: cleanTitle,
+      slug: truncateSlug(slugify(cleanTitle)),
       author_name: tocArticle.author_name,
       category,
       tags: tocArticle.tags,
