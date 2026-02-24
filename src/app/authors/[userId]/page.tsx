@@ -68,7 +68,7 @@ export default async function AuthorPage({
     getSupabaseAdmin()
       .from("articles")
       .select("id, title, slug, category, excerpt, published_at, access_tier, featured_image_url")
-      .eq("author_id", params.userId)
+      .contains("author_ids", [params.userId])
       .eq("status", "published")
       .order("published_at", { ascending: false }),
   ]);

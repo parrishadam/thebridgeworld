@@ -1,0 +1,5347 @@
+{
+  "title": "Peachtree Soloway",
+  "slug": "peachtree-soloway",
+  "author_name": "Oren Kriegel",
+  "category": "Tournament Report",
+  "tags": [
+    "April 2025",
+    "tournament"
+  ],
+  "source_page": 4,
+  "excerpt": "Report on the Peachtree Soloway tournament.",
+  "status": "draft",
+  "content_blocks": [
+    {
+      "id": "b18",
+      "type": "text",
+      "data": {
+        "text": "**TOURNAMENT REPORT**\n\n**PEACHTREE SOLOWAY**\n\nBY OREN KRIEGEL, CHICAGO\n\nAtlanta played host to the 2023 Fall Nationals. Overall tournament attendance relative to 2022 held steady, but participation in the premier knockout event, the Soloway, was up: 62 entrants compared to 53 the year before.\n\nA two-day Swiss qualifier cut the field nearly in half, to 32 teams; this was followed by five rounds of day-long knockout matches. Seeding in the Soloway is based on a combination of each team's seeding points and placement in the qualifier. KNOTTENBELT and WADEMARK topped the Swiss, but third-place finisher LEBOWITZ became the top seed.\n\nNo major upsets occurred in the round of 32. Instead, the marquee matchup was #14 NICKELL vs. #19 FLEISHER (T. Bessis, Lorenzini; Fleisher, Martel; Sementa, Versace), a combination of opponents never seen until later in other knockouts; FLEISHER emerged victorious. That team continued with wins over #3 WADEMARK and #6 AMOILS to reach the semifinals, where it faced #7 STREET (Di Franco, Manno; L'Ecuyer, Street; Pachtmann, Zatorski). On the other side of the bracket, #8 GOODMAN (de Wijs, Muller; Donati, Percario; Goodman, Passell) got past LEBOWITZ and encountered #5 ZIMMERMANN (Brink, Drijver; Kalita, Klukowski; Nowosadzki, Zimmermann) in its semifinal match."
+      }
+    },
+    {
+      "id": "b19",
+      "type": "text",
+      "data": {
+        "text": "**FLEISHER VS. STREET**\n\nOver the course of the first three quarters, FLEISHER maintained a moderate lead, helped by deals such as Board 11 from the first quarter:\n\nSouth dealer\nNeither side vulnerable"
+      }
+    },
+    {
+      "id": "b20",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "KQT65",
+            "H": "",
+            "D": "9652",
+            "C": "AK86"
+          },
+          "south": {
+            "S": "732",
+            "H": "AQ4",
+            "D": "A84",
+            "C": "J973"
+          },
+          "east": {
+            "S": "984",
+            "H": "JT7532",
+            "D": "Q73",
+            "C": "5"
+          },
+          "west": {
+            "S": "AJ",
+            "H": "K986",
+            "D": "KJT",
+            "C": "QT42"
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": true,
+          "west": true
+        },
+        "dealer": "South",
+        "vulnerability": "None",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b21",
+      "type": "text",
+      "data": {
+        "text": "**OPEN ROOM**"
+      }
+    },
+    {
+      "id": "b22",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "South",
+        "bids": [
+          {
+            "text": "1C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1NT",
+            "alert": null
+          },
+          {
+            "text": "Dbl",
+            "alert": null
+          },
+          {
+            "text": "Rdbl",
+            "alert": null
+          },
+          {
+            "text": "4H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "5C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Dbl",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {
+          "south": "Street",
+          "west": "Lorenzini",
+          "north": "L'Ecuyer",
+          "east": "Bessis"
+        }
+      }
+    },
+    {
+      "id": "b23",
+      "type": "text",
+      "data": {
+        "text": "**CLOSED ROOM**"
+      }
+    },
+    {
+      "id": "b24",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "South",
+        "bids": [
+          {
+            "text": "1NT",
+            "alert": "10-13 HCP"
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {
+          "south": "Versace",
+          "west": "Manno",
+          "north": "Sementa",
+          "east": "Di Franco"
+        }
+      }
+    },
+    {
+      "id": "b25",
+      "type": "text",
+      "data": {
+        "text": "In the Open Room, after a slow start, the auction accelerated quickly, putting L'Ecuyer and Street in a difficult position. Would your partnership have been on firm ground about South's responsibilities over four hearts and the meaning of North's four spades at his third turn? If you are willing to give up defending against four hearts undoubled, perhaps opener should always bid four spades with three unless doubling for penalty. It would take a very-well-practiced partnership to be confident about such an uncommon auction.\n\nIn his inelegant contract, Street received the heart-eight lead to his queen. He played the ace-king of clubs, getting the bad news, then crossed to the diamond ace, threw a diamond on the heart ace, and led a spade. Lorenzini played the jack, won the next spade, and tapped dummy with a heart. The defender was then able to ruff the third spade and cash the club queen, resulting in down three: minus 500. Declarer's chances were almost nonexistent, and he lacked the entries to play both spades"
+      }
+    },
+    {
+      "id": "b26",
+      "type": "text",
+      "data": {
+        "text": "and clubs toward dummy. Assuming, on the bidding, that West held club length and relative spade shortness, the actual spade holding seems to be the best realistic hope for a make. One option, going all out, was to lead the club jack at trick two and then play high spades from dummy. That path would have led to success as the cards lay.\n\nIn the Closed Room, Street's teammate Manno found himself in a painful situation of his own. On lead with the bulk of the defensive assets, he started with the spade ace and another spade. Versace drew trumps (Manno threw a heart) and ducked a diamond to Manno's jack. The club continuation resolved that suit: making four, plus 420 and 14 imps to FLEISHER. Di Franco had played his spades up the line, but if he had played middle-low-high, Manno might have tried the diamond king next, which almost certainly would have defeated the contract. Versace would have ducked, won the third round of the suit, thrown a club on the heart, and tried to navigate clubs. (The winning double-dummy line is to win and to run the club jack without cashing the heart ace, then to exit in diamonds, forcing the defense to play a rounded suit.)\n\nFLEISHER led by 27 imps with 12 deals remaining, but then STREET went on a 47-0 run over seven deals, starting with a game swing on Board 49:"
+      }
+    },
+    {
+      "id": "b27",
+      "type": "text",
+      "data": {
+        "text": "South dealer; East-West vulnerable"
+      }
+    },
+    {
+      "id": "b28",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "K85",
+            "H": "KQ",
+            "D": "K943",
+            "C": "Q864"
+          },
+          "south": {
+            "S": "AQJ7",
+            "H": "A843",
+            "D": "Q72",
+            "C": "53"
+          },
+          "east": {
+            "S": "T962",
+            "H": "652",
+            "D": "A85",
+            "C": "972"
+          },
+          "west": {
+            "S": "43",
+            "H": "JT97",
+            "D": "JT6",
+            "C": "AKJT"
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": true,
+          "west": true
+        },
+        "dealer": "South",
+        "vulnerability": "E-W",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b29",
+      "type": "text",
+      "data": {
+        "text": "**OPEN ROOM**"
+      }
+    },
+    {
+      "id": "b30",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "South",
+        "bids": [
+          {
+            "text": "1C",
+            "alert": "two-plus clubs"
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": "no four-card major"
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {
+          "south": "Pachtmann",
+          "west": "Versace",
+          "north": "Zatorski",
+          "east": "Sementa"
+        }
+      }
+    },
+    {
+      "id": "b31",
+      "type": "text",
+      "data": {
+        "text": "**CLOSED ROOM**"
+      }
+    },
+    {
+      "id": "b32",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "South",
+        "bids": [
+          {
+            "text": "1D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {
+          "south": "Lorenzini",
+          "west": "Manno",
+          "north": "Bessis",
+          "east": "Di Franco"
+        }
+      }
+    },
+    {
+      "id": "b33",
+      "type": "text",
+      "data": {
+        "text": "In the Open Room, Versace led the club ace and shifted to the heart jack. Pachtmann won in dummy and led a diamond to the queen, then a club toward the queen. Versace won and continued hearts. Declarer cashed his winners, squeezing Versace without the count for an overtrick. Versace threw a diamond honor, while Sementa was stripped of all of his non-diamonds, so Pachtmann could establish a diamond trick: plus 430."
+      }
+    },
+    {
+      "id": "b34",
+      "type": "text",
+      "data": {
+        "text": "In the Closed Room, Manno started with the heart jack. Lorenzini won in dummy, led a diamond to the queen, and a diamond to the ten, king, and ace. Di Franco shifted to the club seven; Manno won with the ace and returned the jack, giving declarer a losing option. Lorenzini ducked, so Manno cashed his winners: down one; 10 imps to STREET.\n\nLorenzini's play ran counter to the dealing probabilities, because if clubs were four-three with the top honors divided, the defense could prevail by cashing its minor-suit winners in an effective order. Thus, declarer needed to find West with exactly ace-jack-doubleton (or, hardly conceivable, East with king-seven-doubleton).\n\nThe swing was greater on Board 50:\n\nEast dealer; both sides vulnerable"
+      }
+    },
+    {
+      "id": "b35",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "AJ92",
+            "H": "A",
+            "D": "AK9872",
+            "C": "85"
+          },
+          "south": {
+            "S": "K85",
+            "H": "QT32",
+            "D": "T6",
+            "C": "KJ73"
+          },
+          "east": {
+            "S": "Q73",
+            "H": "9876",
+            "D": "Q53",
+            "C": "642"
+          },
+          "west": {
+            "S": "T64",
+            "H": "KJ54",
+            "D": "J4",
+            "C": "AQT9"
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": true,
+          "west": true
+        },
+        "dealer": "East",
+        "vulnerability": "All",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b36",
+      "type": "text",
+      "data": {
+        "text": "**OPEN ROOM**"
+      }
+    },
+    {
+      "id": "b37",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "East",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1C",
+            "alert": null
+          },
+          {
+            "text": "1D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {
+          "south": "Zatorski",
+          "west": "Sementa",
+          "north": "Pachtmann",
+          "east": "Versace"
+        }
+      }
+    },
+    {
+      "id": "b38",
+      "type": "text",
+      "data": {
+        "text": "**CLOSED ROOM**"
+      }
+    },
+    {
+      "id": "b39",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "East",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1C",
+            "alert": null
+          },
+          {
+            "text": "1D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {
+          "south": "Bessis",
+          "west": "Di Franco",
+          "north": "Lorenzini",
+          "east": "Manno"
+        }
+      }
+    },
+    {
+      "id": "b40",
+      "type": "text",
+      "data": {
+        "text": "Both Wests led the spade six. In the Closed Room, Zatorski played low from dummy and had no problem taking 10 tricks: plus 630. At the other table, Bessis played dummy's jack at trick one, which left him with some catching up to do. He won the trick, cashed the top two diamonds, and played a third round. East won and put a club"
+      }
+    },
+    {
+      "id": "b41",
+      "type": "text",
+      "data": {
+        "text": "through. Di Franco took two clubs then endplayed dummy with the heart ace for down one: minus 100 and 12 imps to STREET.\n\nBessis had several chances to make the contract—play low from dummy at trick one, finesse in spades at trick two, and cash the heart ace before giving up a diamond—but he played for the club queen to be onside, a reasonable line. However, once Bessis adopted that line he could have improved his chances by leading the spade five to the nine at trick two. If the nine had won, one-loser diamonds would have seen declarer home; otherwise, he could have used the spade eight and the hoped-for club entry to"
+      }
+    },
+    {
+      "id": "b42",
+      "type": "text",
+      "data": {
+        "text": "finesse twice in diamonds. Unless the opening bid was very light, if the black-suit queens were with East, the diamond quacks would be with West.\n\nSTREET won an imp for a higher-scoring game, 3 more on a partscore deal, and 6 for staying out of a bad game. These gains gave STREET a match lead that it never surrendered. After another 3-imp gain on a partscore deal, STREET collected a major swing on Board 54 (East dealer; North-South vulnerable) for making three notrump at one table and defeating it at the other:"
+      }
+    },
+    {
+      "id": "b43",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "KQ952",
+            "H": "97",
+            "D": "A62",
+            "C": "652"
+          },
+          "south": {
+            "S": "A4",
+            "H": "KQT3",
+            "D": "K43",
+            "C": "AT43"
+          },
+          "east": {
+            "S": "JT73",
+            "H": "A84",
+            "D": "JT97",
+            "C": "KQ"
+          },
+          "west": {
+            "S": "86",
+            "H": "J652",
+            "D": "Q85",
+            "C": "J987"
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": true,
+          "west": true
+        },
+        "dealer": "East",
+        "vulnerability": "N-S",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b44",
+      "type": "text",
+      "data": {
+        "text": "In both rooms, East opened the bidding in a minor; South bid one notrump and played in three notrump after a transfer sequence. Against Sementa, the opening bid was a short club, and Pachtmann led the club nine. Sementa ducked Zatorski's queen (winning was no better), and the defender accurately shifted to diamonds for down one when spades didn't run. In the other room, Bessis had opened one diamond, and Lorenzini led one to the nine and king. Four rounds of spades put Bessis on lead, as Di Franco threw a heart and"
+      }
+    },
+    {
+      "id": "b45",
+      "type": "text",
+      "data": {
+        "text": "a diamond and Lorenzini pitched the queen-eight of diamonds. The ending:"
+      }
+    },
+    {
+      "id": "b46",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "5",
+            "H": "97",
+            "D": "A6",
+            "C": "652"
+          },
+          "south": {
+            "S": "",
+            "H": "KQT",
+            "D": "3",
+            "C": "AT43"
+          },
+          "east": {
+            "S": "",
+            "H": "A84",
+            "D": "JT7",
+            "C": "KQ"
+          },
+          "west": {
+            "S": "",
+            "H": "J652",
+            "D": "",
+            "C": "J987"
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": true,
+          "west": true
+        },
+        "dealer": "",
+        "vulnerability": "",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b47",
+      "type": "text",
+      "data": {
+        "text": "East played a diamond to dummy's ace (club eight from West), and Di Franco cashed the last spade. Bessis discarded a heart, which let declarer play the suit for one loser. A diamond discard would have allowed declarer to lead a heart to the king, then to play the ace and another club. The only winning option was to throw a club, but that would have been fatal if declarer had held the rounded-suit jacks instead of the heart queen. Perhaps in the absence of a strong signal from Lorenzini, Bessis should have played partner for equal holdings in the rounded suits.\n\nThe 12-imp swing meant that STREET had turned a 27-imp deficit into a 20-imp lead with five deals to play. Technically, FLEISHER had an opportunity to close the gap, but winning swings would have required anti-percentage actions; the normal choices that the players made resulted in two flat deals. The final margin was 122-106. The comeback performance punched STREET's ticket to the final."
+      }
+    },
+    {
+      "id": "b48",
+      "type": "text",
+      "data": {
+        "text": "**Goodman vs. Zimmermann**\n\nIn the other semifinal match, large swings abounded. Zimmermann held a narrow 34-32 lead after the first quarter despite a debacle on Board 13:"
+      }
+    },
+    {
+      "id": "b49",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "83",
+            "H": "Q4",
+            "D": "KQ987",
+            "C": "KJ96"
+          },
+          "south": {
+            "S": "A5",
+            "H": "T9",
+            "D": "AJT63",
+            "C": "Q543"
+          },
+          "east": {
+            "S": "74",
+            "H": "7652",
+            "D": "42",
+            "C": "AT872"
+          },
+          "west": {
+            "S": "KQJT962",
+            "H": "AKJ83",
+            "D": "5",
+            "C": ""
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": true,
+          "west": true
+        },
+        "dealer": "North",
+        "vulnerability": "All",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b50",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "North",
+        "bids": [
+          {
+            "text": "1D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2D",
+            "alert": "invitational-plus"
+          },
+          {
+            "text": "4S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Double",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "5D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "6D",
+            "alert": null
+          },
+          {
+            "text": "Double",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "6NT",
+            "alert": null
+          },
+          {
+            "text": "Double",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {
+          "south": "Z'mann",
+          "west": "Passell",
+          "north": "Nowosadzki",
+          "east": "Goodman"
+        }
+      }
+    },
+    {
+      "id": "b51",
+      "type": "text",
+      "data": {
+        "text": "Nowosadzki and Zimmermann were on different pages over four spades. Zimmermann thought his partnership was in a force, so Nowosadzki's pass-and-pull sequence was a slam-try; Nowosadzki thought his pass could have ended the auction. Passell had everything for his double of six diamonds—prepared for either suit Goodman might have led and with good chances of running up the score. Zimmermann projected a more-typical Lightner double and ran to six notrump, which was a bloodbath. Declarer took only his six top tricks for minus 1700. His teammates scored 850 in five spades doubled, so running from one doomed slam to another proved more costly than it often is at imp scoring. Zimmermann lost 13 imps, rather than the likely 6 imps it would have lost for minus 1100 in six diamonds doubled, and there was a (very-slight) chance of a 2-imp pickup if Goodman had eschewed a club lead.\n\nZimmermann's lead swelled to 30 imps after the second quarter, in part because it came out on top on the freak deal of the set (Board 21):"
+      }
+    },
+    {
+      "id": "b52",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "AT76",
+            "H": "6",
+            "D": "T8653",
+            "C": "J85"
+          },
+          "south": {
+            "S": "",
+            "H": "AQJ98732",
+            "D": "QJ942",
+            "C": ""
+          },
+          "east": {
+            "S": "K82",
+            "H": "T54",
+            "D": "A7",
+            "C": "AQT96"
+          },
+          "west": {
+            "S": "QJ9543",
+            "H": "K",
+            "D": "K",
+            "C": "K7432"
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": true,
+          "west": true
+        },
+        "dealer": "East",
+        "vulnerability": "E-W",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b53",
+      "type": "text",
+      "data": {
+        "text": "**OPEN ROOM**"
+      }
+    },
+    {
+      "id": "b54",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "East",
+        "bids": [
+          {
+            "text": "1D",
+            "alert": "nebulous"
+          },
+          {
+            "text": "4H",
+            "alert": null
+          },
+          {
+            "text": "4S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "5H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "5S",
+            "alert": null
+          },
+          {
+            "text": "6D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "6S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Double",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {
+          "south": "Kalita",
+          "west": "Muller",
+          "north": "Klukowski",
+          "east": "de Wijs"
+        }
+      }
+    },
+    {
+      "id": "b55",
+      "type": "text",
+      "data": {
+        "text": "**CLOSED ROOM**"
+      }
+    },
+    {
+      "id": "b56",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "East",
+        "bids": [
+          {
+            "text": "1C",
+            "alert": null
+          },
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "2H",
+            "alert": "six-plus spades; invitational-plus"
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3S",
+            "alert": null
+          },
+          {
+            "text": "4H",
+            "alert": null
+          },
+          {
+            "text": "4S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "5H",
+            "alert": null
+          },
+          {
+            "text": "5S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "6D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Double",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {
+          "south": "Goodman",
+          "west": "Z'mann",
+          "north": "Passell",
+          "east": "Nowosadzki"
+        }
+      }
+    },
+    {
+      "id": "b57",
+      "type": "text",
+      "data": {
+        "text": "de Wijs, with a useful hand opposite a partner who had introduced spades at the four-level, was willing to try the six-level. Calmer proceedings in the other room allowed Nowosadzki and Zimmermann to describe their hands and to judge accurately at the six-level. Six spades failed by two tricks, six diamonds by one: 12 imps to Zimmermann for penalties totaling 600.\n\nGoodman chipped away at the lead in the third quarter, which it won 22-10, but Zimmermann pulled away in the final segment to win by 48. Board 48 took much of the wind out of Goodman's sails:"
+      }
+    },
+    {
+      "id": "b58",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "QJT",
+            "H": "A5",
+            "D": "AQJT3",
+            "C": "AT4"
+          },
+          "south": {
+            "S": "A875",
+            "H": "KQT83",
+            "D": "4",
+            "C": "K52"
+          },
+          "east": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "west": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": false,
+          "west": false
+        },
+        "dealer": "",
+        "vulnerability": "",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b59",
+      "type": "text",
+      "data": {
+        "text": "You, South, open one heart in second seat and become declarer in six notrump after an uncontested auction. The play proceeds:\n\nDiamond deuce, queen, king, four.\nSpade six, ace, three, ten.\nHeart three, four, ace, deuce.\nDiamond ace, five, spade five, seven.\nDiamond jack, six, spade seven, eight.\nDiamond ten, club three, spade eight, nine.\nDiamond three, spade deuce, club deuce, spade four.\nClub four, six, king, nine.\nClub five, jack, ace, seven.\nHeart five, six, ?\n\n**Up or down?**\n\nMuller went up, but East held jack-nine-fourth of hearts; down two. Declarer's play looks right, as there was little distributional information that would have changed the odds. Unfortunately for his team, the contract was played from the opposite side at the companion table; East led a low heart, and dummy's eight held. That simplified things considerably, and the contract succeeded: 17 imps to Zimmermann.\n\nIt would be Zimmermann vs. Street in the final.\n\n**The Final**\n\nThe 2023 Soloway final, Zimmermann (Brink, Drijver; Kalita, Klukowski; Nowosadzki, Zimmermann) vs. Street (Di Franco, Manno; L'Ecuyer, Street; Pachtmann, Zatorski), was an approximate rerun of the thrilling 2022 Spingold final, in which a somewhat different version of Zimmermann prevailed over an identical Street team by a single imp.\n\nOn the Zimmermann side, Brink-Drijver was the only returning partnership. Kalita and Nowosadzki, previously a pairing on other teams, split up to play with Klukowski and Zimmermann, respectively. Brink-Drijver employed Dutch Doubleton, a short-club system; Kalita-Klukowski played a Polish Club base; and Nowosadzki-Zimmermann used mainstream methods. All three pairs used two diamonds to show a weak two-bid in either major and two of a major to announce a weak major-minor two-suiter. For Street, Di Franco-Manno and Pachtmann-Zatorski used transfer responses to one club. L'Ecuyer-Street and Pachtmann-Zatorski used two-bids similar to the Zimmermann pairs, while Di Franco-Manno showed 18-19 HCP in a balanced hand via a two-diamond opening.\n\n**First Quarter**\n\nTo begin the match, Zimmermann fielded Kalita-Klukowski and Nowosadzki-Zimmermann. Di Franco-Manno and L'Ecuyer-Street started for Street.\n\nA minor defensive slip on Board 1 gave Zimmermann 1 imp; then, Street won 7 imps when notrump ranges worked in its favor. This was Board 3 (South dealer; East-West vulnerable):"
+      }
+    },
+    {
+      "id": "b60",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "AT9",
+            "H": "T43",
+            "D": "A76",
+            "C": "AK98"
+          },
+          "south": {
+            "S": "Q52",
+            "H": "9762",
+            "D": "32",
+            "C": "T654"
+          },
+          "east": {
+            "S": "KJ64",
+            "H": "AK5",
+            "D": "T94",
+            "C": "J72"
+          },
+          "west": {
+            "S": "873",
+            "H": "QJ8",
+            "D": "KQJ85",
+            "C": "Q3"
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": true,
+          "west": true
+        },
+        "dealer": "South",
+        "vulnerability": "E-W",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b61",
+      "type": "text",
+      "data": {
+        "text": "Both Norths opened one notrump in third seat. Klukowski passed as South, and Di Franco (East) started with a classic but ineffective spade lead, letting declarer escape for down one: minus 50. At the other table, Street tried a creative two-club response with the South cards and scrambled to two hearts. That wasn't a terrible result for his plan, but all declarer could take was four top winners plus a diamond ruff: 3 imps to Zimmermann.\n\nOn the following deal, with both sides vulnerable, sitting in fourth seat Klukowski and Street held:\n\n♠ Q98 ♥ 9 ♦ K7654 ♣ QJ74.\n\nThe auction began (one notrump) — two diamonds [one major] — (three diamonds [hearts]) — ? Klukowski bid four spades directly and played there unmolested; Street passed and backed in with four spades, which drew a double. Four hearts would have made on the nose, while four spades failed by a trick, so that was 3 imps to Zimmermann, tying the match.\n\nYou are in second seat at your favorable vulnerability. LHO opens one notrump in third seat, which is passed to you. You hold:\n\n♠ AJ87 ♥ QJ62 ♦ 432 ♣ 43.\n\nWould you balance? Nowosadzki did, reaching a successful spade partial. Di Franco sold out. Accurate but not double-dummy play by both sides resulted in down three and 4 imps to Street.\n\nAfter an overtrick imp to Zimmermann, Board 7 presented a bidding problem (South dealer; both sides vulnerable):"
+      }
+    },
+    {
+      "id": "b62",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "east": {
+            "S": "AKQT843",
+            "H": "",
+            "D": "AQT4",
+            "C": "J2"
+          },
+          "west": {
+            "S": "97",
+            "H": "AKJT84",
+            "D": "95",
+            "C": "A95"
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": false,
+          "east": true,
+          "west": true
+        },
+        "dealer": "South",
+        "vulnerability": "All",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b63",
+      "type": "text",
+      "data": {
+        "text": "**OPEN ROOM**"
+      }
+    },
+    {
+      "id": "b64",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "South",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2S",
+            "alert": "game-force with a solid suit . . ."
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3H",
+            "alert": ". . . revealed to be spades"
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3S",
+            "alert": "relay with at least one spade"
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4H",
+            "alert": "short hearts; stronger of two options"
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "5D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "5NT",
+            "alert": "key-card ask"
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "6D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "6H",
+            "alert": "queen ask"
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "7S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {
+          "west": "Manno",
+          "east": "Di Franco"
+        }
+      }
+    },
+    {
+      "id": "b65",
+      "type": "text",
+      "data": {
+        "text": "**CLOSED ROOM**"
+      }
+    },
+    {
+      "id": "b66",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "South",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "5C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "6S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {
+          "west": "Zimmermann",
+          "east": "Nowosadzki"
+        }
+      }
+    },
+    {
+      "id": "b67",
+      "type": "text",
+      "data": {
+        "text": "In the Closed Room, Zimmermann limited his hand and emphasized hearts, which discouraged Nowosadzki, but the progressive move over four spades led to slam. In the Open Room, Manno took over after Di Franco drove to the five-level, but lack of key cards was not the concern. Either partner might have pulled in his horns. West might have countered with five hearts, knowing that his partner could have discovered his aces with a key-card ask. East might have signed off over six hearts—although six hearts was defined as a queen-ask, the logic of the auction might have overridden that message; West might merely have been authorizing his partner to bid seven with a similar hand and stronger diamonds.\n\nAfter a club lead, both declarers discarded a club and a diamond on the high hearts, then led a diamond to the queen. That lost, but Nowosadzki's contract was still a favorite. Alas for declarer, not only were diamonds five-two but North could overruff dummy. Street was lucky to lose only 3 imps.\n\nA flat deal followed, then 4 imps in extra undertricks went to Zimmermann when L'Ecuyer-Street drove too high. This was Board 10:"
+      }
+    },
+    {
+      "id": "b68",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "AK9653",
+            "H": "9752",
+            "D": "J5",
+            "C": "7"
+          },
+          "south": {
+            "S": "T",
+            "H": "AQ6",
+            "D": "KT73",
+            "C": "AQT64"
+          },
+          "east": {
+            "S": "J84",
+            "H": "K83",
+            "D": "Q98",
+            "C": "J532"
+          },
+          "west": {
+            "S": "Q72",
+            "H": "JT4",
+            "D": "A642",
+            "C": "K98"
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": true,
+          "west": true
+        },
+        "dealer": "East",
+        "vulnerability": "All",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b69",
+      "type": "text",
+      "data": {
+        "text": "**OPEN ROOM**"
+      }
+    },
+    {
+      "id": "b70",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "East",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1C",
+            "alert": "several possibilities, including . . ."
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2C",
+            "alert": "15-plus HCP, natural"
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2D",
+            "alert": "artificial game-force"
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {
+          "south": "Klukowski",
+          "west": "Manno",
+          "north": "Kalita",
+          "east": "Di Franco"
+        }
+      }
+    },
+    {
+      "id": "b71",
+      "type": "text",
+      "data": {
+        "text": "**CLOSED ROOM**"
+      }
+    },
+    {
+      "id": "b72",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "East",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {
+          "south": "Street",
+          "west": "Z'mann",
+          "north": "L'Ecuyer",
+          "east": "Nowosadzki"
+        }
+      }
+    },
+    {
+      "id": "b73",
+      "type": "text",
+      "data": {
+        "text": "At both tables, the play began with three rounds of hearts, won by West. (Di Franco played the king at trick one; Nowosadzki unblocked it under the ace at trick two.) West shifted to the spade queen, exposing East to a three-suit squeeze as declarer cashed dummy's last heart. Again, the play was the same at both tables: each defender released a diamond, while declarer discarded a club. Street tried a club to the queen, which resulted in down two, but even if the club queen had won, nine tricks would have been a long way off.\n\nKlukowski took a better shot, playing for the friendly diamond lie. The diamond jack was covered by the queen and king, ducked by West. Declarer accurately continued with the ten. Manno could have tested Klukowski by exiting in diamonds (finishing the diamonds would have turned the screw on East, neutralizing the spade threat or letting declarer guess clubs for one loser) but instead played a spade, letting declarer attempt a club finesse for an overtrick: making three, plus 600; 13 imps to Zimmermann. If West had kept all of his diamonds, declarer could have succeeded with accurate card reading.\n\nWest considered shifting to a low spade instead of the queen, which might have been a better choice (and would have succeeded as the cards lay). The obvious upside of shifting to the queen was when declarer holds the singleton jack; but even then, shifting to the queen might have squeezed East among three suits. If declarer had held, e.g.:\n\n♠ J ♥ AQx ♦ KQxx ♣ QJT0xx\n\nand played low on the low-spade shift, that shift could cost the contract. With that hand, though, declarer might have bid differently or played on spades himself. If declarer held 1=3=3=6, the defense might have been able to deny a dummy entry if a low-spade shift goes to the jack; also, with that holding declarer might have pursued clubs initially."
+      }
+    },
+    {
+      "id": "b74",
+      "type": "text",
+      "data": {
+        "text": "On Board 11, ZIMMERMANN added 3 imps for plus 50 at both tables. The STREET pairs contracted for three spades and four hearts, each of which had four top losers, but the spade declarer lost a fifth trick when he took a losing view in trumps because of an opponent's takeout double. The ZIMMERMANN lead stood at 20 imps when Board 12 arrived:"
+      }
+    },
+    {
+      "id": "b75",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "KJ82",
+            "H": "A874",
+            "D": "J74",
+            "C": "73"
+          },
+          "south": {
+            "S": "Q5",
+            "H": "K53",
+            "D": "KQT82",
+            "C": "AJ4"
+          },
+          "east": {
+            "S": "AT74",
+            "H": "QJ92",
+            "D": "953",
+            "C": "K2"
+          },
+          "west": {
+            "S": "963",
+            "H": "T6",
+            "D": "A6",
+            "C": "QT9865"
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": true,
+          "west": true
+        },
+        "dealer": "East",
+        "vulnerability": "N-S",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b76",
+      "type": "text",
+      "data": {
+        "text": "**OPEN ROOM**"
+      }
+    },
+    {
+      "id": "b77",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "East",
+        "bids": [
+          {
+            "text": "1C",
+            "alert": "two-plus clubs"
+          },
+          {
+            "text": "1NT",
+            "alert": null
+          },
+          {
+            "text": "3C",
+            "alert": null
+          },
+          {
+            "text": "Double",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {
+          "south": "Kalita",
+          "west": "Di Franco",
+          "north": "Klukowski",
+          "east": "Manno"
+        }
+      }
+    },
+    {
+      "id": "b78",
+      "type": "text",
+      "data": {
+        "text": "**CLOSED ROOM**"
+      }
+    },
+    {
+      "id": "b79",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "East",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {
+          "south": "L'Ecuyer",
+          "west": "Nowosadzki",
+          "north": "Street",
+          "east": "Z'mann"
+        }
+      }
+    },
+    {
+      "id": "b80",
+      "type": "text",
+      "data": {
+        "text": "At both tables, the club-ten lead went to East's king. In the Open Room, Kalita ducked. A club continuation would have worked well, but Manno feared declarer's holding four clubs. He shifted to the heart deuce, finding his partner with just what he hoped for—a heart honor and (if the ten) an entry. Kalita drove out the diamond ace first, so Di Franco cleared the heart suit, letting Manno cash out for down one: minus 100. If declarer had happened to knock out Manno's entry first, the defender could have reverted to clubs and hoped that his partner could gain the lead and cash enough winners.\n\nIn the Closed Room, holding up in clubs looked futile, because East very likely would have opened with both missing aces, so L'Ecuyer won trick one. He played on diamonds, happy to see that West held the ace. After taking the second diamond, Nowosadzki could have played for South to hold ace-jack-doubleton of clubs, but he shifted to the spade nine. When declarer ducked in dummy, Zimmermann could have achieved down three by winning and putting a club through, but he did not want to set up three spade tricks for his opponent. The defense was still on track for down one, but on the run of the diamonds, Zimmermann released his remaining club, letting declarer set up the game-going trick in spades: 12 imps to STREET. East should have re-evaluated after learning that L'Ecuyer held five diamonds; for the opening bid, declarer had to hold the heart king or club queen-jack, so unless the defense could run clubs, the contract was cold.\n\nZIMMERMANN added an imp when Klukowski found a more-effective defense than Street. Then (Board 14):"
+      }
+    },
+    {
+      "id": "b81",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "2",
+            "H": "T964",
+            "D": "AKJ6",
+            "C": "K875"
+          },
+          "south": {
+            "S": "AT4",
+            "H": "KJ7",
+            "D": "T983",
+            "C": "642"
+          },
+          "east": {
+            "S": "98",
+            "H": "A8532",
+            "D": "Q5",
+            "C": "AQJT"
+          },
+          "west": {
+            "S": "KQJ7653",
+            "H": "Q",
+            "D": "742",
+            "C": "93"
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": true,
+          "west": true
+        },
+        "dealer": "West",
+        "vulnerability": "None",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b82",
+      "type": "text",
+      "data": {
+        "text": "Both Wests opened three spades. Street passed as North, and three spades made with an overtrick: plus 170. Klukowski doubled with the North cards, and South ended in three notrump. Things would have become interesting if Manno had doubled as East, but given the state of modern preempts, he had no guaranteed beat, and a profitable runout to diamonds might have been available. Declarer slid off three, minus 150, so ZIMMERMANN won 1 imp.\n\nThe quarter closed with a push when Manno and Zimmermann resolved a king-jack guess correctly to make a partscore. After 15 boards, ZIMMERMANN led by 10 imps, 33-23."
+      }
+    },
+    {
+      "id": "b83",
+      "type": "text",
+      "data": {
+        "text": "**Second Quarter**\n\nSTREET brought Pachtmann and Zatorski in for Di Franco and Manno; ZIMMERMANN stood pat. The second segment opened with three pushes in normal contracts; then, partnership agreements caused Kalita and Klukowski to"
+      }
+    },
+    {
+      "id": "b84",
+      "type": "text",
+      "data": {
+        "text": "bid a light game on Board 19, while their counterparts, L'Ecuyer and Street, sold out to a partial. Both contracts failed by one trick, minus 50 and 100, sending 4 imps to STREET. After an overtrick imp to ZIMMERMANN, there was an amusing but low-stakes deal (Board 21; North dealer; North-South vulnerable):"
+      }
+    },
+    {
+      "id": "b85",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "east": {
+            "S": "AJ93",
+            "H": "75",
+            "D": "J965",
+            "C": "Q92"
+          },
+          "west": {
+            "S": "KQ",
+            "H": "T962",
+            "D": "Q2",
+            "C": "KJ765"
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": false,
+          "east": true,
+          "west": true
+        },
+        "dealer": "North",
+        "vulnerability": "N-S",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b86",
+      "type": "text",
+      "data": {
+        "text": "**CLOSED ROOM**"
+      }
+    },
+    {
+      "id": "b87",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "North",
+        "bids": [
+          {
+            "text": "1C",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "2D",
+            "alert": null
+          },
+          {
+            "text": "2S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {
+          "west": "Zimmermann",
+          "east": "Nowosadzki"
+        }
+      }
+    },
+    {
+      "id": "b88",
+      "type": "text",
+      "data": {
+        "text": "Both partners were a card short of traditional length for their calls, but the vulnerability was right. The defense led and ducked a club, and declarer wound up with that trick plus five trumps after ruffing twice in dummy: down two, minus 100. At the other table, a more-anodyne auction produced a final contract of one notrump by South. The opening lead was a club, and declarer cashed seven top tricks: no swing."
+      }
+    },
+    {
+      "id": "b89",
+      "type": "text",
+      "data": {
+        "text": "Next (Board 22):"
+      }
+    },
+    {
+      "id": "b90",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "973",
+            "H": "QJ4",
+            "D": "KT4",
+            "C": "T987"
+          },
+          "south": {
+            "S": "KJT",
+            "H": "T5",
+            "D": "Q97",
+            "C": "AKQ53"
+          },
+          "east": {
+            "S": "AQ542",
+            "H": "K983",
+            "D": "62",
+            "C": "J6"
+          },
+          "west": {
+            "S": "86",
+            "H": "A762",
+            "D": "AJ853",
+            "C": "42"
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": true,
+          "west": true
+        },
+        "dealer": "East",
+        "vulnerability": "E-W",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b91",
+      "type": "text",
+      "data": {
+        "text": "**OPEN ROOM**"
+      }
+    },
+    {
+      "id": "b92",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "East",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2C",
+            "alert": "majors"
+          },
+          {
+            "text": "Double",
+            "alert": null
+          },
+          {
+            "text": "2H",
+            "alert": null
+          },
+          {
+            "text": "2NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {
+          "south": "Klukowski",
+          "west": "Zatorski",
+          "north": "Kalita",
+          "east": "Pachtmann"
+        }
+      }
+    },
+    {
+      "id": "b93",
+      "type": "text",
+      "data": {
+        "text": "**CLOSED ROOM**"
+      }
+    },
+    {
+      "id": "b94",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "East",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1C",
+            "alert": null
+          },
+          {
+            "text": "1D",
+            "alert": null
+          },
+          {
+            "text": "2C",
+            "alert": null
+          },
+          {
+            "text": "Double",
+            "alert": null
+          },
+          {
+            "text": "2NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {
+          "south": "Street",
+          "west": "Z'mann",
+          "north": "L'Ecuyer",
+          "east": "Nowosadzki"
+        }
+      }
+    },
+    {
+      "id": "b95",
+      "type": "text",
+      "data": {
+        "text": "In the Open Room, Zatorski kicked things off with the diamond ace and another diamond. With the spade queen onside, declarer chalked up nine tricks.\n\nAt the other table, Street won the opening diamond lead in the closed hand and played a heart to the queen and king. The defense cleared diamonds: down one, minus 100; 4 imps"
+      }
+    },
+    {
+      "id": "b96",
+      "type": "text",
+      "data": {
+        "text": "to ZIMMERMANN. Declarer lacked the timing to play on hearts effectively; a better line would have been to play for the spade queen onside (not the ace, lest the defense score too many spade tricks). Declarer lacks the entries to do everything he would like, but since clubs were not four-zero, winning the diamond in either hand and working on spades would have succeeded.\n\nZIMMERMANN scored more heavily on Board 23:"
+      }
+    },
+    {
+      "id": "b97",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "AK96542",
+            "H": "8",
+            "D": "97",
+            "C": "T92"
+          },
+          "south": {
+            "S": "",
+            "H": "AKJ7",
+            "D": "Q63",
+            "C": "AQ8764"
+          },
+          "east": {
+            "S": "QJ873",
+            "H": "9643",
+            "D": "T54",
+            "C": "3"
+          },
+          "west": {
+            "S": "T",
+            "H": "QT52",
+            "D": "AKJ82",
+            "C": "KJ5"
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": true,
+          "west": true
+        },
+        "dealer": "East",
+        "vulnerability": "All",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b98",
+      "type": "text",
+      "data": {
+        "text": "**OPEN ROOM**"
+      }
+    },
+    {
+      "id": "b99",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "East",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1C",
+            "alert": null
+          },
+          {
+            "text": "1D",
+            "alert": null
+          },
+          {
+            "text": "2H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "5C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Double",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {
+          "south": "Zatorski",
+          "west": "Kalita",
+          "north": "Pachtmann",
+          "east": "Klukowski"
+        }
+      }
+    },
+    {
+      "id": "b100",
+      "type": "text",
+      "data": {
+        "text": "**CLOSED ROOM**"
+      }
+    },
+    {
+      "id": "b101",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "East",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1C",
+            "alert": null
+          },
+          {
+            "text": "1D",
+            "alert": null
+          },
+          {
+            "text": "3H",
+            "alert": "spades"
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {
+          "south": "Z'mann",
+          "west": "L'Ecuyer",
+          "north": "Nowosadzki",
+          "east": "Street"
+        }
+      }
+    },
+    {
+      "id": "b102",
+      "type": "text",
+      "data": {
+        "text": "A quirk of the different-level transfers was that Pachtmann and Zatorski got together in their best fit, while Nowosadzki and Zimmermann did not. The latter pair did well to position four spades in the South hand, which reduced the chance that declarer would need to rely on the club finesse. More importantly, Nowosadzki and Zimmermann avoided a double. Both contracts went down two; minus 500 and minus 200 put 7 imps in the ZIMMERMANN column; that team then led by 18.\n\nOn the last seven deals of the segment, the contract (though not always the declarer) was the same at both tables, and the swings were modest: 1- and 2-imp swings to STREET and a 2-imp gain for ZIMMERMANN. Still, there were points of interest.\n\nBoard 28 presented a contrast of modern opening-lead styles. With only the opponents vulnerable, your RHO deals and opens one notrump, which ends the auction. Holding:\n\n♠ 8 7 2  ♥ J 10 5  ♦ A 4 2  ♣ A J 9 6,\n\nwhat would you lead? Expert practice has long since moved on from a fourth-highest club. A heart has more constructive potential, but it might compromise the defensive position in the suit if partner holds the ace or king. A spade is a more-passive choice. Klukowski opted"
+      }
+    },
+    {
+      "id": "b103",
+      "type": "text",
+      "data": {
+        "text": "for a spade, hitting his partner's ace-jack-nine in front of the remaining honors, which aided declarer, who made nine tricks. L'Ecuyer's heart lead was more neutral, and declarer took only seven tricks: 2 imps to STREET.\n\nThe quarter closed with a tricky game to declare (Board 30):"
+      }
+    },
+    {
+      "id": "b104",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "A74",
+            "H": "KJT",
+            "D": "65",
+            "C": "AKQ92"
+          },
+          "south": {
+            "S": "J852",
+            "H": "A7632",
+            "D": "QJ32",
+            "C": ""
+          },
+          "east": {
+            "S": "KT63",
+            "H": "Q8",
+            "D": "AT974",
+            "C": "T3"
+          },
+          "west": {
+            "S": "Q9",
+            "H": "954",
+            "D": "K8",
+            "C": "J87654"
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": true,
+          "west": true
+        },
+        "dealer": "South",
+        "vulnerability": "None",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b105",
+      "type": "text",
+      "data": {
+        "text": "**OPEN ROOM**"
+      }
+    },
+    {
+      "id": "b106",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "South",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1C",
+            "alert": null
+          },
+          {
+            "text": "1D",
+            "alert": null
+          },
+          {
+            "text": "2C",
+            "alert": "at least five-four in the majors"
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2D",
+            "alert": "pick a major"
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {
+          "south": "Pachtmann",
+          "west": "Klukowski",
+          "north": "Zatorski",
+          "east": "Kalita"
+        }
+      }
+    },
+    {
+      "id": "b107",
+      "type": "text",
+      "data": {
+        "text": "**CLOSED ROOM**"
+      }
+    },
+    {
+      "id": "b108",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "South",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1C",
+            "alert": null
+          },
+          {
+            "text": "1D",
+            "alert": null
+          },
+          {
+            "text": "Double",
+            "alert": "hearts"
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {
+          "south": "Nowosadzki",
+          "west": "Street",
+          "north": "Z'mann",
+          "east": "L'Ecuyer"
+        }
+      }
+    },
+    {
+      "id": "b109",
+      "type": "text",
+      "data": {
+        "text": "In the Open Room, Klukowski led the diamond king, then shifted to the spade queen to dummy's ace. From that start, it appeared that East held at least nine pointed-suit cards. Pachtmann cashed one club (spade discard), ruffed a club low, and led a heart to the ten. If that had won, he might have played East for 4=1=5=3 or 4=1=6=2: top clubs for spade discards, diamond"
+      }
+    },
+    {
+      "id": "b110",
+      "type": "text",
+      "data": {
+        "text": "toward the honors. But East won with the heart queen, took his pointed-suit winners, and gave West a ruff: down two, minus 100.\n\nIn the Closed Room, Zimmermann, North, received a spade lead to the nine and ace. He cashed his club winners, throwing three spades as L'Ecuyer ruffed the third round with the eight. L'Ecuyer persisted with a low spade, ruffed in dummy, and Zimmermann called for the diamond queen. Street won with the king. As the cards lay, a heart or club continuation would have guaranteed the defeat of the contract. Projecting all possible sequences of play is easier at the bar than at the table, and Street went for the practical assault on declarer's trump holding by playing a diamond. L'Ecuyer took the ace and played the spade ten; now it was Zimmermann's turn in the spotlight. If, as it appeared, East held the missing spade king, he needed to ruff with the ace, then to guess trumps. In practice, he ruffed with the seven, and Street overruffed for the setting trick. That was minus 50, but still 2 imps to ZIMMERMANN.\n\nZIMMERMANN won the low-scoring segment 14-7, bumping its lead up to 17 imps, 47-30."
+      }
+    },
+    {
+      "id": "b111",
+      "type": "text",
+      "data": {
+        "text": "**Third Quarter**\n\nFor ZIMMERMANN, Brink and Drijver came in for Nowosadzki and Zimmermann. Meanwhile, Di Franco-Manno returned, replacing L'Ecuyer-Street.\n\nThe second half of the match began with a borderline game (Board 31):"
+      }
+    },
+    {
+      "id": "b112",
+      "type": "text",
+      "data": {
+        "text": "mond. That held declarer to 10 tricks: plus 130.\n\nIn the other room, Kalita ruffed the heart-king lead, played a diamond to the king, and lost a finesse to Pachtmann's spade king. The defense knocked out the club ace, and when the spade ace drew only low cards, Kalita needed to guess the distribution. Against the actual layout, the winning play was to cash the diamond ace and aim to establish dummy's hearts. Judging that East was more likely to hold 3=4=1=5, declarer ruffed a spade without cashing the diamond ace. Zatorski overruffed, and declarer was a trick short: minus 50; 5 imps to Street.\n\nThe same team notched an overtrick imp; then, on Board 33, it was a Street pair that bid more than its counterpart:"
+      }
+    },
+    {
+      "id": "b113",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "AQJT5",
+            "H": "2",
+            "D": "K98",
+            "C": "AJ87"
+          },
+          "south": {
+            "S": "9",
+            "H": "7654",
+            "D": "AQJ42",
+            "C": "T65"
+          },
+          "east": {
+            "S": "K8432",
+            "H": "AQ8",
+            "D": "T5",
+            "C": "Q32"
+          },
+          "west": {
+            "S": "76",
+            "H": "KJT93",
+            "D": "763",
+            "C": "K94"
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": true,
+          "west": true
+        },
+        "dealer": "West",
+        "vulnerability": "N-S",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b114",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "West",
+        "bids": [
+          {
+            "text": "2H",
+            "alert": null
+          },
+          {
+            "text": "2S",
+            "alert": null
+          },
+          {
+            "text": "3H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Double",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "5D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "OPEN ROOM",
+        "players": {
+          "south": "Di Franco",
+          "west": "Brink",
+          "north": "Manno",
+          "east": "Drijver"
+        }
+      }
+    },
+    {
+      "id": "b115",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "West",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "CLOSED ROOM",
+        "players": {
+          "south": "Kalita",
+          "west": "Pachtmann",
+          "north": "Klukowski",
+          "east": "Zatorski"
+        }
+      }
+    },
+    {
+      "id": "b116",
+      "type": "text",
+      "data": {
+        "text": "The defensive barrage in the Open Room helped North-South find their best fit but propelled them to an uncomfortable level. Drijver took the heart-ten lead with the ace and shifted to the club deuce to the king and ace. Di Franco cashed dummy's spade ace and continued with the queen, ducked by Drijver as declarer pitched a heart. Di Franco then took the ace-king of diamonds and passed the spade jack; because neither spades nor diamonds broke favorably, Brink scored a ruff. The club queen was the setting trick: minus 100."
+      }
+    },
+    {
+      "id": "b117",
+      "type": "text",
+      "data": {
+        "text": "In the Closed Room. Zatorski (East) led the diamond ten. Declarer won with dummy's ace and gave up a heart. Pachtmann's jack held, and he continued diamonds. Klukowski won in dummy, ruffed a heart (ace from Zatorski), took the spade ace, and played the queen. Zatorski withheld the king, and Klukowski misguessed by ruffing. Declarer ruffed a third round of hearts and trumped a low spade with the six; Pachtmann overruffed with the nine and played the heart king, ruffed with the jack and overruffed. Zatorski exited in trumps, and the club ace was declarer's final trick: down one for a push.\n\nFrom there, the deals turned flat, though not totally uninteresting. On Board 35, vulnerable against not, Drijver and Zatorski held as dealer:\n\n♠AK65 ♥4 ♦9742 ♣AQ63.\n\nThe auction unfolded:"
+      }
+    },
+    {
+      "id": "b118",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "South",
+        "bids": [
+          {
+            "text": "1D",
+            "alert": null
+          },
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "3D",
+            "alert": "mixed raise"
+          },
+          {
+            "text": "3H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "?",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {}
+      }
+    },
+    {
+      "id": "b119",
+      "type": "text",
+      "data": {
+        "text": "Both players doubled, hardly a sure bet, and collected an extra 50 for down one and a push. \"Another overbidder punished,\" as Ron Smith likes to say.\n\nStreet missed an opportunity on Board 38:"
+      }
+    },
+    {
+      "id": "b120",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "Q64",
+            "H": "94",
+            "D": "AQJT874",
+            "C": "T"
+          },
+          "south": {
+            "S": "K3",
+            "H": "AT63",
+            "D": "652",
+            "C": "AKQ7"
+          },
+          "east": {
+            "S": "AJT72",
+            "H": "J72",
+            "D": "K3",
+            "C": "J63"
+          },
+          "west": {
+            "S": "985",
+            "H": "KQ85",
+            "D": "9",
+            "C": "98542"
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": true,
+          "west": true
+        },
+        "dealer": "West",
+        "vulnerability": "None",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b121",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "West",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "OPEN ROOM",
+        "players": {
+          "south": "Brink",
+          "west": "Manno",
+          "north": "Drijver",
+          "east": "Di Franco"
+        }
+      }
+    },
+    {
+      "id": "b122",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "West",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "Double",
+            "alert": null
+          },
+          {
+            "text": "2S",
+            "alert": null
+          },
+          {
+            "text": "4D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "5D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "CLOSED ROOM",
+        "players": {
+          "south": "Pachtmann",
+          "west": "Klukowski",
+          "north": "Zatorski",
+          "east": "Kalita"
+        }
+      }
+    },
+    {
+      "id": "b123",
+      "type": "text",
+      "data": {
+        "text": "In the Closed Room, Zatorski judged his hand unsuitable for a preempt, and his pair reached the top spot. He had no trouble taking 11 tricks: plus 400. Street had some chance of a double-digit pickup when, in the Open Room, Manno hit on the best lead for his side: a high heart (the queen, asking for an attitude signal). With the diamond finesse off and East holding the spade ace, declarer could have prevailed by holding up twice, but Brink took trick one. Di Franco came on lead with the diamond king at trick two, cashed the"
+      }
+    },
+    {
+      "id": "b124",
+      "type": "text",
+      "data": {
+        "text": "heart jack, and played . . . a club: plus 430 and 1 imp to Zimmermann instead of 10 the other way. Di Franco feared declarer's holding stronger hearts (say ace-ten-eight-low) and thought that South would not have won trick one with his actual holding.\n\nWhether declarer should duck trick one is not clear. East is almost certain to signal honestly at trick one, so if West continues with a heart honor at trick two, South can win if East holds the third honor or duck again if not. (Given West's initial pass, losing the heart entry for a diamond finesse cannot cost, as West cannot hold both the spade ace and diamond king.) If West continues with a low heart to East's honor, declarer will need to guess how to proceed. Ducking is necessary on a layout such as the actual one; but if West holds five hearts, declarer should win and may be defeated if he does not. Success will depend on placing the unseen cards accurately. Given the uncertainty that follows holding up, plus the extra chance that winning will induce a defensive misstep, perhaps Brink's play was best.\n\nOn the succeeding deal (Board 39), Di Franco's defense was more effective:"
+      }
+    },
+    {
+      "id": "b125",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "K83",
+            "H": "JT742",
+            "D": "J3",
+            "C": "T87"
+          },
+          "south": {
+            "S": "AT",
+            "H": "5",
+            "D": "AQ87642",
+            "C": "AJ5"
+          },
+          "east": {
+            "S": "Q9764",
+            "H": "AQ83",
+            "D": "9",
+            "C": "432"
+          },
+          "west": {
+            "S": "J52",
+            "H": "K96",
+            "D": "KT5",
+            "C": "KQ96"
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": true,
+          "west": true
+        },
+        "dealer": "South",
+        "vulnerability": "E-W",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b126",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "South",
+        "bids": [
+          {
+            "text": "1D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "3C",
+            "alert": "diamonds"
+          },
+          {
+            "text": "Double",
+            "alert": null
+          },
+          {
+            "text": "3D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "OPEN ROOM",
+        "players": {
+          "south": "Drijver",
+          "west": "Di Franco",
+          "north": "Brink",
+          "east": "Manno"
+        }
+      }
+    },
+    {
+      "id": "b127",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "South",
+        "bids": [
+          {
+            "text": "1D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "3D",
+            "alert": null
+          },
+          {
+            "text": "3H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3S",
+            "alert": null
+          },
+          {
+            "text": "Double",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "CLOSED ROOM",
+        "players": {
+          "south": "Zatorski",
+          "west": "Kalita",
+          "north": "Pachtmann",
+          "east": "Klukowski"
+        }
+      }
+    },
+    {
+      "id": "b128",
+      "type": "text",
+      "data": {
+        "text": "In the Closed Room, Pachtmann did well to remove the double; three spades would have been a dogfight, but declarer likely would have prevailed. The opening lead was a spade, and Zatorski lost one heart, one diamond, and two clubs for down one.\n\nIn the other room, Di Franco led a spade. Drijver won with dummy's king, led a diamond to the queen (ducked), and played the ace and another diamond as Manno threw discouraging clubs. Di"
+      }
+    },
+    {
+      "id": "b129",
+      "type": "text",
+      "data": {
+        "text": "Franco put the heart nine on the table, and the defense ran four tricks in the suit: down one for a push.\n\nStreet landed a heavy blow on Board 40. Try it first as an opening-lead problem. You hold:\n\n♠1064 ♥A72 ♦982 ♣AT95,\n\nin third seat with both sides vulnerable. Your RHO opens two hearts (weak; hearts and a minor), which is boosted to four. What would you lead?\n\nKlukowski led a spade, which looks best on percentage but was a big loser:"
+      }
+    },
+    {
+      "id": "b130",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "AKQ93",
+            "H": "KQ5",
+            "D": "43",
+            "C": "763"
+          },
+          "south": {
+            "S": "",
+            "H": "JT964",
+            "D": "KT765",
+            "C": "K42"
+          },
+          "east": {
+            "S": "J8752",
+            "H": "83",
+            "D": "AQJ",
+            "C": "QJ8"
+          },
+          "west": {
+            "S": "T64",
+            "H": "A72",
+            "D": "982",
+            "C": "AT95"
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": true,
+          "west": true
+        },
+        "dealer": "",
+        "vulnerability": "",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b131",
+      "type": "text",
+      "data": {
+        "text": "The club losers quickly went away, and declarer played on diamonds, ending with 11 tricks: plus 650. At the other table, North opened one spade in fourth seat and passed his partner's one-notrump response. That contract was made for plus 90; 11 imps to Street, which led the segment 17-1 and had cut its deficit to a mere 2 imps, 49-47.\n\nZimmermann hit back on Board 41:"
+      }
+    },
+    {
+      "id": "b132",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "A9532",
+            "D": "AKT9",
+            "C": "AT85"
+          },
+          "south": {
+            "S": "982",
+            "H": "Q4",
+            "D": "873",
+            "C": "KJ972"
+          },
+          "east": {
+            "S": "AKQ74",
+            "H": "T87",
+            "D": "J65",
+            "C": "64"
+          },
+          "west": {
+            "S": "JT653",
+            "H": "KJ6",
+            "D": "Q42",
+            "C": "Q3"
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": true,
+          "west": true
+        },
+        "dealer": "East",
+        "vulnerability": "None",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b133",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "East",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3S",
+            "alert": null
+          },
+          {
+            "text": "Double",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "OPEN ROOM",
+        "players": {
+          "south": "Manno",
+          "west": "Drijver",
+          "north": "Di Franco",
+          "east": "Brink"
+        }
+      }
+    },
+    {
+      "id": "b134",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "East",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2S",
+            "alert": null
+          },
+          {
+            "text": "Double",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "6C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "CLOSED ROOM",
+        "players": {
+          "south": "Klukowski",
+          "west": "Zatorski",
+          "north": "Kalita",
+          "east": "Pachtmann"
+        }
+      }
+    },
+    {
+      "id": "b135",
+      "type": "text",
+      "data": {
+        "text": "In the Open Room, Drijver's space-consuming jump made life difficult for Manno. Four clubs would have left a lot on the table, but five clubs on what might have been an eight-card fit could easily have been wrong. Four hearts was a sensible choice, but it was a big loser in practice. After the opening spade lead tapped the North hand and a heart to the queen lost to the king,"
+      }
+    },
+    {
+      "id": "b136",
+      "type": "text",
+      "data": {
+        "text": "declarer had no hope and finished down two: minus 100.\n\nIn the other room, Zatorski's simple raise might have worked well if it had bought the contract cheaply—not out of the question—but it allowed Kalita-Klukowski to locate their best fit. Six clubs was a pushy but playable contract. Zatorski led a low diamond to dummy's ace. Klukowski led a heart to the queen and king, then won the diamond return and played ace-king of clubs. With the hearts three-three, that was that: making six, plus 920; 14 imps to Zimmermann.\n\nThings became worse for Street on Board 42:"
+      }
+    },
+    {
+      "id": "b137",
+      "type": "text",
+      "data": {
+        "text": "East dealer\nNorth-South vulnerable"
+      }
+    },
+    {
+      "id": "b138",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "AKJ76",
+            "H": "K87642",
+            "D": "T",
+            "C": "A"
+          },
+          "south": {
+            "S": "QT9432",
+            "H": "9",
+            "D": "AQ95",
+            "C": "42"
+          },
+          "east": {
+            "S": "5",
+            "H": "AT",
+            "D": "J7642",
+            "C": "T9875"
+          },
+          "west": {
+            "S": "8",
+            "H": "QJ53",
+            "D": "K83",
+            "C": "KQJ63"
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": true,
+          "west": true
+        },
+        "dealer": "East",
+        "vulnerability": "N-S",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b139",
+      "type": "text",
+      "data": {
+        "text": "OPEN ROOM"
+      }
+    },
+    {
+      "id": "b140",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "East",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2S",
+            "alert": null
+          },
+          {
+            "text": "Dbl",
+            "alert": null
+          },
+          {
+            "text": "4C",
+            "alert": "spades and clubs (sic)"
+          },
+          {
+            "text": "4D",
+            "alert": null
+          },
+          {
+            "text": "4S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "5C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "6S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {
+          "south": "Drijver",
+          "west": "Di Franco",
+          "north": "Brink",
+          "east": "Manno"
+        }
+      }
+    },
+    {
+      "id": "b141",
+      "type": "text",
+      "data": {
+        "text": "CLOSED ROOM"
+      }
+    },
+    {
+      "id": "b142",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "East",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2D",
+            "alert": "weak two in either major"
+          },
+          {
+            "text": "Dbl",
+            "alert": null
+          },
+          {
+            "text": "4C",
+            "alert": "asks opener to transfer to his major; creates a force"
+          },
+          {
+            "text": "4NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": "positive"
+          },
+          {
+            "text": "5C",
+            "alert": null
+          },
+          {
+            "text": "6C",
+            "alert": "undiscussed"
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "6D",
+            "alert": "control-bid"
+          },
+          {
+            "text": "7C",
+            "alert": null
+          },
+          {
+            "text": "Dbl",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "7S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Dbl",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {
+          "south": "Zatorski",
+          "west": "Kalita",
+          "north": "Pachtmann",
+          "east": "Klukowski"
+        }
+      }
+    },
+    {
+      "id": "b143",
+      "type": "text",
+      "data": {
+        "text": "Brink's inventive four-club call deterred his opponents from bidding the suit, garnering a free run to the top contract: plus 1430. The heavy competition in the Closed Room gave Pachtmann and Zatorski a difficult time, resulting in down 200 and 17 imps to ZIMMERMANN; if North-South had played for penalty, the ensuing 800 would still have produced a 12-imp swing.\n\nThose results put ZIMMERMANN ahead by 33 imps. The final swing deal of the quarter was Board 44 (South dealer; neither side vulnerable):"
+      }
+    },
+    {
+      "id": "b144",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "A762",
+            "H": "T4",
+            "D": "QT54",
+            "C": "Q82"
+          },
+          "south": {
+            "S": "QT5",
+            "H": "AQJ63",
+            "D": "K3",
+            "C": "KJ7"
+          },
+          "east": {
+            "S": "KJ3",
+            "H": "97",
+            "D": "J972",
+            "C": "AT43"
+          },
+          "west": {
+            "S": "984",
+            "H": "K852",
+            "D": "A86",
+            "C": "965"
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": true,
+          "west": true
+        },
+        "dealer": "South",
+        "vulnerability": "None",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b145",
+      "type": "text",
+      "data": {
+        "text": "Di Franco and Kalita opened one notrump as South. Klukowski passed as North, and Kalita made nine tricks after a spade lead to the king and a club shift: plus 150. Manno used Stayman, and his pair reached three notrump. Brink led the diamond six: four, nine, king. Di Franco led a heart to the ten, then a heart to the queen and king. Brink shifted to the club nine; his partner topped the queen with the ace and continued the suit. Di Franco won and finished hearts, throwing two spades and a diamond from dummy; Brink threw a spade and Drijver a spade, a club, and a diamond. Di Franco led a diamond to the queen, a ninth trick: plus 400; 6 imps to STREET.\n\nAfter three quarters, ZIMMERMANN had scored 80 imps to STREET's 53. Hardly an insurmountable lead, but the compact 31-imp punch ZIMMERMANN had landed gave it momentum.\n\n**Fourth Quarter**\n\nBoth teams kept their lineups for the final quarter, but the pairs changed opponents. STREET won a small swing to open the segment (Board 46):\n\nSouth dealer; North-South vulnerable"
+      }
+    },
+    {
+      "id": "b146",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "J9532",
+            "H": "A7",
+            "D": "A76",
+            "C": "K73"
+          },
+          "south": {
+            "S": "Q76",
+            "H": "KJ8543",
+            "D": "KQJ",
+            "C": "5"
+          },
+          "east": {
+            "S": "KT8",
+            "H": "T2",
+            "D": "982",
+            "C": "Q9862"
+          },
+          "west": {
+            "S": "A4",
+            "H": "Q96",
+            "D": "T543",
+            "C": "AJT4"
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": true,
+          "west": true
+        },
+        "dealer": "South",
+        "vulnerability": "N-S",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b147",
+      "type": "text",
+      "data": {
+        "text": "OPEN ROOM"
+      }
+    },
+    {
+      "id": "b148",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "South",
+        "bids": [
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {
+          "south": "Manno",
+          "west": "Kalita",
+          "north": "Di Franco",
+          "east": "Klukowski"
+        }
+      }
+    },
+    {
+      "id": "b149",
+      "type": "text",
+      "data": {
+        "text": "CLOSED ROOM"
+      }
+    },
+    {
+      "id": "b150",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "South",
+        "bids": [
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2NT",
+            "alert": "forcing"
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3C",
+            "alert": "shortness"
+          },
+          {
+            "text": "Dbl",
+            "alert": null
+          },
+          {
+            "text": "4H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {
+          "south": "Brink",
+          "west": "Zatorski",
+          "north": "Drijver",
+          "east": "Pachtmann"
+        }
+      }
+    },
+    {
+      "id": "b151",
+      "type": "text",
+      "data": {
+        "text": "In the Open Room, Kalita led a diamond. After a heart to the ace and a heart finesse, the defender continued diamonds, so declarer ended down one: minus 100. At the other table, Zatorski teed off with the spade ace and obtained a ruff, then cashed the club ace. Declarer took the heart finesse: down two: 3 imps to STREET.\n\nBoard 47 featured two awkward partscores:"
+      }
+    },
+    {
+      "id": "b152",
+      "type": "text",
+      "data": {
+        "text": "South dealer\nNeither side vulnerable"
+      }
+    },
+    {
+      "id": "b153",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "AK2",
+            "H": "A62",
+            "D": "T876",
+            "C": "A53"
+          },
+          "south": {
+            "S": "Q963",
+            "H": "QJ73",
+            "D": "KJ5",
+            "C": "J6"
+          },
+          "east": {
+            "S": "J8754",
+            "H": "T",
+            "D": "Q9432",
+            "C": "T2"
+          },
+          "west": {
+            "S": "T",
+            "H": "K9854",
+            "D": "A",
+            "C": "KQ9874"
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": true,
+          "west": true
+        },
+        "dealer": "South",
+        "vulnerability": "None",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b154",
+      "type": "text",
+      "data": {
+        "text": "OPEN ROOM"
+      }
+    },
+    {
+      "id": "b155",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "South",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1C",
+            "alert": null
+          },
+          {
+            "text": "Dbl",
+            "alert": null
+          },
+          {
+            "text": "1H",
+            "alert": "spades"
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {
+          "south": "Kalita",
+          "west": "Di Franco",
+          "north": "Klukowski",
+          "east": "Manno"
+        }
+      }
+    },
+    {
+      "id": "b156",
+      "type": "text",
+      "data": {
+        "text": "CLOSED ROOM"
+      }
+    },
+    {
+      "id": "b157",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "South",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1C",
+            "alert": null
+          },
+          {
+            "text": "Dbl",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "Dbl",
+            "alert": null
+          },
+          {
+            "text": "2H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {
+          "south": "Zatorski",
+          "west": "Drijver",
+          "north": "Pachtmann",
+          "east": "Brink"
+        }
+      }
+    },
+    {
+      "id": "b158",
+      "type": "text",
+      "data": {
+        "text": "In the Closed Room, Drijver took the high road. Pachtmann led a high spade and shifted to a low club: low, jack, king. Drijver played a low heart; Pachtmann grabbed the ace and led another low club. Declarer eventually lost two more hearts for down one: minus 50.\n\nIn the Open Room, Di Franco took the low road. He led the club king (ducked) and continued with the queen to dummy's ace. Kalita ran dummy's diamond ten to the ace, and Di Franco played the club nine; Manno threw the spade eight (odd count or discouraging with high suit preference), and declarer ruffed. Kalita crossed to the spade ace and led a diamond to the jack and a ruff. Di Franco needed to lead a club for an uppercut, but instead he tried a low heart. Declarer won and led a spade; whether or not Di Franco trumped, the defense could take only two further trump tricks: making two, plus 110; 2 imps to ZIMMERMANN. Prospects were dim unless Manno held a heart honor, so the winning play was indicated.\n\nSTREET had opportunities to gain at both tables on Board 48:\n\nWest dealer; North-South vulnerable"
+      }
+    },
+    {
+      "id": "b159",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "AJT",
+            "H": "A864",
+            "D": "J9",
+            "C": "KJ97"
+          },
+          "south": {
+            "S": "K4",
+            "H": "JT95",
+            "D": "T76543",
+            "C": "4"
+          },
+          "east": {
+            "S": "Q87",
+            "H": "73",
+            "D": "AK2",
+            "C": "QT865"
+          },
+          "west": {
+            "S": "96532",
+            "H": "KQ2",
+            "D": "Q8",
+            "C": "A32"
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": true,
+          "west": true
+        },
+        "dealer": "West",
+        "vulnerability": "N-S",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b160",
+      "type": "text",
+      "data": {
+        "text": "OPEN ROOM"
+      }
+    },
+    {
+      "id": "b161",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "West",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2NT",
+            "alert": "one minor"
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {
+          "south": "Kalita",
+          "west": "Di Franco",
+          "north": "Klukowski",
+          "east": "Manno"
+        }
+      }
+    },
+    {
+      "id": "b162",
+      "type": "text",
+      "data": {
+        "text": "CLOSED ROOM"
+      }
+    },
+    {
+      "id": "b163",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "West",
+        "bids": [
+          {
+            "text": "1NT",
+            "alert": "9-12 HCP"
+          },
+          {
+            "text": "Dbl",
+            "alert": null
+          },
+          {
+            "text": "Rdbl",
+            "alert": null
+          },
+          {
+            "text": "2D",
+            "alert": null
+          },
+          {
+            "text": "Dbl",
+            "alert": "takeout"
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {
+          "south": "Zatorski",
+          "west": "Drijver",
+          "north": "Pachtmann",
+          "east": "Brink"
+        }
+      }
+    },
+    {
+      "id": "b164",
+      "type": "text",
+      "data": {
+        "text": "In the Open Room, Di Franco led the heart king: ace, seven, ten. Kalita called for the diamond jack, and Manno took the king to continue with the heart three to the jack and queen. If Di Franco had been confident that Manno held a doubleton heart, his best play would have been a heart, guaranteeing a beat unless declarer held a club void with the spade king; but the defender played the spade six. When Manno covered dummy's ten, that was the end for the defense, as Kalita had the transportation to discard his losing club: plus 110.\n\nDi Franco worried that his partner might have held the missing hearts—in which case dummy's eight-six would work a ruffing finesse against the nine—but if Manno began with nine-seven-five-three, would he have signaled with the potentially-valuable heart seven at trick one? From Manno's perspective, the spade six could have been from a holding such as Di Franco's, but a king-nine-six combination also was possible, especially if Di Franco held the missing heart length, as Manno reasonably could infer. If Di Franco always would have shifted to his lowest spade when holding the king, then withholding the spade queen could not cost—whatever his shape, declarer could have discarded no more than one spade. All in all, a tricky deal with many possible twists.\n\nAt the other table, the key decision came in the bidding: Pachtmann might have doubled four clubs. He had far from a sure defeat, and tipping off the trump position might have cost a trick (as it did here, it turned out). But the initial double had already flagged the location of most of the honors, and opportunities for swings against ZIMMERMANN's front four don't arise especially often. Of course, desperado tactics weren't called for yet, so I can't fault Pachtmann for lying low. Zatorski (South) led the heart jack to the queen and ace, and Pachtmann continued the suit. When declarer called for a low club, Pachtmann ducked, and Brink put up the queen. Brink played a club to the ace, then a spade; Pachtmann rose with the ace and took his club winners; declarer cashed out for down three. Minus 150 swung 1 imp to STREET, but STREET had left several imps on the table.\n\nSTREET added 4 imps on Board 49 (North dealer; East-West vulnerable):"
+      }
+    },
+    {
+      "id": "b165",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "32",
+            "H": "AQJ8",
+            "D": "Q87",
+            "C": "T932"
+          },
+          "south": {
+            "S": "T65",
+            "H": "96",
+            "D": "AKT9",
+            "C": "A876"
+          },
+          "east": {
+            "S": "KQ",
+            "H": "T75",
+            "D": "J542",
+            "C": "KQJ4"
+          },
+          "west": {
+            "S": "AJ9874",
+            "H": "K432",
+            "D": "63",
+            "C": "5"
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": true,
+          "west": true
+        },
+        "dealer": "North",
+        "vulnerability": "E-W",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b166",
+      "type": "text",
+      "data": {
+        "text": "OPEN ROOM"
+      }
+    },
+    {
+      "id": "b167",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "North",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1C",
+            "alert": null
+          },
+          {
+            "text": "2D",
+            "alert": "majors"
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {
+          "south": "Manno",
+          "west": "Kalita",
+          "north": "Di Franco",
+          "east": "Klukowski"
+        }
+      }
+    },
+    {
+      "id": "b168",
+      "type": "text",
+      "data": {
+        "text": "CLOSED ROOM"
+      }
+    },
+    {
+      "id": "b169",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "North",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1C",
+            "alert": null
+          },
+          {
+            "text": "2D",
+            "alert": "majors"
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {
+          "south": "Brink",
+          "west": "Zatorski",
+          "north": "Drijver",
+          "east": "Pachtmann"
+        }
+      }
+    },
+    {
+      "id": "b170",
+      "type": "text",
+      "data": {
+        "text": "Notably in this age of ultralight opening bids, Brink passed as East in second seat; his side reached two spades, down one: minus 100. Manno opened one club with that hand, and Kalita-Klukowski competed to three diamonds. That contract failed by a trick on a club lead: minus 50; 4 imps to STREET.\n\nSTREET gained on Board 50:\n\nSouth dealer\nBoth sides vulnerable"
+      }
+    },
+    {
+      "id": "b171",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "J9872",
+            "H": "AK765",
+            "D": "Q7",
+            "C": "6"
+          },
+          "south": {
+            "S": "A6",
+            "H": "JT",
+            "D": "T83",
+            "C": "KQ9832"
+          },
+          "east": {
+            "S": "QT4",
+            "H": "Q2",
+            "D": "KJ96",
+            "C": "J754"
+          },
+          "west": {
+            "S": "K53",
+            "H": "9843",
+            "D": "A542",
+            "C": "AT"
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": true,
+          "west": true
+        },
+        "dealer": "South",
+        "vulnerability": "All",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b172",
+      "type": "text",
+      "data": {
+        "text": "The Souths diverged with their choice of suit; I think most experts would duplicate Brink's call. Against him, Zatorski's trump lead was ducked to the queen, and Pachtmann continued with a second round. Declarer played the club king to the ace, and the defense shifted to diamonds, tapping dummy. Brink drew trumps and cashed his winners: down two, minus 200.\n\nThere was a trump lead against Manno as well; declarer captured the ten with the ace and lost a heart finesse. Here, too, the defense needed to tap dummy to secure down two. Klukowski shifted to the diamond king, then played a club. Kalita won with the ace, cashed the diamond ace, and went back to clubs, expecting Klukowski not to hold the diamond jack—holding that card, he might have persisted with diamonds. Manno won with the club queen, cashed the heart ten, and played a trump. With the suit three-three, he maintained control and escaped for down one: minus 100; 3 imps to STREET.\n\nLittle by little, STREET had whittled the ZIMMERMANN lead down to 18 imps with 10 deals remaining. Board 51 was a flat game; STREET had a chance for another pickup on Board 52:"
+      }
+    },
+    {
+      "id": "b173",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "QT75",
+            "H": "QJ",
+            "D": "A86543",
+            "C": "9"
+          },
+          "south": {
+            "S": "K64",
+            "H": "K9843",
+            "D": "9",
+            "C": "QT72"
+          },
+          "east": {
+            "S": "AJ92",
+            "H": "2",
+            "D": "J72",
+            "C": "AKJ85"
+          },
+          "west": {
+            "S": "83",
+            "H": "AT765",
+            "D": "KQT",
+            "C": "643"
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": true,
+          "west": true
+        },
+        "dealer": "West",
+        "vulnerability": "E-W",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b174",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "West",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1C",
+            "alert": null
+          },
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": "values; fewer than four spades"
+          },
+          {
+            "text": "Double",
+            "alert": "spades"
+          },
+          {
+            "text": "2C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3C",
+            "alert": null
+          },
+          {
+            "text": "3D",
+            "alert": null
+          },
+          {
+            "text": "Double",
+            "alert": null
+          },
+          {
+            "text": "3S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "OPEN ROOM",
+        "players": {
+          "west": "Di Franco",
+          "north": "Klukowski",
+          "east": "Manno",
+          "south": "Kalita"
+        }
+      }
+    },
+    {
+      "id": "b175",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "West",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1C",
+            "alert": null
+          },
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Double",
+            "alert": null
+          },
+          {
+            "text": "2D",
+            "alert": null
+          },
+          {
+            "text": "Double",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "CLOSED ROOM",
+        "players": {
+          "west": "Drijver",
+          "north": "Pachtmann",
+          "east": "Brink",
+          "south": "Zatorski"
+        }
+      }
+    },
+    {
+      "id": "b176",
+      "type": "text",
+      "data": {
+        "text": "The Closed-Room auction followed familiar lines. Brink (East) led his singleton heart; Drijver won with the ace and, rather than give Brink a ruff at once, shifted to the spade eight. Pachtmann rose with the queen; Brink won and continued with the spade nine, which went to dummy's ten. Declarer played the ace and another diamond to Drijver, who gave Brink a heart ruff and received a spade ruff. Brink still had two black-suit winners to come: down two, minus 300.\n\nThe Open-Room proceedings featured more-modern bidding, permitting East-West to find their club fit. Klukowski thought he had a promising hand for offense and competed, but his side was then in serious jeopardy. Di Franco had already shown values and held dubious diamond honors, so he passed. Manno did too; he held potential spade tricks, but his club honors were suspect, and he did not know whether his opponents had reached a real fit. Di Franco led the spade three to the five, nine, and king; declarer led a heart toward dummy's queen. Grabbing the heart ace and playing another spade would have garnered down four, but Di Franco did not know that his partner held four spades, so he ducked. Kalita played the diamond ace, ruffed a diamond, and played another heart (because Di Franco could not have won the trick, a club would have been better at double-dummy). Di Franco won and played another spade through; Manno won with the jack and played club king, spade ace, low club. Kalita won and played the heart king, but Manno ruffed and led the club ace for down three: minus 150, but 4 imps to ZIMMERMANN.\n\nAfter a no-swing game came Board 54:"
+      }
+    },
+    {
+      "id": "b177",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "T8",
+            "H": "AQ93",
+            "D": "T53",
+            "C": "K985"
+          },
+          "south": {
+            "S": "AQJ54",
+            "H": "KJT4",
+            "D": "J",
+            "C": "J73"
+          },
+          "east": {
+            "S": "K2",
+            "H": "875",
+            "D": "AKQ976",
+            "C": "64"
+          },
+          "west": {
+            "S": "9763",
+            "H": "62",
+            "D": "842",
+            "C": "AQT2"
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": true,
+          "west": true
+        },
+        "dealer": "West",
+        "vulnerability": "None",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b178",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "West",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1D",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "2C",
+            "alert": null
+          },
+          {
+            "text": "Double",
+            "alert": null
+          },
+          {
+            "text": "3D",
+            "alert": null
+          },
+          {
+            "text": "Double",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "OPEN ROOM",
+        "players": {
+          "west": "Manno",
+          "north": "Kalita",
+          "east": "Di Franco",
+          "south": "Klukowski"
+        }
+      }
+    },
+    {
+      "id": "b179",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "West",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1D",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "2D",
+            "alert": null
+          },
+          {
+            "text": "Double",
+            "alert": null
+          },
+          {
+            "text": "3D",
+            "alert": null
+          },
+          {
+            "text": "3H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "CLOSED ROOM",
+        "players": {
+          "west": "Brink",
+          "north": "Zatorski",
+          "east": "Drijver",
+          "south": "Pachtmann"
+        }
+      }
+    },
+    {
+      "id": "b180",
+      "type": "text",
+      "data": {
+        "text": "In the Open Room, Klukowski's aggressive approach caught a friendly-enough layout to make 10 tricks. East won the opening diamond lead and shifted to a trump, which Klukowski took in dummy. The spade ten was covered by the king and ace. Klukowski crossed to dummy in trumps and played two more spades, discarding a club. East could ruff, but the club ace was the defense's final trick: making four, plus 420. In the other room, the defense began with two rounds of diamonds, and Pachtmann led a low spade out of his hand, another route to 10 tricks: plus 170 but 6 imps to ZIMMERMANN.\n\nThat swing increased the ZIMMERMANN lead to 28 imps with six comparisons remaining. Board 55 generated a swing, but not in the direction STREET wanted. Klukowski and Pachtmann held:\n\n♠104 ♥J98 ♦AJT86 ♣QT7,\n\nand saw their partners open one notrump as dealer at favorable vulnerability. Klukowski responded three notrump; Pachtmann invited and reached two notrump. There were nine likely top tricks outside of spades, where opener held nine-seven-three. At single-dummy, a trailing team would be happy to see that combination, but spades divided four-four, and nine tricks rolled home: 6 imps to ZIMMERMANN.\n\nBoard 56 saw both tables reach a three-notrump contract that essentially required a successful finesse. It failed, and Klukowski went down 300. Still, his team gained 3 undertrick imps because Pachtmann played on another suit first—hoping to induce a defensive misstep and possibly obtaining information that might have justified taking an unusual line—which set up an eighth defensive winner.\n\nDown 37 with four deals left, time was fast running out for STREET. Board 57 kept a flicker of hope alive when Di Franco-Manno stayed low while Brink-Drijver failed in game, but STREET needed to do better than 6 imps per deal, and Board 58 effectively iced the match:"
+      }
+    },
+    {
+      "id": "b181",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "KJ54",
+            "D": "QJT3",
+            "C": "AKQ53"
+          },
+          "south": {
+            "S": "943",
+            "H": "AQ93",
+            "D": "9876",
+            "C": "T4"
+          },
+          "east": {
+            "S": "T762",
+            "H": "T72",
+            "D": "K2",
+            "C": "J862"
+          },
+          "west": {
+            "S": "AKQJ85",
+            "H": "86",
+            "D": "A54",
+            "C": "97"
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": true,
+          "west": true
+        },
+        "dealer": "North",
+        "vulnerability": "E-W",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b182",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "North",
+        "bids": [
+          {
+            "text": "1C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1D",
+            "alert": "hearts"
+          },
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "4D",
+            "alert": "heart raise; spade void"
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4H",
+            "alert": null
+          },
+          {
+            "text": "4S",
+            "alert": null
+          },
+          {
+            "text": "Double",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "OPEN ROOM",
+        "players": {
+          "west": "Klukowski",
+          "north": "Manno",
+          "east": "Kalita",
+          "south": "Di Franco"
+        }
+      }
+    },
+    {
+      "id": "b183",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "North",
+        "bids": [
+          {
+            "text": "1C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1D",
+            "alert": "several possibilities, including any 0-6 HCP"
+          },
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "Double",
+            "alert": null
+          },
+          {
+            "text": "2S",
+            "alert": null
+          },
+          {
+            "text": "Double",
+            "alert": null
+          },
+          {
+            "text": "3S",
+            "alert": null
+          },
+          {
+            "text": "Double",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "CLOSED ROOM",
+        "players": {
+          "west": "Pachtmann",
+          "north": "Brink",
+          "east": "Zatorski",
+          "south": "Drijver"
+        }
+      }
+    },
+    {
+      "id": "b184",
+      "type": "text",
+      "data": {
+        "text": "In the Open Room, North's descriptive raise helped Klukowski find the successful sacrifice, despite his unfavorable vulnerability. Knowing that a spade void lay on his left, he despaired of his chance of defeating four hearts. Saving rated to score no worse than a 1- or 2-imp loss, and it had more to gain if nine tricks were available or the opponents guessed wrongly. (If Kalita produced no tricks, four spades could have proven costly, but in that case the opponents would have a slam unless East held a defensive trick that was worthless to Klukowski.) Here, Kalita produced two tricks for his partner; minus 200 meant 6 imps to ZIMMERMANN when East-West at the other table lacked the information to bid over four hearts.\n\nSTREET won 13 imps on the penultimate deal when Pachtmann and Zatorski defended a game better than Kalita and Klukowski, but it was too little too late. The final deal saw ZIMMERMANN win an overtrick imp. Although STREET took the quarter 30-28, ZIMMERMANN prevailed by 25 imps 108-83.\n\n**Summary**\n\nCongratulations to Sjoert Brink, Bas Drijver, Jacek Kalita, Michal Klukowski, Michal Nowosadzki, and Pierre Zimmermann for a deserved win in the 2023 Soloway, the latest title for the most successful squad in recent years. Condolences to the STREET players on a hard-fought loss, though not as much of a nail-biter as the last time these teams met in a major knockout final. This runner-up finish marks STREET's third second place in five premier American knockouts—in addition to wins in lesser national events—a rare achievement in its own right. It would surprise no one to see this team holding one of the major cups before too long."
+      }
+    }
+  ],
+  "warnings": [
+    "Block 32 (biddingTable): Invalid bids: Double, Double, Double",
+    "Block 36 (biddingTable): Invalid bids: Double",
+    "Block 38 (biddingTable): Invalid bids: Double",
+    "Block 59 (biddingTable): Invalid bids: Double",
+    "Block 69 (biddingTable): Auction must end with 3 consecutive passes (got: 2D, 2S, Pass)",
+    "Block 74 (biddingTable): Invalid bids: Double",
+    "Block 76 (biddingTable): Invalid bids: Double",
+    "Block 81 (biddingTable): Invalid bids: Double",
+    "Block 90 (biddingTable): Invalid bids: Double",
+    "Block 96 (biddingTable): Invalid bids: Double",
+    "Block 104 (biddingTable): Invalid bids: Double",
+    "Block 108 (biddingTable): Invalid bids: Double",
+    "Block 109 (biddingTable): Invalid bids: Double",
+    "Block 115 (biddingTable): Invalid bids: Double",
+    "Block 116 (biddingTable): Invalid bids: Double",
+    "Block 156 (biddingTable): Invalid bids: Double, Double",
+    "Block 157 (biddingTable): Invalid bids: Double, Double",
+    "Block 160 (biddingTable): Invalid bids: Double, Double",
+    "Block 161 (biddingTable): Invalid bids: Double",
+    "Block 164 (biddingTable): Invalid bids: Double",
+    "Block 165 (biddingTable): Invalid bids: Double, Double, Double"
+  ]
+}

@@ -3,6 +3,7 @@ import type { CSSProperties } from "react";
 import { SanityArticle } from "@/types";
 import { formatDate } from "@/lib/utils";
 import ArticleCardImage from "./ArticleCardImage";
+import LevelBadge from "./LevelBadge";
 
 const colorClasses: Record<string, string> = {
   blue:    "bg-blue-100 text-blue-700",
@@ -55,14 +56,38 @@ export default function ArticleCard({ article, variant = "default" }: ArticleCar
     return (
       <Link
         href={`/articles/${article.slug}`}
-        className="group flex gap-4 py-3 border-b border-stone-100 last:border-0"
+        className="group flex gap-3 py-3 border-b border-stone-100 last:border-0"
       >
+        <div className="w-20 h-16 shrink-0 rounded overflow-hidden">
+          {article.coverImageUrl ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={article.coverImageUrl}
+              alt={article.title}
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            <ArticleCardImage
+              fill
+              variant="compact"
+              title={article.title}
+              author={article.author?.name}
+              authorPhoto={article.author?.avatarUrl}
+              category={article.category?.name}
+              categoryColor={article.category?.color}
+              contract={article.handData?.contract}
+              declarer={article.handData?.declarer}
+              hand={article.handData}
+            />
+          )}
+        </div>
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 mb-1">
             <p className={badge.className} style={badge.style}>
               {categoryName}
             </p>
             <TierBadge tier={article.access_tier} />
+            <LevelBadge level={article.level} />
           </div>
           <h3 className="font-serif text-base font-semibold text-stone-900 group-hover:text-brand-700 transition-colors leading-snug line-clamp-2">
             {article.title}

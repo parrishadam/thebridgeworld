@@ -3,6 +3,8 @@
 export type SubscriptionTier = "free" | "paid" | "premium";
 export type ArticleAccessTier = "free" | "paid" | "premium";
 
+export type SkillLevel = "beginner" | "intermediate" | "advanced" | "expert" | "world_class";
+
 export interface UserProfile {
   user_id:        string;
   tier:           SubscriptionTier;
@@ -10,8 +12,14 @@ export interface UserProfile {
   is_contributor: boolean;
   is_author:      boolean;
   is_legacy:      boolean;
+  display_name:   string | null;
+  first_name:     string | null;
+  last_name:      string | null;
+  email:          string | null;
   bio:            string | null;
   photo_url:      string | null;
+  skill_level:    SkillLevel | null;
+  location:       string | null;
   created_at:     string;
   updated_at:     string;
 }
@@ -83,6 +91,7 @@ export interface SanityArticle {
   publishedAt?: string;
   featured: boolean;
   access_tier?: ArticleAccessTier;
+  level?: ArticleLevel | null;
   coverImageUrl?: string;
   category: SanityCategory;
   tags?: SanityCategory[];
@@ -187,6 +196,16 @@ export type BiddingTableBlock = {
   data: {
     dealer: string;
     bids: Array<{ text: string; alert: string | null }>;
+    /** Optional table label, e.g. "Table 1", "Table 2" */
+    label?: string;
+    /** Optional player names keyed by direction */
+    players?: Partial<Record<Direction, string>>;
+    /**
+     * When set, display only these seats as columns (e.g. ["west", "east"]).
+     * Bids from other seats are shown inline as opponent bids (parenthesized, lighter style).
+     * Used for CTC two-player auction format.
+     */
+    seats?: Direction[];
   };
 };
 
@@ -202,15 +221,36 @@ export type VideoBlock = {
   data: { url: string; caption: string };
 };
 
+export type MSCResultsBlock = {
+  id: string;
+  type: "mscResults";
+  data: {
+    results: Array<{ action: string; score: number; votes: number }>;
+  };
+};
+
+export type SolutionBlock = {
+  id: string;
+  type: "solution";
+  data: {
+    label: string;
+    blocks: ContentBlock[];
+  };
+};
+
 export type ContentBlock =
   | TextBlock
   | BridgeHandBlock
   | PlayHandBlock
   | BiddingTableBlock
   | ImageBlock
-  | VideoBlock;
+  | VideoBlock
+  | MSCResultsBlock
+  | SolutionBlock;
 
 // ── Supabase article ───────────────────────────────────────────────────────
+
+export type ArticleLevel = "beginner" | "intermediate" | "advanced" | "expert";
 
 export interface SupabaseArticle {
   id:                string;
@@ -218,9 +258,13 @@ export interface SupabaseArticle {
   slug:              string;
   author_name:       string | null;
   author_id:         string | null;
+  author_ids:        string[] | null;
   category:          string | null;
   tags:              string[];
   access_tier:       ArticleAccessTier;
+  level:             ArticleLevel | null;
+  month:             number | null;
+  year:              number | null;
   excerpt:           string | null;
   status:            "draft" | "submitted" | "published";
   content_blocks:    ContentBlock[];

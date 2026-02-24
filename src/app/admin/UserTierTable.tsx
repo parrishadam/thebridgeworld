@@ -73,6 +73,12 @@ export default function UserTierTable({
   const [editSaving, setEditSaving] = useState(false);
   const [editError,  setEditError]  = useState<string | null>(null);
 
+  // ── Merge/assign state ───────────────────────────────────────────────────
+  const [mergingId, setMergingId]       = useState<string | null>(null);
+  const [mergeTarget, setMergeTarget]   = useState<string>("");
+  const [mergeSaving, setMergeSaving]   = useState(false);
+  const [mergeError, setMergeError]     = useState<string | null>(null);
+
   // ── Reset-password state ──────────────────────────────────────────────────
   const [resettingId, setResettingId] = useState<string | null>(null);
   const [resetResult, setResetResult] = useState<{ name: string; email: string; tempPassword: string } | null>(null);
@@ -249,6 +255,33 @@ export default function UserTierTable({
       setAuthorError({ userId, message: err instanceof Error ? err.message : "Update failed" });
     } finally {
       setAuthorSaving(null);
+    }
+  }
+
+  async function handleMerge(legacyUserId: string) {
+    if (!mergeTarget) return;
+    setMergeSaving(true);
+    setMergeError(null);
+    try {
+      const res = await fetch("/api/admin/users/merge", {
+        method:  "POST",
+        headers: { "Content-Type": "application/json" },
+        body:    JSON.stringify({ legacyUserId, targetUserId: mergeTarget }),
+      });
+      if (!res.ok) {
+        const { error: msg } = await res.json();
+        throw new Error(msg ?? "Merge failed");
+      }
+      const result = await res.json();
+      // Remove the legacy user from the list
+      setUsers((prev) => prev.filter((u) => u.user_id !== legacyUserId));
+      setMergingId(null);
+      setMergeTarget("");
+      console.log(`Merged ${result.merged} articles from legacy to target`);
+    } catch (err) {
+      setMergeError(err instanceof Error ? err.message : "Merge failed");
+    } finally {
+      setMergeSaving(false);
     }
   }
 
@@ -681,6 +714,45 @@ export default function UserTierTable({
                           Cancel
                         </button>
                       </div>
+                    ) : mergingId === user.user_id ? (
+                      <div className="space-y-2 min-w-[220px]">
+                        <p className="text-xs font-sans text-stone-500">
+                          Assign articles to:
+                        </p>
+                        <select
+                          value={mergeTarget}
+                          onChange={(e) => setMergeTarget(e.target.value)}
+                          className="w-full border border-stone-200 rounded px-2 py-1 text-xs font-sans focus:outline-none focus:ring-1 focus:ring-stone-400"
+                        >
+                          <option value="">— Select user —</option>
+                          {users
+                            .filter((u) => !u.is_legacy && u.user_id !== user.user_id)
+                            .map((u) => (
+                              <option key={u.user_id} value={u.user_id}>
+                                {u.name} ({u.email})
+                              </option>
+                            ))}
+                        </select>
+                        {mergeError && (
+                          <p className="text-xs text-red-600">{mergeError}</p>
+                        )}
+                        <div className="flex gap-2">
+                          <button
+                            onClick={() => handleMerge(user.user_id)}
+                            disabled={mergeSaving || !mergeTarget}
+                            className="font-sans text-xs bg-stone-900 text-white px-3 py-1.5 rounded hover:bg-stone-700 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+                          >
+                            {mergeSaving ? "Merging…" : "Merge"}
+                          </button>
+                          <button
+                            onClick={() => { setMergingId(null); setMergeTarget(""); setMergeError(null); }}
+                            disabled={mergeSaving}
+                            className="font-sans text-xs border border-stone-200 text-stone-600 px-3 py-1.5 rounded hover:bg-stone-50 transition-colors disabled:opacity-40"
+                          >
+                            Cancel
+                          </button>
+                        </div>
+                      </div>
                     ) : (
                       <div className="flex gap-2">
                         <button
@@ -689,6 +761,14 @@ export default function UserTierTable({
                         >
                           Edit
                         </button>
+                        {user.is_legacy && (
+                          <button
+                            onClick={() => { setMergingId(user.user_id); setMergeTarget(""); setMergeError(null); }}
+                            className="font-sans text-xs border border-blue-200 text-blue-600 px-3 py-1.5 rounded hover:bg-blue-50 hover:border-blue-300 transition-colors"
+                          >
+                            Assign to User
+                          </button>
+                        )}
                         {!user.is_legacy && !user.user_id.startsWith("manual_") && (
                           <button
                             onClick={() => handleResetPassword(user.user_id, user.name, user.email)}

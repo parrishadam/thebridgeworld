@@ -1,0 +1,2388 @@
+{
+  "title": "Master Solvers' Club",
+  "slug": "master-solvers-club",
+  "author_name": "Kit Woolsey",
+  "category": "Master Solvers' Club",
+  "tags": [
+    "April 2025",
+    "Kit Woolsey",
+    "bidding"
+  ],
+  "source_page": 44,
+  "excerpt": "Eight bidding and opening lead problems with expert panel analysis directed by Kit Woolsey.",
+  "status": "draft",
+  "content_blocks": [
+    {
+      "id": "b272",
+      "type": "text",
+      "data": {
+        "text": "**MASTER SOLVERS' CLUB**\n**APRIL SOLUTIONS**\n**KIT WOOLSEY, DIRECTOR**"
+      }
+    },
+    {
+      "id": "b273",
+      "type": "text",
+      "data": {
+        "text": "**Problem A**\n\nImps\nBoth sides vulnerable\nYou, South, hold:"
+      }
+    },
+    {
+      "id": "b274",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "KT873",
+            "H": "K2",
+            "D": "AJ3",
+            "C": "T32"
+          },
+          "east": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "west": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": true,
+          "east": false,
+          "west": false
+        },
+        "dealer": "",
+        "vulnerability": "All",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b275",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "South",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1C",
+            "alert": null
+          },
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "Dbl",
+            "alert": null
+          },
+          {
+            "text": "?",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {}
+      }
+    },
+    {
+      "id": "b276",
+      "type": "text",
+      "data": {
+        "text": "*BWS: redouble is strength-showing\n\n**What call do you make?**"
+      }
+    },
+    {
+      "id": "b277",
+      "type": "mscResults",
+      "data": {
+        "results": [
+          {
+            "action": "Redouble",
+            "score": 100,
+            "votes": 18
+          },
+          {
+            "action": "1S",
+            "score": 70,
+            "votes": 6
+          },
+          {
+            "action": "2H",
+            "score": 50,
+            "votes": 1
+          },
+          {
+            "action": "Pass",
+            "score": 50,
+            "votes": 1
+          },
+          {
+            "action": "else",
+            "score": 0,
+            "votes": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "b278",
+      "type": "text",
+      "data": {
+        "text": "South has a promising hand. However, the enemy actions, especially the implication that East has four spades, reduce the attractiveness of showing that suit. Nonetheless, some panelists gave this the highest priority.\n\nCARL HUDECEK: \"One spade. Despite four spades on the right, I must describe the hand to prepare for what is likely to be a competitive auction.\"\n\nPHILLIP ALDER: \"One spade. Failing to redouble does not deny 10-plus HCP.\"\n\nJOHN CARRUTHERS: \"One spade. Players have been known to make a negative double with four low spades.\"\n\nFINN KOLESNIK: \"One spade. Could raise hearts on a doubleton, but why?\""
+      }
+    },
+    {
+      "id": "b279",
+      "type": "text",
+      "data": {
+        "text": "VENKETESH RAMARATNAM: \"One spade. Redouble would show values but bury the potential. Bidding may produce more of a guess next round. Game is odds off with both opponents bidding.\"\n\nLARRY ROBBINS: \"One spade. Sometimes, spades will be our best strain. I can back into hearts later. Redouble would make it awkward to introduce spades later.\"\n\nIt might not be too awkward. The auction isn't likely to be flying to the three-level, and you probably will be able to bid two spades. Indeed, a majority of panelists preferred to emphasize strength.\n\nBART BRAMLEY: \"Redouble. More important to show strength than to show spades with a weakish suit when RHO holds four. A later heart bid will imply a doubleton.\"\n\nDAVID BERKOWITZ: \"Redouble. This will let me pass comfortably later.\"\n\nSTEVE ROBINSON: \"Redouble. Since East has shown four spades, we are more likely to belong in hearts than in spades. Opener may have four spades, and East-West will wind up in spades.\"\n\nBart and David prefer to have this redouble show values and exactly two hearts; Steve uses a similar treatment; other panelists mentioned its popularity. I like it. It doesn't make much sense to redouble with heart shortness; with a strong hand, likely there will be better routes available.\n\nZIA: \"Redouble. Can follow with two hearts to give an imperfect description.\"\n\nMARK COHEN: \"Redouble. Showing strength. Unlikely that spades is our fit.\""
+      }
+    },
+    {
+      "id": "b280",
+      "type": "text",
+      "data": {
+        "text": "ROBERT WOLFF: \"Redouble. A minimum.\"\n\nHOWARD WEINSTEIN: \"Redouble. Pass and then double would be too aggressive. Pass and then pass would be too 'pass-ive.' One spade has several flaws. Redouble shows strength and the normal doubleton fit; it gives partner a chance to be involved.\"\n\nZACH GROSSACK: \"Redouble. Perfect description of the hand.\"\n\nROZANNE AND BILL POLLACK: \"Redouble. Showing strength might keep the opponents quiet, giving us time to sort things out. A spade bid next will be nonforcing but forward-going.\"\n\nFRED STEWART: \"Redouble. If West's one notrump or two of a minor is passed around to me, I'll bid two hearts (showing a doubleton).\"\n\nERIC KOKISH: \"Redouble. When North has six hearts and we have a future, I may regret not showing spades to create a more-meaningful discussion.\"\n\nNIK DEMIREV: \"Redouble. Planning to continue with a double if opener rebids one notrump. A not-unlikely six=four in the red suits with North may yield a game, e.g.:\n\n♠ Q x ♥ A Q J x x x ♦ Q 10 x x ♣ x.\n\nI am also optimistic about our defensive prospects. At any scoring, but especially vulnerable at imps, a minimal overcall tends to be based on at least a good suit and an entry, e.g.:\n\n♠ x x ♥ A J 10 x x ♦ A x x ♣ 10 x x.\"\n\nJOHN DIAMOND: \"Redouble. It's more likely that partner has six hearts than three spades (especially as the auction suggests that he lacks extras). This is a chance to show a doubleton heart with values. BWS does not say this explicitly, but one should not redouble with a singleton.\"\n\nRight. The focus should be on hearts, and we want to encourage partner to rebid the suit with six."
+      }
+    },
+    {
+      "id": "b281",
+      "type": "text",
+      "data": {
+        "text": "Minority views:\n\nBRIAN GLUBOK: \"Two hearts. The right sort of hand for the two-trump raise: extra high cards, possible double fit (based on high diamonds).\"\n\nAs we know, raising on a doubleton is an invitation for partner to over-compete. Sometimes, such a raise might be necessary, but that doesn't apply here.\n\nDANNY KLEINMAN: \"Pass. Fit, fit, who has a fit? Perhaps nobody. If I were required to guess, I'd say that the deal belongs to us in two hearts, but I suspect that a better score may be available on defense. If the opponents stay out of trouble and land in two clubs, I will bid two hearts. I do not view delayed raises as showing weakness. Rather, I consider that they show better hands in high cards than direct raises and holdings well-suited for defense.\"\n\nI don't see it. Even if there is no great fit, this could easily be North-South's deal. Defending at a low level when our side has at least a decent seven-card fit in a higher-ranking suit is not the way to win imps."
+      }
+    },
+    {
+      "id": "b282",
+      "type": "text",
+      "data": {
+        "text": "**Problem B**\n\nMatchpoints\nNorth-South vulnerable\nYou, South, hold:"
+      }
+    },
+    {
+      "id": "b283",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "Q62",
+            "H": "Q",
+            "D": "QJ953",
+            "C": "K752"
+          },
+          "east": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "west": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": true,
+          "east": false,
+          "west": false
+        },
+        "dealer": "",
+        "vulnerability": "N-S",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b284",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "South",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1C",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "?",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {}
+      }
+    },
+    {
+      "id": "b285",
+      "type": "text",
+      "data": {
+        "text": "**What call do you make?**"
+      }
+    },
+    {
+      "id": "b286",
+      "type": "mscResults",
+      "data": {
+        "results": [
+          {
+            "action": "2C",
+            "score": 100,
+            "votes": 12
+          },
+          {
+            "action": "1NT",
+            "score": 80,
+            "votes": 8
+          },
+          {
+            "action": "2D",
+            "score": 70,
+            "votes": 3
+          },
+          {
+            "action": "2S",
+            "score": 50,
+            "votes": 1
+          },
+          {
+            "action": "3C",
+            "score": 50,
+            "votes": 1
+          },
+          {
+            "action": "Pass",
+            "score": 50,
+            "votes": 1
+          },
+          {
+            "action": "else",
+            "score": 0,
+            "votes": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "b287",
+      "type": "text",
+      "data": {
+        "text": "There are several things to show and possibly little time in which show them. Some panelists tried a value bid . . . of sorts.\n\nJOHN CARRUTHERS: \"One notrump. Ugly, but I want to show moderate values.\"\n\nDAVID BERKOWITZ: \"One notrump. I have a spade stop, 10 points, and a desire to keep the opponents out of hearts. The heart holding could be a useful trick-one asset.\"\n\nROZANNE AND BILL POLLACK: \"One notrump. With all these quacks, two diamonds would be a bit too forward-going. Short a club for two clubs. For better or worse, one notrump may hinder the bad guys from competing in hearts.\"\n\nBART BRAMLEY: \"One notrump. Soft scattered values and a stopper. Probably better from my side on a heart lead. I expect to buy the contract but can raise clubs later if pressed; unlucky if clubs scores better.\"\n\nCan we really expect to buy it? The opponents have at least an eight-card heart fit, maybe more. If partner has four hearts, that increases the chance that he has only two spades, and the op-"
+      }
+    },
+    {
+      "id": "b288",
+      "type": "text",
+      "data": {
+        "text": "ponents would have an eight-card spade fit. East-West know that we are playing matchpoints, and they aren't vulnerable; they will be reluctant to sell out to one notrump.\n\nPHILLIP ALDER: \"One notrump. It's matchpoints, he cried plaintively.\"\n\nVENKETESH RAMARATNAM: \"One notrump. At matchpoints, prefer this with only four clubs and soft values. I will double two hearts or bid three clubs over the opponents' two spades.\"\n\nFINN KOLESNIK: \"One notrump. Points and stoppers—perfect. Two clubs doesn't make sense with only four. If the opponents raise spades, we can bid three clubs or a scrambling two notrump.\"\n\nOne notrump would be perfect if that heart weren't a singleton. Granted, the queen makes notrump more attractive, but it is still a singleton. It is quite likely that a minor-suit partscore will do better, and if one notrump is best, the opponents figure not to let us play it there. Searching for a suit contract:\n\nZIA: \"Two clubs. Then two notrump. Will try to sniff out whether hearts are 4-4-4-1.\"\n\nJEFF RUBENS: \"Two clubs. Anticipating the possibility of next bidding two notrump over East-West's two of a major.\"\n\nHOWARD WEINSTEIN: \"Two clubs. If the opponents reach two hearts, I will bid two notrump, intending to show this minor-suit shape (and hoping partner isn't 4=4=2=3). One notrump is possible. Clubs and strength insufficient for a stronger raise. Two diamonds would risk losing clubs.\"\n\nIs it totally clear that a follow-up two notrump is takeout? It should be, but partner might not be on the same wavelength.\n\nFRED STEWART: \"Two clubs. Too many hearts around for the auction to continue all pass. I suspect I will be bidding two notrump in short order. Two diamonds then a reopening might suggest only three clubs.\""
+      }
+    },
+    {
+      "id": "b289",
+      "type": "text",
+      "data": {
+        "text": "That is true if your next bid is two notrump, but it could be three clubs to show four-card club support.\n\nDANNY KLEINMAN: \"Two clubs. First find a safe harbor. Then cooperate with any move that partner may make towards game.\"\n\nTwo clubs might not be such a safe harbor if partner opened with a three-card club suit. And why shouldn't he have that?\n\nBRIAN GLUBOK: \"Two clubs. Should be unanimous. Oh! South could bid one notrump. I could live with that if the spades were stronger in a similar hand.\"\n\nROBERT WOLFF: \"Two clubs. One notrump, 80.\"\n\nMARK COHEN: \"Two clubs. The only possible bid; certainly not one notrump.\"\n\nJOHN DIAMOND: \"Two clubs. Sloppy hand with four trumps and a singleton, a normal raise.\"\n\nERIC KOKISH: \"Two clubs. The values are far too slow to bid notrump when the club support is so likely to improve North's hand. It's not the singleton heart that points me away from notrump.\"\n\nCARL HUDECEK: \"Two clubs. I have the values. What more should partner expect from me?\"\n\nIt isn't what more partner will expect from you. It is what less partner will expect from you. The hand might be junky, but it does have 10 HCP, and those may be real points for notrump purposes. You could have a lot less for two clubs. Bidding what they really have:\n\nLARRY ROBBINS: \"Two diamonds. One notrump could be right, but I want to show both suits. If the opponents bid two hearts, having bid one notrump I couldn't show both minors. Passing would lead to a tough guess next round. As with Problem A, it's never terrible to bid your suit.\"\n\nZACH GROSSACK: \"Two diamonds. Imperfect, but it seems best to show the strength"
+      }
+    },
+    {
+      "id": "b290",
+      "type": "text",
+      "data": {
+        "text": "and the structure of the hand. I wish I had better diamonds, but I don't like two spades with only four clubs as a passed hand, and one notrump could often lead to the wrong contract (not to mention that I'd much prefer partner as declarer at notrump opposite my spades).\"\n\nMakes sense. It shows values, and three clubs next will show the minor-suit shape. You won't be playing in a four-three club fit with a better diamond fit. It is very unlikely that two diamonds will end the auction, but if it does it may be the best spot. If the opponents reach three of a major before you have had a chance to show club support, it probably will be right to sell out.\n\nSTEVE ROBINSON: \"Two spades. This will make it difficult for the opponents to find their eight-plus-card heart fit. I don't worry about partner's having only three clubs. That's his problem.\"\n\nIs this junky hand really worth an invitational raise? It doesn't look that way to me.\n\nSAMI KEHELA: \"Three clubs. What? North may have only three clubs? Tant pis. [Too bad.—Ed.]\"\n\nYes, this could be very bad if partner has only three clubs, which isn't that unlikely considering that he probably has four hearts. Also, three clubs depicts a weaker hand with longer clubs. If partner has a good hand, you may miss a game.\n\nNIK DEMIREV: \"Pass. This may seem strange, but there is no good action available. One notrump likely will time things into the East-West heart fit. If it passes out, East-West will play in a non-fit (or in their lesser fit), and partner will hold a weak notrump. If North acts, I can continue constructively. If the opponents bid two spades, I can bid two notrump, showing preference for diamonds over clubs.\""
+      }
+    },
+    {
+      "id": "b291",
+      "type": "text",
+      "data": {
+        "text": "Strange is an understatement. You are committing to making any later decision on your own, since partner will have no idea what you hold. This hand has values, a spade stopper, club support, and a diamond suit, all of which may be important to show. While there is no optimal way to show all of these features, passing doesn't show any of them."
+      }
+    },
+    {
+      "id": "b292",
+      "type": "text",
+      "data": {
+        "text": "**Problem C**\n\nImps\nNorth-South vulnerable\nYou, South, hold:"
+      }
+    },
+    {
+      "id": "b293",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "JT943",
+            "H": "JT964",
+            "D": "T",
+            "C": "73"
+          },
+          "east": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "west": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": true,
+          "east": false,
+          "west": false
+        },
+        "dealer": "",
+        "vulnerability": "N-S",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b294",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "West",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "?",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {}
+      }
+    },
+    {
+      "id": "b295",
+      "type": "text",
+      "data": {
+        "text": "**What call do you make?**"
+      }
+    },
+    {
+      "id": "b296",
+      "type": "mscResults",
+      "data": {
+        "results": [
+          {
+            "action": "1S",
+            "score": 100,
+            "votes": 15
+          },
+          {
+            "action": "Pass",
+            "score": 80,
+            "votes": 7
+          },
+          {
+            "action": "1H",
+            "score": 60,
+            "votes": 2
+          },
+          {
+            "action": "2H",
+            "score": 60,
+            "votes": 2
+          },
+          {
+            "action": "else",
+            "score": 0,
+            "votes": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "b297",
+      "type": "text",
+      "data": {
+        "text": "When you hold this near yarborough and both opponents are passing, you just \"know\" that partner will rebid two notrump if you respond. Some panelists avoided that scenario:\n\nSAMI KEHELA: \"Pass. A singular vote, no doubt, in more than one sense.\"\n\nFRED STEWART: \"Pass. I can't argue against one spade, but I'd expect to wind up too high if I bid it. I hope to have a chance to act later.\"\n\nPHILLIP ALDER: \"Pass. I expect this vote to be part of a small minority. Next time, ask for a second action after North rebids three clubs and see how many pass on round one.\""
+      }
+    },
+    {
+      "id": "b298",
+      "type": "text",
+      "data": {
+        "text": "ROBERT WOLFF: \"Pass. Perhaps I am losing my nerve and therefore my optimism.\"\n\nDANNY KLEINMAN: \"Pass. Limit the hand, then hope that partner has a strong holding and West reopens to provide us another chance. An immediate response is too likely to drive us overboard.\"\n\nJEFF RUBENS: \"Pass. Part of the time that this is in principle wrong, it will work out all right because an opponent will guess wrongly. Bidding one spade or two hearts would add partner to the list of players who might guess wrongly.\"\n\nWill West save you? He doesn't have an opening bid, and he heard his partner pass over one club. If West has any club length, he will be happy to pull out the \"content\" card from the bidding box, and partner could be playing in a very-silly contract, possibly going down in one club when cold for a major-suit game. Even if West does save you, you will still have the problem of guessing a major for the contract.\n\nOthers were looking for the better major:\n\nFINN KOLESNIK: \"One heart. Normally, we would bid one spade, but because we are so weak our main chance of game is if we have a nine-card major-suit fit. Partner might bid one spade.\"\n\nCARL HUDECEK: \"One heart. This is why various gadgets were invented. On a very good day, LHO will pass and partner will rebid one spade, which I will raise to two.\"\n\nThis could work if partner has four spades in an unbalanced hand, but North might rebid two notrump even if he has four spades, and the spade fit will be lost. That largely explains why a majority of panelists bid what was under their noses and hoped for the best.\n\nDANIEL KORBEL: \"One spade. I don't see passing one club with five-five in the majors. We could easily have a game.\""
+      }
+    },
+    {
+      "id": "b299",
+      "type": "text",
+      "data": {
+        "text": "John Diamond: \"One spade. Although I am looking for the best partscore, game is not out of the question.\"\n\nBart Bramley: \"One spade. Clear to respond with two five-card majors. Game will be playable opposite most balanced 18-counts, which is what partner rates to hold. Consider king-queen-third of a major and three aces, and that's only 15 HCP.\""
+      }
+    },
+    {
+      "id": "b300",
+      "type": "text",
+      "data": {
+        "text": "No kidding. If partner has a four-card major, game might be quite decent; even if he doesn't, game could be okay."
+      }
+    },
+    {
+      "id": "b301",
+      "type": "text",
+      "data": {
+        "text": "Mark Cohen: \"One spade. Then bid intelligently from there.\"\n\nLarry Robbins: \"One spade. I will bid over two notrump (which rates to play terribly; usually, we will have some eight-card major-suit fit). Sure, we can land in three notrump down four, but a major-suit game is also possible.\"\n\nSteve Robinson: \"One spade. I can later bid hearts if necessary and hope to reach a major-suit fit at a low level. Responding one spade makes it difficult for the opponents to enter the auction when it's their deal. I don't want to pass one club and play in a three-two fit when partner has a two-notrump rebid, although we will get too high if partner has a 2=2=4=5 two-notrump rebid.\""
+      }
+    },
+    {
+      "id": "b302",
+      "type": "text",
+      "data": {
+        "text": "We might survive partner's two notrump. If he has four hearts, he will raise our three hearts, and four hearts might make. Otherwise, he will normally take a three-spade preference even when he has only a doubleton spade. He won't need to worry about our playing him for three spades, because South will have shown at least five spades, so with three-card support North can always bid four spades. Only when partner has an off-shape two-notrump rebid with a singleton spade will he continue with three notrump. Therefore, there will be a good chance that we will be able to stop at three spades after a two-notrump rebid."
+      }
+    },
+    {
+      "id": "b303",
+      "type": "text",
+      "data": {
+        "text": "Brian Glubok: \"One spade. Too much potential to pass.\"\n\nJohn Carruthers: \"One spade. No objection to one heart. Pass is not a consideration with 10 cards in the majors.\"\n\nNik Demirev: \"One spade. A lot of 16-plus-HCP openings may end in one club while four of a major has a shot. One heart is possible, but it can easily go sideways. When partner has four cards in a major, our choice usually won't matter, but when he holds either a balanced hand with 18-19 HCP or 16-plus HCP with a strong major-suit fragment, we need to show our suit lengths correctly and settle for the right partscore. Even a no-wastage 18-HCP hand without a four-card fit, such as:"
+      }
+    },
+    {
+      "id": "b304",
+      "type": "text",
+      "data": {
+        "text": "♠ A Q x ♥ Q x ♦ A x x x ♣ A x x x,\n\nwill need a finesse and good breaks to make game.\"\n\nZia: \"One spade. Not close. It's obligatory, in too many ways to recount.\"\n\nHoward Weinstein: \"One spade. Pass is out of the question. One spade enables finding hearts after a one-notrump or two-notrump rebid; a one-heart response might lose spades.\"\n\nRozanne and Bill Pollack: \"One spade. Responding could get partner overexcited, but holding five-five with the singleton presumably in the right place, we like the risk-to-reward ratio of bidding, as we have two potentially lucrative places to play.\"\n\nDavid Berkowitz: \"One spade. Would rather declare in four of a major than in one club, but I may not get the chance.\"\n\nZach Grossack: \"One spade. Let me give you a hand:\n\n♠ A K x x ♥ x ♦ A x x ♣ A K J 10 x.\n\nShall I say more?\""
+      }
+    },
+    {
+      "id": "b305",
+      "type": "text",
+      "data": {
+        "text": "That's right. Partner might have anything. There are too many ways that bidding one spade can win not to bid it."
+      }
+    },
+    {
+      "id": "b306",
+      "type": "text",
+      "data": {
+        "text": "Eric Kokish: \"Two hearts. Getting both chunky suits into play compensates for the lack of high-card strength.\"\n\nVenketesh Ramaratnam: \"Two hearts. The hand is at least a king short for this bid, which shows both majors with less than invitational strength. The upside for bidding is that we could find a big fit and make a thin game or steal the pot if partner has a minimum and the opponents' are unable to get into the auction or to bid their game. The downside is going overboard on a misfit deal. At these colors and scoring, potential reward justifies taking risky action.\""
+      }
+    },
+    {
+      "id": "b307",
+      "type": "text",
+      "data": {
+        "text": "It isn't clear that two hearts will work out well opposite partner's expected powerhouse. North won't expect South to be this weak."
+      }
+    },
+    {
+      "id": "b308",
+      "type": "text",
+      "data": {
+        "text": "**Problem D**\n\nMatchpoints\nNeither side vulnerable\nYou, South, hold:"
+      }
+    },
+    {
+      "id": "b309",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "K532",
+            "H": "73",
+            "D": "AKJ98",
+            "C": "T3"
+          },
+          "east": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "west": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": true,
+          "east": false,
+          "west": false
+        },
+        "dealer": "",
+        "vulnerability": "None",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b310",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "East",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "?",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {}
+      }
+    },
+    {
+      "id": "b311",
+      "type": "text",
+      "data": {
+        "text": "*BWS: minimum equal-level conversions do not apply\n\n**What call do you make?**"
+      }
+    },
+    {
+      "id": "b312",
+      "type": "mscResults",
+      "data": {
+        "results": [
+          {
+            "action": "Double",
+            "score": 100,
+            "votes": 13
+          },
+          {
+            "action": "2D",
+            "score": 90,
+            "votes": 11
+          },
+          {
+            "action": "Pass",
+            "score": 60,
+            "votes": 2
+          },
+          {
+            "action": "else",
+            "score": 0,
+            "votes": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "b313",
+      "type": "text",
+      "data": {
+        "text": "This hand is a poster child for minimum equal-level conversions. That makes it appropriate for the Master Solvers' Club, which often focuses on situations that are difficult for the system one happens to be using at the moment, in this case BWS. How well one copes with system-awkward hands can make a big difference to one's score. Here, half the panel determined that the danger scenario for doubling without the protection of being able to convert without showing extras was the smallest risk."
+      }
+    },
+    {
+      "id": "b314",
+      "type": "text",
+      "data": {
+        "text": "Larry Robbins: \"Double. Close with two diamonds. Double immediately reveals the spade holding; two diamonds might lose the spade fit.\"\n\nBart Bramley: \"Double. Good possibilities outnumber bad. No guts, no glory. Could be the best (or only) chance to get spades in play safely.\"\n\nSteve Robinson: \"Double. I don't want to miss our possible spade fit.\"\n\nFred Stewart: \"Double. Passing would be ludicrous, and two diamonds will bury the spade suit (unless I can show it at the two-level). I am in the no-hand-is-too-strong-to-overcall camp.\""
+      }
+    },
+    {
+      "id": "b315",
+      "type": "text",
+      "data": {
+        "text": "I am also in that camp, so my personal preference is for minimum equal-level conversions. However, doubling and then bidding two diamonds over a two-club advance would show a lot more strength than South has. Mostly, the doublers gambled that they could survive playing in clubs."
+      }
+    },
+    {
+      "id": "b316",
+      "type": "text",
+      "data": {
+        "text": "Brian Glubok: \"Double. Matchpoint scoring with neither side vulnerable is a different form of the game.\"\n\nJohn Diamond: \"Double. All white at matchpoints, I will take my chance with an unshapely double.\"\n\nPhillip Alder: \"Double. And hope for the best. Recently, an opponent doubled with this exact shape and his partner advanced in diamonds. Maybe lightning does strike twice.\"\n\nZach Grossack: \"Double. Nonvulnerable at matchpoints, it's more important to compete in a potential spade fit than to try to be 'accurate' (And what does that mean? Pass?) Two diamonds could work, but it's not something I can stomach.\""
+      }
+    },
+    {
+      "id": "b317",
+      "type": "text",
+      "data": {
+        "text": "Venketesh Ramaratnam: \"Double. Maximizes our chance of finding a spade fit and buying the contract in spades or notrump, which outweighs the downside of playing in an ugly club fit.\"\n\nZia: \"Double. I'd bid two diamonds as a passed hand or at imps.\"\n\nCarl Hudecek: \"Double. I will sit for two clubs undoubled but not if the axe is flashed.\"\n\nHoward Weinstein: \"Double. Sometimes, you don't have the perfect hand; double is right on strength and most flexible. Not vulnerable, I hope to survive in clubs (if undoubled) should that become the contract.\"\n\nDavid Berkowitz: \"Double. Spades is the name of the game, and I don't have a bad dummy for notrump. If North tries two clubs, I will hope that he has five and pass (until doubled, that is).\""
+      }
+    },
+    {
+      "id": "b318",
+      "type": "text",
+      "data": {
+        "text": "Those who were unwilling to show a couple of aces more than they had or risk playing in a four-two fit settled for a mundane overcall."
+      }
+    },
+    {
+      "id": "b319",
+      "type": "text",
+      "data": {
+        "text": "Nik Demirev: \"Two diamonds. A diamond lead is what we want, and we want to compete. Passing would be all right if the opponents bid two hearts, but much more often it won't go that way. If the ace were in spades, it would be a different story, but the actual hands screams for a diamond lead, and we might have a chance to bid two spades.\"\n\nDaniel Korbel: \"Two diamonds. At matchpoints, I'll take a chance.\"\n\nDanny Kleinman: \"Two diamonds. I won't at all like being dummy in clubs.\"\n\nJohn Carruthers: \"Two diamonds. The suit quality and the hand quality dictate this.\"\n\nJeff Rubens: \"Two diamonds. Tie-breaker: Matchpoints sometimes highly rewards lead-direction that stops an overtrick.\"\n\nFinn Kolesnik: \"Two diamonds. We live in diamonds, let's bid them. It doesn't seem as important to show spades immediately.\""
+      }
+    },
+    {
+      "id": "b320",
+      "type": "text",
+      "data": {
+        "text": "Robert Wolff: \"Two diamonds. Why not?\"\n\nEric Kokish: \"Two diamonds. With apologies. I could pretend it's just matchpoints that drags me down to this, although not to double, but that is true only to the extent of trying to stay even with the field.\"\n\nRozanne and Bill Pollack: \"Two diamonds. We rate to have another chance to bid spades, and we don't want to lose the lead-directing benefits of two diamonds.\""
+      }
+    },
+    {
+      "id": "b321",
+      "type": "text",
+      "data": {
+        "text": "The overcall seems to be all there is in the current context, and it could work out all right: Diamonds is our best suit. Sometimes partner doesn't have four spades. Sometimes we will have a convenient chance to bring spades into the picture. Yet, a couple of panelists weren't even willing to try to reach the best contract:"
+      }
+    },
+    {
+      "id": "b322",
+      "type": "text",
+      "data": {
+        "text": "Sami Kehela: \"Pass. Adhering to the silly structure.\"\n\nMark Cohen: \"Pass. Please enlighten me on the choice between passing and doubling.\""
+      }
+    },
+    {
+      "id": "b323",
+      "type": "text",
+      "data": {
+        "text": "Even if one doesn't like the structure, doing something must be better than doing nothing. As is so often the case, pass is a four-letter word."
+      }
+    },
+    {
+      "id": "b324",
+      "type": "text",
+      "data": {
+        "text": "available at www.bridgeworld.com\n\n**MY LIFE WITH BRIDGE\nBY MIKE LAWRENCE**\n\nThis book is the culmination of Mike's years in and out of the world of bridge. It includes stories behind the scenes of the Aces, touches on the cheating scandals, his travels around the world, and some of Mike's signature hands and opinions on conventions as well."
+      }
+    },
+    {
+      "id": "b325",
+      "type": "text",
+      "data": {
+        "text": "**Problem E**\n\nImps\nEast-West vulnerable\nYou, South, hold:"
+      }
+    },
+    {
+      "id": "b326",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "KQ3",
+            "H": "KT865",
+            "D": "",
+            "C": "AKJ64"
+          },
+          "east": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "west": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": true,
+          "east": false,
+          "west": false
+        },
+        "dealer": "",
+        "vulnerability": "E-W",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b327",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "South",
+        "bids": [
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "2D",
+            "alert": null
+          },
+          {
+            "text": "Double",
+            "alert": "three spades"
+          },
+          {
+            "text": "5D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "?",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {}
+      }
+    },
+    {
+      "id": "b328",
+      "type": "text",
+      "data": {
+        "text": "*BWS: three spades\n\n**What call do you make?**"
+      }
+    },
+    {
+      "id": "b329",
+      "type": "mscResults",
+      "data": {
+        "results": [
+          {
+            "action": "Double",
+            "score": 100,
+            "votes": 12
+          },
+          {
+            "action": "5S",
+            "score": 80,
+            "votes": 5
+          },
+          {
+            "action": "Pass",
+            "score": 70,
+            "votes": 5
+          },
+          {
+            "action": "6C",
+            "score": 70,
+            "votes": 4
+          },
+          {
+            "action": "else",
+            "score": 0,
+            "votes": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "b330",
+      "type": "text",
+      "data": {
+        "text": "Pass, double or bid. The common high-level competitive-decision options. Some went quietly:"
+      }
+    },
+    {
+      "id": "b331",
+      "type": "text",
+      "data": {
+        "text": "Zia: \"Pass. A shadow of my younger self? Or am I bowed down by the harsh blows of experience? Maybe both. Double will never find a club sacrifice even if right with partner holding a perfect:\n\n♠ J x x x ♥ x ♦ x x ♣ Q x x x x x\n\nNor a make opposite:\n\n♠ A x x x ♥ x ♦ x x ♣ Q x x x x x.\"\n\nDanny Kleinman: \"Pass. I would have opened one club. To appease a partner who thought one heart was permissible, I'd have mixed the spade queen in with my clubs.\"\n\nLarry Robbins: \"Pass. Ultraconservative, but the opponents are vulnerable against not, and West often will have 11 cards in two suits. If partner has weakish spades, or only a four-card suit, we could go for a large number. We rate to nick the contract a trick, and North could have sacrificed with a six-card spade suit.\""
+      }
+    },
+    {
+      "id": "b332",
+      "type": "text",
+      "data": {
+        "text": "Understandable. There may be a lot of shape out against us. Also, partner had a chance to act and didn't. If South doubles, North won't override at the five-level. Still, many panelists couldn't pass with this much strength."
+      }
+    },
+    {
+      "id": "b333",
+      "type": "text",
+      "data": {
+        "text": "Phillip Alder: \"Double. I cannot bring myself to pass.\"\n\nMark Cohen: \"Double. I do have values, though my shape is not what partner will expect. North most likely will pass, except with extreme distribution. I do see that the opponents are bidding to make.\"\n\nRozanne and Bill Pollack: \"Double. We have lots of extras. With the bad guys presumably thinking they can make five diamonds, is six clubs now best? It patterns out, but it takes us to the stratosphere. We prefer to let partner make the final mistake. He could have good spades, a round-suit fit, or a bit of defense.\n\n♠ A J x x x ♥ Q x ♦ x x ♣ Q x x x\n\nor:\n\n♠ J x x x ♥ x x ♦ Q J x ♣ Q x x x.\"\n\nSteve Robinson: \"Double. I would like to bid five clubs, but that would not be allowed. I'll show a good hand and hope that partner does the right thing.\""
+      }
+    },
+    {
+      "id": "b334",
+      "type": "text",
+      "data": {
+        "text": "It doesn't work that way at this level. Double says only that you don't think the contract will succeed and that you would prefer to defend than to declare. Partner will pass unless he has some unexpected hand, and if he had that hand he wouldn't have passed the decision to you (since there is no force). If you want to compete after partner passes, you need to do it yourself."
+      }
+    },
+    {
+      "id": "b335",
+      "type": "text",
+      "data": {
+        "text": "Daniel Korbel: \"Double. If they make it, they make it. Five spades would logically show this shape, but that's really a lot of bidding.\""
+      }
+    },
+    {
+      "id": "b336",
+      "type": "text",
+      "data": {
+        "text": "Zach Grossack: \"Double. It's what I call a shrug double. Partner's pass is nonforcing, but my hand is too strong to pass it out. I've been minus 750 before.\"\n\nHoward Weinstein: \"Double. Lots of bidding going on. Maybe they will make, maybe we have a cheap save; I have enough extra strength and shape to let partner decide. Probably minus 750 and a 4-imp loss, missing our 10-plus-card club fit.\"\n\nEric Kokish: \"Double. Protecting a probable game bonus is always a good excuse for turning minus 600 into minus 750. We are not forced here, and I would not double with a balanced hand at this vulnerability, so North should be thinking seriously about taking it out.\"\n\nFred Stewart: \"Double. East-West may be stealing, or they may not be. but I can hardly take a flyer with a bid. Pass seems wimpy when I may be entitled to a number.\"\n\nVenketesh Ramaratnam: \"Double. West rates to have good hand with heart length and values (for the pass in an earlier round). If we trust the vulnerable opponents implicitly, there is a case to bid five spades, which should show this shape—that seems too unilateral. Double does more consulting.\"\n\nBrian Glubok: \"Double. Six clubs has a heroic quality to it, with two ways to win, but I'm just not feelin' it—it's not what partner is expecting to hear.\"\n\nFinn Kolesnik: \"Double. We have extra strength and extra shape with the void. What else?\""
+      }
+    },
+    {
+      "id": "b337",
+      "type": "text",
+      "data": {
+        "text": "Anything else. You are void of diamonds, which is great for offense, not defense. You have extra values, but there is no guarantee that any among them will take a trick. The sound of the auction is very important, as is the vulnerability. West isn't trying to bounce you into a phantom save, since he has no idea that your side has more than a seven-card fit. He isn't taking a premature save at this vulnerability. He is bidding five diamonds because he thinks it has a good chance to make. He has plenty of distribution. Perhaps it is best to believe him."
+      }
+    },
+    {
+      "id": "b338",
+      "type": "text",
+      "data": {
+        "text": "John Carruthers: \"Six clubs. Damn them. And possibly us.\"\n\nSami Kehela: \"Six clubs. I interpret partner's pass as prepared to proceed.\""
+      }
+    },
+    {
+      "id": "b339",
+      "type": "text",
+      "data": {
+        "text": "I don't see it. From partner's point of view, your side might have nothing special, and he could have a minimal response. All his pass says is that he has nothing more to contribute to the auction."
+      }
+    },
+    {
+      "id": "b340",
+      "type": "text",
+      "data": {
+        "text": "Carl Hudecek: \"Six clubs. The double of two diamonds was ridiculous. I'm not doubling presumably-sane vulnerable opponents with a probable 12-card diamond fit.\"\n\nNik Demirev: \"Six clubs. It may look crazy, but this situation smells bad. When I tried a reconstruction where everyone is bidding sensibly, it looked as if partner will have an ace (if not, we may not beat five diamonds) and some clubs. Perhaps overcaller is 1=4=6=2, advancer is 5=2=5=1, and partner has something resembling:\n\n♠ A x x x ♥ x x ♦ x x ♣ x x x x x.\n\nAs little as this would be good enough to make six clubs.\""
+      }
+    },
+    {
+      "id": "b341",
+      "type": "text",
+      "data": {
+        "text": "It makes a lot of sense not to let the opponents play where they want to play when South holds this hand, but must South commit to the six-level? If North has five-plus spades, the partnership could easily belong in five spades, and North wouldn't have bid it with a mundane hand. Too bad five clubs would be insufficient, but perhaps we can do it legally . . ."
+      }
+    },
+    {
+      "id": "b342",
+      "type": "text",
+      "data": {
+        "text": "David Berkowitz: \"Five spades. High-level call should show clubs. I hope that partner has his ouija board available. I trust the vulnerable opponents.\"\n\nJohn Diamond: \"Five spades. I believe the vulnerable opponents and hope that"
+      }
+    },
+    {
+      "id": "b343",
+      "type": "text",
+      "data": {
+        "text": "partner will work out my exact shape (since I didn't bid five hearts).\"\n\nROBERT WOLFF: \"Five spades. Definitely inconsistent, but I hope a winning move. The vulnerability gives away West's thinking; partner might correctly guess my distribution.\"\n\nBART BRAMLEY: \"Five spades. Scary, but pass or double would be even scarier. North's:"
+      }
+    },
+    {
+      "id": "b344",
+      "type": "text",
+      "data": {
+        "text": "♠J 10 9 x x ♥ — ♦ x x x ♣Q x x x x"
+      }
+    },
+    {
+      "id": "b345",
+      "type": "text",
+      "data": {
+        "text": "could be a double-game swing. Bid more with a void. Partner can infer club length from the failure to bid five hearts, so we might reach clubs when it's right.\"\n\nExactly! Partner knows that we have exactly three spades. If we had a six-card heart suit, we would surely bid five hearts rather than five spades. With a singleton diamond, we would be defending rather than bidding on in the face of what might not be even an eight-card fit. It might be better to defend, but at least we can be sure of playing in the right strain."
+      }
+    },
+    {
+      "id": "b346",
+      "type": "text",
+      "data": {
+        "text": "**Problem F**\n\nImps\nBoth sides vulnerable\nYou, South, hold:"
+      }
+    },
+    {
+      "id": "b347",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "K6",
+            "H": "AK7542",
+            "D": "AKQ3",
+            "C": "Q"
+          },
+          "east": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "west": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": true,
+          "east": false,
+          "west": false
+        },
+        "dealer": "",
+        "vulnerability": "",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b348",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "East",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "3C",
+            "alert": "preemptive"
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "?",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {}
+      }
+    },
+    {
+      "id": "b349",
+      "type": "text",
+      "data": {
+        "text": "*BWS: preemptive\n\n**What call do you make?**"
+      }
+    },
+    {
+      "id": "b350",
+      "type": "mscResults",
+      "data": {
+        "results": [
+          {
+            "action": "3D",
+            "score": 100,
+            "votes": 9
+          },
+          {
+            "action": "Pass",
+            "score": 80,
+            "votes": 5
+          },
+          {
+            "action": "3NT",
+            "score": 70,
+            "votes": 4
+          },
+          {
+            "action": "3H",
+            "score": 70,
+            "votes": 3
+          },
+          {
+            "action": "4H",
+            "score": 60,
+            "votes": 2
+          },
+          {
+            "action": "3S",
+            "score": 50,
+            "votes": 1
+          },
+          {
+            "action": "4C",
+            "score": 50,
+            "votes": 1
+          },
+          {
+            "action": "5C",
+            "score": 50,
+            "votes": 1
+          },
+          {
+            "action": "else",
+            "score": 0,
+            "votes": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "b351",
+      "type": "text",
+      "data": {
+        "text": "South has 21 HCP, with plenty of aces and kings. The hand is one card away from an opening two-club bid. Partner has shown a sign of life. Can it be right to stop short of game? Some say yes.\n\nJEFF RUBENS: \"Pass. A very-effective preempt, apparently.\"\n\nDANIEL KORBEL: \"Pass. This hand surely went downhill.\"\n\nFRED STEWART: \"Pass. In tempo. Bidding wouldn't occur to me. What three notrump? I have no tricks. North's very-best holding might be king-jack-sixth of clubs, likely a stiff heart, two or three spades. Where am I going?\"\n\nJOHN DIAMOND: \"Pass. Too many things can go wrong in game.\"\n\nSAMI KEHELA: \"Pass. What is preemptive in this context? Is it:"
+      }
+    },
+    {
+      "id": "b352",
+      "type": "text",
+      "data": {
+        "text": "♠ x x x ♥ x ♦ J x ♣ K J 10 x x x x?\n\nOr is it:\n\n♠ x x x ♥ x x ♦ x ♣ A K J x x x x?\""
+      }
+    },
+    {
+      "id": "b353",
+      "type": "text",
+      "data": {
+        "text": "I guess that is the real question. Just how weak can partner's hand be? He doesn't need much for our side to make game, since anything he has outside of the club suit will be very helpful. Is it worth betting that vulnerable game bonus on partner's having no help outside? The rest of the panel says no, but there are many possible approaches.\n\nBRIAN GLUBOK: \"Three diamonds. Anything might work, but if diamonds is our"
+      }
+    },
+    {
+      "id": "b354",
+      "type": "text",
+      "data": {
+        "text": "**PATRONIZE\nTHE BOOKSHELF**"
+      }
+    },
+    {
+      "id": "b355",
+      "type": "text",
+      "data": {
+        "text": "best trump suit, right now is our last chance to find it. If partner prefers hearts with a doubleton, that's good for our hand too. If partner bids four clubs, I will need to raise to five and to hope that his clubs are as good as ace-king-(ten)-seventh.\"\n\nROBERT WOLFF: \"Three diamonds. Three notrump, three hearts, three diamonds, and four clubs are all in the running.\"\n\nZIA: \"Three diamonds. Did not pick up this hand to play in three clubs."
+      }
+    },
+    {
+      "id": "b356",
+      "type": "text",
+      "data": {
+        "text": "♠ x x x ♥ x x ♦ x x ♣ A J 9 x x x"
+      }
+    },
+    {
+      "id": "b357",
+      "type": "text",
+      "data": {
+        "text": "could be enough for four hearts. I don't believe that there will be a passer on this fine panel.\"\n\nERIC KOKISH: \"Three diamonds. Forcing, as I would not correct a playable contract out of fear. If the spade king is worthless, we probably have three losers in clubs, and four hearts may not be comfortable if we catch two-card support. Not easy to determine whether it's worth looking for hearts when clubs is such a good strain for us. It's easy to imagine three clubs as the last making contract, and I'm very close to passing. Whether North could have ace-king-jack-seventh of clubs is beyond the scope of this problem. Perhaps hoping for the spade queen and ace-jack-ten-nine-seventh of clubs is a better reason to bid over three clubs.\"\n\nROZANNE AND BILL POLLACK: \"Three diamonds. A flexible punt, since three notrump, four hearts, and five of a minor are all possibilities. Maybe partner will now bid three of a major. We suspect losing two spades and a club in five clubs, but maybe North has extras—the spade queen, or some other sign of life, vulnerable.\"\n\nDAVID BERKOWITZ: \"Three diamonds. No law against finding partner with some diamonds, and I am not willing to commit to a different strain without consultation.\"\n\nFINN KOLESNIK: \"Three diamonds. This keeps us flexible. We aren't ready to commit to a strain, and this may uncover a diamond fit.\""
+      }
+    },
+    {
+      "id": "b358",
+      "type": "text",
+      "data": {
+        "text": "MARK COHEN: \"Three diamonds. Too strong to pass. I'm looking for a two-card preference to hearts. Over three spades, I'll bid five clubs. Over four clubs, I'll pass.\"\n\nHOWARD WEINSTEIN: \"Three diamonds. What strength is a vulnerable three-level minor-suit preemptive? It should be somewhat constructive. I have no idea what we can make. At matchpoints, I would pass, but vulnerable at imps that feels too conservative. I will raise three hearts to four.\"\n\nI can appreciate the value of bidding three diamonds. It allows partner to bid three hearts on a doubleton or three spades with some spade help, either of which would be nice to hear. What scares me about three diamonds is that partner will think that I am at least five-five in the red suits and will raise on three-card support, which isn't likely to turn out well.\n\nZACH GROSSACK: \"Three hearts. Values seem too slow for three notrump. The money shot is reaching four hearts on a six-two fit or a six-one fit with lucky breaks.\"\n\nCARL HUDECEK: \"Three hearts. I doubt North is bidding freely over one spade with a singleton heart, but I will take a conservative route.\"\n\nPHILLIP ALDER: \"Three hearts. I was tempted to gamble four hearts, but I will give partner an out.\"\n\nWait a minute. We don't make three-level corrections when partner has shown a long suit. If we don't want to be in game, we pass. Three hearts would be forcing. It could work out well, putting us in four hearts opposite a doubleton. Whether or not four hearts will be the best game is not clear.\n\nVENKETESH RAMARATNAM: \"Three spades. At these colors and form of scoring, I will drive to game; only four hearts and five clubs are viable. If necessary, I will continue with four hearts as a choice of games.\""
+      }
+    },
+    {
+      "id": "b359",
+      "type": "text",
+      "data": {
+        "text": "That is why opener's three-level bids should be forcing. Three spades is needed to suggest that partner bid three notrump with an appropriate hand.\n\nJOHN CARRUTHERS: \"Three notrump. Not more than three off after a spade lead.\"\n\nDANNY KLEINMAN: \"Three notrump. When I open, I don't want my partners to try to shut me out without a fit for my suit.\"\n\nLARRY ROBBINS: \"Three notrump. Pass may well be right, but partner may have many holdings that make game cold, or at least give it a good play. If partner has one of the worst holdings, likely we will be minus 200. It would be unlikely for our counterparts to stop short of game. Four hearts might be right, and I could bid three diamonds to reach it, but partner usually will have only one heart on this auction.\"\n\nThis looks like the best gamble. If partner has either major-suit queen, three notrump will have a good chance to come home. Even without that, partner's clubs might be strong, or West might be nervous about leading a spade when he knows the lead will give away a trick. Sometimes, nine tricks are easier than 10 or 11.\n\nBART BRAMLEY: \"Four hearts. The club ace provides a play. Both three notrump and five clubs require more. Three diamonds would be nice if it were forcing, but it isn't; four diamonds doesn't show this hand. I'd have opened two clubs.\"\n\nSTEVE ROBINSON: \"Four hearts. We belong in game, and I can't think of a better possible strain or how else to reach four hearts. If I bid three diamonds, partner would expect me to have at least five diamonds and would raise with three. Three diamonds does not show six hearts.\"\n\nThese four-heart bidders think that three of a red suit isn't forcing. I disagree. Reaching the right game must have a higher priority than correcting to what might, only might, be a better part-"
+      }
+    },
+    {
+      "id": "b360",
+      "type": "text",
+      "data": {
+        "text": "score. It is the same reason that we treat a below-game new-suit response to an opening preempt as forcing.\n\nNIK DEMIREV: \"Five clubs. Probably, we will go down because of a spade lead and the possible forcing out of an important trump, but vulnerable at imps I must try for the game bonus. Maybe partner will have the spade queen to protect the club queen. If I offer a choice of games, partner will have no chance to figure it out with the likes of:"
+      }
+    },
+    {
+      "id": "b361",
+      "type": "text",
+      "data": {
+        "text": "♠ x x ♥ J x ♦ x x ♣ K J 10 9 x x x."
+      }
+    },
+    {
+      "id": "b362",
+      "type": "text",
+      "data": {
+        "text": "There are times to involve partner, but this is not one of them.\"\n\nCould be right, but a lot of the times that five clubs makes, some other game or games also will succeed. A spade lead through the king-doubleton will not be a happy start."
+      }
+    },
+    {
+      "id": "b363",
+      "type": "text",
+      "data": {
+        "text": "**Problem G**\n\nImps\nBoth sides vulnerable\nYou, South, hold:"
+      }
+    },
+    {
+      "id": "b364",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "Q3",
+            "H": "8",
+            "D": "AKT972",
+            "C": "K654"
+          },
+          "east": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "west": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": true,
+          "east": false,
+          "west": false
+        },
+        "dealer": "",
+        "vulnerability": "",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b365",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "North",
+        "bids": [
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "?",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {}
+      }
+    },
+    {
+      "id": "b366",
+      "type": "text",
+      "data": {
+        "text": "**What call do you make?**"
+      }
+    },
+    {
+      "id": "b367",
+      "type": "mscResults",
+      "data": {
+        "results": [
+          {
+            "action": "2NT",
+            "score": 100,
+            "votes": 14
+          },
+          {
+            "action": "3C",
+            "score": 80,
+            "votes": 7
+          },
+          {
+            "action": "3D",
+            "score": 70,
+            "votes": 4
+          },
+          {
+            "action": "2S",
+            "score": 50,
+            "votes": 1
+          },
+          {
+            "action": "else",
+            "score": 0,
+            "votes": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "b368",
+      "type": "text",
+      "data": {
+        "text": "Absent an adequate major-suit fit, notrump is where the games are. A majority of the panel applied this principle to the current deal:"
+      }
+    },
+    {
+      "id": "b369",
+      "type": "text",
+      "data": {
+        "text": "ROZANNE AND BILL POLLACK: \"Two notrump. A bit too strong for three diamonds. We'll overlook the ugly club spots and bid something practical.\"\n\nBART BRAMLEY: \"Two notrump. I'm not desperate enough to prefer on a doubleton, which would tend to lock us into spades; we can still reach that strain. I'm leaving room for partner to bid out. Three clubs is possible, but I'd rather have stronger clubs.\"\n\nMARK COHEN: \"Two notrump. Most descriptive. Three diamonds would box partner with 5=4=2=2 and no club stopper. If North bids three spades, I will raise.\"\n\nFINN KOLESNIK: \"Two notrump. No other reasonable bid. Partner can show shape.\"\n\nERIC KOKISH: \"Two notrump. Perfect. But in any case I would never bid two spades on a doubleton out of fear. I can see trying three diamonds but not three clubs. Though the game-force was based on the ten-nine of diamonds and promising majors, this is not a hand to sing too loudly (off key) about diamonds.\"\n\nDAVID BERKOWITZ: \"Two notrump. Slow things down; get partner's input without forcing the issue.\"\n\nJOHN DIAMOND: \"Two notrump. These auctions go more smoothly when responder is able to keep the auction low by rebidding two notrump.\"\n\nVENKETESH RAMARATNAM: \"Two notrump. Three clubs should show a shapely two-suiter with 10-plus cards in the minors. Three diamonds would bury clubs opposite 5=4=0=4. Over two notrump, opener can show shape.\"\n\nPHILLIP ALDER: \"Two notrump. Economical, giving partner extra space.\"\n\nFRED STEWART: \"Two notrump. The player with the club stopper must bid the first notrump.\"\n\nDANIEL KORBEL: \"Two notrump. Get anchored in notrump and see what partner does next.\"\n\nTwo notrump looks routine. It announces a club stopper and leaves"
+      }
+    },
+    {
+      "id": "b370",
+      "type": "text",
+      "data": {
+        "text": "partner room to show six spades, five hearts, three diamonds, or four clubs. With none of the above, he will bid three notrump (or, if strong enough, show slam interest). However, almost half the panel preferred a different action.\n\nBRIAN GLUBOK: \"Two spades. A partnership that reserves this sequence for hands with three spades will have a serious problem with, say:"
+      }
+    },
+    {
+      "id": "b371",
+      "type": "text",
+      "data": {
+        "text": "♠ K J ♥ Q x x ♦ A K x x x ♣ x x x.\""
+      }
+    },
+    {
+      "id": "b372",
+      "type": "text",
+      "data": {
+        "text": "No we won't. We will bid three clubs, a fourth-suit bid that denies the ability to make a more-descriptive call. In particular, it denies an adequate club stopper to bid notrump. At least, that's what it should mean. However, some panelists think otherwise.\n\nHOWARD WEINSTEIN: \"Three clubs. The competing issues are rightsiding three notrump versus potentially showing a spade preference. After bidding two notrump, I could show the spade preference over partner's three of a different suit; after bidding three clubs, if North bids three notrump probably I will have rightsided the contract. After three clubs — three of a red suit — ?, three spades might be awkward for partner, so I will bid three notrump.\"\n\nLARRY ROBBINS: \"Three clubs. I want to play in notrump from partner's side. North can bid out his pattern, possibly supporting diamonds with two. Two notrump not only wrongsides the strain but also makes it more difficult to land in diamonds. If I rebid diamonds, partner will not know about the club stopper.\"\n\nCARL HUDECEK: \"Three clubs. Notrump should play from partner's side, and I am leaving open the chance to play in a spade game.\"\n\nIs rightsiding notrump that important? Sure, if partner has queen-low of clubs, you would like three notrump to be played from his side, but some-"
+      }
+    },
+    {
+      "id": "b373",
+      "type": "text",
+      "data": {
+        "text": "times he doesn't have that. Sure, if West would lead a heart against three notrump, you would prefer that partner be declarer, but that hasn't happened yet. King-fourth of clubs is an adequate club stopper for notrump, particularly since partner won't raise notrump with a singleton club.\n\nThe problem with three clubs is that it might strap partner. What should he do with something like:"
+      }
+    },
+    {
+      "id": "b374",
+      "type": "text",
+      "data": {
+        "text": "♠ A J x x x ♥ A K x x ♦ x x ♣ x x?"
+      }
+    },
+    {
+      "id": "b375",
+      "type": "text",
+      "data": {
+        "text": "Bid three notrump with nothing in clubs? Pretend to hold six spades, five hearts, or three diamonds? It is healthier for responder to rebid two notrump, then be able to trust any bid partner makes not to be a lie.\n\nJOHN CARRUTHERS: \"Three clubs. Why not bid what I have?\"\n\nBecause three clubs doesn't show what you have. It shows that you can't bid two notrump, i.e., that you don't have a club stopper.\n\nROBERT WOLFF: \"Three clubs. Possibly best of a mediocre lot.\"\n\nZACH GROSSACK: \"Three clubs. On a different day, I might try two notrump, but this feels better, as I would like to give partner room to try three diamonds. This way, I can preserve the possibility of six diamonds without giving partner an awkward problem by bidding three diamonds.\"\n\nJEFF RUBENS: \"Three clubs. Trying to keep spades and diamonds in as clear focus as possible.\"\n\nThat is an admirable goal, but two notrump achieves it much better. Two notrump doesn't commit the partnership to notrump.\n\nNIK DEMIREV: \"Three diamonds. In my own methods, I prefer two spades to deny as many as three. In BWS, I must choose"
+      }
+    },
+    {
+      "id": "b376",
+      "type": "text",
+      "data": {
+        "text": "between two notrump to maintain maximum room and flexibility and three diamonds to assist in reaching six diamonds. Maybe we will miss three notrump, but that would usually be better from partner's side, as when he holds:"
+      }
+    },
+    {
+      "id": "b377",
+      "type": "text",
+      "data": {
+        "text": "♠ A J x x x ♥ A J x x ♦ x x ♣ Q x."
+      }
+    },
+    {
+      "id": "b378",
+      "type": "text",
+      "data": {
+        "text": "Two notrump would suppress the strong diamonds. Four spades on a five-two fit may be the only makable game, and it would be unreachable after two notrump.\"\n\nZIA: \"Three diamonds. Notrump will be better from partner's side. I will try to organize that.\"\n\nDANNY KLEINMAN: \"Three diamonds. Three clubs would suggest less of a discrepancy between suits. Two notrump would suggest a more-balanced hand. Two spades would suggest three-card support. Three diamonds looks just about right.\"\n\nSTEVE ROBINSON: \"Three diamonds. This deal is very likely to belong in diamonds, especially if partner is 5=4=2=2. If we belong in three notrump, probably it will play better from partner's side. The only reason to bid three clubs is hoping that partner raises with 5=4=0=4, but he might bid three notrump with that shape.\"\n\nFor five diamonds to be better than three notrump, declarer would need to take three more tricks in diamonds than in notrump. That doesn't look at all likely if North is 5=4=2=2. Nine tricks are easier than 11; if partner is 5=4=0=4, he will bid three clubs over two notrump."
+      }
+    },
+    {
+      "id": "b379",
+      "type": "text",
+      "data": {
+        "text": "**VISIT US ONLINE AT\nWWW.BRIDGEWORLD.COM**"
+      }
+    },
+    {
+      "id": "b380",
+      "type": "text",
+      "data": {
+        "text": "**Problem H**\n\nImps\nNeither side vulnerable\nYou, South, hold:"
+      }
+    },
+    {
+      "id": "b381",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "A42",
+            "H": "K864",
+            "D": "94",
+            "C": "8642"
+          },
+          "east": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "west": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": true,
+          "east": false,
+          "west": false
+        },
+        "dealer": "",
+        "vulnerability": "None",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b382",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "East",
+        "bids": [
+          {
+            "text": "4D",
+            "alert": "natural"
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {}
+      }
+    },
+    {
+      "id": "b383",
+      "type": "text",
+      "data": {
+        "text": "What is your opening lead?"
+      }
+    },
+    {
+      "id": "b384",
+      "type": "mscResults",
+      "data": {
+        "results": [
+          {
+            "action": "H6",
+            "score": 100,
+            "votes": 11
+          },
+          {
+            "action": "H4",
+            "score": 100,
+            "votes": 4
+          },
+          {
+            "action": "D9",
+            "score": 80,
+            "votes": 6
+          },
+          {
+            "action": "C4",
+            "score": 70,
+            "votes": 2
+          },
+          {
+            "action": "C2",
+            "score": 70,
+            "votes": 1
+          },
+          {
+            "action": "SA",
+            "score": 60,
+            "votes": 2
+          },
+          {
+            "action": "else",
+            "score": 0,
+            "votes": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "b385",
+      "type": "text",
+      "data": {
+        "text": "The usual theme for leading against a long suit in declarer's hand is to establish side-suit tricks before losers can be discarded on dummy's winners. Here, though, some panelists took the opposite approach, attacking the entries to the potential winners by leading the threatening suit.\n\nDavid Berkowitz: \"Diamond nine. I hope that declarer has a diamond or two. I intend to play a second diamond and thus to strand dummy's winners.\"\n\nEric Kokish: \"Diamond nine. I hate to lead a random doubleton, but it might be necessary to kill the diamonds; North knows that. A trump versus the long-suit-killing defense is always awkward. Cashing our heart tricks presents a feasible third choice. Though a guess, this is a good problem.\"\n\nVenketesh Ramaratnam: \"Diamond nine. If we assume diamond tolerance with declarer is likely, a diamond lead and continuation could remove the entry to dummy to enjoy the suit after drawing trumps, so that declarer's slow losers will remain.\""
+      }
+    },
+    {
+      "id": "b386",
+      "type": "text",
+      "data": {
+        "text": "Carl Hudecek: \"Diamond nine. To kill dummy while I still have trump control. If partner happens to have the diamond ace, he can push a heart through.\"\n\nFred Stewart: \"Diamond nine. Guessing one of the other suits seems speculative at best. The major dangers are that declarer gets immediate discards and the loss of a tempo, but the other choices have more to lose.\"\n\nBart Bramley: \"Diamond nine. Trying to kill the diamonds. I hope a quick pitch won't be fatal. A heart is a close second. Neither black suit has any appeal.\"\n\nThe diamond lead could be very effective if declarer has a doubleton diamond. Not only might it kill dummy, but we might obtain a diamond ruff. However, if declarer has a singleton diamond, the lead might not be necessary, since we can lead a diamond when in with the ace of spades. The danger of giving declarer a quick discard is quite real, and if East is void of diamonds, a diamond lead could be a disaster.\n\nIf we are leading another side suit, which is better?\n\nDaniel Korbel: \"Club four. I have no idea. Any suit could be right.\"\n\nJeff Rubens: \"Club four. Not a diamond, fearing that dummy has eight and partner, with ace-low (or two low to declarer's singleton ace), will think (at trick two or later) that I led a singleton.\"\n\nBrian Glubok: \"Club deuce. Since I lack a diamond honor, that suit is possible. I used to prefer a low heart in situations such as this, but a book about simulations of leads suggested otherwise. I lead a low club so that partner won't read me for a doubleton.\"\n\nIt is usually safer to lead away from nothing than from an honor, but with dummy short of entries, that might not be the case here. A heart lead has the advantage of doing good things if it hits partner's strength."
+      }
+    },
+    {
+      "id": "b387",
+      "type": "text",
+      "data": {
+        "text": "Robert Wolff: \"Heart four. An uneducated guess but at least a positive try.\"\n\nJohn Diamond: \"Heart four. An aggressive lead here will give us our best chance.\"\n\nZia: \"Heart four. I have a sneaky feeling that any suit might be right.\"\n\nSami Kehela: \"Heart six. Aware that a diamond could be the killer.\"\n\nPhillip Alder: \"Heart six. Fandango, not fox-trot.\"\n\nMark Cohen: \"Heart six. I lead where I have an honor.\"\n\nSteve Robinson: \"Heart six. I usually make an attacking lead on this type of auction. I need less from North in hearts than in clubs.\"\n\nLarry Robbins: \"Heart six. The ace of trumps would enable seeing a suit-preference signal. A low trump might win, as dummy could have a ruffing value (even with only one spade). However, it feels as if we must take our tricks, or at least set up a heart trick (or two), and I would need much more from partner in clubs than in hearts.\"\n\nFinn Kolesnik: \"Heart six. It looks as if the opponents have a strong, long suit, so let's lead aggressively.\"\n\nDanny Kleinman: \"Heart six. Let's get our tricks before declarer can draw trumps and run diamonds.\"\n\nRozanne and Bill Pollack: \"Heart six. A diamond lead could cut off dummy or be disastrous when declarer is void. A trump could stop a ruff. The trump ace gives us a chance to take a look, but will that help?"
+      }
+    },
+    {
+      "id": "b388",
+      "type": "text",
+      "data": {
+        "text": "We'll just try to take some tricks, and hearts is where they rate to be.\"\n\nZach Grossack: \"Heart six. Must set up tricks, so I'm playing partner for the queen of hearts. A club could be right, but declarer may have a little help in diamonds, and I don't want to lose a tempo.\"\n\nNik Demirev: \"Heart six. Any lead might lose. A heart might yield two quick heart tricks, the spade ace, and another black-suit trick. The heart king could be better than the six in certain situations but very wrong if partner overtakes to return the suit.\"\n\nThere is one other possibility:\n\nJohn Carruthers: \"Spade ace. 'To find out what I should have led.'—Edwin B.\"\n\nHoward Weinstein: \"Spade ace. Maybe this will prevent a ruff in dummy. It will also allow me to see dummy and keep the lead, though probably I still won't know what to do.\"\n\nLeading a trump could be right, but it could be a calamity. The lost tempo could be fatal. Other leads might not blow a trick even when hitting a bad holding in the suit led. If a trump lead hits a bad holding, there will be no recovery.\n\n*\n\nThanks to Rick Roeder, La Mesa, CA, for Problem E; and to Ercan Cem, Istanbul, for Problem H."
+      }
+    },
+    {
+      "id": "b389",
+      "type": "text",
+      "data": {
+        "text": "**PROBLEM SUGGESTIONS**\n\nDo you have a problem that you would like to see discussed in the Master Solvers' Club or bid in Challenge the Champs? Reader contributions are always welcome and appreciated. Send to: editor@bridgeworld.com or to:\nThe Bridge World, Editorial Dept, PO Box 849, Kerhonkson NY 12446 USA."
+      }
+    },
+    {
+      "id": "b390",
+      "type": "text",
+      "data": {
+        "text": "**HOW THE EXPERTS VOTED ON THE APRIL PROBLEMS**"
+      }
+    },
+    {
+      "id": "b391",
+      "type": "text",
+      "data": {
+        "text": "Problem:                                  A      B      C     D      E      F       G       H\n\nPhillip Alder, Hobe Sound, FL           1 S   1 NT    P     D      D     3 H    2 NT    H 6\n\nDavid Berkowitz, Florida                R     1 NT   1 S    D     5 S    3 D    2 NT    D 9\n\nBart Bramley, Avon, CT                  R     1 NT   1 S    D     5 S    4 H    2 NT    D 9\n\nJohn Carruthers, Kingsville, ON         1 S   1 NT   1 S   2 D    6 C   3 NT    3 C     S A\n\nMark Cohen, Glen Ridge, NJ              R     2 C    1 S    P      D     3 D    2 NT    H 6\n\nNik Demirev, Illinois                   R      P     1 S   2 D    6 C   5 C     3 D     H 6\n\nJohn Diamond, Boca Raton, FL            R     2 C    1 S    D     5 S    P     2 NT    H 4\n\nBrian Glubok, New York City            2 H    2 C    1 S    D      D     3 D    2 S     C 2\n\nZach Grossack, Newton, MA               R     2 D    1 S    D      D     3 H    3 C     H 6\n\nCarl Hudecek, Perrysburg, OH            1 S   2 C    1 H    D     6 C   3 H    3 C     D 9\n\nSami Kehela, Toronto                    R     3 C     P     P     6 C    P     2 NT    H 6\n\nDanny Kleinman, Los Angeles             P     2 C     P    2 D     P    3 NT    3 D     H 6\n\nEric Kokish, Peterborough, ON           R     2 C    2 H   2 D     D     3 D    2 NT    D 9\n\nFinn Kolesnik, Ventura, CA              1 S   1 NT   1 H   2 D     D     3 D    2 NT    H 6\n\nDaniel Korbel, Waterloo, ON             R     2 C    1 S   2 D     D      P     2 NT    C 4\n\nRozanne and Bill Pollack, NYC           R     1 NT   1 S   2 D     D     3 D    2 NT    H 6\n\nLarry Robbins, Deerfield, IL            1 S   2 D    1 S    D      P    3 NT    3 C     H 6\n\nArthur Robinson, Pennsylvania           R     1 NT    P    2 D     P     4 C    2 NT    H 4\n\nSteve Robinson, Arlington, VA           R     2 S    1 S    D      D     4 H    3 D     H 6\n\nJeff Rubens, Brooklyn, NY               R     2 C     P    2 D     P      P     3 C     C 4\n\nFred Stewart, Bloomington, NY           R     2 C     P     D      D      P     2 NT    D 9\n\nVenketesh Ramaratnam, India             1 S   1 NT   2 H    D      D     3 S    2 NT    D 9\n\nHoward Weinstein, San Diego             R     2 C    1 S    D      D     3 D    3 C     S A\n\nRobert Wolff, Las Vegas                 R     2 C     P    2 D    5 S    3 D    3 C     H 4\n\nKit Woolsey, Kensington, CA             R     2 D    1 S   2 D    5 S   3 NT   2 NT    H 6\n\nZia, New York City                      R     2 C    1 S    D      P     3 D    3 D     H 4"
+      }
+    },
+    {
+      "id": "b392",
+      "type": "text",
+      "data": {
+        "text": "**MASTER SOLVERS' CLUB**\n**MAY CONTEST**\n\nContest deadline: March 31, 2025 at 11:59 p.m. (ET).\nTo submit your solutions: visit the MSC section of www.bridgeworld.com\nThe new contest problems appear on the following page and are also available at www.bridgeworld.com beginning on the 1st of each month, or soon thereafter.\nTop scores are listed in the Honor Roll. The highest finishers in the yearly contest will be invited to participate as guest panelists in monthly contests.\nBridge World Standard is used by North-South. The system's agreements can be found at www.bridgeworld.com. Footnotes announce applicable treatments."
+      }
+    },
+    {
+      "id": "b393",
+      "type": "text",
+      "data": {
+        "text": "**HONOR ROLL**\n**FOR THE MARCH CONTEST**\n\nSteve Huhman, Woodstock, GA            780      Nick Tipton, Lynnwood, WA              710\nKevin Castner, London, U.K.            760      Mridul Das, Dharapur, India            700\nJohn Schuler, San Diego, CA            760      Sharon Erwin, Lynnwood, WA             700\nMark Chen, Charleston, SC              750      Jon Farber, Alexandria, VA             700\nBill March, Stockton, England          740      Jim Gingrich, Lansdale, PA             700\nJoel Fuhrman, Kirkland, WA             730      Platt Hill, Saint Charles, IL          700\nArthur Loring, West Palm Beach, FL     730      V. S. Krishnamurti, Chennai, India     700\nVenkatesh Ramaratnam, India            730      Rodney Lighton, Manchester, U.K.       700\nSridhar Vee, Bangalore, India          730      Floyd McWilliams, Sunnyvale, CA        700\nBarry Bragin, Fort Pierce, FL          720      Christopher Monsour, Frederick, MD     700\nAlan Braunstein, Brandon, FL           720      William Neumann, Columbia, MD          700\nCarol Carpenter, Santa Barbara, CA     720      Vanni Nozzoli, Roma, Italy             700\nRobert Clow, Glasgow, Scotland         720      Carol Schroeder, Redmond, WA           700\nKay Joyce, Pittsboro, NC               720      Steve White, Broomall, PA              700\nDawn Ligon, Reno, NV                   720      Jack Brawner, Palm Harbor, FL          690\nJean-Luc Mothes, La Chapelle, France   720      Amy DeShaw, Seattle, WA                690\nVibhas Todi, Kolkata, India            720      Frederick Dischman, Kansas City, MO    690\nThomas Trachuk, Walnut Creek, CA       720      Chip Doyle, Pleasant Hill, CA          690\nRobert Bjorge, Sacramento, CA          710      Louis Glasthal, Berwyn, PA             690\nRobert Coyne, Colonia, NJ              710      Dave Grubbs, Seattle, WA               690\nVulkan Denizci, Samsun, Turkey         710      Cynthia Handley, Edmonds, WA           690\nDavid Drennan, Godfrey, IL             710      Todd Holes, Glen Ellyn, IL             690\nHerbert Lerner, Washington, DC         710      Jessica Lai, Oakland, CA               690\nJohn Lindsey, Lutz, FL                 710      Lawrence Lerner, New Providence, NJ    690\nSergiu Lupu, Rueil Malmaison, France   710      Soren Rasmussen, Denmark               690\nAviv Shahaf, Jericho, NY               710      Michael Schneider, Gauting, Germany    690\nRazvan Spiridonescu, Brasov, Romania   710      Iain Sime, Edinburgh, Scotland         690\nAlan Sze, North Point, Hong Kong       710      Vinci Wan, Hong Kong                   690"
+      }
+    },
+    {
+      "id": "b394",
+      "type": "text",
+      "data": {
+        "text": "**Problem A**\nImps; North-South vulnerable\nYou, South, hold:"
+      }
+    },
+    {
+      "id": "b395",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "KQJ972",
+            "H": "5",
+            "D": "AJ6",
+            "C": "Q74"
+          },
+          "east": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "west": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": true,
+          "east": false,
+          "west": false
+        },
+        "dealer": "",
+        "vulnerability": "N-S",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b396",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "North",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "3H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "?",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {}
+      }
+    },
+    {
+      "id": "b397",
+      "type": "text",
+      "data": {
+        "text": "What call do you make?"
+      }
+    },
+    {
+      "id": "b398",
+      "type": "text",
+      "data": {
+        "text": "**Problem B**\nMatchpoints; both sides vulnerable\nYou, South, hold:"
+      }
+    },
+    {
+      "id": "b399",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "952",
+            "H": "KT4",
+            "D": "AQ5",
+            "C": "A982"
+          },
+          "east": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "west": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": true,
+          "east": false,
+          "west": false
+        },
+        "dealer": "",
+        "vulnerability": "All",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b400",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "East",
+        "bids": [
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "?",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {}
+      }
+    },
+    {
+      "id": "b401",
+      "type": "text",
+      "data": {
+        "text": "What call do you make?"
+      }
+    },
+    {
+      "id": "b402",
+      "type": "text",
+      "data": {
+        "text": "**Problem C**\nMatchpoints; neither side vulnerable\nYou, South, hold:"
+      }
+    },
+    {
+      "id": "b403",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "",
+            "H": "AJ6",
+            "D": "KJ9853",
+            "C": "AJT2"
+          },
+          "east": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "west": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": true,
+          "east": false,
+          "west": false
+        },
+        "dealer": "",
+        "vulnerability": "None",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b404",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "East",
+        "bids": [
+          {
+            "text": "1C",
+            "alert": null
+          },
+          {
+            "text": "1D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": "BWS: nonforcing"
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "?",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {}
+      }
+    },
+    {
+      "id": "b405",
+      "type": "text",
+      "data": {
+        "text": "What call do you make?"
+      }
+    },
+    {
+      "id": "b406",
+      "type": "text",
+      "data": {
+        "text": "**Problem D**\nMatchpoints; both sides vulnerable\nYou, South, hold:"
+      }
+    },
+    {
+      "id": "b407",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "KT2",
+            "H": "J83",
+            "D": "K832",
+            "C": "K92"
+          },
+          "east": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "west": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": true,
+          "east": false,
+          "west": false
+        },
+        "dealer": "",
+        "vulnerability": "All",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b408",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "North",
+        "bids": [
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "?",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {}
+      }
+    },
+    {
+      "id": "b409",
+      "type": "text",
+      "data": {
+        "text": "What call do you make?"
+      }
+    },
+    {
+      "id": "b410",
+      "type": "text",
+      "data": {
+        "text": "**Problem E**\nImps; neither side vulnerable\nYou, South, hold:"
+      }
+    },
+    {
+      "id": "b411",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "KT2",
+            "H": "QT873",
+            "D": "Q2",
+            "C": "AQ7"
+          },
+          "east": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "west": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": true,
+          "east": false,
+          "west": false
+        },
+        "dealer": "",
+        "vulnerability": "None",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b412",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "South",
+        "bids": [
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2C",
+            "alert": "BWS: puppet to 2 D"
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2S",
+            "alert": "BWS: invitational"
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "?",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {}
+      }
+    },
+    {
+      "id": "b413",
+      "type": "text",
+      "data": {
+        "text": "What call do you make?"
+      }
+    },
+    {
+      "id": "b414",
+      "type": "text",
+      "data": {
+        "text": "**Problem F**\nImps; both sides vulnerable\nYou, South, hold:"
+      }
+    },
+    {
+      "id": "b415",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "JT93",
+            "H": "KT2",
+            "D": "642",
+            "C": "T72"
+          },
+          "east": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "west": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": true,
+          "east": false,
+          "west": false
+        },
+        "dealer": "",
+        "vulnerability": "All",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b416",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "North",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "?",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {}
+      }
+    },
+    {
+      "id": "b417",
+      "type": "text",
+      "data": {
+        "text": "What call do you make?"
+      }
+    },
+    {
+      "id": "b418",
+      "type": "text",
+      "data": {
+        "text": "**Problem G**\nImps; North-South vulnerable\nYou, South, hold:"
+      }
+    },
+    {
+      "id": "b419",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "KJT",
+            "H": "76",
+            "D": "T64",
+            "C": "QJ872"
+          },
+          "east": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "west": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": true,
+          "east": false,
+          "west": false
+        },
+        "dealer": "",
+        "vulnerability": "N-S",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b420",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "North",
+        "bids": [
+          {
+            "text": "1D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "?",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {}
+      }
+    },
+    {
+      "id": "b421",
+      "type": "text",
+      "data": {
+        "text": "What call do you make?"
+      }
+    },
+    {
+      "id": "b422",
+      "type": "text",
+      "data": {
+        "text": "**Problem H**\nImps; neither side vulnerable\nYou, South, hold:"
+      }
+    },
+    {
+      "id": "b423",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "95",
+            "H": "Q982",
+            "D": "T9743",
+            "C": "A5"
+          },
+          "east": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "west": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": true,
+          "east": false,
+          "west": false
+        },
+        "dealer": "",
+        "vulnerability": "None",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b424",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "East",
+        "bids": [
+          {
+            "text": "3S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {}
+      }
+    },
+    {
+      "id": "b425",
+      "type": "text",
+      "data": {
+        "text": "What is your opening lead?"
+      }
+    }
+  ],
+  "warnings": [
+    "Block 55 (biddingTable): Invalid bids: Double"
+  ]
+}

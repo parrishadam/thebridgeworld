@@ -1,0 +1,94 @@
+{
+  "title": "At the Table",
+  "slug": "at-the-table",
+  "author_name": "August Boehm",
+  "category": "At the Table",
+  "tags": [
+    "April 2025",
+    "August Boehm"
+  ],
+  "source_page": 36,
+  "excerpt": "Bridge stories and analysis from actual play at the table.",
+  "status": "draft",
+  "content_blocks": [
+    {
+      "id": "b252",
+      "type": "text",
+      "data": {
+        "text": "**AT THE TABLE**\n\nBY AUGUST BOEHM"
+      }
+    },
+    {
+      "id": "b253",
+      "type": "text",
+      "data": {
+        "text": "Much high-level bridge is now played behind screens or on computers. These practices score many gains, but some things have been lost.\n\nIn a long-ago imp game for stakes, I defended against a six-notrump contract where Ira Rubin was the declarer. He needed to take four tricks in a suit where he held king-jack-ten-low opposite dummy's ace-nine-eight-low. A few preliminary plays had revealed nothing useful about the defenders' distributions. Ira sat and stewed for about a minute, all the while staring down my partner and me. Then, he looked at me and said, \"I'm playing you for the queen.\" He did and made the contract; later, when I asked him why, he just smiled and turned away. Apparently, my partner or I must have radiated tension or its absence. Had one of us been gripping his cards too tightly, or showing indifference, or feigning lack of interest? Such subtle \"reads\" come from table presence, experience, and the courage to back one's judgment.\n\nI recall Edgar Kaplan's discussion of a situation he faced against Johnny Crawford. With neither side vulnerable, there was a rapid-fire competitive auction: one heart — (four spades) — five hearts — (five spades) — pass — (pass) — ? When Crawford's five-spade bid was passed around, Edgar, the five-heart bidder, needed to consider his card values, the implications of partner's pass, the possible intentions of the opponents, and any physical indication from Crawford (perhaps from the speed or intonation of the five-spade bid). When Edgar felt that he had picked up whether the five-spade bid was risky or solid, he assumed that it represented the opposite of the true situation—in other words, he relied on Crawford to project the opposite of what his hand was worth. Wheels within wheels within wheels. This is the sort of thing largely lost to the modern expert game, where the players so often do not interact directly with one or both opponents.\n\nTable presence has always been a significant element of face-to-face bridge; degrees that players possess it vary. The possibility of picking up information from an opponent's behavior may influence a choice between employing a technical approach and relying on table-action psychology. For instance, assume you are South here, declarer in four spades after an uncontested one spade — two spades — four spades. West leads the heart queen, showing queen-jack."
+      }
+    },
+    {
+      "id": "b254",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "Q975",
+            "H": "982",
+            "D": "Q75",
+            "C": "K74"
+          },
+          "south": {
+            "S": "AKJ865",
+            "H": "A6",
+            "D": "KJ4",
+            "C": "JT"
+          },
+          "east": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "west": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": false,
+          "west": false
+        },
+        "dealer": "",
+        "vulnerability": "",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b255",
+      "type": "text",
+      "data": {
+        "text": "A technical approach would be to win trick one, draw trumps, and play on the red suits in the hope of gaining information about clubs. A psychological approach would be to win trick one and lead the ten of clubs, counting on West—who knows little about the overall deal—often to play the ace when he holds it; if West does not play a club honor, let the ten ride.\n\nNear the beginning of a long match, it may pay to underlead an ace on opening lead when there seems little chance of beating a partscore contract. If the lead costs an overtrick, the loss may well be more than offset if it leaves the impression that you are imaginative and unpredictable. A similar strategy is bluffing early in a poker game to create uncertainty or to project being a wild bettor (when that is contrary to fact).\n\nAn at-the-table action that I have used successfully without being burned is a psychic penalty double of a tentatively-bid game contract. This is especially attractive when the declarer seems to be nervous or feeling outclassed. The risk of a redouble is negligible, and the added pressure may cause declarer to play to poor advantage (or to form a wrong impression of the lie of the defenders' cards). In effect, the psychist is doubling the player more than doubling the contract. In a long match where your team is favored, there is no need for such tactics; but at matchpoints or in a short (perhaps Swiss) match, it can be profitable to strike when an opportunity arises."
+      }
+    },
+    {
+      "id": "b256",
+      "type": "text",
+      "data": {
+        "text": "**PLAYING SUIT COMBINATIONS SOLUTION**\n\n(Problem on page 25.)"
+      }
+    },
+    {
+      "id": "b257",
+      "type": "text",
+      "data": {
+        "text": "**NORTH** (dummy)\nJ 10 8 2\n**SOUTH** (declarer)\nA\n\nNorth-South need two tricks.\n\nAssume that only low cards fall under the ace. To have a chance, you need a six-two or five-three split.\n\nIf the split is six-two, continuing with the jack picks up five nine-doubletons with either defender. Leading the eight to the second round does twice as well, winning against 10 royal-doubletons with either defender. Leading the eight does better overall by 10 six-two cases.\n\nIf the split is five-three, it is much better to continue with the jack followed by the ten. That line succeeds if either defender was dealt either nine-third (10 cases) or honor-nine-third (10 cases, for 20 total cases). In contrast, continuing with the eight on the second (or third) round gains only if either defender started with king-queen-low (five cases). Playing the suit from the top is better than continuing with the eight by 30 five-three cases, far more likely than the 10 six-two cases in which the eight at trick two is the winner."
+      }
+    }
+  ],
+  "warnings": []
+}

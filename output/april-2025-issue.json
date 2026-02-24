@@ -1,0 +1,239 @@
+{
+  "issue": {
+    "month": 4,
+    "year": 2025,
+    "volume": 96,
+    "number": 7,
+    "title": "April 2025"
+  },
+  "articles": [
+    {
+      "title": "Editorial",
+      "slug": "editorial",
+      "author_name": "",
+      "category": "Editorial",
+      "tags": [
+        "April 2025"
+      ],
+      "source_page": 2,
+      "excerpt": "Discusses the need for more transparency and uniformity in handling cheating accusations and convictions in organized bridge.",
+      "block_count": 1,
+      "warnings": []
+    },
+    {
+      "title": "Test Your Play",
+      "slug": "test-your-play",
+      "author_name": "",
+      "category": "Test Your Play",
+      "tags": [
+        "April 2025",
+        "card play"
+      ],
+      "source_page": 3,
+      "excerpt": "Two card play problems where declarer must find the best line of play.",
+      "block_count": 11,
+      "warnings": []
+    },
+    {
+      "title": "Peachtree Soloway",
+      "slug": "peachtree-soloway",
+      "author_name": "Oren Kriegel",
+      "category": "Tournament Report",
+      "tags": [
+        "April 2025",
+        "tournament"
+      ],
+      "source_page": 4,
+      "excerpt": "Report on the Peachtree Soloway tournament.",
+      "block_count": 167,
+      "warnings": [
+        "Block 32 (biddingTable): Invalid bids: Double, Double, Double",
+        "Block 36 (biddingTable): Invalid bids: Double",
+        "Block 38 (biddingTable): Invalid bids: Double",
+        "Block 59 (biddingTable): Invalid bids: Double",
+        "Block 69 (biddingTable): Auction must end with 3 consecutive passes (got: 2D, 2S, Pass)",
+        "Block 74 (biddingTable): Invalid bids: Double",
+        "Block 76 (biddingTable): Invalid bids: Double",
+        "Block 81 (biddingTable): Invalid bids: Double",
+        "Block 90 (biddingTable): Invalid bids: Double",
+        "Block 96 (biddingTable): Invalid bids: Double",
+        "Block 104 (biddingTable): Invalid bids: Double",
+        "Block 108 (biddingTable): Invalid bids: Double",
+        "Block 109 (biddingTable): Invalid bids: Double",
+        "Block 115 (biddingTable): Invalid bids: Double",
+        "Block 116 (biddingTable): Invalid bids: Double",
+        "Block 156 (biddingTable): Invalid bids: Double, Double",
+        "Block 157 (biddingTable): Invalid bids: Double, Double",
+        "Block 160 (biddingTable): Invalid bids: Double, Double",
+        "Block 161 (biddingTable): Invalid bids: Double",
+        "Block 164 (biddingTable): Invalid bids: Double",
+        "Block 165 (biddingTable): Invalid bids: Double, Double, Double"
+      ]
+    },
+    {
+      "title": "Improve Your Play",
+      "slug": "improve-your-play",
+      "author_name": "",
+      "category": "Improve Your Play",
+      "tags": [
+        "April 2025",
+        "card play"
+      ],
+      "source_page": 7,
+      "excerpt": "Card play problems designed to improve declarer technique.",
+      "block_count": 11,
+      "warnings": []
+    },
+    {
+      "title": "Improve Your Defense",
+      "slug": "improve-your-defense",
+      "author_name": "",
+      "category": "Improve Your Defense",
+      "tags": [
+        "April 2025",
+        "defense"
+      ],
+      "source_page": 9,
+      "excerpt": "Defensive problems to help improve defensive card play skills.",
+      "block_count": 7,
+      "warnings": []
+    },
+    {
+      "title": "Test Your Defense",
+      "slug": "test-your-defense",
+      "author_name": "",
+      "category": "Test Your Defense",
+      "tags": [
+        "April 2025",
+        "defense"
+      ],
+      "source_page": 17,
+      "excerpt": "Defensive card play problems testing defensive technique.",
+      "block_count": 7,
+      "warnings": []
+    },
+    {
+      "title": "Playing Suit Combinations",
+      "slug": "playing-suit-combinations",
+      "author_name": "Fred Gitelman",
+      "category": "Playing Suit Combinations",
+      "tags": [
+        "April 2025",
+        "Fred Gitelman",
+        "card play"
+      ],
+      "source_page": 25,
+      "excerpt": "Analysis of optimal play techniques for various suit combinations.",
+      "block_count": 3,
+      "warnings": []
+    },
+    {
+      "title": "New Critical Moments",
+      "slug": "new-critical-moments",
+      "author_name": "David J. Weiss",
+      "category": "Card Play",
+      "tags": [
+        "April 2025",
+        "David J. Weiss",
+        "card play"
+      ],
+      "source_page": 32,
+      "excerpt": "Critical decision points in card play analyzed by David J. Weiss.",
+      "block_count": 35,
+      "warnings": []
+    },
+    {
+      "title": "At the Table",
+      "slug": "at-the-table",
+      "author_name": "August Boehm",
+      "category": "At the Table",
+      "tags": [
+        "April 2025",
+        "August Boehm"
+      ],
+      "source_page": 36,
+      "excerpt": "Bridge stories and analysis from actual play at the table.",
+      "block_count": 6,
+      "warnings": []
+    },
+    {
+      "title": "Another Look",
+      "slug": "another-look",
+      "author_name": "John Swanson",
+      "category": "Another Look",
+      "tags": [
+        "April 2025",
+        "John Swanson"
+      ],
+      "source_page": 40,
+      "excerpt": "Re-examination of bridge hands and concepts from a different perspective.",
+      "block_count": 5,
+      "warnings": []
+    },
+    {
+      "title": "Bits and Pieces",
+      "slug": "bits-and-pieces",
+      "author_name": "",
+      "category": "Bits and Pieces",
+      "tags": [
+        "April 2025"
+      ],
+      "source_page": 42,
+      "excerpt": "Short bridge items and miscellaneous bridge content.",
+      "block_count": 9,
+      "warnings": []
+    },
+    {
+      "title": "Master Solvers' Club",
+      "slug": "master-solvers-club",
+      "author_name": "Kit Woolsey",
+      "category": "Master Solvers' Club",
+      "tags": [
+        "April 2025",
+        "Kit Woolsey",
+        "bidding"
+      ],
+      "source_page": 44,
+      "excerpt": "Eight bidding and opening lead problems with expert panel analysis directed by Kit Woolsey.",
+      "block_count": 154,
+      "warnings": [
+        "Block 55 (biddingTable): Invalid bids: Double"
+      ]
+    },
+    {
+      "title": "Fifty Years Ago",
+      "slug": "fifty-years-ago",
+      "author_name": "",
+      "category": "History",
+      "tags": [
+        "April 2025",
+        "history"
+      ],
+      "source_page": 64,
+      "excerpt": "Bridge content from The Bridge World archives fifty years ago.",
+      "block_count": 5,
+      "warnings": []
+    },
+    {
+      "title": "Challenge the Champs",
+      "slug": "challenge-the-champs",
+      "author_name": "",
+      "category": "Challenge the Champs",
+      "tags": [
+        "April 2025",
+        "bidding"
+      ],
+      "source_page": 65,
+      "excerpt": "Bidding challenge where readers compete against champion pairs.",
+      "block_count": 76,
+      "warnings": []
+    }
+  ],
+  "stats": {
+    "totalDurationMs": 2555513,
+    "apiCalls": 26,
+    "inputTokens": 309953,
+    "outputTokens": 100149,
+    "costUsd": 12.16047
+  }
+}

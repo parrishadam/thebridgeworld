@@ -1,0 +1,38 @@
+{
+  "title": "Playing Suit Combinations",
+  "slug": "playing-suit-combinations",
+  "author_name": "Fred Gitelman",
+  "category": "Playing Suit Combinations",
+  "tags": [
+    "April 2025",
+    "Fred Gitelman",
+    "card play"
+  ],
+  "source_page": 25,
+  "excerpt": "Analysis of optimal play techniques for various suit combinations.",
+  "status": "draft",
+  "content_blocks": [
+    {
+      "id": "b214",
+      "type": "text",
+      "data": {
+        "text": "**PLAYING SUIT COMBINATIONS**\n\n**BY FRED GITELMAN**\n\n*Declarer has sufficient entries and control to operate without constraint, and nothing is known about the distribution beyond the probabilities of the original deal.*"
+      }
+    },
+    {
+      "id": "b215",
+      "type": "text",
+      "data": {
+        "text": "**Combination 233**\n\n**NORTH** (*dummy*)\nJ 10 8 2\n\n**SOUTH** (*declarer*)\nA\n\nNorth-South need two tricks. (*Solution on page 37.*)"
+      }
+    },
+    {
+      "id": "b216",
+      "type": "text",
+      "data": {
+        "text": "**PLAYING SUIT COMBINATIONS SOLUTION**\n\n*(Problem on page 25.)*\n\n**NORTH** (*dummy*)\nJ 10 8 2\n\n**SOUTH** (*declarer*)\nA\n\nNorth-South need two tricks.\n\nAssume that only low cards fall under the ace. To have a chance, you need a six-two or five-three split.\n\nIf the split is six-two, continuing with the jack picks up five nine-doubletons with either defender. Leading the eight to the second round does twice as well, winning against 10 royal-doubletons with either defender. Leading the eight does better overall by 10 six-two cases.\n\nIf the split is five-three, it is much better to continue with the jack followed by the ten. That line succeeds if either defender was dealt either nine-third (10 cases) or honor-nine-third (10 cases, for 20 total cases). In contrast, continuing with the eight on the second (or third) round gains only if either defender started with king-queen-low (five cases). Playing the suit from the top is better than continuing with the eight by 30 five-three cases, far more likely than the 10 six-two cases in which the eight at trick two is the winner."
+      }
+    }
+  ],
+  "warnings": []
+}

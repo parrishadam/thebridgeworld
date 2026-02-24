@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import type {
   ContentBlock,
   BridgeHandBlock,
@@ -8,14 +8,18 @@ import type {
   BiddingTableBlock,
   ImageBlock,
   VideoBlock,
+  SolutionBlock,
 } from "@/types";
 import BridgeHandModal from "./BridgeHandModal";
 import BiddingTableModal from "./BiddingTableModal";
 import ImageVideoModal from "./ImageVideoModal";
+import ParseTextModal from "./ParseTextModal";
 
 interface BlockListProps {
   blocks: ContentBlock[];
   onChange: (blocks: ContentBlock[]) => void;
+  /** When true, hide selection checkboxes and wrap/unwrap (used for nested solution editing) */
+  nested?: boolean;
 }
 
 type ModalState =
@@ -24,6 +28,7 @@ type ModalState =
   | { type: "biddingTable"; blockId: string | null }
   | { type: "image"; blockId: string | null }
   | { type: "video"; blockId: string | null }
+  | { type: "parseText" }
   | null;
 
 function newId() {
@@ -84,6 +89,8 @@ function BlockSummary({ block }: { block: ContentBlock }) {
       return (
         <div className="text-xs font-sans text-stone-500">
           Bidding ({block.data.bids.length} bids) — Dealer: {block.data.dealer}
+          {block.data.label && ` — ${block.data.label}`}
+          {block.data.seats && ` (${block.data.seats.join("/")})`}
         </div>
       );
     case "image":
@@ -98,13 +105,157 @@ function BlockSummary({ block }: { block: ContentBlock }) {
           Video: {block.data.url || "(no URL)"}
         </div>
       );
+    case "mscResults":
+      return (
+        <div className="text-xs font-sans text-stone-500">
+          MSC Results ({block.data.results.length} entries)
+        </div>
+      );
     default:
       return null;
   }
 }
 
-export default function BlockList({ blocks, onChange }: BlockListProps) {
+// ── Solution block editor ─────────────────────────────────────────────────
+
+function SolutionEditor({
+  block,
+  onUpdate,
+  onUnwrap,
+}: {
+  block: SolutionBlock;
+  onUpdate: (updated: SolutionBlock) => void;
+  onUnwrap: () => void;
+}) {
+  return (
+    <div className="border-2 border-violet-300 rounded-sm bg-violet-50/30">
+      {/* Solution header */}
+      <div className="flex items-center gap-2 px-3 py-2 bg-violet-100/50 border-b border-violet-200">
+        <span className="text-xs font-sans font-semibold uppercase tracking-wider text-violet-500">
+          Solution
+        </span>
+        <input
+          type="text"
+          value={block.data.label}
+          onChange={(e) =>
+            onUpdate({
+              ...block,
+              data: { ...block.data, label: e.target.value },
+            })
+          }
+          placeholder="Solution label (e.g. Solution to Problem A)"
+          className="flex-1 text-xs font-sans text-violet-800 bg-white/60 border border-violet-200 rounded px-2 py-1 placeholder:text-violet-300 focus:outline-none focus:border-violet-400"
+        />
+        <button
+          onClick={onUnwrap}
+          title="Unwrap: extract inner blocks to top level"
+          className="text-xs font-sans text-violet-600 border border-violet-300 px-2 py-1 rounded hover:bg-violet-100 transition-colors"
+        >
+          Unwrap
+        </button>
+      </div>
+      {/* Nested blocks */}
+      <div className="p-3">
+        <BlockList
+          nested
+          blocks={block.data.blocks}
+          onChange={(innerBlocks) =>
+            onUpdate({
+              ...block,
+              data: { ...block.data, blocks: innerBlocks },
+            })
+          }
+        />
+      </div>
+    </div>
+  );
+}
+
+// ── Main component ────────────────────────────────────────────────────────
+
+export default function BlockList({ blocks, onChange, nested }: BlockListProps) {
   const [modal, setModal] = useState<ModalState>(null);
+  const [selected, setSelected] = useState<Set<number>>(new Set());
+  const [lastClicked, setLastClicked] = useState<number | null>(null);
+
+  // Clear selection when blocks change structurally (length or order)
+  const blockIds = blocks.map((b) => b.id).join(",");
+  useEffect(() => {
+    setSelected(new Set());
+    setLastClicked(null);
+  }, [blockIds]);
+
+  function toggleSelect(index: number, shiftKey: boolean) {
+    setSelected((prev) => {
+      const next = new Set(prev);
+      if (shiftKey && lastClicked !== null) {
+        // Range select
+        const from = Math.min(lastClicked, index);
+        const to = Math.max(lastClicked, index);
+        for (let i = from; i <= to; i++) next.add(i);
+      } else {
+        if (next.has(index)) next.delete(index);
+        else next.add(index);
+      }
+      return next;
+    });
+    setLastClicked(index);
+  }
+
+  // Check if selected indices are consecutive
+  const selectedIndices = Array.from(selected).sort((a, b) => a - b);
+  const isConsecutive =
+    selectedIndices.length > 0 &&
+    selectedIndices.every((v, i) => i === 0 || v === selectedIndices[i - 1] + 1);
+  // Don't allow wrapping SolutionBlocks
+  const selectionHasSolution = selectedIndices.some(
+    (i) => blocks[i]?.type === "solution"
+  );
+  const canWrap = isConsecutive && !selectionHasSolution && selectedIndices.length > 0;
+
+  function wrapInSolution() {
+    if (!canWrap) return;
+    const first = selectedIndices[0];
+    const last = selectedIndices[selectedIndices.length - 1];
+    const innerBlocks = blocks.slice(first, last + 1);
+
+    // Try to derive a label from the first text block
+    const firstText = innerBlocks.find((b) => b.type === "text");
+    const labelMatch =
+      firstText?.type === "text"
+        ? firstText.data.text.match(/\*\*(.+?)\*\*/)?.[1]
+        : null;
+    const label = labelMatch || "Solution";
+
+    const solBlock: SolutionBlock = {
+      id: newId(),
+      type: "solution",
+      data: { label, blocks: innerBlocks },
+    };
+
+    const newBlocks = [
+      ...blocks.slice(0, first),
+      solBlock,
+      ...blocks.slice(last + 1),
+    ];
+    onChange(newBlocks);
+    setSelected(new Set());
+  }
+
+  const unwrapSolution = useCallback(
+    (index: number) => {
+      const block = blocks[index];
+      if (block.type !== "solution") return;
+      const innerBlocks = block.data.blocks;
+      const newBlocks = [
+        ...blocks.slice(0, index),
+        ...innerBlocks,
+        ...blocks.slice(index + 1),
+      ];
+      onChange(newBlocks);
+    },
+    [blocks, onChange],
+  );
 
   function moveUp(index: number) {
     if (index === 0) return;
@@ -154,7 +305,7 @@ export default function BlockList({ blocks, onChange }: BlockListProps) {
 
   // When modal saves for a new block, add it
   function handleModalSave(data: unknown, auctionData?: BiddingTableBlock["data"], commentaryText?: string) {
-    if (!modal) return;
+    if (!modal || modal.type === "parseText") return;
     const id = newId();
     if (modal.blockId !== null) {
       // Editing existing block — just update in-place; commentary/auction already handled on creation
@@ -215,80 +366,171 @@ export default function BlockList({ blocks, onChange }: BlockListProps) {
   }
 
   function openEditModal(block: ContentBlock) {
-    if (block.type === "text") return; // text blocks are inline edited
-    setModal({ type: block.type as Exclude<ContentBlock["type"], "text" | "playHand"> | "playHand", blockId: block.id });
+    if (block.type === "text" || block.type === "mscResults" || block.type === "solution") return;
+    setModal({ type: block.type as Exclude<ContentBlock["type"], "text" | "playHand" | "mscResults" | "solution"> | "playHand", blockId: block.id });
   }
 
   // Get initial data for modal when editing
-  const editingBlock = modal?.blockId
-    ? blocks.find((b) => b.id === modal.blockId)
-    : null;
+  const editingBlock =
+    modal && modal.type !== "parseText" && modal.blockId
+      ? blocks.find((b) => b.id === modal.blockId)
+      : null;
 
   return (
     <div className="space-y-3">
-      {blocks.map((block, index) => (
-        <div
-          key={block.id}
-          className="group relative border border-stone-200 rounded-sm bg-white"
-        >
-          {/* Controls */}
-          <div className="flex items-center gap-1 px-3 py-2 border-b border-stone-100 bg-stone-50">
-            <span className="text-xs font-sans font-semibold uppercase tracking-wider text-stone-400 flex-1">
-              {block.type === "bridgeHand"
-                ? "Bridge Hand"
-                : block.type === "playHand"
-                ? "Play Hand"
-                : block.type === "biddingTable"
-                ? "Bidding Table"
-                : block.type.charAt(0).toUpperCase() + block.type.slice(1)}
+      {/* Selection toolbar */}
+      {!nested && selected.size > 0 && (
+        <div className="flex items-center gap-3 bg-violet-50 border border-violet-200 rounded-sm px-4 py-2">
+          <span className="font-sans text-xs text-violet-600">
+            {selected.size} block{selected.size !== 1 ? "s" : ""} selected
+          </span>
+          {canWrap && (
+            <button
+              onClick={wrapInSolution}
+              className="font-sans text-xs font-medium text-violet-700 border border-violet-300 bg-white px-3 py-1 rounded hover:bg-violet-50 transition-colors"
+            >
+              Wrap in Solution
+            </button>
+          )}
+          {!isConsecutive && selected.size > 1 && (
+            <span className="font-sans text-xs text-amber-600">
+              Selection must be consecutive
             </span>
-            <button
-              onClick={() => moveUp(index)}
-              disabled={index === 0}
-              title="Move up"
-              className="text-stone-400 hover:text-stone-700 transition-colors disabled:opacity-30 px-1 text-sm"
-            >
-              ↑
-            </button>
-            <button
-              onClick={() => moveDown(index)}
-              disabled={index === blocks.length - 1}
-              title="Move down"
-              className="text-stone-400 hover:text-stone-700 transition-colors disabled:opacity-30 px-1 text-sm"
-            >
-              ↓
-            </button>
-            {block.type !== "text" && (
-              <button
-                onClick={() => openEditModal(block)}
-                title="Edit"
-                className="text-stone-400 hover:text-blue-600 transition-colors px-1 text-xs font-sans"
-              >
-                Edit
-              </button>
-            )}
-            <button
-              onClick={() => deleteBlock(index)}
-              title="Delete"
-              className="text-stone-400 hover:text-red-600 transition-colors px-1 text-sm"
-            >
-              ×
-            </button>
-          </div>
+          )}
+          {selectionHasSolution && (
+            <span className="font-sans text-xs text-amber-600">
+              Cannot nest solutions
+            </span>
+          )}
+          <button
+            onClick={() => setSelected(new Set())}
+            className="ml-auto font-sans text-xs text-stone-400 hover:text-stone-600 transition-colors"
+          >
+            Clear
+          </button>
+        </div>
+      )}
 
-          {/* Block content */}
-          <div className="p-3">
-            {block.type === "text" ? (
-              <TextBlockEditor
+      {blocks.map((block, index) => (
+        <div key={block.id}>
+          {block.type === "solution" ? (
+            /* Solution blocks get special rendering */
+            <div>
+              <div className="flex items-center gap-1 mb-1">
+                {!nested && (
+                  <input
+                    type="checkbox"
+                    checked={selected.has(index)}
+                    onChange={(e) => toggleSelect(index, e.nativeEvent instanceof MouseEvent && (e.nativeEvent as MouseEvent).shiftKey)}
+                    className="w-3.5 h-3.5 accent-violet-600 cursor-pointer mr-1"
+                  />
+                )}
+                <span className="font-mono text-xs text-stone-300 mr-1">#{index + 1}</span>
+                <span className="flex-1" />
+                <button
+                  onClick={() => moveUp(index)}
+                  disabled={index === 0}
+                  title="Move up"
+                  className="text-stone-400 hover:text-stone-700 transition-colors disabled:opacity-30 px-1 text-sm"
+                >
+                  ↑
+                </button>
+                <button
+                  onClick={() => moveDown(index)}
+                  disabled={index === blocks.length - 1}
+                  title="Move down"
+                  className="text-stone-400 hover:text-stone-700 transition-colors disabled:opacity-30 px-1 text-sm"
+                >
+                  ↓
+                </button>
+                <button
+                  onClick={() => deleteBlock(index)}
+                  title="Delete"
+                  className="text-stone-400 hover:text-red-600 transition-colors px-1 text-sm"
+                >
+                  ×
+                </button>
+              </div>
+              <SolutionEditor
                 block={block}
-                onChange={(text) =>
-                  updateBlock(index, { ...block, data: { text } })
-                }
+                onUpdate={(updated) => updateBlock(index, updated)}
+                onUnwrap={() => unwrapSolution(index)}
               />
-            ) : (
-              <BlockSummary block={block} />
-            )}
-          </div>
+            </div>
+          ) : (
+            /* Normal blocks */
+            <div className={`group relative border rounded-sm bg-white ${selected.has(index) ? "border-violet-400 ring-1 ring-violet-200" : "border-stone-200"}`}>
+              {/* Controls */}
+              <div className="flex items-center gap-1 px-3 py-2 border-b border-stone-100 bg-stone-50">
+                {!nested && (
+                  <input
+                    type="checkbox"
+                    checked={selected.has(index)}
+                    onChange={(e) => toggleSelect(index, e.nativeEvent instanceof MouseEvent && (e.nativeEvent as MouseEvent).shiftKey)}
+                    className="w-3.5 h-3.5 accent-violet-600 cursor-pointer mr-1"
+                  />
+                )}
+                <span className="font-mono text-xs text-stone-300 mr-1">#{index + 1}</span>
+                <span className="text-xs font-sans font-semibold uppercase tracking-wider text-stone-400 flex-1">
+                  {block.type === "bridgeHand"
+                    ? "Bridge Hand"
+                    : block.type === "playHand"
+                    ? "Play Hand"
+                    : block.type === "biddingTable"
+                    ? "Bidding Table"
+                    : block.type === "mscResults"
+                    ? "MSC Results"
+                    : block.type.charAt(0).toUpperCase() + block.type.slice(1)}
+                </span>
+                <button
+                  onClick={() => moveUp(index)}
+                  disabled={index === 0}
+                  title="Move up"
+                  className="text-stone-400 hover:text-stone-700 transition-colors disabled:opacity-30 px-1 text-sm"
+                >
+                  ↑
+                </button>
+                <button
+                  onClick={() => moveDown(index)}
+                  disabled={index === blocks.length - 1}
+                  title="Move down"
+                  className="text-stone-400 hover:text-stone-700 transition-colors disabled:opacity-30 px-1 text-sm"
+                >
+                  ↓
+                </button>
+                {block.type !== "text" && block.type !== "mscResults" && (
+                  <button
+                    onClick={() => openEditModal(block)}
+                    title="Edit"
+                    className="text-stone-400 hover:text-blue-600 transition-colors px-1 text-xs font-sans"
+                  >
+                    Edit
+                  </button>
+                )}
+                <button
+                  onClick={() => deleteBlock(index)}
+                  title="Delete"
+                  className="text-stone-400 hover:text-red-600 transition-colors px-1 text-sm"
+                >
+                  ×
+                </button>
+              </div>
+
+              {/* Block content */}
+              <div className="p-3">
+                {block.type === "text" ? (
+                  <TextBlockEditor
+                    block={block}
+                    onChange={(text) =>
+                      updateBlock(index, { ...block, data: { text } })
+                    }
+                  />
+                ) : (
+                  <BlockSummary block={block} />
+                )}
+              </div>
+            </div>
+          )}
         </div>
       ))}
 
@@ -321,6 +563,12 @@ export default function BlockList({ blocks, onChange }: BlockListProps) {
             + {label}
           </button>
         ))}
+        <button
+          onClick={() => setModal({ type: "parseText" })}
+          className="font-sans text-xs border border-stone-400 text-stone-700 bg-stone-50 px-3 py-1.5 rounded hover:bg-stone-100 hover:border-stone-500 transition-colors ml-2"
+        >
+          Parse Text
+        </button>
       </div>
 
       {/* Modals */}
@@ -369,6 +617,12 @@ export default function BlockList({ blocks, onChange }: BlockListProps) {
               : undefined
           }
           onSave={handleModalSave}
+          onClose={() => setModal(null)}
+        />
+      )}
+      {modal?.type === "parseText" && (
+        <ParseTextModal
+          onInsert={(newBlocks) => onChange([...blocks, ...newBlocks])}
           onClose={() => setModal(null)}
         />
       )}

@@ -1,59 +1,67 @@
 import { currentUser } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import type { Metadata } from "next";
+import Link from "next/link";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import ProfileEditor from "./ProfileEditor";
+import { getOrCreateProfile } from "@/lib/subscription";
 
 export const metadata: Metadata = { title: "My Profile" };
 
 export default async function ProfilePage() {
   const user = await currentUser();
-
-  // Middleware already protects this route, but guard defensively
   if (!user) redirect("/sign-in");
 
-  const displayName =
+  const profile = await getOrCreateProfile(user.id);
+
+  const clerkName =
     [user.firstName, user.lastName].filter(Boolean).join(" ") ||
     user.emailAddresses[0]?.emailAddress ||
     "Member";
 
-  const initials = [user.firstName?.[0], user.lastName?.[0]]
+  const clerkInitials = [user.firstName?.[0], user.lastName?.[0]]
     .filter(Boolean)
     .join("")
     .toUpperCase() || "?";
+
+  const tierLabels: Record<string, string> = {
+    free: "Free Plan",
+    paid: "Paid Plan",
+    premium: "Premium Plan",
+  };
+
+  const tierDescriptions: Record<string, string> = {
+    free: "Access to selected free articles.",
+    paid: "Full access to the current archive.",
+    premium: "Everything, including interactive hands and special features.",
+  };
 
   return (
     <>
       <Header />
       <main className="max-w-3xl mx-auto px-4 py-12">
 
-        {/* Profile header */}
-        <div className="flex items-center gap-5 mb-10 pb-10 border-b border-stone-200">
-          {user.imageUrl ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              src={user.imageUrl}
-              alt={displayName}
-              className="w-16 h-16 rounded-full object-cover bg-stone-200"
-            />
-          ) : (
-            <div className="w-16 h-16 rounded-full bg-stone-800 text-white flex items-center justify-center font-serif text-xl font-bold">
-              {initials}
-            </div>
-          )}
-          <div>
-            <h1 className="font-serif text-3xl font-bold text-stone-900">{displayName}</h1>
-            <p className="font-sans text-sm text-stone-400 mt-0.5">
-              {user.emailAddresses[0]?.emailAddress}
-            </p>
-            <p className="font-sans text-xs uppercase tracking-wide text-stone-400 mt-1">
-              Member since {new Date(user.createdAt!).toLocaleDateString("en-US", { month: "long", year: "numeric" })}
-            </p>
-          </div>
-        </div>
+        <ProfileEditor
+          profile={profile}
+          clerkName={clerkName}
+          clerkImageUrl={user.imageUrl ?? null}
+          clerkInitials={clerkInitials}
+          isAdmin={profile.is_admin}
+        />
 
         {/* Sections */}
         <div className="space-y-8">
+
+          {/* Public profile link */}
+          <section>
+            <Link
+              href={`/profile/${user.id}`}
+              className="inline-block font-sans text-sm text-stone-600 hover:text-stone-900 transition-colors"
+            >
+              View public profile →
+            </Link>
+          </section>
 
           {/* Subscription */}
           <section>
@@ -64,14 +72,18 @@ export default async function ProfilePage() {
             </div>
             <div className="bg-white border border-stone-200 rounded-sm p-5 flex items-center justify-between">
               <div>
-                <p className="font-serif text-base font-semibold text-stone-900">Free Plan</p>
+                <p className="font-serif text-base font-semibold text-stone-900">
+                  {tierLabels[profile.tier] ?? "Free Plan"}
+                </p>
                 <p className="font-sans text-sm text-stone-400 mt-0.5">
-                  Access to selected free articles.
+                  {tierDescriptions[profile.tier] ?? tierDescriptions.free}
                 </p>
               </div>
-              <button className="font-sans text-xs uppercase tracking-wider bg-stone-900 text-white px-4 py-2 hover:bg-stone-700 transition-colors">
-                Upgrade
-              </button>
+              {profile.tier === "free" && (
+                <button className="font-sans text-xs uppercase tracking-wider bg-stone-900 text-white px-4 py-2 hover:bg-stone-700 transition-colors">
+                  Upgrade
+                </button>
+              )}
             </div>
           </section>
 

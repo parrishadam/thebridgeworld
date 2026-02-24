@@ -1,0 +1,359 @@
+{
+  "title": "Improve Your Play",
+  "slug": "improve-your-play",
+  "author_name": "",
+  "category": "Improve Your Play",
+  "tags": [
+    "April 2025",
+    "card play"
+  ],
+  "source_page": 7,
+  "excerpt": "Card play problems designed to improve declarer technique.",
+  "status": "draft",
+  "content_blocks": [
+    {
+      "id": "b185",
+      "type": "text",
+      "data": {
+        "text": "**IMPROVE YOUR PLAY**"
+      }
+    },
+    {
+      "id": "b186",
+      "type": "text",
+      "data": {
+        "text": "**Problem A**\n\nImps; North dealer\nNeither side vulnerable"
+      }
+    },
+    {
+      "id": "b187",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "Q974",
+            "H": "T62",
+            "D": "KJT",
+            "C": "AQJ"
+          },
+          "south": {
+            "S": "AKT632",
+            "H": "KQJ",
+            "D": "42",
+            "C": "83"
+          },
+          "east": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "west": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": false,
+          "west": false
+        },
+        "dealer": "North",
+        "vulnerability": "None",
+        "contract": "4S",
+        "lead": "S5",
+        "title": ""
+      }
+    },
+    {
+      "id": "b188",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "North",
+        "bids": [
+          {
+            "text": "1C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {}
+      }
+    },
+    {
+      "id": "b189",
+      "type": "text",
+      "data": {
+        "text": "West leads the spade five.\n\n**Plan the play.**"
+      }
+    },
+    {
+      "id": "sol-a",
+      "type": "solution",
+      "data": {
+        "label": "Solution A",
+        "blocks": [
+          {
+            "id": "b190",
+            "type": "text",
+            "data": {
+              "text": "**Solution A**"
+            }
+          },
+          {
+            "id": "b191",
+            "type": "bridgeHand",
+            "data": {
+              "hands": {
+                "north": {
+                  "S": "Q974",
+                  "H": "T62",
+                  "D": "KJT",
+                  "C": "AQJ"
+                },
+                "south": {
+                  "S": "AKT632",
+                  "H": "KQJ",
+                  "D": "42",
+                  "C": "83"
+                },
+                "east": {
+                  "S": "J",
+                  "H": "8543",
+                  "D": "AQ76",
+                  "C": "KT92"
+                },
+                "west": {
+                  "S": "85",
+                  "H": "A97",
+                  "D": "9853",
+                  "C": "7654"
+                }
+              },
+              "visibleHands": {
+                "north": true,
+                "south": true,
+                "east": true,
+                "west": true
+              },
+              "dealer": "North",
+              "vulnerability": "None",
+              "contract": "4S",
+              "lead": "S5",
+              "title": ""
+            }
+          },
+          {
+            "id": "b192",
+            "type": "text",
+            "data": {
+              "text": "Contract: Four spades by South\nOpening lead: Spade five\n\nDraw trumps and knock out the ace of hearts. When back on lead, if no minor has been played, guess one and finesse into East, ensuring the contract. If you were to lead a minor before hearts, the defense might win the trick, cross to West with the ace of hearts, and lead the other minor."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "b193",
+      "type": "text",
+      "data": {
+        "text": "**Problem B**\n\nImps; East dealer\nBoth sides vulnerable"
+      }
+    },
+    {
+      "id": "b194",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "Q75",
+            "H": "8642",
+            "D": "Q9",
+            "C": "AKT8"
+          },
+          "south": {
+            "S": "KJT",
+            "H": "AQ",
+            "D": "KJ652",
+            "C": "QJ9"
+          },
+          "east": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "west": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": false,
+          "west": false
+        },
+        "dealer": "East",
+        "vulnerability": "All",
+        "contract": "3NT",
+        "lead": "H7",
+        "title": ""
+      }
+    },
+    {
+      "id": "b195",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "East",
+        "bids": [
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "1NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {}
+      }
+    },
+    {
+      "id": "b196",
+      "type": "text",
+      "data": {
+        "text": "Heart seven, deuce, king, ?\n\n**Plan the play.**\n\n(Solutions on page 73.)"
+      }
+    },
+    {
+      "id": "sol-b",
+      "type": "solution",
+      "data": {
+        "label": "Solution B",
+        "blocks": [
+          {
+            "id": "b197",
+            "type": "text",
+            "data": {
+              "text": "**Solution B**"
+            }
+          },
+          {
+            "id": "b198",
+            "type": "bridgeHand",
+            "data": {
+              "hands": {
+                "north": {
+                  "S": "Q75",
+                  "H": "8642",
+                  "D": "Q9",
+                  "C": "AKT8"
+                },
+                "south": {
+                  "S": "KJT",
+                  "H": "AQ",
+                  "D": "KJ652",
+                  "C": "QJ9"
+                },
+                "east": {
+                  "S": "A9",
+                  "H": "KJT95",
+                  "D": "AT84",
+                  "C": "64"
+                },
+                "west": {
+                  "S": "86432",
+                  "H": "73",
+                  "D": "73",
+                  "C": "7532"
+                }
+              },
+              "visibleHands": {
+                "north": true,
+                "south": true,
+                "east": true,
+                "west": true
+              },
+              "dealer": "East",
+              "vulnerability": "All",
+              "contract": "3NT",
+              "lead": "H7",
+              "title": ""
+            }
+          },
+          {
+            "id": "b199",
+            "type": "text",
+            "data": {
+              "text": "Contract: Three notrump by South\nOpening lead: Heart seven\n\nEast is marked with two aces, so win trick one, play a club to dummy, and lead the nine of diamonds toward South's holding. If East ducks, win and drive out the ace of spades. If East takes the diamond and (say) clears hearts, unblock diamonds, cross to the South hand in clubs, and continue diamonds."
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "warnings": []
+}

@@ -24,7 +24,7 @@ export default async function MyArticlesPage() {
   const { data, count } = await getSupabaseAdmin()
     .from("articles")
     .select("*", { count: "exact" })
-    .eq("author_id", userId)
+    .contains("author_ids", [userId])
     .order("created_at", { ascending: false })
     .range(0, PAGE_SIZE - 1);
 

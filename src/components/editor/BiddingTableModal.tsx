@@ -40,7 +40,7 @@ function getBidRank(bidText: string): number {
 
 /** True when the stored bid text is a red-suit call (H or D). */
 function isBidRed(text: string): boolean {
-  if (text === "Pass" || text === "Dbl" || text === "Rdbl") return false;
+  if (text === "Pass" || text === "Dbl" || text === "Rdbl" || text === "?") return false;
   const denom = text.slice(1); // strip the level digit
   return denom === "H" || denom === "D";
 }
@@ -92,6 +92,16 @@ function computeAuctionState(
     // Seat index 0-3 (W=0 N=1 E=2 S=3); team: even=EW, odd=NS
     const seatIndex = (dealerOffset + i) % 4;
     const team = seatIndex % 2; // 0=EW, 1=NS
+
+    // "?" ends the auction immediately (bidding problem marker)
+    if (text === "?") {
+      return {
+        lastContractBidRank, lastContractBidText, lastContractBidTeam,
+        doubleState, doublingTeam, contractBidMade,
+        isOver: true,
+        finalContract: "?",
+      };
+    }
 
     if (text === "Pass") {
       consecutivePasses++;
@@ -285,6 +295,11 @@ export default function BiddingTableModal({
 
   function removeLastBid() {
     setBids((prev) => prev.slice(0, -1));
+    setEditingAlert(null);
+  }
+
+  function addQuestionMark() {
+    setBids((prev) => [...prev, { text: "?", alert: null }]);
     setEditingAlert(null);
   }
 
@@ -489,7 +504,7 @@ export default function BiddingTableModal({
               Add Bid
             </p>
 
-            {/* Pass / Dbl / Rdbl row */}
+            {/* Pass / Dbl / Rdbl / ? row */}
             <div className="flex gap-2 mb-3">
               {(["Pass", "Dbl", "Rdbl"] as const).map((call) => {
                 const ok = legal(call);
@@ -509,6 +524,18 @@ export default function BiddingTableModal({
                   </button>
                 );
               })}
+              <button
+                onClick={addQuestionMark}
+                disabled={auctionState.isOver}
+                title="End auction with ? (for bidding problems)"
+                className={`font-mono text-sm border px-3 py-1.5 rounded transition-colors ${
+                  !auctionState.isOver
+                    ? "border-amber-300 text-amber-700 hover:bg-amber-50"
+                    : "border-stone-100 text-stone-300 cursor-not-allowed bg-white"
+                }`}
+              >
+                ?
+              </button>
               <button
                 onClick={removeLastBid}
                 disabled={bids.length === 0}

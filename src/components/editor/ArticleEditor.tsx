@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import { useRouter } from "next/navigation";
-import type { ContentBlock, SupabaseArticle, Category } from "@/types";
+import type { ContentBlock, SupabaseArticle, Category, ArticleLevel } from "@/types";
 import BlockList from "./BlockList";
 import TagPicker from "./TagPicker";
 import SupabaseArticleRenderer from "@/components/articles/SupabaseArticleRenderer";
@@ -25,9 +25,11 @@ interface EditorMeta {
   slug:              string;
   authorName:        string;
   authorId:          string;
+  authorIds:         string[];
   category:          string;
   tags:              string[];
   accessTier:        "free" | "paid" | "premium";
+  level:             ArticleLevel | "";
   excerpt:           string;
   status:            ArticleStatus;
   featuredImageUrl:  string;
@@ -44,6 +46,11 @@ function slugify(str: string): string {
     .replace(/^-|-$/g, "");
 }
 
+/** Extract last word of a name for sorting: "Edwin B. Kantar" → "kantar" */
+function lastNameOf(name: string): string {
+  const parts = name.trim().split(/\s+/);
+  return (parts[parts.length - 1] ?? "").toLowerCase();
+}
 
 // ── Component ──────────────────────────────────────────────────────────────
 
@@ -59,9 +66,11 @@ export default function ArticleEditor({
     slug:             article?.slug ?? "",
     authorName:       article?.author_name ?? currentUser.name,
     authorId:         article?.author_id ?? currentUser.id,
+    authorIds:        article?.author_ids ?? (article?.author_id ? [article.author_id] : [currentUser.id]),
     category:         article?.category ?? "",
     tags:             article?.tags ?? [],
     accessTier:       article?.access_tier ?? (isAdmin ? "free" : "paid"),
+    level:            article?.level ?? "",
     excerpt:          article?.excerpt ?? "",
     status:           article?.status ?? "draft",
     featuredImageUrl: article?.featured_image_url ?? "",
@@ -141,10 +150,12 @@ export default function ArticleEditor({
       title:              meta.title,
       slug:               meta.slug,
       author_name:        meta.authorName || null,
-      author_id:          meta.authorId,
+      author_id:          meta.authorIds[0] || meta.authorId || null,
+      author_ids:         meta.authorIds.length > 0 ? meta.authorIds : null,
       category:           meta.category || null,
       tags:               meta.tags,
       access_tier:        meta.accessTier,
+      level:              meta.level || null,
       excerpt:            meta.excerpt || null,
       status:             meta.status,
       content_blocks:     blocks,
@@ -177,6 +188,11 @@ export default function ArticleEditor({
         setArticleId(data.id);
         // Update URL without full navigation
         window.history.replaceState({}, "", `/editor/${data.id}`);
+      }
+
+      // Sync featured image URL — server may have cleared it on author change
+      if (articleId && data.featured_image_url !== undefined) {
+        setMeta((prev) => ({ ...prev, featuredImageUrl: data.featured_image_url ?? "" }));
       }
 
       setIsDirty(false);
@@ -325,32 +341,90 @@ export default function ArticleEditor({
               />
             </div>
 
-            {/* Author */}
+            {/* Authors */}
             <div>
-              <label className="block text-xs font-sans text-stone-500 mb-1">Author</label>
+              <label className="block text-xs font-sans text-stone-500 mb-1">
+                {meta.authorIds.length > 1 ? "Authors" : "Author"}
+              </label>
               {isAdmin && authorList && authorList.length > 0 ? (
-                <select
-                  value={meta.authorId}
-                  onChange={(e) => {
-                    const chosen = authorList.find((a) => a.id === e.target.value);
-                    if (chosen) {
+                <div className="space-y-2">
+                  {/* Current authors list */}
+                  {meta.authorIds.length > 0 && (
+                    <div className="space-y-1">
+                      {meta.authorIds.map((aid) => {
+                        const author = authorList.find((a) => a.id === aid);
+                        const label = author
+                          ? `${author.name} ${author.isLegacy ? "(Archive)" : `(${author.email})`}`
+                          : aid;
+                        return (
+                          <div
+                            key={aid}
+                            className="flex items-center justify-between bg-stone-50 border border-stone-200 rounded px-2 py-1"
+                          >
+                            <span className="text-xs font-sans text-stone-700 truncate">
+                              {label}
+                            </span>
+                            <button
+                              onClick={() => {
+                                const next = meta.authorIds.filter((id) => id !== aid);
+                                const names = next
+                                  .map((id) => authorList.find((a) => a.id === id)?.name)
+                                  .filter(Boolean)
+                                  .join(" and ");
+                                setMeta((prev) => ({
+                                  ...prev,
+                                  authorIds:  next,
+                                  authorId:   next[0] ?? "",
+                                  authorName: names,
+                                }));
+                                setIsDirty(true);
+                                setSaveStatus("idle");
+                              }}
+                              className="text-stone-400 hover:text-red-500 transition-colors text-xs ml-2 shrink-0"
+                              title="Remove author"
+                            >
+                              ×
+                            </button>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  )}
+                  {/* Add author dropdown */}
+                  <select
+                    value=""
+                    onChange={(e) => {
+                      const chosen = authorList.find((a) => a.id === e.target.value);
+                      if (!chosen || meta.authorIds.includes(chosen.id)) return;
+                      const next = [...meta.authorIds, chosen.id];
+                      const names = next
+                        .map((id) => authorList.find((a) => a.id === id)?.name)
+                        .filter(Boolean)
+                        .join(" and ");
                       setMeta((prev) => ({
                         ...prev,
-                        authorId:   chosen.id,
-                        authorName: chosen.name,
+                        authorIds:  next,
+                        authorId:   next[0],
+                        authorName: names,
                       }));
                       setIsDirty(true);
                       setSaveStatus("idle");
-                    }
-                  }}
-                  className="w-full border border-stone-200 rounded px-2 py-1.5 text-xs font-sans text-stone-700 focus:outline-none focus:ring-1 focus:ring-stone-400"
-                >
-                  {authorList.map((a) => (
-                    <option key={a.id} value={a.id}>
-                      {a.name} {a.isLegacy ? "(Archive)" : `(${a.email})`}
+                    }}
+                    className="w-full border border-stone-200 rounded px-2 py-1.5 text-xs font-sans text-stone-700 focus:outline-none focus:ring-1 focus:ring-stone-400"
+                  >
+                    <option value="">
+                      {meta.authorIds.length === 0 ? "— Select author —" : "+ Add another author"}
                     </option>
-                  ))}
-                </select>
+                    {authorList
+                      .filter((a) => !meta.authorIds.includes(a.id))
+                      .sort((a, b) => lastNameOf(a.name).localeCompare(lastNameOf(b.name)))
+                      .map((a) => (
+                        <option key={a.id} value={a.id}>
+                          {a.name} {a.isLegacy ? "(Archive)" : `(${a.email})`}
+                        </option>
+                      ))}
+                  </select>
+                </div>
               ) : (
                 <p className="text-xs font-sans text-stone-700 py-1">{currentUser.name}</p>
               )}
@@ -411,6 +485,22 @@ export default function ArticleEditor({
                 </div>
               </div>
             )}
+
+            {/* Level */}
+            <div>
+              <label className="block text-xs font-sans text-stone-500 mb-1">Level</label>
+              <select
+                value={meta.level}
+                onChange={(e) => updateMeta("level", e.target.value as ArticleLevel | "")}
+                className="w-full border border-stone-200 rounded px-2 py-1.5 text-xs font-sans text-stone-700 focus:outline-none focus:ring-1 focus:ring-stone-400"
+              >
+                <option value="">— None —</option>
+                <option value="beginner">Beginner</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="advanced">Advanced</option>
+                <option value="expert">Expert</option>
+              </select>
+            </div>
 
             {/* Featured image */}
             <div>

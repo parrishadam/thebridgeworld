@@ -1,0 +1,290 @@
+{
+  "title": "Test Your Play",
+  "slug": "test-your-play",
+  "author_name": "",
+  "category": "Test Your Play",
+  "tags": [
+    "January 1998",
+    "card play"
+  ],
+  "source_page": 9,
+  "excerpt": "Card play problems to test your declarer play skills.",
+  "status": "draft",
+  "content_blocks": [
+    {
+      "id": "b52",
+      "type": "text",
+      "data": {
+        "text": "**Test Your Play**\n\nProblem A"
+      }
+    },
+    {
+      "id": "b53",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "8642",
+            "H": "AKT6",
+            "D": "T543",
+            "C": "T"
+          },
+          "south": {
+            "S": "AKQJ5",
+            "H": "Q9",
+            "D": "AKJ",
+            "C": "J94"
+          },
+          "east": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "west": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": false,
+          "west": false
+        },
+        "dealer": "",
+        "vulnerability": "North-South vulnerable",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b54",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "North",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {}
+      }
+    },
+    {
+      "id": "b55",
+      "type": "text",
+      "data": {
+        "text": "West leads the heart king.\n\nPlan the play."
+      }
+    },
+    {
+      "id": "b56",
+      "type": "text",
+      "data": {
+        "text": "**Solution A**\n\n(Solutions on page 58.)"
+      }
+    },
+    {
+      "id": "b57",
+      "type": "text",
+      "data": {
+        "text": "Problem B"
+      }
+    },
+    {
+      "id": "b58",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "AKT8",
+            "H": "AT",
+            "D": "AKQJ8753",
+            "C": ""
+          },
+          "south": {
+            "S": "J864",
+            "H": "KQJ8753",
+            "D": "3",
+            "C": "K"
+          },
+          "east": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "west": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": false,
+          "west": false
+        },
+        "dealer": "",
+        "vulnerability": "East-West vulnerable",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b59",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "North",
+        "bids": [
+          {
+            "text": "1D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "5H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "6D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Double",
+            "alert": null
+          },
+          {
+            "text": "6NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {}
+      }
+    },
+    {
+      "id": "b60",
+      "type": "text",
+      "data": {
+        "text": "West leads the heart king.\n\nPlan the play.\n\n*minors\n\n**JANUARY 1998**"
+      }
+    }
+  ],
+  "warnings": [
+    "Block 6 (bridgeHand): north has 14 cards (expected 13)",
+    "Block 7 (biddingTable): Invalid bids: Double"
+  ]
+}

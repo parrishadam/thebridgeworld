@@ -1,0 +1,394 @@
+{
+  "title": "Test Your Play",
+  "slug": "test-your-play",
+  "author_name": "",
+  "category": "Test Your Play",
+  "tags": [
+    "April 2025",
+    "card play"
+  ],
+  "source_page": 3,
+  "excerpt": "Two card play problems where declarer must find the best line of play.",
+  "status": "draft",
+  "content_blocks": [
+    {
+      "id": "b2",
+      "type": "text",
+      "data": {
+        "text": "**TEST YOUR PLAY**"
+      }
+    },
+    {
+      "id": "b3",
+      "type": "text",
+      "data": {
+        "text": "**Problem A**\n\nRubber bridge\nEast dealer\nBoth sides vulnerable"
+      }
+    },
+    {
+      "id": "b4",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "86432",
+            "H": "A83",
+            "D": "K2",
+            "C": "K54"
+          },
+          "south": {
+            "S": "AJT97",
+            "H": "K7",
+            "D": "T98",
+            "C": "A63"
+          },
+          "east": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "west": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": false,
+          "west": false
+        },
+        "dealer": "East",
+        "vulnerability": "All",
+        "contract": "4S",
+        "lead": "HJ",
+        "title": ""
+      }
+    },
+    {
+      "id": "b5",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "East",
+        "bids": [
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "2H",
+            "alert": null
+          },
+          {
+            "text": "4S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {}
+      }
+    },
+    {
+      "id": "b6",
+      "type": "text",
+      "data": {
+        "text": "West leads the heart jack.\n\n**Plan the play.**\n\n*(Solutions on page 74.)*"
+      }
+    },
+    {
+      "id": "sol-a",
+      "type": "solution",
+      "data": {
+        "label": "Solution A",
+        "blocks": [
+          {
+            "id": "b7",
+            "type": "text",
+            "data": {
+              "text": "**Solution A**"
+            }
+          },
+          {
+            "id": "b8",
+            "type": "bridgeHand",
+            "data": {
+              "hands": {
+                "north": {
+                  "S": "86432",
+                  "H": "A83",
+                  "D": "K2",
+                  "C": "K54"
+                },
+                "south": {
+                  "S": "AJT97",
+                  "H": "K7",
+                  "D": "T98",
+                  "C": "A63"
+                },
+                "east": {
+                  "S": "K5",
+                  "H": "Q9652",
+                  "D": "AQ",
+                  "C": "J972"
+                },
+                "west": {
+                  "S": "Q",
+                  "H": "JT4",
+                  "D": "J76543",
+                  "C": "QT8"
+                }
+              },
+              "visibleHands": {
+                "north": true,
+                "south": true,
+                "east": true,
+                "west": true
+              },
+              "dealer": "East",
+              "vulnerability": "All",
+              "contract": "Four spades by South",
+              "lead": "Heart jack",
+              "title": ""
+            }
+          },
+          {
+            "id": "b9",
+            "type": "text",
+            "data": {
+              "text": "If the diamond ace is offside, you hope to endplay East with the second round of trumps. You will need to eliminate clubs before the throw-in, and you want to keep West off lead while you are doing it. Therefore, win trick one with the heart king and play a heart to dummy's eight. If this comes off, later on you will discard a club on the ace of hearts and eliminate clubs, then try to throw East in with a trump. If West inserts the ten or nine of hearts on the second trick, play dummy's ace and continue with the eight, hoping that East has the nine (or that he will play the queen in any case), which will allow you to discard a club under favorable conditions.\n\nIf East wins the third round of hearts and leads a fourth round, and West can win that trick with a spade honor, discard a diamond from dummy and later finesse in spades. Otherwise, proceed with the elimination."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "b10",
+      "type": "text",
+      "data": {
+        "text": "**Problem B**\n\nMatchpoints\nNorth dealer\nNeither side vulnerable"
+      }
+    },
+    {
+      "id": "b11",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "AK3",
+            "H": "2",
+            "D": "A82",
+            "C": "AQT843"
+          },
+          "south": {
+            "S": "72",
+            "H": "KQ8",
+            "D": "KT643",
+            "C": "KJ6"
+          },
+          "east": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "west": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": false,
+          "west": false
+        },
+        "dealer": "North",
+        "vulnerability": "None",
+        "contract": "6NT",
+        "lead": "H7",
+        "title": ""
+      }
+    },
+    {
+      "id": "b12",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "North",
+        "bids": [
+          {
+            "text": "1C",
+            "alert": null
+          },
+          {
+            "text": "3H",
+            "alert": null
+          },
+          {
+            "text": "3NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "6NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {}
+      }
+    },
+    {
+      "id": "b13",
+      "type": "text",
+      "data": {
+        "text": "Heart seven, deuce, nine, king.\nClub king, five, three, deuce.\nClub jack, nine, queen, heart five.\n\n**Plan the play.**"
+      }
+    },
+    {
+      "id": "sol-b",
+      "type": "solution",
+      "data": {
+        "label": "Solution B",
+        "blocks": [
+          {
+            "id": "b14",
+            "type": "text",
+            "data": {
+              "text": "**Solution B**"
+            }
+          },
+          {
+            "id": "b15",
+            "type": "bridgeHand",
+            "data": {
+              "hands": {
+                "north": {
+                  "S": "AK3",
+                  "H": "2",
+                  "D": "A82",
+                  "C": "AQT843"
+                },
+                "south": {
+                  "S": "72",
+                  "H": "KQ8",
+                  "D": "KT643",
+                  "C": "KJ6"
+                },
+                "east": {
+                  "S": "J8",
+                  "H": "AJT9543",
+                  "D": "QJ5",
+                  "C": "2"
+                },
+                "west": {
+                  "S": "QT9654",
+                  "H": "76",
+                  "D": "97",
+                  "C": "975"
+                }
+              },
+              "visibleHands": {
+                "north": true,
+                "south": true,
+                "east": true,
+                "west": true
+              },
+              "dealer": "North",
+              "vulnerability": "None",
+              "contract": "Six notrump by South",
+              "lead": "Heart seven",
+              "title": ""
+            }
+          },
+          {
+            "id": "b16",
+            "type": "text",
+            "data": {
+              "text": "Your main hope is to find East with queen-jack at least tripleton of diamonds, so that he will come under pressure after you win the first trick and run winners to reach this ending:"
+            }
+          },
+          {
+            "id": "b17",
+            "type": "bridgeHand",
+            "data": {
+              "hands": {
+                "north": {
+                  "S": "K6",
+                  "H": "",
+                  "D": "A82",
+                  "C": ""
+                },
+                "south": {
+                  "S": "",
+                  "H": "Q8",
+                  "D": "KT6",
+                  "C": ""
+                },
+                "east": {
+                  "S": "",
+                  "H": "",
+                  "D": "",
+                  "C": ""
+                },
+                "west": {
+                  "S": "",
+                  "H": "",
+                  "D": "",
+                  "C": ""
+                }
+              },
+              "visibleHands": {
+                "north": true,
+                "south": true,
+                "east": false,
+                "west": false
+              },
+              "dealer": "",
+              "vulnerability": "",
+              "contract": "",
+              "lead": "",
+              "title": ""
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "warnings": []
+}

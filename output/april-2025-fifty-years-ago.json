@@ -1,0 +1,123 @@
+{
+  "title": "Fifty Years Ago",
+  "slug": "fifty-years-ago",
+  "author_name": "",
+  "category": "History",
+  "tags": [
+    "April 2025",
+    "history"
+  ],
+  "source_page": 64,
+  "excerpt": "Bridge content from The Bridge World archives fifty years ago.",
+  "status": "draft",
+  "content_blocks": [
+    {
+      "id": "b426",
+      "type": "text",
+      "data": {
+        "text": "**FIFTY YEARS AGO**\n\nIn the April 1975 *Bridge World*, Geza Ottlik's The Way It Is series opened a new branch of investigation: elopement. Both offense and defense were discussed in depth. This was one of the early examples:"
+      }
+    },
+    {
+      "id": "b427",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "A",
+            "H": "A53",
+            "D": "KJ94",
+            "C": "Q9652"
+          },
+          "south": {
+            "S": "QJ7543",
+            "H": "J762",
+            "D": "Q5",
+            "C": "K"
+          },
+          "east": {
+            "S": "KT8",
+            "H": "KQ4",
+            "D": "T76",
+            "C": "AJ84"
+          },
+          "west": {
+            "S": "962",
+            "H": "T98",
+            "D": "A832",
+            "C": "T73"
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": true,
+          "west": true
+        },
+        "dealer": "",
+        "vulnerability": "",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b428",
+      "type": "text",
+      "data": {
+        "text": "East opened one club; South overcalled one spade, and advancing by North led to a final contract of three spades. West led the ten of hearts, ducked to the queen. East cashed the ace of clubs and continued with a club to the ten and dummy's queen, as South pitched a heart. The play continued with a diamond to the queen and ace, a third round of clubs ruffed, and declarer was threatened with an overruff in clubs.\n\nOne way to avoid an overruff is to score all of one's low trumps. Here, the play could proceed king-jack of diamonds to throw a heart, heart ace and a heart ruff (not the nine of diamonds, because East could ruff with the king of spades and lead a club), and a spade to dummy's ace to produce this ending:"
+      }
+    },
+    {
+      "id": "b429",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "9",
+            "C": "96"
+          },
+          "south": {
+            "S": "QJ7",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "east": {
+            "S": "KT",
+            "H": "",
+            "D": "",
+            "C": "J"
+          },
+          "west": {
+            "S": "96",
+            "H": "",
+            "D": "8",
+            "C": ""
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": true,
+          "west": true
+        },
+        "dealer": "",
+        "vulnerability": "",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b430",
+      "type": "text",
+      "data": {
+        "text": "Now the time is right to lead the nine of diamonds, threatening to elope with South's seven of spades. If East prevents the elopement, declarer can counter successfully because the overruff threat is gone."
+      }
+    }
+  ],
+  "warnings": []
+}

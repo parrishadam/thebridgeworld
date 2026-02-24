@@ -1,0 +1,216 @@
+{
+  "title": "Analysis of the 1958 World Championship by Edgar Kaplan",
+  "slug": "analysis-of-the-1958-world-championship-by-edgar-kaplan",
+  "author_name": "Edgar Kaplan",
+  "category": "Tournament Report",
+  "tags": [
+    "January 1998",
+    "Edgar Kaplan",
+    "World Championship",
+    "1958"
+  ],
+  "source_page": 19,
+  "excerpt": "Analysis of key deals from the historic 1958 World Championship match.",
+  "status": "draft",
+  "content_blocks": [
+    {
+      "id": "b40",
+      "type": "text",
+      "data": {
+        "text": "After the cachelot diamond and a negative double promising four spades, Palmeiro's one-spade rebid strongly suggested only three trumps in a weak-notrump hand. With North's hand, it would be automatic to pass if one passed-hand considerations. With a fit, the Defense can get to a passed-band overtrick considerations. With a fit, the Defense can get to a passed-hand overtrick considerations: If not for pass-band considerations, With a fit, the Defense can get to a passed-hand overtrick."
+      }
+    },
+    {
+      "id": "b41",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "AJ754",
+            "H": "K654",
+            "D": "8",
+            "C": "K9"
+          },
+          "south": {
+            "S": "QT8",
+            "H": "AJT85",
+            "D": "QJT5",
+            "C": "K964"
+          },
+          "east": {
+            "S": "K752",
+            "H": "632",
+            "D": "AKT4",
+            "C": "K752"
+          },
+          "west": {
+            "S": "962",
+            "H": "Q97",
+            "D": "AKT4",
+            "C": "Q87"
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": true,
+          "west": true
+        },
+        "dealer": "West",
+        "vulnerability": "N-S",
+        "contract": "",
+        "lead": "",
+        "title": "Deal 7"
+      }
+    },
+    {
+      "id": "b42",
+      "type": "text",
+      "data": {
+        "text": "**South dealer; both sides vulnerable**\n\nWest\nPass\n\nNorth\nEast\nSouth\n1 ♠\n1 ♥\n2 ♦\nPass\n2 ♠\nPass\n4 ♦\n(2 ♥)\nDouble\n3 NT\n\n**West**\n♠ Q96\n♥ K87\n♦ 96\n♣ Q152\n\n**East**\n♠ AK104\n♥ QJ5\n♦ 87\n♣ K96\n\n**South**\n♠ J0763\n♥ 1062\n♦ 173\n♣ 1093\n\n**North**\n♠ 952\n♥ A95\n♦ AKQ5\n♣ 754"
+      }
+    },
+    {
+      "id": "b43",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "K96",
+            "H": "KJ874",
+            "D": "QT6",
+            "C": "A87"
+          },
+          "south": {
+            "S": "QT5",
+            "H": "AK864",
+            "D": "A98",
+            "C": "Q87"
+          },
+          "east": {
+            "S": "K752",
+            "H": "T3",
+            "D": "J054",
+            "C": "K964"
+          },
+          "west": {
+            "S": "AKJ64",
+            "H": "952",
+            "D": "AKT4",
+            "C": "Q5"
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": true,
+          "west": true
+        },
+        "dealer": "South",
+        "vulnerability": "E-W",
+        "contract": "",
+        "lead": "",
+        "title": "Deal 8"
+      }
+    },
+    {
+      "id": "b44",
+      "type": "text",
+      "data": {
+        "text": "Forget that cashino's two top spades and have more symmetry for Crawford and with more symmetric, J was a weak-bid used.....\n\n*\n\nNow, I don't admire Becker's two-opening, but I have cherised the West opening against vulnerable. he held:\n\n*\n\nOne club (artificial, strong) was opened at his left; pass from partner; two clubs (artificial, strong) at his right; double. Two-hearts diamonds, \" bid Crawford, unbashing). unbashingly gave a heart preference...\n\nIn general, Crawford's performance especially in the first half of the match, was astonishing. Some of his errors were of the sort you just don't expect from one of the world's greatest players—bad several medal-winning performers hands, this one wasn't so justified.\n\nThis was one wasn't so justified."
+      }
+    },
+    {
+      "id": "b45",
+      "type": "text",
+      "data": {
+        "text": "However, most of Crawford's mistakes, I believe, were due to a most Crawfordian's characteristic....... Most of his partners, but greatly with Becker, became he had an ace and a king of three suits. And two normally followed by three diamonds and a negative passed four spades.....his left, and an ace at the minimum of 17 points at hearts and two clubs followed by diamonds....\n\ndealt by the the minimum of 17 points at\n\nbid two normally followed by three diamonds and passed four spades...his left, and an ace at the minimum of 17 points at"
+      }
+    },
+    {
+      "id": "b46",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "Q964",
+            "H": "K8843",
+            "D": "Q8",
+            "C": "84"
+          },
+          "south": {
+            "S": "K3",
+            "H": "T7",
+            "D": "A986",
+            "C": "KQJ98"
+          },
+          "east": {
+            "S": "8765",
+            "H": "T92",
+            "D": "KJ3",
+            "C": "K75"
+          },
+          "west": {
+            "S": "AJT2",
+            "H": "AQJ65",
+            "D": "754",
+            "C": "T"
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": true,
+          "west": true
+        },
+        "dealer": "East",
+        "vulnerability": "None",
+        "contract": "",
+        "lead": "",
+        "title": "Deal 9"
+      }
+    },
+    {
+      "id": "b47",
+      "type": "text",
+      "data": {
+        "text": "**In general, Crawford's performance, especially in the first half of the match was astonishing. Some of his errors were of the sort you just don't expect from one of the world's greatest players—bad several medal-winning performers....**"
+      }
+    },
+    {
+      "id": "b48",
+      "type": "text",
+      "data": {
+        "text": "**Challenge the Champs**\n\nChallenge the Champs is a continuing bidding battle. Each month, two lead-time two pairs compete, the Incumbents (they bid last month too) and the Newcomers (who will be back next month) bidding deals from actual play (taken from old tournaments or submitted by readers). Awards assigned to final contracts in the monthly on a 12 to 0 top in a strong pairs level in the weak held to the nearest full matchpoint. An award match well to the same strain, embrac all lower equivalent contracts in the same strain.\n\nThe cards for next month's match are elsewhere in this issue.\n\n**FALLENSIUS-NILSLAND vs. LARS & MORTEN LUND MADSEN**"
+      }
+    },
+    {
+      "id": "b49",
+      "type": "text",
+      "data": {
+        "text": "had several medal-winning perform-ances in European junior events. However, this one wasn't so justified.\n\nIn the Challenge of the December, are for their fourth victory toward a place in the Challenge of the Year in November. If they lose it, Beackers and Morse (14-0 at the level without Del 6. He their records jointly. They were an five-card one-spade openings. with five-card openings. They employ a variable notrump (1-14 nouyull, 15-17 vuil) and, most unusual for Europeans, weak two-bids usually for Europeans, week two-bids in three suits.\n\nOur thanks to these readers who sent us the deals used in this match: John Ubaldo, deals used in this match: both Ubaldor\n\n*\n\nThe Newcomers are brothers Lars Seattle. Deal 2; Michael Whitman, San Francisco, Deal 3; Martin Miller, Rockford, WA, Deal 7; Mark Kinzer, IL, Deal 8; Bill Alhearn, CA, Deal 9; John Plantango, Deal 10; Deals 5 and 6 are from the Becker Archive."
+      }
+    },
+    {
+      "id": "b50",
+      "type": "text",
+      "data": {
+        "text": "**We'll Pallunius and Mads Nilsland from in the Challenge of the December, are for their fourth victory toward a place in the Challenge of the Year in November. If they lose it, Backers and Morse (10-4) are next in line. They system with five-card majors, 14-16 notrump and a nebulous one diamond. New York City. They play a strong-club system with five-card majors, 14-16 notrump and a nebulous one diamond, usually for Europeans. week two-bids in three suits.\n\n**Lars are studyings economics and Morten are Law at Copenhagen University. Lass studying economics and Morten Law at Copenhagen University.**"
+      }
+    },
+    {
+      "id": "b51",
+      "type": "text",
+      "data": {
+        "text": "British experts have much more experience than their American counter-parts in defending against varities of the Multi, a two-diamond opening to show a weak two-bid in an unspecified major or, perhaps, a very strong hand of some sort of another. We are always impress when one sort of another. We are always impressed in their views on how best to terested in their views on how best to cope with the beast. Author Sower has some ideas here that are worthy of discussion. we would tender a verdict of \"unproved\" to his final product."
+      }
+    }
+  ],
+  "warnings": [
+    "Manual review: south in block b41: Hand has 16 cards, expected 13",
+    "Manual review: east in block b41: Hand has 15 cards, expected 13",
+    "Block 1 (bridgeHand): north has 12 cards (expected 13)",
+    "Block 1 (bridgeHand): south has 16 cards (expected 13)",
+    "Block 1 (bridgeHand): east has 15 cards (expected 13)"
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "title": "Bits and Pieces",
+  "slug": "bits-and-pieces",
+  "author_name": "",
+  "category": "Bits and Pieces",
+  "tags": [
+    "April 2025"
+  ],
+  "source_page": 42,
+  "excerpt": "Short bridge items and miscellaneous bridge content.",
+  "status": "draft",
+  "content_blocks": [
+    {
+      "id": "b263",
+      "type": "text",
+      "data": {
+        "text": "**BITS AND PIECES**\n\nThere is no subject restriction on letters to the Editor for publication, although specialized material may be presented in another department. Letters should be signed, but names will be withheld on request."
+      }
+    },
+    {
+      "id": "b264",
+      "type": "text",
+      "data": {
+        "text": "**Three-Way Push**\n\nTo The Editor:\n\nOne of my favorite features of online bridge is that we homebodies can use boards previously played in high-level matches. On this deal, three Souths (myself at home, two others at the table during a Spingold match) reached four spades on an only-spades auction after East passed as dealer."
+      }
+    },
+    {
+      "id": "b265",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "QT5",
+            "H": "AT2",
+            "D": "AJ43",
+            "C": "652"
+          },
+          "south": {
+            "S": "K97432",
+            "H": "J64",
+            "D": "T",
+            "C": "AQJ"
+          },
+          "east": {
+            "S": "A86",
+            "H": "K753",
+            "D": "Q82",
+            "C": "873"
+          },
+          "west": {
+            "S": "J",
+            "H": "Q98",
+            "D": "K9765",
+            "C": "KT94"
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": true,
+          "west": true
+        },
+        "dealer": "East",
+        "vulnerability": "Both",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b266",
+      "type": "text",
+      "data": {
+        "text": "At my table, West led the diamond five. I won with dummy's ace and played a club to the queen and king as East showed odd count. I ruffed the diamond-nine continuation and played a spade to the jack and queen. After another diamond ruff, I knocked out the ace of spades, took East's club, and ran black-suit winners to squeeze West in this position:"
+      }
+    },
+    {
+      "id": "b267",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "AT2",
+            "D": "J",
+            "C": ""
+          },
+          "south": {
+            "S": "7",
+            "H": "J64",
+            "D": "",
+            "C": ""
+          },
+          "east": {
+            "S": "",
+            "H": "K753",
+            "D": "",
+            "C": ""
+          },
+          "west": {
+            "S": "",
+            "H": "Q98",
+            "D": "K",
+            "C": ""
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": true,
+          "west": true
+        },
+        "dealer": "",
+        "vulnerability": "",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b268",
+      "type": "text",
+      "data": {
+        "text": "After West threw a heart on the seven of spades, I discarded dummy's jack of diamonds, led a heart to the ten and king, then guessed to play low on the forced heart return.\n\nAt one Spingold table, the first three tricks were the same, but East took the spade and played a club. Declarer used dummy's spade ten as an entry to ruff a third diamond and executed the same squeeze.\n\nAt the other Spingold table, declarer won with the diamond ace, ruffed a diamond, and played a spade to the jack, queen, and ace. East played a club: queen, king. Declarer took the club continuation, drew trumps ending in dummy, ruffed a diamond, and achieved the same winning position, with the same result.\n\nAt double-dummy, the early diamond ruff is necessary. It looks good at single dummy also; if the spade lie is friendly (probably a necessity) there will still be two entries to dummy for club finesses; meanwhile, the diamond royals might tumble down.\n\nNot knowing the layout, the early-diamond-ruffing declarer didn't follow up with further double-dummy play. He could have been defeated with an early third-diamond play and later a fourth round, killing the menace. An East in top form might have worked out that there was no need to attack clubs; declarer appeared to have six cards in the rounded suits, so no discards would have been forthcoming.\n\nThe double-dummy line for declarer is to pursue clubs after ruffing the first diamond, not wasting precious dummy entries on losing finesses. South must use those entries to ruff two diamonds but not take the second ruff before West's club king has been dislodged.\n\nThe single-dummy culprits were the Wests who helped declarer by leading a diamond after winning with the club king. A club return, which had to be safe, would have been good enough. Or, ducking the club smoothly would have caused declarer to expend a dummy entry to repeat the finesse.\n\nDavid J. Weiss\nBrea, CA"
+      }
+    },
+    {
+      "id": "b269",
+      "type": "text",
+      "data": {
+        "text": "*        *        *"
+      }
+    },
+    {
+      "id": "b270",
+      "type": "text",
+      "data": {
+        "text": "**Twisted Double Transfers**\n\nTo The Editor:\n\nDouble transfers after a one-notrump opening are becoming increasingly popular. A certain amount of complexity is unavoidable, so selecting an implementation is largely a matter of efficiency. The Twisted variant, shown below, requires an adjustment in some Stayman sequences: With at least five-five in the majors, responder bids two clubs. If opener denies a four-card major, responder jumps to three hearts (at least five spades and four hearts); then, if opener bids three notrump (denying a spade fit) responder can bid four hearts to play or four of a minor as a slam-try in hearts.\n\nThese meanings apply after one notrump — two diamonds|two hearts — two hearts|two spades — ?\n\n*two spades*: five hearts; invitational strength\n\n*two notrump|three clubs*: clubs|diamonds; game-force\n\n*three diamonds*: six-plus cards in responder's major; either (a) invitational strength, or (b) a slam-try with no short suit [Opener's three of responder's major rejects a game invitation; three of the other major accepts it. Responder can pass, sign off in game, or make a slam-try.]\n\n*three hearts*: six-plus cards in responder's major; slam-try with a side singleton (or, after a transfer to hearts, a spade void). [Opener's three spades asks about the short suit; then: responder's three notrump shows a singleton in the unbid major, four of a minor announces a singleton in the bid suit; (after a transfer to hearts) four hearts|four spades indicates a spade void and a mild|strong slam-try.].\n\n*three spades*: five cards in responder's major; choice of games with an unbalanced hand [Opener bids three notrump with fewer than three cards in responder's major.]\n\n*three notrump*: 5-3-3-2; choice of games\n\n*four of a minor*: six-plus-card major; void in the bid suit; slam-try\n\n*four hearts*: (after a transfer to spades) spade one-suiter; heart void; slam-try.\n\nTuomo Väliaho\nHelsinki"
+      }
+    },
+    {
+      "id": "b271",
+      "type": "text",
+      "data": {
+        "text": "*        *        *"
+      }
+    }
+  ],
+  "warnings": []
+}

@@ -1,0 +1,593 @@
+{
+  "title": "Master Solvers' Club",
+  "slug": "master-solvers-club",
+  "author_name": "",
+  "category": "Master Solvers' Club",
+  "tags": [
+    "January 1998",
+    "bidding"
+  ],
+  "source_page": 39,
+  "excerpt": "Eight bidding problems with expert panel responses and scoring.",
+  "status": "draft",
+  "content_blocks": [
+    {
+      "id": "b93",
+      "type": "text",
+      "data": {
+        "text": "**The BRIDGE WORLD**\n\nYes, they do have plenty of room.\n\nGERALD CARAVELLI: \"Four diamonds. I'll bid as far as I'm willing to go. If East is declarer, I'm on lead; if West declares a slam, I can double (and hope).\"\n\nHENRY BETHE: \"Four diamonds. Looks about right on loser count.\"\n\nMaybe at a worse vulnerability.\n\nMARTIN ROSENBERGY: \"Two diamonds. Michaels. ROSENBERGY: \"Two diamonds. Keep it low, maybe I'll get a chance to bid three notrump, which will depict my hold-ing fairly well. I have had bad experiences preempting with hands such as this. (Of course, I've also had bad experiences when my opponents bid slam.)\n\nATHUR ROBINSON: \"c. Four clubs. I assume that too many opponents bid too much.\n\nRichmond partners may think I should start with three clubs. In \"Weak Twos in Diamonds\", my article in the March issue, I refer to one level holds and double jumps as strong (preemptively).\n\nWe shouldn't be able to make four clubs. Maybe if I bid four hearts they would bid four spades, so I'm going to slam their suit. They're very unlikely to slam, and if they do, I expect to be on lead (if we defend), and they don't rate to make grand slam.\n\nIt's more likely that RHO will be de-clarer, so that you will be on lead. Are you contemplating fourth from your longest and strongest?\n\nBOB ROWELL: \"Four diamonds. Preempts would be a good save, unless part-ner to raise with a fit, but leaves East-West room to have an accident.\""
+      }
+    },
+    {
+      "id": "b94",
+      "type": "text",
+      "data": {
+        "text": "**The BRIDGE WORLD**\n\nBoard 20: West dealer; both vulnerable\n\nThe last board concluded a remarkable able 50-imp spur over five boards. On the Vu-Graph, we noticed that Rosen-berg immediately relayed placing his pass card on the tray after Challoner bid five clubs. This \"screen including\" pass is usually best of or pass. While you could,\n\nif's usually best of pass four hearts, it is un-likely you will bid it with confidence any-way.\n\nJeff RUBENS: \"Pass. Game our way is unlikely. I have no combinative action any-way (one rottrump?).\n\nAt least, I hope we read a profit. I don't believe we have a game unless West psyched. We game unless they read.\"\n\n**The Tournament Scene**\n\nThe Tournament Scene\n\nby Jeff Rubens\n\nEigar Kaplan Remembered, II\n\nClosed Room, West doubled five clubs, Rosenberg Person ZIA ♦ 2 4 NT Pass Pass Pass 3 4 5 ♣ double Pass\n\n(All Pass)\n\nPass Double (All Pass)\n\nSOUTH WEST NORTH EAST 6 ♣ Pass Pass Pass 4 ♠ Pass 4 NT Pass 5 ♣ 1 ♠ 2 ♦ 3 ♣ ♠ J 9 6 2 ♥ A 8 3 ♦ Q J 10 9 7 ♣ K 8 4 3\n\n♠ K Q 10 9 7 ♥ 10 7 5 4 ♦ — ♣ A J 12\n\n♠ — ♥ K 8 4 3 ♦ A K J 10 9 7 ♣ Q 9 8 5 2\n\n♠ A 5 4 ♥ J 9 6 2 ♦ 6 5 3 2 ♣ 10 7 5 4"
+      }
+    },
+    {
+      "id": "b95",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "KQT97",
+            "H": "T754",
+            "D": "",
+            "C": "AJ12"
+          },
+          "south": {
+            "S": "J96",
+            "H": "A83",
+            "D": "QJT97",
+            "C": "K843"
+          },
+          "east": {
+            "S": "A54",
+            "H": "J962",
+            "D": "6532",
+            "C": "T754"
+          },
+          "west": {
+            "S": "",
+            "H": "K843",
+            "D": "AKJT97",
+            "C": "Q9852"
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": true,
+          "west": true
+        },
+        "dealer": "West",
+        "vulnerability": "All",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b96",
+      "type": "text",
+      "data": {
+        "text": "While the behavioral pot simmered through the late '50s and early '60s, in other dimensions tournaments kept cooking in more or less the usual way. Individual events. (By far the most successful casual stars in this universe were the ones with the most plated personalities, such as B. Jay Becker and Norman Kay.) However, in 1957, when Edgar came the McKenney Trophy with what was then considered an astronomical masterpoint total (chicken feed in today), the was regarded as a premier event. And the contest for winning the most master-points in a year (then called the McKenney; now named after Barry Crane) was regarded as significant; indeed the resulting scramble to accumulate points apparently tainted the game of bridge for the U.S. In the closed Room, West doubled five clubs, the inevitable terminal auction played a step of the scramble. Pass is acceptable. Pass is recommended."
+      }
+    },
+    {
+      "id": "b97",
+      "type": "text",
+      "data": {
+        "text": "**The BRIDGE WORLD**\n\nBoard 15\n\nSouth dealer\n\nEast-West vulnerable\n\n♠ 6 4 2\n♥ K 10 9 8\n♦ A 10 9 8\n♣ 10 9 8\n\n♠ K 17 5\n♥ Q 7 6 2\n♦ K 17 5\n♣ Q 17 5"
+      }
+    },
+    {
+      "id": "b98",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "642",
+            "H": "KT98",
+            "D": "AT98",
+            "C": "T98"
+          },
+          "south": {
+            "S": "KJ75",
+            "H": "Q762",
+            "D": "KJ75",
+            "C": "QJ75"
+          },
+          "east": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "west": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": false,
+          "west": false
+        },
+        "dealer": "South",
+        "vulnerability": "E-W",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b99",
+      "type": "text",
+      "data": {
+        "text": "low heart, lead, declarer could have made the slam double-dummy by checking North's hand for an epiphany, but naturally, Zia won both diamonds as 4*1-*1*1*1 ♠ spades ♠ ♥ spades **Additional Award**\n\nIf you doubled two diamonds on Deal 1 in October's Challenge the Challenge, score yourself 8.\n\nDealer ♠ Pass Pass 2 NT* 3 ♦** Pass 1 NT* Pass\n\n**Solution to \"Kantar for the Defense\" (from page 13)**\n\nKantar a heart, playing partner for the ace-jack. If partner had wasted a diamond promotion (with, say, ace of hearts and queen-ten-jack-nine of diamonds), he would have played the ace months). He would have played the ace"
+      }
+    },
+    {
+      "id": "b100",
+      "type": "text",
+      "data": {
+        "text": "**The BRIDGE WORLD**\n\nSwing for France:\n\nBoard 15\nSouth dealer\nEast-West vulnerable\n\n♠ 6 4 2\n♥ 10 9 8\n♦ 10 9 8\n♣ A K 10 9 8\n\n♠ 10 5 3 2\n♥ Q 9 6\n♦ K 5 2\n♣ Q 5 3 2\n\n♠ A K 7 5 2\n♥ — \n♦ Q 10 7\n♣ A Q 10 7 6 5\n\n♠ J 9 7 3 4\n♥ A J 9 8 6 5 4\n♦ 10 9\n♣ —"
+      }
+    },
+    {
+      "id": "b101",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "642",
+            "H": "T98",
+            "D": "T98",
+            "C": "AKT98"
+          },
+          "south": {
+            "S": "T532",
+            "H": "Q96",
+            "D": "K52",
+            "C": "Q532"
+          },
+          "east": {
+            "S": "J9734",
+            "H": "AJ98654",
+            "D": "T9",
+            "C": ""
+          },
+          "west": {
+            "S": "AK752",
+            "H": "",
+            "D": "QT7",
+            "C": "AQT765"
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": true,
+          "west": true
+        },
+        "dealer": "South",
+        "vulnerability": "E-W",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b102",
+      "type": "text",
+      "data": {
+        "text": "hearts put the slam was doomed. Note that on a high-speed lead Zia could (and probably would) have made the contract via the endplay if he takes the ruffing finesse in spades and times the play carefully. The Club Room con-tract was five clubs, and the hefty swing pushed the French lead to 27 imps.\n\nFrance seemed on the road to a sub-stantial victory; but on the next board"
+      }
+    },
+    {
+      "id": "b103",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "South",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "6C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {}
+      }
+    },
+    {
+      "id": "b104",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "South",
+        "bids": [
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "Closed Room, West doubled five clubs, Rosenberg Person",
+        "players": {}
+      }
+    },
+    {
+      "id": "b105",
+      "type": "text",
+      "data": {
+        "text": "The U.S. wooks continued as Zia and Rosenberg bid to a poor slam, Appar-ently, Zia meant four notrump as as choose a minor; while Rosenberg thought it showed slam interest. After a"
+      }
+    },
+    {
+      "id": "b106",
+      "type": "text",
+      "data": {
+        "text": "**The BRIDGE WORLD**\n\nThe South hand is special because you want you on our side, so we'll tell you up front that partner held:\n\n♠ Q 9 5  ♥ Q 8 7 4 2  ♦ 5 3 2  ♣ K 8 6 2\n\nand that 620 was readily available.\n\nSure, that fifth heart and useful spade holding were good catches, so maybe the layout was at aberration, and the ace-king draw the opponents'. With ace-king-queen-jack-fourth-third. With holding the queen-jack-fourth of hearts, things would be messier.\n\nElric Rodwell: \"Pass. One notrump is the only alternative, and it's not unescapable at this vulnerability if IVIP is still. I think this vulnerability at LIVIPS. Still, I think it's odds-against to make three notrump (opposite likely club-spade length, so let's try to go plus on defense.\"\n\nTry to go plus on defense."
+      }
+    },
+    {
+      "id": "b107",
+      "type": "text",
+      "data": {
+        "text": "more than a finesse opposite:\n\n♠ K x  ♥ Q x x x x x  ♦ x x x x  ♣ x x\n\nThe South hand is special because you want you on our side, so we'll tell you"
+      }
+    },
+    {
+      "id": "b108",
+      "type": "text",
+      "data": {
+        "text": "Chip MARTEL: \"Pass. When you have no good alternatives. Pass. When you have one notrump (?)..., and spades is likely to be a good trump suit for us.\"\n\nJeff RUBENS: \"Pass. Game our way is way. I have no combinative action any-way (one notrump?).\"\n\nAl. Roth (and PHILIP ALDER under similar): \"I have to read a profit. I don't believe we have a game unless West psychy. I hope we read a profit. I don't't believe we have a game unless West psyched.\"\n\nThey get 90 points here, not 100, since the inclination of the panel (18 to 14) was to balance and hope there (presumably one notrump) will turn a plus into a minus more often than vice-versa. Okay, okay. These are reasonable arguments, but so are:\n\nGERALD CARAVELLI: \"Double. No reasonable partner WEST NORTH EAST SOUTH ♠ A J 9 8 ♦ 10 9 8 7 ♣ Q 5 3 2 pass that you doubled and reverted to two sage, if we doubled and reversed to two hearts, we'd have more than four dia-monds—D.B.& L.C.) One notrump"
+      }
+    },
+    {
+      "id": "b109",
+      "type": "text",
+      "data": {
+        "text": "**THE BRIDGE WORLD**\n\n**Problem H**\n\nMatchips: none vul. You, South, hold:"
+      }
+    },
+    {
+      "id": "b110",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "4",
+            "H": "Q63",
+            "D": "AJ8732",
+            "C": "98752"
+          },
+          "east": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "west": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": true,
+          "east": false,
+          "west": false
+        },
+        "dealer": "",
+        "vulnerability": "None",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b111",
+      "type": "text",
+      "data": {
+        "text": "SOUTH   WEST    NORTH   EAST\n1NT     2♦      3NT     (All Pass)\n\nEast leads the heart eight out of turn. Do you (a) accept the lead and see dummy before you play to trick one? (b) forbid West from leading a heart for as long as he is on lead and see dummy? (c) require West to lead a heart (with no further penalty)? (d) prohibit West from leading a heart for as long as he is on lead (with no further penalty)? (e) make the heart eight at first legal opportunity?"
+      }
+    },
+    {
+      "id": "b112",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "South",
+        "bids": [
+          {
+            "text": "1NT",
+            "alert": null
+          },
+          {
+            "text": "2D",
+            "alert": null
+          },
+          {
+            "text": "3NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {}
+      }
+    },
+    {
+      "id": "b113",
+      "type": "text",
+      "data": {
+        "text": "Action      Score   Votes\nc           100     17\ne           70      10\nb           30      10\na           20      1\nd           20      1\nf           40      1\n\nMARTINOOD  Zia: \"Three hearts.  You gotta do what you gotta do.\"\n\nThis wouldn't be a true Master Solver's Club if we didn't show you a few more aggressive action, and I am certainly not bidding notrump with only ten-third in clubs.\n\nMy next choice is a Stayman auction. Sure, we know that a 1956 posed auction. Sure, we know that a 1956 two diamonds would be nice on this hand, but it's not available. Two-over-one game force seems to work their were:\n\nquietly well, thank you; just look at the convention cards of the big winners in the 1990's.\n\nSWAM REMILA: \"Three hearts. Yet another mild distortion thanks to the forcing notrump.\"\n\nWhat? We unsuccessfully tried to track Eric down (he lives in Indonesia"
+      }
+    },
+    {
+      "id": "b114",
+      "type": "text",
+      "data": {
+        "text": "THE BRIDGE WORLD\n\n**9**\n\nwith his king. Rosenberg pitched a heart, and the diamond return set the contract two tricks. This board was a push, as the U. S. was in three hearts, down two, in the Closed Room.\n\nThe next deal showed off \"declarers\"' advantage\" by demonstrating how difficult it can be to defend effectively at the beginning of the play when few clues are available.\n\n**Board 2**\n\nEast dealer\nNorth-South vulnerable"
+      }
+    },
+    {
+      "id": "b115",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "J98",
+            "H": "J93",
+            "D": "Q198",
+            "C": "A7"
+          },
+          "south": {
+            "S": "KT853",
+            "H": "QT76",
+            "D": "7",
+            "C": "853"
+          },
+          "east": {
+            "S": "AKJ2",
+            "H": "842",
+            "D": "T642",
+            "C": "J2"
+          },
+          "west": {
+            "S": "Q7",
+            "H": "AK5",
+            "D": "AK3",
+            "C": "QT964"
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": true,
+          "west": true
+        },
+        "dealer": "East",
+        "vulnerability": "N-S",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b116",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "East",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "Chemla  Rosenberg  Perron  Zia",
+        "players": {
+          "west": "Chemla",
+          "north": "Rosenberg",
+          "east": "Perron",
+          "south": "Zia"
+        }
+      }
+    },
+    {
+      "id": "b117",
+      "type": "text",
+      "data": {
+        "text": "After an opening low-spade lead, I was afraid that Chemla might try the ♦10/7/3/2.\n\n**South**    **West**    **North**    **East**\n             ♦Q107 \n♦753         ♦AKJ12     \n\njack of hearts and cash 100 tricks, but, instead, he passed the six of hearts. Zia won and returned a spade. West winning. Now, Rosenberg decided that it looked as though Chemla (when he ducked the queen) could have been looking to me as though Chemla was decided to ace of clubs, and endplay him with the third spade for down one. In fact, de-clarer did cash the ace of clubs, but then he continued with the queen. There were some very nervous moments as the third spade with the ace of hearts; if Zia wins the first heart, Zia had a third ace with the ace of hearts; if entry to the good diamond.) An immediate only to the good diamond.) An down shift, however, is suc-diamond shift, however, is suc-diately to the endplay. At last, Zia won datée diamond shift, however, is suc-"
+      }
+    },
+    {
+      "id": "b118",
+      "type": "text",
+      "data": {
+        "text": "THE BRIDGE WORLD\n\n**56**\n\n(Continued from page 36.)\n\n**SEPTEMBER HONOR ROLL**\n\nArthur Bernhardt, Louisville, KY  760\nBob Hoil, Henrico, The Netherlands  760\nPier Francesco Fornese, Rome  760\nAnabel van Patten, Springfield, PA  760\nLes Belasco, Reno  750\nMatt Kappel, Middletown, NJ  750\n\n**HONORABLE MENTION**\n\n760  Arthur Bernhardt, Louisville, NY\n760  Bob Hoil, Henrico, The Netherlands\n760  Pier Francesco Fornese, Rome\n760  Anabel van Patten, Springfield, PA  750\n750  Les Belasco, Reno\n750  Matt Kappel, Middletown, NJ  750\n\n**SEPTEMBER HONOR ROLL**\n\n**Don Stark, of Overland Park, KS, led Solvers on the September problems with a score of 790. Jeff Cersomsky, Oxford, CT, finished second with 770. Because of adjustments in Club process (see Editorial), averages of same-ures (see Editorial), averages of sam-pled solvers are no longer computed.**\n\nplaited solvers are no longer com-puted.\n\nMIKE CARAVELLI: \"d, Oh my God, a lead it should cause a loss, just as any other lapses in concentration. That's why we have rules. Michael, you can be sure that if you were playing in a world championship, with Edge, with Edger, havee (we expect), as your captain, he would be mighty disgusted if one of his remarks: He suggests that error of this nature don't affect one (pass) — (pass) — four diamonds be used to ask for key cards with clubs agreed; however, over advance's three spaces, as in September problem G, four diamonds should show diamonds.\n\n**MASTER SOLVERS' FORUM**\n\nThose scores were added on the September problems: (D) pass, then one member problems: (D) pass, then one nottrump, 40; pass, then two nottrump, notiee?\n\n30; (F) notwo spades, 70.\n\nEddie Kantar entered a correction to one of his remarks: He suggests that"
+      }
+    },
+    {
+      "id": "b119",
+      "type": "text",
+      "data": {
+        "text": "THE BRIDGE WORLD\n\n**4**\n\nof the above. You may take back your play and draw my last trump\"? No, of course not. Bridge is a game where you must be focused; not knowing whose lead it is should cause a loss, just as any other lapses in concentration. That's why we have rules. Michael, you can be sure that if you were playing in a world championship, with Edgar, havee (we expect), as your captain, he would be mighty disgusted if one of his remarks like"
+      }
+    },
+    {
+      "id": "b120",
+      "type": "text",
+      "data": {
+        "text": "Before a committee precluces this idea. GERALD CARAVELLI: \"d, Oh my God, a lead it should cause a loss. Oh my God, I'd other lapses in concentration. I'd like best to be able to consult with partner or to look for his sign as to which option he thinks is best, but the thought of appearing before a committee precluces this idea.\n\nThere were no comments attached to the sparse number of a, b, and c votes; the sparse number of a, b, and c votes, disappointted at your attitude. Eddie, your caption, he would be mighty distressed from above (we expect), have been made more generous. For each, giving, the traditional bonus offer has been made more generous. For each gift you give, you will get a book for yourself. (See inside back cover.)\n\nAre we giving you the impression that we are trying harder? Can you suggest other ways in which we can improve Bridge World?\n\nWorld; promote our Internet site: www.bridgeworld.com. Send us the name and address of a potential subscriber—we'll send a sample issue and mention your name. Give gift subscriptions: Your recipients will thank you monthly of your month, and if your partJunts: You recipients will thank you month-ly of your month; and if your pants of you every month, and if your parthers read the magazine you will profit directly at the table. To promote gift-giving, the traditional bonus offer has been made more generous. For each gift you give, you will get a book for yourself. (See inside back cover.)\n\n**Bridge Today Magazine**\n\nBridge Today Magazine\nSubscrbtally improved backllling procce-dure, the potential downside of this change, Significantly improved backllling procce-are continuing on technology to eliminate the potential downside of this change. We are continuing on technology to eliminate pages of features and departments. We each issue's editorial content—more pages of features and departments. We\n\nCheveles or credit card to Bridge Today, 3838 Catalina St., Los Alamitos CA 90720 Phone toll-free 800-525-4718 or email gm@evvision.net!L Bridge Today web page: http://www.my-bridge.com/bthtml\n\n$12/yr outside N. America, $24/yr annual\nAdd $5/yr in Canada,\n3 years - $49, 2 years - $32,\n1 year (6 issues) - $23,\n\nWe think you'll enjoy it.\nTry a sample issue for $5.\n\nBridge Today Magazine"
+      }
+    },
+    {
+      "id": "sol-a",
+      "type": "solution",
+      "data": {
+        "label": "58",
+        "blocks": [
+          {
+            "id": "b121",
+            "type": "text",
+            "data": {
+              "text": "THE BRIDGE WORLD\n\n**58**\n\n**Solution A**\n\n**NORTH**\n♠ 8642\n♥ AK106\n♦ 754\n♣ 10\n\n**WEST**                **EAST**\n♠ 10                   ♠ 1973\n♥ 872                  ♥ J10\n♦ Q92                  ♦ Q975\n♣ KJ642                ♣ AKQ5\n\n**SOUTH**\n♠ AKQ5\n♥ Q19\n♦ AK83\n♣ A83\n\nSix spades by South.     Lead: Club queen\n\nA superior plat is to duck a trump at trick one, you are in trouble. If you switch to hearts, the defender with four trumps may be able to ruff in and lead a trump, leaving you a trick short. Alternatively, if you take two club ruffs after the sec-ond trump you will still face a diamond guess; the long-trump defender may have another club, should you inmay have another club, should you instead try hearts, the third round may be ruffled, cutting you off from the pitch for your diamond loser.\n\n**TEST YOUR PLAY SOLUTIONS**\n\n*(Problems on page 9.)*\n\nSuppose you play trumps early; takeing two rounds after winning the opening lead. If spades turn out to be four-one, you are in trouble. If you switch to"
+            }
+          },
+          {
+            "id": "b122",
+            "type": "text",
+            "data": {
+              "text": "(Continued from page 36.)\n\n**SEPTEMBER HONOR ROLL**\n\nWarren Ross, Pierce, SD  710\nDan High-Jones, Santa Monica, CA  710\nGerald Roonce, Little Rock, AR  710\nEd Lewis, Falls Church, VA  710\nJohn H. Landsey, II, La Myers, FL  710\nPhillip Martin, Sersdale, NY  710\nBev Ross, Hamilton, ON  740\nRussell Shoup, Dayton, OH  740\nWendell Brown, Vaughan, Madison, WI  740\nMark J. Bartuseek, CA  730\nStephen C. Hanna, PA  730\nDr. Stanley C. Harris, Tacoma  730\nW. Harris & T. Shirtz, KY/Switzerland 730\nJulie Behrens, Kirkwood, MO  730\nJoseph M. Branner, Rogers, AR  730\nRichard A. Johnson, Naperville, IL  720\nFred King, Falls Church, VA  720\nBen E. Laden, Washington, DC  720\nTom Musso, Woodbridge, VA  720\nWill Beihl, Santa Barbara, CA  720\nBruce Walker, San Pedro, CA  720\nPhil Reed, San Diego, CA  710\nJohn Lindsay, IL, La Myers, FL  710\nMartha Spock, WA  710\nBonaid Capin, Waltham, MA  710\nDale Freeman, Engleheart, ON  710\nPeter Schramitzky, Budapest  710\n\nADDENDA\n\n710      Rob Steinman, New York City\n700\n700      Nikolas Sarakakos, Luxembroug\n700      David RockenFeld, Janesville, WI\n700      Phil Reed, San Diego, CA\n700      Tom Musso, Woodbridge, VA\n700\n700      Ben E. Laden, Washington, DC\n700      Fred King, Falls Church, VA\n700      Richard A. Johnson, Naperville, IL\nJun:     Peter Schramitzky, Budapest  710"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "warnings": [
+    "Manual review: south in block b98: Hand has 16 cards, expected 14",
+    "Block 2 (bridgeHand): north has 13 cards (expected 15)",
+    "Block 5 (bridgeHand): south has 16 cards (expected 14)",
+    "Block 22 (bridgeHand): north has 12 cards (expected 13)"
+  ]
+}

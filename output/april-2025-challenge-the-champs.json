@@ -1,0 +1,2324 @@
+{
+  "title": "Challenge the Champs",
+  "slug": "challenge-the-champs",
+  "author_name": "",
+  "category": "Challenge the Champs",
+  "tags": [
+    "April 2025",
+    "bidding"
+  ],
+  "source_page": 65,
+  "excerpt": "Bidding challenge where readers compete against champion pairs.",
+  "status": "draft",
+  "content_blocks": [
+    {
+      "id": "b431",
+      "type": "text",
+      "data": {
+        "text": "**CHALLENGE THE CHAMPS**\n\n**LINDA LEWIS AND PAUL LEWIS**\n**vs.**\n**NABIL EDGTTON AND MICHAEL WHIBLEY**\n\nPrepared from material provided by Eric Kokish & Beverly Kraft\n\nChallenge the Champs is a continuing bidding battle. Each month, two leading pairs compete, the Incumbents (they bid last month too) and the Newcomers (who will be back next month), bidding deals from actual play (taken from old tournament reports or submitted by readers). Awards assigned to final contracts are estimates of the matchpoint expectancy on a 12 top in a strong pairs contest. Thus, a normal result will usually receive close to 6, average; a gambling grand slam needing two finesses might receive 3 (you get a top, 12, about 25% of the time and a 0 otherwise, which averages to 3). Awards are rounded off to the nearest full matchpoint. An award embraces all lower equivalent contracts in the same strain; for example, if three spades is given a score but two spades is not, the score for three spades is awarded to all spade partscores."
+      }
+    },
+    {
+      "id": "b432",
+      "type": "text",
+      "data": {
+        "text": "The Incumbents are Linda and Paul Lewis, a longstanding top-level husband-and-wife partnership. They have already notched a win and a tie in earlier matches and seek to increase their qualifying total for the Challenge of the Twenties. They use largely standard methods but employ weak notrumps and open one club with 4—4—3=2 out of a notrump range.\n\nThe Newcomers are an Australia-New Zealand combination: Nabil Edgtton and Michael Whibley. Each enjoyed a series of successes in junior and open events, nationally and internationally (including high finishes in world championships). They formed a partnership a few years ago and have done well, including a second-place finish in the 2022 World Open Pairs.\n\nThe Newcomers are highly-aggressive bidders who use mostly standard methods adorned with variations on a few of the special treatments popular in expert circles (including transfers in response to one club and in many competitive auctions).\n\nOur thanks to Evan Marti, Houston, for Deal 6. Deals 8, 9 and 10 are from the 2010 Trial. All the other deals are from events at national tournaments."
+      }
+    },
+    {
+      "id": "b433",
+      "type": "text",
+      "data": {
+        "text": "**1**\n**Linda & Paul 0**\n**Whibley & Edgtton 0**\n\nNorth dealer\nNeither side vulnerable"
+      }
+    },
+    {
+      "id": "b434",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "east": {
+            "S": "KJ82",
+            "H": "T5",
+            "D": "KJ",
+            "C": "K6432"
+          },
+          "west": {
+            "S": "AQ9653",
+            "H": "",
+            "D": "A643",
+            "C": "AT7"
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": false,
+          "east": true,
+          "west": true
+        },
+        "dealer": "North",
+        "vulnerability": "None",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b435",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "North",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1C",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2S",
+            "alert": null
+          },
+          {
+            "text": "4H",
+            "alert": null
+          },
+          {
+            "text": "4NT",
+            "alert": null
+          },
+          {
+            "text": "5C",
+            "alert": null
+          },
+          {
+            "text": "5D",
+            "alert": null
+          },
+          {
+            "text": "6H",
+            "alert": null
+          },
+          {
+            "text": "6S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "Linda & Paul",
+        "players": {
+          "west": "Linda",
+          "east": "Paul"
+        },
+        "seats": [
+          "west",
+          "east"
+        ]
+      }
+    },
+    {
+      "id": "b436",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "North",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1C",
+            "alert": null
+          },
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2S",
+            "alert": null
+          },
+          {
+            "text": "4H",
+            "alert": null
+          },
+          {
+            "text": "5C",
+            "alert": null
+          },
+          {
+            "text": "6S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "Whibley & Edgtton",
+        "players": {
+          "west": "Whibley",
+          "east": "Edgtton"
+        },
+        "seats": [
+          "west",
+          "east"
+        ]
+      }
+    },
+    {
+      "id": "b437",
+      "type": "text",
+      "data": {
+        "text": "Paul's rebid indicated a hand improved by the spade response: four trumps with a strong notrump, 4=2=2=5 with concentrated values, or three spades in an unbalanced hand. Linda's splinter suggested that opener's high-card values fit well, so East asked for key cards, then for the queen of spades. West showed the spade queen and a heart void.\n\nWhibley's transfer response showed spades; Edgtton's raise announced four-card support in a minimum-range hand. West took advantage of the opportunity to make a void-showing slam-try; this made all of East's high cards, which had been minimal even for a light opening, potentially useful, so he encouraged slam with a control-bid.\n\nBWS Auction: 1 C(?) - 1 S - 2 S - 4 H - 5 S(?) - 6 S - Pass. East is too strong to sign off when West shows short hearts and slam interest. Five spades suggests good spades and balanced controls in the minors. Picture West with 6=1=4=2 with three aces to see how little is needed for a fine slam.\n\n**Awards**\n6 S\t\t10\n5 S\t\t4\n7 S\t\t1"
+      }
+    },
+    {
+      "id": "b438",
+      "type": "text",
+      "data": {
+        "text": "**2**\n**Linda & Paul 10**\n**Whibley & Edgtton 10**\n\nEast dealer\nNorth-South vulnerable"
+      }
+    },
+    {
+      "id": "b439",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "east": {
+            "S": "Q82",
+            "H": "Q72",
+            "D": "AKJ82",
+            "C": "32"
+          },
+          "west": {
+            "S": "KT5",
+            "H": "AK4",
+            "D": "QT964",
+            "C": "J5"
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": false,
+          "east": true,
+          "west": true
+        },
+        "dealer": "East",
+        "vulnerability": "N-S",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b440",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "East",
+        "bids": [
+          {
+            "text": "1NT",
+            "alert": null
+          },
+          {
+            "text": "3NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "Linda & Paul",
+        "players": {
+          "west": "Linda",
+          "east": "Paul"
+        },
+        "seats": [
+          "west",
+          "east"
+        ]
+      }
+    },
+    {
+      "id": "b441",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "East",
+        "bids": [
+          {
+            "text": "1D",
+            "alert": null
+          },
+          {
+            "text": "2D",
+            "alert": null
+          },
+          {
+            "text": "2H",
+            "alert": null
+          },
+          {
+            "text": "2S",
+            "alert": null
+          },
+          {
+            "text": "2NT",
+            "alert": null
+          },
+          {
+            "text": "3NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "Whibley & Edgtton",
+        "players": {
+          "west": "Whibley",
+          "east": "Edgtton"
+        },
+        "seats": [
+          "west",
+          "east"
+        ]
+      }
+    },
+    {
+      "id": "b442",
+      "type": "text",
+      "data": {
+        "text": "The Incumbents' sequence often gains through concealing information, but here their contract is unlikely to succeed except perhaps after an initial spade lead.\n\nAfter Whibley's invitational-plus raise, Edgtton artificially showed a minimum-range hand (of any shape). West artificially forced to game, and East described his general hand-type—West had denied a four-plus-card major, hence was unlikely to be relatively short in clubs."
+      }
+    },
+    {
+      "id": "b443",
+      "type": "text",
+      "data": {
+        "text": "BWS Auction: 1 D - 2 D - 3 D - 3 H - 3 S - 4 D(?) - Pass. The suggested auction is possible, but even natural bidders who open light are not likely to stop at three diamonds, and many would reach three notrump.\n\n**Awards**\n3 D\t\t10\n4 D\t\t7\n5 D, 3 NT, 2 NT\t\t4"
+      }
+    },
+    {
+      "id": "b444",
+      "type": "text",
+      "data": {
+        "text": "**3**\n**Linda & Paul 14**\n**Whibley & Edgtton 14**\n\nSouth dealer\nEast-West vulnerable"
+      }
+    },
+    {
+      "id": "b445",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "east": {
+            "S": "K6432",
+            "H": "AK87",
+            "D": "",
+            "C": "AK96"
+          },
+          "west": {
+            "S": "AQJ",
+            "H": "QT965",
+            "D": "A742",
+            "C": "J"
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": false,
+          "east": true,
+          "west": true
+        },
+        "dealer": "South",
+        "vulnerability": "E-W",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b446",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "South",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "5D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "5NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "7H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "Linda & Paul",
+        "players": {
+          "west": "Linda",
+          "east": "Paul"
+        },
+        "seats": [
+          "west",
+          "east"
+        ]
+      }
+    },
+    {
+      "id": "b447",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "South",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "5C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "6C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "7H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "Whibley & Edgtton",
+        "players": {
+          "west": "Whibley",
+          "east": "Edgtton"
+        },
+        "seats": [
+          "west",
+          "east"
+        ]
+      }
+    },
+    {
+      "id": "b448",
+      "type": "text",
+      "data": {
+        "text": "Paul's response covered all game-forcing heart raises with four-plus-card support. Linda showed a minimum, then (after a relay) shortness in clubs. East continued with an exclusion key-card-ask.\n\nEdgtton's response indicated a strong heart raise with a diamond void; with an ace-value-plus extra, he intended to continue after a signoff. Despite holding the ace of diamonds as one of his prime values, Whibley, with lots of diamonds to ruff in the opposite hand, took a ticket on the Last Train. East asked for key cards, then for the queen of hearts (where the reply showed the heart queen, no side-suit king, but some extra strength—West liked his spades, because East strongly rated to hold at least four cards in the suit).\n\nBWS Auction: 1 H - 4 D(?) - 4 NT(?) - 6 C(?) - 6 D(?) - 6 S(?) - 7 H(?) - Pass. Every experienced pair will have pet methods for showing voids with or without specific side kings. As shown, West locates the spade king and East's willingness to have West bid seven notrump, but the crucial spade length does not come to light.\n\n**Awards**\n7 NT\t\t10\n7 H, 7 S\t\t6\n6 NT\t\t3\n6 H, 6 S\t\t2\n\n**PRESERVE YOUR ISSUES IN**\n**BRIDGE WORLD BINDERS**\n\nAVAILABLE AT\nWWW.BRIDGEWORLD.COM"
+      }
+    },
+    {
+      "id": "b449",
+      "type": "text",
+      "data": {
+        "text": "**4**\n**Linda & Paul 20**\n**Whibley & Edgtton 20**\n\nWest dealer\nBoth sides vulnerable"
+      }
+    },
+    {
+      "id": "b450",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "east": {
+            "S": "76",
+            "H": "K973",
+            "D": "AK6",
+            "C": "Q862"
+          },
+          "west": {
+            "S": "KQ",
+            "H": "AQJ42",
+            "D": "Q9",
+            "C": "A953"
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": false,
+          "east": true,
+          "west": true
+        },
+        "dealer": "West",
+        "vulnerability": "All",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b451",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "West",
+        "bids": [
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "5D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "5H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "Linda & Paul",
+        "players": {
+          "west": "Linda",
+          "east": "Paul"
+        },
+        "seats": [
+          "west",
+          "east"
+        ]
+      }
+    },
+    {
+      "id": "b452",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "West",
+        "bids": [
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "5D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "6H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "Whibley & Edgtton",
+        "players": {
+          "west": "Whibley",
+          "east": "Edgtton"
+        },
+        "seats": [
+          "west",
+          "east"
+        ]
+      }
+    },
+    {
+      "id": "b453",
+      "type": "text",
+      "data": {
+        "text": "Paul's response was as on Deal 3. Linda announced 17-19 HCP in a hand with no shortness, then asked for key cards, then signed off on the basis of East's negative reaction to the three-spade bid.\n\nEdgtton's response was an invitational-plus raise with at least a four-card fit. Whibley's rebid showed extra values in a hand with no short suit. After East also denied a short suit, West offered a serious slam-try. A control-bid (showing a first-round control) was followed by a key-card-ask. West expected to find a dummy with more strength.\n\nBWS Auction: 1 H - 2 NT(?) - 3 H - 4 H - Pass. East has a minimum game force. By making the strongest no-shortness rebid, West is in a position to respect East's evaluation of slam chances.\n\n**Awards**\n4 H\t\t10\n5 H\t\t6\n4 NT\t\t3\n6 H\t\t2\n6 C\t\t1"
+      }
+    },
+    {
+      "id": "b454",
+      "type": "text",
+      "data": {
+        "text": "**5**\n**Linda & Paul 26**\n**Whibley & Edgtton 22**\n\nNorth deals and opens one diamond\nNorth-South vulnerable"
+      }
+    },
+    {
+      "id": "b455",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "east": {
+            "S": "KT64",
+            "H": "AQ952",
+            "D": "J",
+            "C": "632"
+          },
+          "west": {
+            "S": "Q9",
+            "H": "KT74",
+            "D": "762",
+            "C": "AK97"
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": false,
+          "east": true,
+          "west": true
+        },
+        "dealer": "North",
+        "vulnerability": "N-S",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b456",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "North",
+        "bids": [
+          {
+            "text": "1D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "2D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2S",
+            "alert": null
+          },
+          {
+            "text": "3C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3D",
+            "alert": null
+          },
+          {
+            "text": "4H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "Linda & Paul",
+        "players": {
+          "west": "Linda",
+          "east": "Paul"
+        },
+        "seats": [
+          "west",
+          "east"
+        ]
+      }
+    },
+    {
+      "id": "b457",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "North",
+        "bids": [
+          {
+            "text": "1D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "2D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2S",
+            "alert": null
+          },
+          {
+            "text": "3C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "Whibley & Edgtton",
+        "players": {
+          "west": "Whibley",
+          "east": "Edgtton"
+        },
+        "seats": [
+          "west",
+          "east"
+        ]
+      }
+    },
+    {
+      "id": "b458",
+      "type": "text",
+      "data": {
+        "text": "Linda's cue-bid indicated an invitational-plus heart raise. Paul's aggressive natural continuation showed willingness to reach at least three hearts. Both partners made further game-tries, and the excellent fit made the optimistic views pay off.\n\nAfter a similar sequence to that in the other room, Edgtton deemed that the singleton diamond and sound hearts were enough to go the extra mile.\n\nBWS Auction: (1 D) - 1 H - 2 D - 2 S - 3 H - Pass(?). East has a respectable intervention at favorable vulnerability, so, with short diamonds, the hand is worth a progressive move over two"
+      }
+    },
+    {
+      "id": "b459",
+      "type": "text",
+      "data": {
+        "text": "diamonds whether or not West intends to raise hearts. On the third round, with a minimum in context and a terrible club holding, East might reasonably settle for three hearts.\n\n**Awards**\n4 H\t\t10\n3 H\t\t4"
+      }
+    },
+    {
+      "id": "b460",
+      "type": "text",
+      "data": {
+        "text": "**6**\n**Linda & Paul 36**\n**Whibley & Edgtton 32**\n\nEast dealer\nEast-West vulnerable"
+      }
+    },
+    {
+      "id": "b461",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "east": {
+            "S": "A92",
+            "H": "T7653",
+            "D": "A",
+            "C": "A983"
+          },
+          "west": {
+            "S": "",
+            "H": "AK9",
+            "D": "J9742",
+            "C": "KQJ74"
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": false,
+          "east": true,
+          "west": true
+        },
+        "dealer": "East",
+        "vulnerability": "E-W",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b462",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "East",
+        "bids": [
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "2C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "5C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "5H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "6C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "Linda & Paul",
+        "players": {
+          "west": "Linda",
+          "east": "Paul"
+        },
+        "seats": [
+          "west",
+          "east"
+        ]
+      }
+    },
+    {
+      "id": "b463",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "East",
+        "bids": [
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "2C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "6C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "Whibley & Edgtton",
+        "players": {
+          "west": "Whibley",
+          "east": "Edgtton"
+        },
+        "seats": [
+          "west",
+          "east"
+        ]
+      }
+    },
+    {
+      "id": "b464",
+      "type": "text",
+      "data": {
+        "text": "Linda's natural response promised at least four clubs. Paul's splinter rebid promised the same. West asked for key cards, then about side-suit kings; when partner turned up with three aces and no kings, West control-bid the king of hearts in case East held the queen."
+      }
+    },
+    {
+      "id": "b465",
+      "type": "text",
+      "data": {
+        "text": "Whibley's response was an artificial game-force. Edgtton artificially denied anything special to show at his second turn. In reply to three relays, East described 11-14 HCP and 3=5=1=4. Four hearts was a slam-try in clubs, and four spades was Last Train.\n\nBWS Auction: 1 H - 2 C(?) - 3 C - 3 H - 4 D(?) - 5 S(?) - 6 C - Pass(?). With such minor-suit disparity and strong heart support, it makes sense for West to start with two clubs. Whether East should offer a splinter raise is a partnership matter. BWS uses three notrump as a mild slam-try that says nothing about specific controls, but the East hand is all about the side-suit controls.\n\n**Awards**\n6 C\t\t10\n6 H\t\t8\n7 C, 5 H\t\t4\n5 C\t\t2\n7 H\t\t1\n\n**SUBSCRIBE TO**\n\n**THE**\n**BRIDGE**\n**WORLD**\n\nWWW.BRIDGEWORLD.COM"
+      }
+    },
+    {
+      "id": "b466",
+      "type": "text",
+      "data": {
+        "text": "concealed the fact that all of her high cards lay elsewhere.\n\nWhibley's response showed hearts; Edgtton indicated three-card support. West continued with a marionette to two diamonds; East's simple acceptance announced an unbalanced hand with at most 15 HCP. West invited game; and East, who could visualize slam opposite perfect cards, showed his void.\n\nBWS Auction: Pass(?) - 1 ♦ - 1 ♥ - 2 ♣(?) - 2 ♠(?) - 3 ♥ - 4 ♥ - Pass. Opening the West hand would preclude stopping in two clubs, which might happen after an initial pass. If West did not have a natural, nonforcing two diamonds available, passing two clubs would be almost routine. As West can see some chances for game in several strains and might still finish in a club partscore, risking a further move has some appeal."
+      }
+    },
+    {
+      "id": "b467",
+      "type": "text",
+      "data": {
+        "text": "**Awards**\n4 ♥        10\n3 ♥         5\n3 ♣, 3 NT   4\n4 ♣         3\n5 ♣         2"
+      }
+    },
+    {
+      "id": "b468",
+      "type": "text",
+      "data": {
+        "text": "**Score: Linda & Paul: 61, Whibley & Edgtton: 56**"
+      }
+    },
+    {
+      "id": "b469",
+      "type": "text",
+      "data": {
+        "text": "**9**\n\nNorth deals and passes; South bids two spades; North bids three spades\nEast-West vulnerable"
+      }
+    },
+    {
+      "id": "b470",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "east": {
+            "S": "J",
+            "H": "K3",
+            "D": "AKQ832",
+            "C": "AJ65"
+          },
+          "west": {
+            "S": "93",
+            "H": "AT2",
+            "D": "J97",
+            "C": "KQT87"
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": false,
+          "east": true,
+          "west": true
+        },
+        "dealer": "North",
+        "vulnerability": "E-W",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b471",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "North",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1D",
+            "alert": null
+          },
+          {
+            "text": "2S",
+            "alert": null
+          },
+          {
+            "text": "Dbl",
+            "alert": null
+          },
+          {
+            "text": "3S",
+            "alert": null
+          },
+          {
+            "text": "4C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "5C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "Linda – Paul",
+        "players": {
+          "west": "Linda",
+          "east": "Paul"
+        },
+        "seats": [
+          "west",
+          "east"
+        ]
+      }
+    },
+    {
+      "id": "b472",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "North",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1D",
+            "alert": null
+          },
+          {
+            "text": "2S",
+            "alert": null
+          },
+          {
+            "text": "Dbl",
+            "alert": null
+          },
+          {
+            "text": "3S",
+            "alert": null
+          },
+          {
+            "text": "Dbl",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "5H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "6C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "Whibley – Edgtton",
+        "players": {
+          "west": "Whibley",
+          "east": "Edgtton"
+        },
+        "seats": [
+          "west",
+          "east"
+        ]
+      }
+    },
+    {
+      "id": "b473",
+      "type": "text",
+      "data": {
+        "text": "Linda risked an off-shape negative double as the least of evils. Paul showed power, but the system did not supply detailed meanings in this uncommon sequence (and the interference made scientific bidding difficult in any event).\n\nEdgtton's double widened the field of inquiry at the risk of leaving the excellent diamond suit not fully described. Four spades was the only available strong club raise. Whibley asked for key cards.\n\nBWS Auction: 1 ♦- (2 ♠) - Double - (3 ♠) - Double - 4 ♠ - 5 NT(?) - 6 ♣(?) - Pass. West's double likely would be popular in the MSC, as three diamonds and pass have less appeal. East does not have a forcing four clubs available over three spades. A compromise is to double, planning to convert a heart bid to clubs."
+      }
+    },
+    {
+      "id": "b474",
+      "type": "text",
+      "data": {
+        "text": "**Awards**\n6 ♦, 6 ♣    10\n5 ♦, 5 ♣     4"
+      }
+    },
+    {
+      "id": "b475",
+      "type": "text",
+      "data": {
+        "text": "**Score: Linda & Paul: 65, Whibley & Edgtton: 66**"
+      }
+    },
+    {
+      "id": "b476",
+      "type": "text",
+      "data": {
+        "text": "**10**\n\nEast dealer\nBoth sides vulnerable"
+      }
+    },
+    {
+      "id": "b477",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "east": {
+            "S": "A643",
+            "H": "AT8763",
+            "D": "AT6",
+            "C": ""
+          },
+          "west": {
+            "S": "K7",
+            "H": "K4",
+            "D": "Q72",
+            "C": "AT8654"
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": false,
+          "east": true,
+          "west": true
+        },
+        "dealer": "East",
+        "vulnerability": "All",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b478",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "East",
+        "bids": [
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "Linda – Paul",
+        "players": {
+          "west": "Linda",
+          "east": "Paul"
+        },
+        "seats": [
+          "west",
+          "east"
+        ]
+      }
+    },
+    {
+      "id": "b479",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "East",
+        "bids": [
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "Whibley – Edgtton",
+        "players": {
+          "west": "Whibley",
+          "east": "Edgtton"
+        },
+        "seats": [
+          "west",
+          "east"
+        ]
+      }
+    },
+    {
+      "id": "b480",
+      "type": "text",
+      "data": {
+        "text": "Linda's game-forcing response showed at least four clubs; Paul's rebid showed six hearts. The jump to game was the weakest available raise."
+      }
+    },
+    {
+      "id": "b481",
+      "type": "text",
+      "data": {
+        "text": "Whibley's response was an artificial game-force. The rest of the Newcomers' bidding was natural.\n\nBWS Auction: 1 ♥ - 2 ♣ - 2 ♥(?) - 2 NT - 3 ♠(?) - 4 ♥ - Pass. Many Easts would rebid two spades. West's two notrump denies four spades, so three spades indicates six-plus hearts and at least 10 of East's cards."
+      }
+    },
+    {
+      "id": "b482",
+      "type": "text",
+      "data": {
+        "text": "**Awards**\n4 ♥        10\n3 NT        6\n3 ♥         4\n2 NT        3"
+      }
+    },
+    {
+      "id": "b483",
+      "type": "text",
+      "data": {
+        "text": "**FINAL SCORE**\n**Linda & Paul 75**\n**Whibley & Edgtton 72**"
+      }
+    },
+    {
+      "id": "b484",
+      "type": "text",
+      "data": {
+        "text": "The \"double comeback\" at the end of the match has been a rare occurrence in this series of encounters. Michael and Nabil will return next month, bidding the hands on pages 75 and 76."
+      }
+    },
+    {
+      "id": "b485",
+      "type": "text",
+      "data": {
+        "text": "Assume East started with seven hearts and at least three diamonds to the queen-jack. When you cash the king of spades, if he keeps the ace of hearts and three diamonds, discard the eight of hearts and lead a diamond from dummy; if East plays a quack, win and throw him in with a heart.\n\nBased on a deal from Andy Stark, New York City."
+      }
+    },
+    {
+      "id": "b486",
+      "type": "text",
+      "data": {
+        "text": "**CHALLENGE THE CHAMPS**\n\nWEST HANDS FOR THE MAY BIDDING MATCH\n\n(East hands are on page 76.)"
+      }
+    },
+    {
+      "id": "b487",
+      "type": "text",
+      "data": {
+        "text": "**Deal 1**\n\nNorth deals and opens two spades\nNeither side vulnerable"
+      }
+    },
+    {
+      "id": "b488",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "east": {
+            "S": "AK9",
+            "H": "AJ85",
+            "D": "AQ953",
+            "C": "2"
+          },
+          "west": {
+            "S": "",
+            "H": "KQT93",
+            "D": "KJ6",
+            "C": "AQJT7"
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": false,
+          "east": true,
+          "west": true
+        },
+        "dealer": "North",
+        "vulnerability": "None",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b489",
+      "type": "text",
+      "data": {
+        "text": "**Deal 2**\n\nEast dealer\nNorth-South vulnerable"
+      }
+    },
+    {
+      "id": "b490",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "east": {
+            "S": "A",
+            "H": "KQJ7",
+            "D": "J973",
+            "C": "A965"
+          },
+          "west": {
+            "S": "K32",
+            "H": "A64",
+            "D": "AKT86",
+            "C": "J2"
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": false,
+          "east": true,
+          "west": true
+        },
+        "dealer": "East",
+        "vulnerability": "N-S",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b491",
+      "type": "text",
+      "data": {
+        "text": "**Deal 3**\n\nSouth dealer\nEast-West vulnerable"
+      }
+    },
+    {
+      "id": "b492",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "east": {
+            "S": "AKQ83",
+            "H": "T",
+            "D": "A98",
+            "C": "AJ74"
+          },
+          "west": {
+            "S": "T76",
+            "H": "A82",
+            "D": "KJ4",
+            "C": "QT62"
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": false,
+          "east": true,
+          "west": true
+        },
+        "dealer": "South",
+        "vulnerability": "E-W",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b493",
+      "type": "text",
+      "data": {
+        "text": "**Deal 4**\n\nWest dealer\nBoth sides vulnerable"
+      }
+    },
+    {
+      "id": "b494",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "east": {
+            "S": "AT8542",
+            "H": "643",
+            "D": "QT82",
+            "C": ""
+          },
+          "west": {
+            "S": "KJ3",
+            "H": "A85",
+            "D": "AJ4",
+            "C": "J874"
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": false,
+          "east": true,
+          "west": true
+        },
+        "dealer": "West",
+        "vulnerability": "All",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b495",
+      "type": "text",
+      "data": {
+        "text": "**Deal 5**\n\nNorth dealer\nNorth-South vulnerable"
+      }
+    },
+    {
+      "id": "b496",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "east": {
+            "S": "T75",
+            "H": "T962",
+            "D": "A7",
+            "C": "AKQ6"
+          },
+          "west": {
+            "S": "",
+            "H": "AKQJ85",
+            "D": "KT8",
+            "C": "7543"
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": false,
+          "east": true,
+          "west": true
+        },
+        "dealer": "North",
+        "vulnerability": "N-S",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b497",
+      "type": "text",
+      "data": {
+        "text": "**Deal 6**\n\nEast dealer\nEast-West vulnerable"
+      }
+    },
+    {
+      "id": "b498",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "east": {
+            "S": "9",
+            "H": "AJ83",
+            "D": "QT4",
+            "C": "AK976"
+          },
+          "west": {
+            "S": "AKJ8",
+            "H": "KT65",
+            "D": "KJ7",
+            "C": "54"
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": false,
+          "east": true,
+          "west": true
+        },
+        "dealer": "East",
+        "vulnerability": "E-W",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b499",
+      "type": "text",
+      "data": {
+        "text": "**Deal 7**\n\nSouth dealer\nBoth sides vulnerable"
+      }
+    },
+    {
+      "id": "b500",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "east": {
+            "S": "JT976",
+            "H": "K8",
+            "D": "K",
+            "C": "AKT64"
+          },
+          "west": {
+            "S": "A2",
+            "H": "AJ9",
+            "D": "A763",
+            "C": "QJ97"
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": false,
+          "east": true,
+          "west": true
+        },
+        "dealer": "South",
+        "vulnerability": "All",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b501",
+      "type": "text",
+      "data": {
+        "text": "**Deal 8**\n\nWest dealer\nNeither side vulnerable"
+      }
+    },
+    {
+      "id": "b502",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "east": {
+            "S": "",
+            "H": "9863",
+            "D": "AT872",
+            "C": "KQT6"
+          },
+          "west": {
+            "S": "AQT42",
+            "H": "QT4",
+            "D": "KJ",
+            "C": "A73"
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": false,
+          "east": true,
+          "west": true
+        },
+        "dealer": "West",
+        "vulnerability": "None",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b503",
+      "type": "text",
+      "data": {
+        "text": "**Deal 9**\n\nNorth deals and opens one club\nEast-West vulnerable"
+      }
+    },
+    {
+      "id": "b504",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "east": {
+            "S": "KJ5",
+            "H": "KJ92",
+            "D": "AQ964",
+            "C": "4"
+          },
+          "west": {
+            "S": "Q3",
+            "H": "AQ765",
+            "D": "K82",
+            "C": "A53"
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": false,
+          "east": true,
+          "west": true
+        },
+        "dealer": "North",
+        "vulnerability": "E-W",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b505",
+      "type": "text",
+      "data": {
+        "text": "**Deal 10**\n\nEast dealer\nBoth sides vulnerable"
+      }
+    },
+    {
+      "id": "b506",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "east": {
+            "S": "AJ3",
+            "H": "A",
+            "D": "Q6",
+            "C": "A976543"
+          },
+          "west": {
+            "S": "QT62",
+            "H": "Q9543",
+            "D": "K2",
+            "C": "QT"
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": false,
+          "east": true,
+          "west": true
+        },
+        "dealer": "East",
+        "vulnerability": "All",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    }
+  ],
+  "warnings": []
+}

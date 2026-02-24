@@ -1,0 +1,862 @@
+{
+  "title": "New Critical Moments",
+  "slug": "new-critical-moments",
+  "author_name": "David J. Weiss",
+  "category": "Card Play",
+  "tags": [
+    "April 2025",
+    "David J. Weiss",
+    "card play"
+  ],
+  "source_page": 32,
+  "excerpt": "Critical decision points in card play analyzed by David J. Weiss.",
+  "status": "draft",
+  "content_blocks": [
+    {
+      "id": "b217",
+      "type": "text",
+      "data": {
+        "text": "**NEW CRITICAL MOMENTS**\n**BY DAVID J. WEISS, BREA, CA**\n\nThese problems are based on deals from strong imp games, where the players supposedly use Bridge World Standard. As in real life, the prior play may have been brilliant or not so much."
+      }
+    },
+    {
+      "id": "b218",
+      "type": "text",
+      "data": {
+        "text": "**1.** West dealer\nNorth-South vulnerable"
+      }
+    },
+    {
+      "id": "b219",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "A97",
+            "H": "JT3",
+            "D": "AQT",
+            "C": "5432"
+          },
+          "south": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "east": {
+            "S": "QJ6",
+            "H": "KQ92",
+            "D": "965",
+            "C": "AJ8"
+          },
+          "west": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": false,
+          "east": true,
+          "west": false
+        },
+        "dealer": "West",
+        "vulnerability": "N-S",
+        "contract": "4S",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b220",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "West",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1C",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "3C",
+            "alert": null
+          },
+          {
+            "text": "3S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {}
+      }
+    },
+    {
+      "id": "b221",
+      "type": "text",
+      "data": {
+        "text": "Heart eight, jack, *queen*, six.\n\n**Plan your defense.**"
+      }
+    },
+    {
+      "id": "b222",
+      "type": "text",
+      "data": {
+        "text": "**2.** South dealer\nBoth sides vulnerable"
+      }
+    },
+    {
+      "id": "b223",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "KQT52",
+            "H": "AJ8",
+            "D": "Q4",
+            "C": "T85"
+          },
+          "south": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "east": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "west": {
+            "S": "3",
+            "H": "K75",
+            "D": "T97632",
+            "C": "Q64"
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": false,
+          "east": false,
+          "west": true
+        },
+        "dealer": "South",
+        "vulnerability": "All",
+        "contract": "3NT",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b224",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "South",
+        "bids": [
+          {
+            "text": "1NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {}
+      }
+    },
+    {
+      "id": "b225",
+      "type": "text",
+      "data": {
+        "text": "Diamond ten, queen, *king*, five.\nDiamond jack, eight, ?\n\n**Plan your defense.**"
+      }
+    },
+    {
+      "id": "b226",
+      "type": "text",
+      "data": {
+        "text": "**3.** South dealer\nNorth-South vulnerable"
+      }
+    },
+    {
+      "id": "b227",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "JT",
+            "H": "J93",
+            "D": "AKQJ5",
+            "C": "T52"
+          },
+          "south": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "east": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "west": {
+            "S": "K5",
+            "H": "K84",
+            "D": "743",
+            "C": "K8763"
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": false,
+          "east": false,
+          "west": true
+        },
+        "dealer": "South",
+        "vulnerability": "N-S",
+        "contract": "3NT",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b228",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "South",
+        "bids": [
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {}
+      }
+    },
+    {
+      "id": "b229",
+      "type": "text",
+      "data": {
+        "text": "Club six, deuce, nine, *ace*.\nDiamond eight, three, *jack*, ten.\nSpade jack, deuce, four, ?\n\n**Plan your defense.**"
+      }
+    },
+    {
+      "id": "b230",
+      "type": "text",
+      "data": {
+        "text": "**PATRONIZE\nTHE BOOKSHELF**"
+      }
+    },
+    {
+      "id": "b231",
+      "type": "text",
+      "data": {
+        "text": "**4.** East dealer\nNorth-South vulnerable"
+      }
+    },
+    {
+      "id": "b232",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "Q7",
+            "H": "T853",
+            "D": "AJ",
+            "C": "AK932"
+          },
+          "south": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "east": {
+            "S": "T9432",
+            "H": "AJ",
+            "D": "KT932",
+            "C": "8"
+          },
+          "west": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": false,
+          "east": true,
+          "west": false
+        },
+        "dealer": "East",
+        "vulnerability": "N-S",
+        "contract": "4H",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b233",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "East",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1C",
+            "alert": null
+          },
+          {
+            "text": "1D",
+            "alert": null
+          },
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "2D",
+            "alert": null
+          },
+          {
+            "text": "3H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {}
+      }
+    },
+    {
+      "id": "b234",
+      "type": "text",
+      "data": {
+        "text": "Diamond four, *ace*, deuce, seven.\nSpade queen, four, eight, six.\nSpade seven, deuce, *ace*, five.\nSpade king, jack, diamond jack, three.\nHeart six, nine, ten, ?\n\n**Plan your defense.**"
+      }
+    },
+    {
+      "id": "b235",
+      "type": "text",
+      "data": {
+        "text": "**5.** East dealer\nBoth sides vulnerable"
+      }
+    },
+    {
+      "id": "b236",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "Q63",
+            "H": "J97",
+            "D": "KQ54",
+            "C": "J42"
+          },
+          "south": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "east": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "west": {
+            "S": "7",
+            "H": "Q5",
+            "D": "9732",
+            "C": "QT9753"
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": false,
+          "east": false,
+          "west": true
+        },
+        "dealer": "East",
+        "vulnerability": "All",
+        "contract": "4H",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b237",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "East",
+        "bids": [
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "2H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {}
+      }
+    },
+    {
+      "id": "b238",
+      "type": "text",
+      "data": {
+        "text": "Spades seven, three, *ace*, eight.\nClub king, six, ?\n\n**Plan your defense.**\n\n[*Solutions overleaf.*]"
+      }
+    },
+    {
+      "id": "b239",
+      "type": "text",
+      "data": {
+        "text": "**DISTRIBUTION DESCRIPTIONS IN THE BRIDGE WORLD**\n\nA group of four numbers separated by equal signs (=) denotes an exact suit distribution. For example: 5=4=3=1 denotes five spades, four hearts, three diamonds, and one club. A group of four numbers separated by hyphens (-) denotes any of the exact distributions matching that general pattern. For example: 4-3-3-3 represents: 4=3=3=3 or 3=4=3=3 or 3=3=4=3 or 3=3=3=4.\n\nSimilarly, a break described as three=one (or 3=1) denotes three cards on the left and one on the right; one=three (or 1=3) denotes one card on the left and three on the right; three-one represents three=one or one=three."
+      }
+    },
+    {
+      "id": "b240",
+      "type": "text",
+      "data": {
+        "text": "**Solutions**"
+      }
+    },
+    {
+      "id": "b241",
+      "type": "text",
+      "data": {
+        "text": "**1.** Although it may look peculiar, you must play a diamond into dummy's ace-queen-ten. This can't cost a trick. Returning a major would be suicidal. Partner's heart was from a doubleton, not a singleton, as declarer failed to show five-five in the majors immediately. If declarer were six-five in the majors, he would not have ducked the first trick. The seemingly-safe alternative, cashing the club ace and continuing that suit, doesn't cost materially, but it facilitates declarer's ruffing three clubs in the closed hand. If South's pattern is 5=4=3=1, which is suggested by partner's preemptive raise, a dummy reversal is the only route to 10 tricks. If you play a diamond at trick two and later rise with the club ace to play a second diamond, declarer lacks the requisite transportation."
+      }
+    },
+    {
+      "id": "b242",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "A97",
+            "H": "JT3",
+            "D": "AQT",
+            "C": "5432"
+          },
+          "south": {
+            "S": "KT854",
+            "H": "A654",
+            "D": "K84",
+            "C": "K"
+          },
+          "east": {
+            "S": "QJ6",
+            "H": "KQ92",
+            "D": "965",
+            "C": "AJ8"
+          },
+          "west": {
+            "S": "32",
+            "H": "87",
+            "D": "J732",
+            "C": "QT976"
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": true,
+          "west": true
+        },
+        "dealer": "",
+        "vulnerability": "",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b243",
+      "type": "text",
+      "data": {
+        "text": "**2.** Follow with the six. You know partner is out of diamonds, but you can't be certain of the best line of defense, which depends on the layout. Accordingly, you should signal neutrally, suggesting roughly equal holdings in the candidate suits. If you play the deuce, partner will hope for you to have something like king-queen-fourth of clubs and may shift to a club, surrendering the contract. If you play the diamond six, partner will have a chance to find the necessary heart shift."
+      }
+    },
+    {
+      "id": "b244",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "KQT52",
+            "H": "AJ8",
+            "D": "Q4",
+            "C": "T85"
+          },
+          "south": {
+            "S": "A4",
+            "H": "962",
+            "D": "A85",
+            "C": "AK732"
+          },
+          "east": {
+            "S": "J9876",
+            "H": "QT43",
+            "D": "KJ",
+            "C": "J9"
+          },
+          "west": {
+            "S": "3",
+            "H": "K75",
+            "D": "T97632",
+            "C": "Q64"
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": true,
+          "west": true
+        },
+        "dealer": "",
+        "vulnerability": "",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b245",
+      "type": "text",
+      "data": {
+        "text": "**BACK ISSUES OF\nTHE\nBRIDGE\nWORLD**\n\nSEE THE LIST OF AVAILABLE\nISSUES & SPECIAL OFFERS AT:\nWWW.BRIDGEWORLD.COM"
+      }
+    },
+    {
+      "id": "b246",
+      "type": "text",
+      "data": {
+        "text": "**3.** Win, cash the club king, and shift to a heart, preferably the king (to help partner). Don't underlead in clubs, because declarer has made a \"newspaper play,\" winning with the ace from ace-queen. With queen-jack of clubs, partner would have signaled his enthusiasm for that suit with an encouraging Smith signal.\n\nI view Smith as a necessity. BWS uses low in the suit declarer plays to encourage the opening-lead suit. When Smith first appeared, high was encouraging, so partners should ensure that they are on the same page."
+      }
+    },
+    {
+      "id": "b247",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "JT",
+            "H": "J93",
+            "D": "AKQJ5",
+            "C": "T52"
+          },
+          "south": {
+            "S": "AQ984",
+            "H": "T62",
+            "D": "986",
+            "C": "AQ"
+          },
+          "east": {
+            "S": "7632",
+            "H": "AQ75",
+            "D": "T2",
+            "C": "J94"
+          },
+          "west": {
+            "S": "K5",
+            "H": "K84",
+            "D": "743",
+            "C": "K8763"
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": true,
+          "west": true
+        },
+        "dealer": "",
+        "vulnerability": "",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b248",
+      "type": "text",
+      "data": {
+        "text": "**4.** If you win this trick cheaply, you won't be able to defeat the contract. Declarer needs a three-two trump split and wants to play two rounds of the suit to stop the defender with the doubleton from ruffing something with a high trump. Then, declarer will run clubs. He will find a friendly trump division, but the rest of the plan is in jeopardy, because the club layout is not so friendly. The defense can thwart the plan only by playing three rounds of trumps immediately, then a diamond to tap out dummy's last trump to prevent declarer from scoring the long club. It is safe to win with the heart ace and continue with the jack, because you need partner to have three trumps, and the nine apparently is the lowest of those."
+      }
+    },
+    {
+      "id": "b249",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "Q7",
+            "H": "T853",
+            "D": "AJ",
+            "C": "AK932"
+          },
+          "south": {
+            "S": "AK8",
+            "H": "7642",
+            "D": "875",
+            "C": "Q76"
+          },
+          "east": {
+            "S": "T9432",
+            "H": "AJ",
+            "D": "KT932",
+            "C": "8"
+          },
+          "west": {
+            "S": "J65",
+            "H": "KQ9",
+            "D": "Q64",
+            "C": "JT54"
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": true,
+          "west": true
+        },
+        "dealer": "",
+        "vulnerability": "",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b250",
+      "type": "text",
+      "data": {
+        "text": "**5.** A well-versed partnership would know the meaning of a defensive signal in this situation, but you can determine the correct play without an agreement. You should play the club queen to alert East to your ability to ruff a spade. (A suit-preference signal while giving the ruff may produce a second spade ruff.)"
+      }
+    },
+    {
+      "id": "b251",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "Q63",
+            "H": "J97",
+            "D": "KQ54",
+            "C": "J42"
+          },
+          "south": {
+            "S": "KT84",
+            "H": "AKT843",
+            "D": "J8",
+            "C": "6"
+          },
+          "east": {
+            "S": "AJ952",
+            "H": "62",
+            "D": "AT6",
+            "C": "AK8"
+          },
+          "west": {
+            "S": "7",
+            "H": "Q5",
+            "D": "9732",
+            "C": "QT9753"
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": true,
+          "west": true
+        },
+        "dealer": "",
+        "vulnerability": "",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    }
+  ],
+  "warnings": []
+}

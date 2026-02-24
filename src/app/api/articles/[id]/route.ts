@@ -31,7 +31,9 @@ export async function GET(
   }
 
   // Non-admins can only view their own articles
-  if (!profile.is_admin && data.author_id !== userId) {
+  const isOwner = data.author_id === userId ||
+    (Array.isArray(data.author_ids) && data.author_ids.includes(userId));
+  if (!profile.is_admin && !isOwner) {
     return NextResponse.json({ error: "Forbidden" }, { status: 403 });
   }
 
@@ -59,7 +61,7 @@ export async function PUT(
   // Verify article exists and check ownership
   const { data: existing, error: fetchError } = await supabase
     .from("articles")
-    .select("id, author_id, status, published_at")
+    .select("id, author_id, author_ids, status, published_at, featured_image_url")
     .eq("id", params.id)
     .single();
 
@@ -67,7 +69,9 @@ export async function PUT(
     return NextResponse.json({ error: "Not found" }, { status: 404 });
   }
 
-  if (!profile.is_admin && existing.author_id !== userId) {
+  const isOwner = existing.author_id === userId ||
+    (Array.isArray(existing.author_ids) && existing.author_ids.includes(userId));
+  if (!profile.is_admin && !isOwner) {
     return NextResponse.json({ error: "Forbidden" }, { status: 403 });
   }
 
@@ -88,9 +92,11 @@ export async function PUT(
     slug,
     author_name,
     author_id: authorId,
+    author_ids: bodyAuthorIds,
     category,
     tags,
     access_tier,
+    level,
     excerpt,
     status,
     content_blocks,
@@ -103,14 +109,18 @@ export async function PUT(
       ? existing.status
       : (status ?? existing.status);
 
-  const resolvedAuthorId =
-    profile.is_admin && typeof authorId === "string" && authorId ? authorId : undefined;
+  // Admins can set author_id to a specific user, or explicitly to null.
+  // Use a sentinel to distinguish "not provided" from "set to null".
+  const resolvedAuthorId: string | null | undefined =
+    profile.is_admin && authorId === null
+      ? null
+      : (profile.is_admin && typeof authorId === "string" && authorId ? authorId : undefined);
 
   // Authors cannot change access_tier; fetch existing value to preserve it
   const resolvedAccessTier = profile.is_admin ? (access_tier ?? "free") : undefined;
 
   // Denormalize author photo (use new authorId if set, else existing)
-  const finalAuthorId = resolvedAuthorId ?? existing.author_id;
+  const finalAuthorId = resolvedAuthorId !== undefined ? resolvedAuthorId : existing.author_id;
   let author_photo_url: string | null = null;
   if (finalAuthorId) {
     const { data: authorProfile } = await supabase
@@ -121,6 +131,10 @@ export async function PUT(
     author_photo_url = (authorProfile as { photo_url: string | null } | null)?.photo_url ?? null;
   }
 
+  // Detect if the primary author changed — invalidate the auto-generated card image
+  const authorChanged = resolvedAuthorId !== undefined && resolvedAuthorId !== existing.author_id;
+  const resolvedFeaturedImageUrl = authorChanged ? null : (featured_image_url ?? null);
+
   // Set published_at when transitioning to published
   let published_at = existing.published_at;
   if (resolvedStatus === "published" && !existing.published_at) {
@@ -129,6 +143,12 @@ export async function PUT(
     published_at = null;
   }
 
+  // Resolve author_ids: use explicit array if provided by admin, or null to clear
+  const resolvedAuthorIds: string[] | null | undefined =
+    profile.is_admin && Array.isArray(bodyAuthorIds)
+      ? bodyAuthorIds as string[]
+      : (profile.is_admin && bodyAuthorIds === null ? null : undefined);
+
   const { data, error } = await supabase
     .from("articles")
     .update({
@@ -136,13 +156,15 @@ export async function PUT(
       slug:               slug,
       author_name:        author_name ?? null,
       ...(resolvedAuthorId !== undefined && { author_id: resolvedAuthorId }),
+      ...(resolvedAuthorIds !== undefined && { author_ids: resolvedAuthorIds }),
       category:           category ?? null,
       tags:               tags ?? [],
       ...(resolvedAccessTier !== undefined && { access_tier: resolvedAccessTier }),
+      level:              level ?? null,
       excerpt:            excerpt ?? null,
       status:             resolvedStatus,
       content_blocks:     content_blocks ?? [],
-      featured_image_url: featured_image_url ?? null,
+      featured_image_url: resolvedFeaturedImageUrl,
       author_photo_url,
       published_at,
     })

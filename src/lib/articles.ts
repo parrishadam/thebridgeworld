@@ -190,6 +190,7 @@ export function mapSupabaseToCardShape(
     publishedAt:  article.published_at ?? article.created_at,
     featured:     false,
     access_tier:  article.access_tier as ArticleAccessTier,
+    level:        article.level ?? undefined,
     coverImageUrl: article.featured_image_url ?? undefined,
     category,
     tags,

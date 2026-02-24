@@ -7,6 +7,7 @@ import Footer from "@/components/layout/Footer";
 import UserTierTable from "./UserTierTable";
 import CategoriesPanel from "./CategoriesPanel";
 import TagsPanel from "./TagsPanel";
+import FaqsPanel from "./FaqsPanel";
 import { getOrCreateProfile } from "@/lib/subscription";
 import { getSupabaseAdmin } from "@/lib/supabase";
 import { clerkClient } from "@clerk/nextjs/server";
@@ -45,9 +46,13 @@ export default async function AdminPage() {
     }
   }
 
-  const [categories, tags] = await Promise.all([
+  const [categories, tags, { data: faqs }] = await Promise.all([
     getCategoriesWithCounts(),
     getTagsWithCounts(),
+    getSupabaseAdmin()
+      .from("faqs")
+      .select("*")
+      .order("sort_order", { ascending: true }),
   ]);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -96,6 +101,12 @@ export default async function AdminPage() {
             </p>
             <div className="flex gap-3">
               <Link
+                href="/admin/import"
+                className="font-sans text-sm border border-stone-200 text-stone-700 px-4 py-2 hover:bg-stone-50 transition-colors"
+              >
+                Import Issue PDF
+              </Link>
+              <Link
                 href="/admin/articles"
                 className="font-sans text-sm border border-stone-200 text-stone-700 px-4 py-2 hover:bg-stone-50 transition-colors"
               >
@@ -139,6 +150,24 @@ export default async function AdminPage() {
           </div>
           <div className="bg-white border border-stone-200 rounded-sm p-6">
             <TagsPanel initialTags={tags} />
+          </div>
+        </div>
+
+        {/* ── FAQs ───────────────────────────────────────────────────────── */}
+        <div className="mt-12">
+          <div className="border-b-2 border-stone-900 pb-2 mb-6">
+            <h2 className="font-sans text-xs uppercase tracking-[0.25em] text-stone-500">
+              FAQs
+            </h2>
+          </div>
+          <div className="flex items-center justify-between mb-6">
+            <p className="font-serif text-2xl font-bold text-stone-900">FAQs</p>
+            <p className="font-sans text-sm text-stone-400">
+              {(faqs ?? []).length} {(faqs ?? []).length === 1 ? "item" : "items"}
+            </p>
+          </div>
+          <div className="bg-white border border-stone-200 rounded-sm p-6">
+            <FaqsPanel initialFaqs={faqs ?? []} />
           </div>
         </div>
 

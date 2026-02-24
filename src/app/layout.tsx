@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
+import LoginLogger from "@/components/auth/LoginLogger";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -36,6 +37,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
         <body className="antialiased bg-stone-50 text-stone-900">
+          <LoginLogger />
           {children}
         </body>
       </html>

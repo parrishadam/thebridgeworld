@@ -3,6 +3,9 @@ import HeaderAuth from "./HeaderAuth";
 
 const navLinks = [
   { href: "/articles", label: "Articles" },
+  { href: "/about", label: "About" },
+  { href: "/faq", label: "FAQ" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export default function Header() {

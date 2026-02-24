@@ -1,0 +1,123 @@
+{
+  "title": "Another Look",
+  "slug": "another-look",
+  "author_name": "John Swanson",
+  "category": "Another Look",
+  "tags": [
+    "April 2025",
+    "John Swanson"
+  ],
+  "source_page": 40,
+  "excerpt": "Re-examination of bridge hands and concepts from a different perspective.",
+  "status": "draft",
+  "content_blocks": [
+    {
+      "id": "b258",
+      "type": "text",
+      "data": {
+        "text": "**ANOTHER LOOK**\n\nby John Swanson, Lancaster, CA\n\nLooking through old Bridge Worlds is generally a pleasant activity, however, it was with a painful recollection that I came across this deal from the 1957 Intercollegiate Bridge Tournament (run as a par contest)."
+      }
+    },
+    {
+      "id": "b259",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "J5",
+            "H": "JT",
+            "D": "AT9",
+            "C": "KQ9653"
+          },
+          "south": {
+            "S": "Q9763",
+            "H": "AKQ",
+            "D": "KQJ",
+            "C": "82"
+          },
+          "east": {
+            "S": "A82",
+            "H": "753",
+            "D": "7642",
+            "C": "AJ4"
+          },
+          "west": {
+            "S": "KT4",
+            "H": "98642",
+            "D": "853",
+            "C": "T7"
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": true,
+          "west": true
+        },
+        "dealer": "East",
+        "vulnerability": "None",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b260",
+      "type": "text",
+      "data": {
+        "text": "Following the fashion of the day, I opened the South hand with one spade, and our unimpeded sequence continued two clubs — two notrump — three notrump —pass. I took the heart opening lead and erroneously led a club to dummy's queen—ouch! (The intended par play was for declarer to duck the club in dummy, relying on a three-two break or a singleton ace.) East correctly let the club queen hold, so that dummy would lack sufficient entries to bring in the long clubs.\n\nI returned to the closed hand with a diamond to lead a second club. East took dummy's king with the ace and continued hearts. I won in hand, and this was the situation:"
+      }
+    },
+    {
+      "id": "b261",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "J5",
+            "H": "",
+            "D": "AT",
+            "C": "9653"
+          },
+          "south": {
+            "S": "Q9763",
+            "H": "K",
+            "D": "KQ",
+            "C": ""
+          },
+          "east": {
+            "S": "A82",
+            "H": "7",
+            "D": "764",
+            "C": "J"
+          },
+          "west": {
+            "S": "KT4",
+            "H": "862",
+            "D": "85",
+            "C": ""
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": true,
+          "west": true
+        },
+        "dealer": "",
+        "vulnerability": "",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b262",
+      "type": "text",
+      "data": {
+        "text": "I led a spade. Misreading the position, West rose with the king to play a diamond. Dummy's ace won, and I led the spade jack. When East ducked, I overtook with the queen and led a third spade—making three notrump after all, but no pars scored. Now, with another look over 65 years later, I notice that I made a second mistake. Do you see it?\n\nI should have ducked the spade jack. If it had held the trick, I could have continued with a club, discarding my remaining diamond. Then, if East had started with ace-eight-four-deuce of spades, the contract would have succeeded (where the approach I took at the table would have failed)."
+      }
+    }
+  ],
+  "warnings": []
+}

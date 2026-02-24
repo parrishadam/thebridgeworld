@@ -192,7 +192,18 @@ export default function AdminArticlesTable({
             {articles.map((article) => (
               <tr key={article.id} className="group">
                 <td className="py-3 pr-4 max-w-xs">
-                  <p className="font-medium text-stone-900 truncate">{article.title || "Untitled"}</p>
+                  {article.status === "published" ? (
+                    <a
+                      href={`/articles/${article.slug}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-medium text-stone-900 hover:text-stone-600 truncate block transition-colors"
+                    >
+                      {article.title || "Untitled"}
+                    </a>
+                  ) : (
+                    <p className="font-medium text-stone-900 truncate">{article.title || "Untitled"}</p>
+                  )}
                   <p className="text-xs text-stone-400 font-mono truncate">{article.slug}</p>
                 </td>
                 <td className="py-3 pr-4 text-stone-600 text-xs">
@@ -223,13 +234,23 @@ export default function AdminArticlesTable({
                       Edit
                     </Link>
                     {article.status !== "published" && (
-                      <button
-                        onClick={() => handlePublish(article.id)}
-                        disabled={actionId === article.id}
-                        className="text-xs font-sans text-emerald-700 border border-emerald-200 px-2 py-1 rounded hover:bg-emerald-50 transition-colors disabled:opacity-50"
-                      >
-                        {actionId === article.id ? "…" : "Publish"}
-                      </button>
+                      <>
+                        <a
+                          href={`/articles/${article.slug}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-xs font-sans text-stone-600 border border-stone-200 px-2 py-1 rounded hover:bg-stone-50 transition-colors"
+                        >
+                          Preview
+                        </a>
+                        <button
+                          onClick={() => handlePublish(article.id)}
+                          disabled={actionId === article.id}
+                          className="text-xs font-sans text-emerald-700 border border-emerald-200 px-2 py-1 rounded hover:bg-emerald-50 transition-colors disabled:opacity-50"
+                        >
+                          {actionId === article.id ? "…" : "Publish"}
+                        </button>
+                      </>
                     )}
                     <button
                       onClick={() => handleDelete(article.id)}

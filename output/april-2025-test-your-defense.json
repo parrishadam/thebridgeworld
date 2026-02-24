@@ -1,0 +1,165 @@
+{
+  "title": "Test Your Defense",
+  "slug": "test-your-defense",
+  "author_name": "",
+  "category": "Test Your Defense",
+  "tags": [
+    "April 2025",
+    "defense"
+  ],
+  "source_page": 17,
+  "excerpt": "Defensive card play problems testing defensive technique.",
+  "status": "draft",
+  "content_blocks": [
+    {
+      "id": "b207",
+      "type": "text",
+      "data": {
+        "text": "**TEST YOUR DEFENSE**\n\nRubber bridge\nSouth dealer\nBoth sides vulnerable"
+      }
+    },
+    {
+      "id": "b208",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "AJ97",
+            "H": "Q",
+            "D": "KQJ2",
+            "C": "AJT9"
+          },
+          "south": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "east": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "west": {
+            "S": "86",
+            "H": "K8432",
+            "D": "T875",
+            "C": "K8"
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": false,
+          "east": false,
+          "west": true
+        },
+        "dealer": "South",
+        "vulnerability": "Both",
+        "contract": "4H",
+        "lead": "S8",
+        "title": ""
+      }
+    },
+    {
+      "id": "b209",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "South",
+        "bids": [
+          {
+            "text": "2H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {}
+      }
+    },
+    {
+      "id": "b210",
+      "type": "text",
+      "data": {
+        "text": "Spade eight, ace, five, three.\nDiamond king, ace, heart six, five.\nClub four, ?\n\n**Plan your defense.**\n\n(Solution on page 41.)"
+      }
+    },
+    {
+      "id": "b211",
+      "type": "text",
+      "data": {
+        "text": "**TEST YOUR DEFENSE SOLUTION**\n\n(Problem on page 17.)"
+      }
+    },
+    {
+      "id": "b212",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "AJ97",
+            "H": "Q",
+            "D": "KQJ2",
+            "C": "AJT9"
+          },
+          "south": {
+            "S": "432",
+            "H": "AJT976",
+            "D": "",
+            "C": "7654"
+          },
+          "east": {
+            "S": "KQT5",
+            "H": "5",
+            "D": "A9643",
+            "C": "Q32"
+          },
+          "west": {
+            "S": "86",
+            "H": "K8432",
+            "D": "T875",
+            "C": "K8"
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": true,
+          "west": true
+        },
+        "dealer": "South",
+        "vulnerability": "Both",
+        "contract": "4H",
+        "lead": "S8",
+        "title": ""
+      }
+    },
+    {
+      "id": "b213",
+      "type": "text",
+      "data": {
+        "text": "If East's five of spades was encouraging (as seems likely), South has at least four-three-deuce of spades. With the ace of hearts, four spades to an honor would be highly unusual for an opening two-heart bid, so South likely has 3=6=0=4. Apparently, he intends to play dummy's ace of clubs to ensure spade discards on the diamonds, but, nonetheless, the best chance for the defense is that you sacrifice your king.\n\nSuppose you played low and the cards lay as shown in the diagram (not a big surprise). The play might continue club ace, diamond king-queen discarding spades, spade ruff, and a club to your king. Then, if you led a trump, declarer would win in dummy with the queen, ruff a diamond, and lead a club—you would find yourself endplayed with excess trumps. Alternatively, if, after winning with the king of clubs, you played a diamond, declarer would ruff and lead a club; you would ruff and lead a heart; declarer would win and lead another club, spelling doom for the defense.\n\nIn contrast, suppose you sacrifice the king of clubs under dummy's ace. The play will presumably continue diamond king-queen discarding spades, spade ruff, and a club to partner's queen. Here, partner can play a spade, and the defense will be in control. (Or, if declarer had ruffed a diamond instead of a spade, after winning with the club queen East could give a club ruff, or, more subtly, lead a trump.)"
+      }
+    }
+  ],
+  "warnings": []
+}

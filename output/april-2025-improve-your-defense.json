@@ -1,0 +1,181 @@
+{
+  "title": "Improve Your Defense",
+  "slug": "improve-your-defense",
+  "author_name": "",
+  "category": "Improve Your Defense",
+  "tags": [
+    "April 2025",
+    "defense"
+  ],
+  "source_page": 9,
+  "excerpt": "Defensive problems to help improve defensive card play skills.",
+  "status": "draft",
+  "content_blocks": [
+    {
+      "id": "b200",
+      "type": "text",
+      "data": {
+        "text": "**IMPROVE YOUR DEFENSE**\n\nRubber bridge\nNorth dealer\nNeither side vulnerable"
+      }
+    },
+    {
+      "id": "b201",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "75",
+            "H": "A",
+            "D": "AQT7642",
+            "C": "A63"
+          },
+          "south": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "east": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "west": {
+            "S": "QT8643",
+            "H": "K7",
+            "D": "3",
+            "C": "Q942"
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": false,
+          "east": false,
+          "west": true
+        },
+        "dealer": "North",
+        "vulnerability": "Neither side vulnerable",
+        "contract": "",
+        "lead": "",
+        "title": "North (dummy)"
+      }
+    },
+    {
+      "id": "b202",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "North",
+        "bids": [
+          {
+            "text": "1D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "2S",
+            "alert": null
+          },
+          {
+            "text": "3D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {}
+      }
+    },
+    {
+      "id": "b203",
+      "type": "text",
+      "data": {
+        "text": "Spade six, five, ace, nine.\nSpade deuce, king, ?\n\n**Plan your defense.**\n\n(Solution on page 72.)"
+      }
+    },
+    {
+      "id": "b204",
+      "type": "text",
+      "data": {
+        "text": "**IMPROVE YOUR DEFENSE SOLUTION**\n\n(Problem on page 9.)"
+      }
+    },
+    {
+      "id": "b205",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "75",
+            "H": "A",
+            "D": "AQT7642",
+            "C": "A63"
+          },
+          "south": {
+            "S": "KJ9",
+            "H": "QJ963",
+            "D": "98",
+            "C": "JT7"
+          },
+          "east": {
+            "S": "A2",
+            "H": "T8542",
+            "D": "KJ5",
+            "C": "K85"
+          },
+          "west": {
+            "S": "QT8643",
+            "H": "K7",
+            "D": "3",
+            "C": "Q942"
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": true,
+          "west": true
+        },
+        "dealer": "North",
+        "vulnerability": "Neither side vulnerable",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b206",
+      "type": "text",
+      "data": {
+        "text": "If partner has only one diamond stopper, it seems certain that the defense will have no chance; therefore, assume that he has (at least) two diamond stoppers.\n\nGiven such a layout, a heart shift after he takes his first diamond trick will establish an entry to your spades; meanwhile, prospects for setting up enough tricks in clubs are uncertain.\n\nSince the heart shift will succeed in the critical layouts, give the strongest suit-preference signal for hearts that you can afford—the spade ten."
+      }
+    }
+  ],
+  "warnings": []
+}

@@ -1,0 +1,168 @@
+{
+  "title": "Edgar Kaplan Remembered, II by Jeff Rubens",
+  "slug": "edgar-kaplan-remembered-ii-by-jeff-rubens",
+  "author_name": "Jeff Rubens",
+  "category": "History",
+  "tags": [
+    "January 1998",
+    "Edgar Kaplan",
+    "Jeff Rubens"
+  ],
+  "source_page": 16,
+  "excerpt": "The second part of a tribute to Edgar Kaplan and his contributions to bridge.",
+  "status": "draft",
+  "content_blocks": [
+    {
+      "id": "b5",
+      "type": "text",
+      "data": {
+        "text": "**JANUARY 1998**\n\nhigher preempt became I have good defense. Maybe taking away a round of bidding will cause the opponents to get to the wrong major.\"\n\nIt's nice to take away one whole round of the bidding. As you may surmise, we miss our hearts (and diamonds) are win:\n\nKir WOOLSEY: \"Five diamonds. Bid the limit of the hand before East gets a chance to show his distribution. Anything less is clearly an insufficient call.\"\n\nMARC BARTUSEK: \"Five diamonds. At this vulnerability, let's make them guess. If [Mrs: E-W vul. You, South, hold:]\n\n♠ K J 8 7 6 ♥ A 10 3 ♦ J 10 6 4 3 ♣ —"
+      }
+    },
+    {
+      "id": "b6",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "KJ876",
+            "H": "AT3",
+            "D": "JT643",
+            "C": ""
+          },
+          "east": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "west": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": true,
+          "east": false,
+          "west": false
+        },
+        "dealer": "",
+        "vulnerability": "",
+        "contract": "",
+        "lead": "",
+        "title": "Problem D"
+      }
+    },
+    {
+      "id": "b7",
+      "type": "text",
+      "data": {
+        "text": "SOUTH      WEST      NORTH      EAST\nPass         2 ♦         3 ♦          Pass\n?"
+      }
+    },
+    {
+      "id": "b8",
+      "type": "text",
+      "data": {
+        "text": "What is your plan? (a) three hearts; then, after pass — three notrump — pass — ?\n(b) three spades; then, after pass — three notrump — pass — ? (specially, (c) pass — three notrump — pass — ? (specially, e)\n\nothers (specify)."
+      }
+    },
+    {
+      "id": "b9",
+      "type": "mscResults",
+      "data": {
+        "results": [
+          {
+            "action": "Action",
+            "score": 100,
+            "votes": 6
+          },
+          {
+            "action": "a,4 ♦",
+            "score": 100,
+            "votes": 6
+          },
+          {
+            "action": "a,4 ♥",
+            "score": 90,
+            "votes": 5
+          },
+          {
+            "action": "a,5 ♣",
+            "score": 70,
+            "votes": 2
+          },
+          {
+            "action": "a,5 ♦",
+            "score": 60,
+            "votes": 3
+          },
+          {
+            "action": "a,4 ♣",
+            "score": 40,
+            "votes": 2
+          },
+          {
+            "action": "a,6 ♦",
+            "score": 40,
+            "votes": 1
+          },
+          {
+            "action": "a,abstain",
+            "score": 30,
+            "votes": 2
+          },
+          {
+            "action": "other",
+            "score": 20,
+            "votes": 0
+          },
+          {
+            "action": "b,4 ♦",
+            "score": 50,
+            "votes": 4
+          },
+          {
+            "action": "b,4 ♥",
+            "score": 50,
+            "votes": 3
+          },
+          {
+            "action": "b,5 ♦",
+            "score": 40,
+            "votes": 1
+          },
+          {
+            "action": "Bobber",
+            "score": 10,
+            "votes": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "b10",
+      "type": "text",
+      "data": {
+        "text": "Higher, we say!\n\nRON GREENSPAN: \"Four diamonds. Not a beauty contest. I can't see North's having to make a save-versus-slam decision without our help, but I'm ready to lose the postmortem if the auction comes up craps. I'll branch when they're cold for a partial, I'll chafe it up to the requirements of the mod-ern game.\"\n\nMARK BARTUSEK: \"b, Three spades, then ... three notrump — pass — ? (specially, (c) pass — three notrump — pass — ?"
+      }
+    },
+    {
+      "id": "b11",
+      "type": "text",
+      "data": {
+        "text": "latest pals.\n\nMany & Max HARDY's: \"Four diamonds. In our methods, we would bid four clubs to transfer.\"\n\nThat's nice. Give your LHO, who may hold five-five in the majors, an easy four-diamond bid. Count us out of that convention.\n\nBobby WOLFF: \"Four diamonds. When vulnerable opponents open a strong two-bid, higher preemptive tactics may be called for.\""
+      }
+    }
+  ],
+  "warnings": []
+}
