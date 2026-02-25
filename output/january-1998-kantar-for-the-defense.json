@@ -1,0 +1,440 @@
+{
+  "title": "Kantar for the Defense",
+  "slug": "kantar-for-the-defense",
+  "author_name": "Edwin B. Kantar",
+  "category": "Defense",
+  "tags": [
+    "Defense",
+    "Edwin B. Kantar",
+    "January 1998"
+  ],
+  "level": "intermediate",
+  "month": 1,
+  "year": 1998,
+  "source_page": 13,
+  "excerpt": "Defensive tips and techniques from expert Edwin Kantar.",
+  "status": "draft",
+  "content_blocks": [
+    {
+      "id": "b95",
+      "type": "text",
+      "data": {
+        "text": "Board 14\nEast dealer\nNeither side vulnerable"
+      }
+    },
+    {
+      "id": "b96",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "KQ62",
+            "H": "853",
+            "D": "Q6",
+            "C": "QJT2"
+          },
+          "south": {
+            "S": "AT84",
+            "H": "T764",
+            "D": "72",
+            "C": "654"
+          },
+          "east": {
+            "S": "J95",
+            "H": "A92",
+            "D": "AJT43",
+            "C": "K3"
+          },
+          "west": {
+            "S": "73",
+            "H": "KQJ",
+            "D": "K985",
+            "C": "A987"
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": true,
+          "west": true
+        },
+        "dealer": "East",
+        "vulnerability": "None",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b97",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "East",
+        "bids": [
+          {
+            "text": "1NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {
+          "south": "Chemla",
+          "west": "Rosenberg",
+          "north": "Perron",
+          "east": "Zia"
+        }
+      }
+    },
+    {
+      "id": "b98",
+      "type": "text",
+      "data": {
+        "text": "Rosenberg's two diamonds was forcing Stayman; he was aiming at a possible four-three heart fit. The auction persuaded Chemla to lead the six of clubs. This had an unexpected effect. Zia could read it as a short-suit or weak-suit lead, so he played Chemla for diamond length. After trying two rounds of hearts to find out what he could, Zia misguessed the diamonds. The French had no difficulty cashing out, and a seemingly flat board produced a game"
+      }
+    },
+    {
+      "id": "b99",
+      "type": "text",
+      "data": {
+        "text": "**Kantar for the Defense**\n\nby Edwin B. Kantar, Santa Monica, CA\n\nIt's a given that nobody is going to let you play anything at the one level these days, so why should this deal be any different? The difference is that this time you are playing with someone who takes these insults seriously.\n\n[See next column.]\n\nPartner plays the jack and you continue with the spade king, on which partner discards the four of clubs. When you return the seven of spades, partner ruffs with the nine of diamonds and returns the eight of hearts, declarer playing the deuce. Plan your defense."
+      }
+    },
+    {
+      "id": "b100",
+      "type": "text",
+      "data": {
+        "text": "Matchpoints\nEast dealer\nNeither side vulnerable"
+      }
+    },
+    {
+      "id": "b101",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "T98",
+            "H": "QT5",
+            "D": "A862",
+            "C": "AKT"
+          },
+          "south": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "east": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "west": {
+            "S": "AK752",
+            "H": "K43",
+            "D": "43",
+            "C": "J73"
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": false,
+          "east": false,
+          "west": true
+        },
+        "dealer": "East",
+        "vulnerability": "None",
+        "contract": "",
+        "lead": "SA",
+        "title": ""
+      }
+    },
+    {
+      "id": "b102",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "East",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Double",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Double",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": ""
+      }
+    },
+    {
+      "id": "b103",
+      "type": "text",
+      "data": {
+        "text": "Opening lead: Ace of spades"
+      }
+    },
+    {
+      "id": "b104",
+      "type": "text",
+      "data": {
+        "text": "ner bids a slow five diamonds (over our various actions), are we allowed to continue to six diamonds? Of course, we'd tell the committee that we were always driving to six, but had to investigate seven.\n\nSupporting that this hand is worth a slam drive is,"
+      }
+    },
+    {
+      "id": "b105",
+      "type": "text",
+      "data": {
+        "text": "MAHMOOD ZIA: \"a. Three hearts, then six diamonds. But if five clubs over three notrump were exclusion, I would bid it.\"\n\nOn the other hand,\n\nBOBBY WOLFF: \"a. Three hearts, then four hearts. This hand is easily worth another slam try.\"\n\nHe's only trying for, not driving to, slam.\n\nIRA RUBIN: \"a. Three hearts, then five diamonds. However, if five clubs is logically a club void with big diamonds (as a fine partnership should agree it is, by a passed hand) then change my vote.\"\n\nHe's also not driving to slam, and we feel that he'd lose in committee if he bid five clubs and then acted over a slow five diamonds. As to changing his vote, we can't. Yes, five clubs probably would show the hand he suggests, but it's not part of BWS.\n\nMICHAEL ROSENBERG: \"a. Three hearts, then five clubs. Partner should recognize this as a splinter [See Zia, above!—D.B. & L.C.]. Of course, it was very lucky that partner bid three notrump.\"\n\nJOHN CARRUTHERS: \"a. Three hearts, then four hearts. My first duty is to tell partner I've a good hand for diamonds; thus three hearts. Then, four hearts conveys the 'still interested in slam, partner,' message. Am I a dreamer?\"\n\nNo sir; dreams don't score 100 points in the MSC."
+      }
+    },
+    {
+      "id": "b106",
+      "type": "text",
+      "data": {
+        "text": "GERALD CARAVELLI: \"a. Three hearts, then four hearts. If partner can manage four spades over four hearts, I'll chance six diamonds; otherwise, I won't bypass five diamonds.\"\n\nSurely you're worth a five-club cue-bid if partner bids four spades. Picture, ♠ A x ♥ K x ♦ A K x x x x ♣ Q x x.\n\nPHILLIP ALDER: \"a. Three hearts, then four diamonds. Even though I 'know' partner's reaction to three spades, at the table I'm sure I would start with three hearts. Then, over three notrump, it seems natural to mention my diamond support and await partner's next move.\"\n\nWe always like honest problem D voters. Yes, if we had a wire that partner's next call would be a space-saving three notrump, we too might opt for three spades.\n\nSTEVE WEINSTEIN: \"a. Three hearts, then four diamonds. If I get by the next round, this round should be okay.\"\n\nPlease leave the Rothisms to Roth. There was no comment from Kantar, but he scored 50 points (a, four clubs) to bring his total to 260."
+      }
+    },
+    {
+      "id": "b107",
+      "type": "text",
+      "data": {
+        "text": "**Problem E**\n\nIMPs; N-S vul. You, South, hold:"
+      }
+    },
+    {
+      "id": "b108",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "AJ82",
+            "H": "AK93",
+            "D": "AQ83",
+            "C": "4"
+          },
+          "east": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "west": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": true,
+          "east": false,
+          "west": false
+        },
+        "dealer": "",
+        "vulnerability": "N-S",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b109",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "South",
+        "bids": [
+          {
+            "text": "1D",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "?",
+            "alert": null
+          }
+        ],
+        "label": ""
+      }
+    },
+    {
+      "id": "b110",
+      "type": "text",
+      "data": {
+        "text": "What call do you make?"
+      }
+    },
+    {
+      "id": "b111",
+      "type": "mscResults",
+      "data": {
+        "results": [
+          {
+            "action": "1NT",
+            "score": 100,
+            "votes": 12
+          },
+          {
+            "action": "Pass",
+            "score": 90,
+            "votes": 14
+          },
+          {
+            "action": "Double",
+            "score": 70,
+            "votes": 6
+          },
+          {
+            "action": "2H",
+            "score": 20,
+            "votes": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "b112",
+      "type": "text",
+      "data": {
+        "text": "Knowing the real-life result often colors the way we read the panelists' answers and comments. Normally,"
+      }
+    }
+  ],
+  "warnings": [
+    "Block 7 (biddingTable): Invalid bids: Double, Double"
+  ]
+}

@@ -4,158 +4,172 @@
   "author_name": "",
   "category": "Book Review",
   "tags": [
+    "Book Review",
     "January 1998"
   ],
   "level": "beginner",
   "month": 1,
   "year": 1998,
-  "source_page": 31,
-  "excerpt": "Reviews of recently published bridge books.",
+  "source_page": 17,
+  "excerpt": "Reviews of recent bridge books and publications.",
   "status": "draft",
   "content_blocks": [
     {
-      "id": "b44",
+      "id": "b291",
       "type": "text",
       "data": {
-        "text": "**A Jacobean Proposal**\n\nby Henry Bethe, Ithaca, NY"
+        "text": "appropriate entries; in the ACBL's ranking system, almost every tournament player was a \"Master\" of some sort or other.\n\nVariations notwithstanding, there are basically two kinds of tournament reports. One aims mainly at presenting interesting or instructive deals, the other at reporting and accounting for the results. Although he was not the"
       }
     },
     {
-      "id": "b45",
+      "id": "b292",
       "type": "text",
       "data": {
-        "text": "The Bridge World\n\nEven though this report revolution-ized bridge journalism, Edgar never again wrote one in this style—for a"
+        "text": "sole inventor of any techniques, Edgar brought new dimensions to both varieties. To the \"good deals\" type, he added the common-theme approach nowadays typically applied in non-reportorial articles. For an illustration, let's look at some snatches from the thematic report of his atypical triumph in the Individual, from the March, 1957, issue of The Bridge World."
       }
     },
     {
-      "id": "b46",
+      "id": "b293",
       "type": "text",
       "data": {
-        "text": "very good reason."
+        "text": "**Life Masters Individual**\n\n*by Edgar Kaplan*"
       }
     },
     {
-      "id": "b47",
+      "id": "b294",
       "type": "text",
       "data": {
-        "text": "(To be continued.)"
+        "text": "**W**hile I enthusiastically approve of the result of this year's Masters Individual, I can't say that I had a very good time playing in it. And I usually do. This is a nerve-shattering tournament if you're in a good position to win. I could never relax and really enjoy the mad scramble. [*Editor's note (by Moyse): It has, perhaps, been subtly indicated that Mr. Kaplan was the winner of this year's Masters Individual, with its record-breaking field of 136, but we like to make everything pellucidly clear: He was.*]"
       }
     },
     {
-      "id": "b48",
+      "id": "b295",
       "type": "text",
       "data": {
-        "text": "But wait till next time."
+        "text": "There are three factors in the winning of this event: you must play reasonably well; you need a lot of fortitude; and you must be enormously lucky. Luck is the theme of this article, as it should be in one about the Individual."
       }
     },
     {
-      "id": "b49",
+      "id": "b296",
       "type": "text",
       "data": {
-        "text": "The Bridge World\n\nof our previous World Championship teams. According to my calculations our teams would have won in 1933, 1936 and 1937 if they had played as well as the U.S. team this year. It's just"
+        "text": "There are many kinds of good luck in bridge, and I had all of them. In this first hand I was lucky enough to have my partner make an excellent play. (In this event, in which even the best players produce their worst bridge, this is the very height of luck.)"
       }
     },
     {
-      "id": "b50",
+      "id": "b297",
       "type": "text",
       "data": {
-        "text": "that the Italians put on a real champion-ship performance and played better still."
+        "text": "I was South, playing with Geoffrion, of Montreal. . . ."
       }
     },
     {
-      "id": "b51",
-      "type": "bridgeHand",
-      "data": {
-        "hands": {
-          "north": {
-            "S": "AJT5",
-            "H": "K86",
-            "D": "A973",
-            "C": "KQT"
-          },
-          "south": {
-            "S": "K86",
-            "H": "AK42",
-            "D": "862",
-            "C": "A53"
-          },
-          "east": {
-            "S": "743",
-            "H": "T93",
-            "D": "QJ54",
-            "C": "J87"
-          },
-          "west": {
-            "S": "Q9",
-            "H": "QJ75",
-            "D": "KT",
-            "C": "96432"
-          }
-        },
-        "visibleHands": {
-          "north": true,
-          "south": true,
-          "east": true,
-          "west": true
-        },
-        "dealer": "",
-        "vulnerability": "",
-        "contract": "",
-        "lead": "",
-        "title": ""
-      }
-    },
-    {
-      "id": "b52",
+      "id": "b298",
       "type": "text",
       "data": {
-        "text": "I. I be Jacoby Two-Notrump\n\nstrong major-suit raise responded to the need for an efficient forcing raise after limit raises came into vogue. Develop-ments in bidding theory since that time three trumps if responder has no single-ton. Opener rebids as follows:"
+        "text": ". . . a well-deserved top for my partner, a lucky top for me."
       }
     },
     {
-      "id": "b53",
+      "id": "b299",
       "type": "text",
       "data": {
-        "text": "Three clubs: Six or more losers; a minimum. In effect, this says, \"I may be passing a limit raise.\" [If responder holds that a side with a nine-card fit and be qualified to compete to the rebids three diamonds—so why not get there opener shows his distribution using the quickly? According]y, a current trend is to use of a direct double raise of a hearts or higher, shown below. After-tively, responder may bid three of opener's major with hands suited to a opener's major to show a limit raise, bid the other major to show six losers and some singleton(opener can relay to discover the short suit), or make a higher new-suit bid to show concern-trated values in a hand marginally worth a slam try.]"
+        "text": "Another Canadian, Eric Murray, of Toronto, also earned an excellent score for me with accurate play, but he was my opponent. . . ."
       }
     },
     {
-      "id": "b54",
+      "id": "b300",
       "type": "text",
       "data": {
-        "text": "Three diamonds: Key-card Black-wood. [After the Blackwood asks are complete, the partnership can employ help-suit bids or asking bids.]"
+        "text": ". . . This last hand was the luckiest of all. It came up in the final session, and the tournament hinged on the outcome."
       }
     },
     {
-      "id": "b55",
+      "id": "b301",
       "type": "text",
       "data": {
-        "text": "A response of two notrump to one of a major promises a limit raise or better—that is, seven-and-a-half or fewer tricks."
+        "text": "**MASTER SOLVERS:** For the 1997 Yearly Honor Roll, send your yearly total, name and address on a piece of paper separate from other correspondence in the same letter. Please *do not* put it on the same sheet as monthly answers. If you missed a month, use the average of your other 11 scores for that month and so state. If your score exceeds 8250, please indicate month-by-month totals. If you scored zero on any problem in September, October, November or December, list the problem and your action.\n\n**Deadline: February 10, 1998.**"
       }
     },
     {
-      "id": "b56",
+      "id": "b302",
       "type": "text",
       "data": {
-        "text": "Higher-bid scheme: Any bid above a major shows five or fewer this waits."
+        "text": "opening lead against five diamonds).\"\n\nThat seems to say he is prepared to defend five diamonds if LHO bids it. But not,"
       }
     },
     {
-      "id": "b57",
+      "id": "b303",
       "type": "text",
       "data": {
-        "text": "**The Bridge World**"
+        "text": "CARL HUDECEK: \"Four hearts. And, unless pard doubles, I'm bidding five hearts over five diamonds.\""
       }
     },
     {
-      "id": "b58",
+      "id": "b304",
       "type": "text",
       "data": {
-        "text": "On the surface, Alan Moulds's pages: $13.95 (paperbound). The book begins with and throughout emphasizes the critical connection area at the arca of ana-lyzing how to handle individual suit holdings; distinguishing between the abstract correct play in isolation and the appropriate handling in the context of appropriate hands and the tradesoffs among ing stries and the tradesoffs among themes, to create awareness of the oppor-tunities for objective tactics other handed well, especially in the 36 quiz deals that augment the lessons and nu-merous individual suit discussions. The tactical level is elementary to low inter-mediate, but more of the quiz deals stretch to greater challenges. Overall, the book is good, but we cannot give it our highest recommendation because the authors' goaf in a few places, messag-ing to set up an occasional analyst's whitle tryg-sympathize; we've been there our-selves.\n\njust the sort of knowledge one needs to advance from formula follower to intel-ligent bidder. This discussion is simple, easy to follow, and right on target. It is introduced in the context of deciding whether or not to open a three-bid, and while much more generality), but this applics much more generally), but this pages: $16.95 (paperbound) is a solid introduction to concealed auctions, both what we would call \"competitive\" (your side opens, the opponents act) and \"defensive\" (the opponents open). Unfortunately, as we have seen before in similar British books, the overcalling style on opposite sides of the Atlantic is so different that the text will be mis-leading to American readers. The first example hand:"
+        "text": "KIT WOOLSEY: \"Four hearts. Let the opponents make the first wrong guess. We know we will want to compete to at least four hearts anyway, so why not bid it now?\""
       }
     },
     {
-      "id": "b59",
+      "id": "b305",
+      "type": "text",
+      "data": {
+        "text": "STEVE WEINSTEIN: \"Four hearts. I may miss a slam—but four diamonds gets us there too often, and two notrump is invitational to three diamonds for the opponents.\""
+      }
+    },
+    {
+      "id": "b306",
+      "type": "text",
+      "data": {
+        "text": "BOBBY WOLFF: \"Four hearts. Preemptive value is quite often worth more than science.\""
+      }
+    },
+    {
+      "id": "b307",
+      "type": "text",
+      "data": {
+        "text": "Normally, we love to sign off with Bobby, ever the voice of reason.\n\nHowever, we need to go to the co-author of the previously mentioned book."
+      }
+    },
+    {
+      "id": "b308",
+      "type": "text",
+      "data": {
+        "text": "AL ROTH: \"Two clubs. I know the bidding will continue, and I hope I will learn what is best later.\""
+      }
+    },
+    {
+      "id": "b309",
+      "type": "text",
+      "data": {
+        "text": "And one panelist who is exhibiting increased paranoiac symptoms,"
+      }
+    },
+    {
+      "id": "b310",
+      "type": "text",
+      "data": {
+        "text": "EDDIE KANTAR: \"Redouble. I don't know how many points I'll get for this one.\""
+      }
+    },
+    {
+      "id": "b311",
+      "type": "text",
+      "data": {
+        "text": "Don't you know that you need 10 HCP to redouble? Not to worry: We'll give you 10 here, making your two-problem total 110."
+      }
+    },
+    {
+      "id": "b312",
+      "type": "text",
+      "data": {
+        "text": "**Problem C**\n\nIMPs; E-W vul. You, South, hold:"
+      }
+    },
+    {
+      "id": "b313",
       "type": "bridgeHand",
       "data": {
         "hands": {
@@ -166,10 +180,10 @@
             "C": ""
           },
           "south": {
-            "S": "KQT432",
-            "H": "87",
-            "D": "Q75",
-            "C": "T6"
+            "S": "",
+            "H": "96",
+            "D": "QT98765",
+            "C": "AKT3"
           },
           "east": {
             "S": "",
@@ -191,240 +205,122 @@
           "west": false
         },
         "dealer": "",
-        "vulnerability": "",
+        "vulnerability": "E-W",
         "contract": "",
         "lead": "",
         "title": ""
       }
     },
     {
-      "id": "b60",
-      "type": "text",
+      "id": "b314",
+      "type": "biddingTable",
       "data": {
-        "text": "is described as a \"perfect hand for a minimum one-space overall at any vulnerability.\" This is far removed"
-      }
-    },
-    {
-      "id": "b61",
-      "type": "text",
-      "data": {
-        "text": "The Bridge World"
-      }
-    },
-    {
-      "id": "b62",
-      "type": "text",
-      "data": {
-        "text": "**The Bridge World**\n\nbegins with and throughout emphasizes the critical connection area at the area of analyzing how to handle individual suit holdings; distinguishing between the abstract correct play in isolation and the appropriate handling in the context of"
-      }
-    },
-    {
-      "id": "b63",
-      "type": "text",
-      "data": {
-        "text": "**The Bridge World**"
-      }
-    },
-    {
-      "id": "b64",
-      "type": "bridgeHand",
-      "data": {
-        "hands": {
-          "north": {
-            "S": "KT",
-            "H": "T6",
-            "D": "J7",
-            "C": "QJT8754"
-          },
-          "south": {
-            "S": "Q73",
-            "H": "K42",
-            "D": "864",
-            "C": "AK3"
-          },
-          "east": {
-            "S": "AJ42",
-            "H": "Q953",
-            "D": "AT953",
-            "C": "—"
-          },
-          "west": {
-            "S": "9865",
-            "H": "AJ87",
-            "D": "KQ",
-            "C": "962"
-          }
-        },
-        "visibleHands": {
-          "north": true,
-          "south": true,
-          "east": true,
-          "west": true
-        },
         "dealer": "North",
-        "vulnerability": "",
-        "contract": "",
-        "lead": "",
-        "title": "Deal 1."
-      }
-    },
-    {
-      "id": "b65",
-      "type": "text",
-      "data": {
-        "text": "North deals, opens one heart, and rebids East dealer; Non-South vulnerable"
-      }
-    },
-    {
-      "id": "b66",
-      "type": "text",
-      "data": {
-        "text": "two hearts; neither side vulnerable"
-      }
-    },
-    {
-      "id": "b67",
-      "type": "bridgeHand",
-      "data": {
-        "hands": {
-          "north": {
-            "S": "A63",
-            "H": "AK64",
-            "D": "K862",
-            "C": "A3"
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
           },
-          "south": {
-            "S": "K96",
-            "H": "QT7",
-            "D": "QT4",
-            "C": "K87"
+          {
+            "text": "Pass",
+            "alert": null
           },
-          "east": {
-            "S": "QT2",
-            "H": "985",
-            "D": "AJ95",
-            "C": "654"
+          {
+            "text": "Pass",
+            "alert": null
           },
-          "west": {
-            "S": "J8754",
-            "H": "J32",
-            "D": "73",
-            "C": "QJT92"
+          {
+            "text": "2C",
+            "alert": "strong, artificial"
+          },
+          {
+            "text": "?",
+            "alert": null
           }
-        },
-        "visibleHands": {
-          "north": true,
-          "south": true,
-          "east": true,
-          "west": true
-        },
-        "dealer": "East",
-        "vulnerability": "Non-South vulnerable",
-        "contract": "",
-        "lead": "",
-        "title": "Deal 2."
+        ],
+        "label": ""
       }
     },
     {
-      "id": "b68",
+      "id": "b315",
       "type": "text",
       "data": {
-        "text": "F-N 10; M-M 7"
+        "text": "What call do you make?"
       }
     },
     {
-      "id": "b69",
-      "type": "bridgeHand",
+      "id": "b316",
+      "type": "mscResults",
       "data": {
-        "hands": {
-          "north": {
-            "S": "1",
-            "H": "Pass",
-            "D": "(1)",
-            "C": "Pass"
+        "results": [
+          {
+            "action": "4D",
+            "score": 100,
+            "votes": 14
           },
-          "south": {
-            "S": "3",
-            "H": "Pass",
-            "D": "(2)",
-            "C": "Pass"
+          {
+            "action": "5D",
+            "score": 80,
+            "votes": 6
           },
-          "east": {
-            "S": "4",
-            "H": "Pass",
-            "D": "",
-            "C": ""
+          {
+            "action": "3D",
+            "score": 70,
+            "votes": 7
           },
-          "west": {
-            "S": "Pass",
-            "H": "3",
-            "D": "",
-            "C": ""
+          {
+            "action": "Pass",
+            "score": 40,
+            "votes": 1
+          },
+          {
+            "action": "2D",
+            "score": 30,
+            "votes": 4
+          },
+          {
+            "action": "3C",
+            "score": 30,
+            "votes": 0
           }
-        },
-        "visibleHands": {
-          "north": true,
-          "south": true,
-          "east": true,
-          "west": true
-        },
-        "dealer": "",
-        "vulnerability": "",
-        "contract": "",
-        "lead": "",
-        "title": ""
+        ]
       }
     },
     {
-      "id": "b70",
+      "id": "b317",
       "type": "text",
       "data": {
-        "text": "Pass"
+        "text": "A continuation of the last problem's exercise in obstructionism. Our vulnerable opponent has opened two clubs. In the modern style we think that,\n\n♠ A K Q x x x x ♥ K Q x ♦ A x ♣ x,\n\nis plenty good enough. Of course, you could be playing against Ira Rubin, who might not open two clubs even with another ace. (We hear that he can't remember the last time he opened two clubs on a distributional hand.)"
       }
     },
     {
-      "id": "b71",
+      "id": "b318",
       "type": "text",
       "data": {
-        "text": "Pass"
+        "text": "The four-diamond bidders believe they are doing their all. The three-diamond bidders must live under a black cloud to be so pessimistic, and we can't say what we think of the two-diamond bidders, at least not until we give them a chance first."
       }
     },
     {
-      "id": "b72",
+      "id": "b319",
       "type": "text",
       "data": {
-        "text": "(1) Pass\n(2) Pass"
+        "text": "JOHN CARRUTHERS: \"Two diamonds. This looks kind of wimpish, but no jump is suitable with such a good hand. Why would I want to go high when it's possible they can't make anything? And neither three nor four gets the message across. Just because I don't jump does not mean I don't have extra length.\""
       }
     },
     {
-      "id": "b73",
+      "id": "b320",
       "type": "text",
       "data": {
-        "text": "For the November–December 1985, doubted two hearts to show length in the minors. Then, when his partner could do no more than three clubs, he was happy to pass. Protect the plus at two spades. Then, two notrump showed a maximum with only two spades. Three clubs was noncforcing, but partner, with good clubs and controls, had enough to raise. A fine sequence.\n\nBeing notvulnerable, Moreno could not open one notrump. (When polling pairs using variable ranges, one is tempted out of curiosity to ask for cer-tain deals to be bid twice, once with each range.) Many Acol players would start with one heart, but the Danes sen-sibly bid four-card suits up the line op-posite an unpassed partner. Over the strong-notrump rebid, Lars jumped to three clubs to describe his invitational five-five in the blacks. Mortem was al-ways bidding game from that point, but he dabbled with three hearts on route.\n\nBWS auction: A tough nut for the system, where a double of two hearts is penalty.\n\nAwarda: 3 ♣ 10; 4 ♣ 7; 2 ♥ 3 ♣ ."
+        "text": "We believe that last sentence contained a triple-negative (we play only double-negatives)."
       }
     },
     {
-      "id": "b74",
+      "id": "b321",
       "type": "text",
       "data": {
-        "text": "Awards: 3 ♣ 10; 4 ♣ 7; 2 ♦ 5 ♦ 1."
-      }
-    },
-    {
-      "id": "b75",
-      "type": "text",
-      "data": {
-        "text": "**The Bridge World**"
+        "text": "JOHN LOWENTHAL: \"Two diamonds. I have a feeling this will be my last bid; if East jumps to four spades (say) next, the"
       }
     }
   ],
-  "warnings": [
-    "Manual review: west in block b67: Hand has 15 cards, expected 13",
-    "Block 7 (bridgeHand): north has 14 cards (expected 13)",
-    "Block 20 (bridgeHand): south has 12 cards (expected 13)",
-    "Block 23 (bridgeHand): south has 12 cards (expected 13)",
-    "Block 23 (bridgeHand): west has 15 cards (expected 13)",
-    "Block 25 (bridgeHand): east has 5 cards (expected 12)",
-    "Block 25 (bridgeHand): west has 5 cards (expected 12)"
-  ]
+  "warnings": []
 }

@@ -14,8 +14,8 @@ export async function PATCH(
   if (!caller.is_admin) return NextResponse.json({ error: "Forbidden" }, { status: 403 });
 
   const body = await req.json().catch(() => ({}));
-  const { firstName, lastName, email, isAdmin, isAuthor, bio, photoUrl } = body as {
-    firstName?: string; lastName?: string; email?: string; isAdmin?: boolean; isAuthor?: boolean; bio?: string | null; photoUrl?: string | null;
+  const { firstName, lastName, email, isAdmin, isAuthor, isContributor, isLegacy, bio, photoUrl } = body as {
+    firstName?: string; lastName?: string; email?: string; isAdmin?: boolean; isAuthor?: boolean; isContributor?: boolean; isLegacy?: boolean; bio?: string | null; photoUrl?: string | null;
   };
 
   // Prevent an admin from removing their own admin status
@@ -28,10 +28,12 @@ export async function PATCH(
   if (firstName !== undefined) update.first_name = firstName?.trim() || null;
   if (lastName  !== undefined) update.last_name  = lastName?.trim()  || null;
   if (email     !== undefined) update.email      = email?.trim()     || null;
-  if (isAdmin   !== undefined) update.is_admin   = isAdmin;
-  if (isAuthor  !== undefined) update.is_author  = isAuthor;
-  if (bio       !== undefined) update.bio        = bio?.trim()       || null;
-  if (photoUrl  !== undefined) update.photo_url  = photoUrl?.trim()  || null;
+  if (isAdmin       !== undefined) update.is_admin       = isAdmin;
+  if (isAuthor      !== undefined) update.is_author      = isAuthor;
+  if (isContributor !== undefined) update.is_contributor = isContributor;
+  if (isLegacy      !== undefined) update.is_legacy      = isLegacy;
+  if (bio           !== undefined) update.bio            = bio?.trim()       || null;
+  if (photoUrl      !== undefined) update.photo_url      = photoUrl?.trim()  || null;
 
   if (Object.keys(update).length === 0) {
     return NextResponse.json({ error: "No fields to update" }, { status: 400 });

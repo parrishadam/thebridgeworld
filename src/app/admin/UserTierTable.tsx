@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
+import Link from "next/link";
 import type { SubscriptionTier } from "@/types";
 
 interface AdminUser {
@@ -18,6 +19,9 @@ interface AdminUser {
   first_name?: string | null;
   last_name?:  string | null;
 }
+
+type SortKey = "name" | "email" | "tier" | "is_admin" | "is_author" | "created_at";
+type SortDir = "asc" | "desc";
 
 const TIERS: SubscriptionTier[] = ["free", "paid", "premium"];
 
@@ -52,6 +56,44 @@ export default function UserTierTable({
   currentUserId: string;
 }) {
   const [users, setUsers] = useState<AdminUser[]>(initialUsers);
+
+  // ── Search & sort state ─────────────────────────────────────────────────
+  const [search, setSearch]     = useState("");
+  const [sortKey, setSortKey]   = useState<SortKey>("created_at");
+  const [sortDir, setSortDir]   = useState<SortDir>("desc");
+
+  function handleSort(key: SortKey) {
+    if (sortKey === key) {
+      setSortDir(d => d === "asc" ? "desc" : "asc");
+    } else {
+      setSortKey(key);
+      setSortDir("asc");
+    }
+  }
+
+  const filteredSortedUsers = useMemo(() => {
+    const q = search.toLowerCase().trim();
+    let list = users;
+    if (q) {
+      list = list.filter(u =>
+        u.name.toLowerCase().includes(q) ||
+        u.email.toLowerCase().includes(q) ||
+        u.user_id.toLowerCase().includes(q),
+      );
+    }
+    return [...list].sort((a, b) => {
+      let cmp = 0;
+      switch (sortKey) {
+        case "name":       cmp = a.name.localeCompare(b.name); break;
+        case "email":      cmp = a.email.localeCompare(b.email); break;
+        case "tier":       cmp = a.tier.localeCompare(b.tier); break;
+        case "is_admin":   cmp = Number(a.is_admin) - Number(b.is_admin); break;
+        case "is_author":  cmp = Number(a.is_author) - Number(b.is_author); break;
+        case "created_at": cmp = a.created_at.localeCompare(b.created_at); break;
+      }
+      return sortDir === "asc" ? cmp : -cmp;
+    });
+  }, [users, search, sortKey, sortDir]);
 
   // ── Tier-change state ─────────────────────────────────────────────────────
   const [tierSaving, setTierSaving] = useState<string | null>(null);
@@ -501,22 +543,46 @@ export default function UserTierTable({
         </div>
       )}
 
+      {/* ── Search bar ── */}
+      <div className="mb-4">
+        <input
+          type="text"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          placeholder="Search by name, email, or ID…"
+          className="border border-stone-200 rounded px-3 py-2 text-sm font-sans focus:outline-none focus:ring-1 focus:ring-stone-400 w-full max-w-sm"
+        />
+      </div>
+
       {/* ── User table ── */}
       <div className="overflow-x-auto">
         <table className="w-full font-sans text-sm">
           <thead>
             <tr className="border-b border-stone-200 text-left">
-              <th className="pb-3 text-xs uppercase tracking-wider text-stone-400 font-medium pr-6">User</th>
-              <th className="pb-3 text-xs uppercase tracking-wider text-stone-400 font-medium pr-6">ID</th>
-              <th className="pb-3 text-xs uppercase tracking-wider text-stone-400 font-medium pr-6">Tier</th>
-              <th className="pb-3 text-xs uppercase tracking-wider text-stone-400 font-medium pr-6">Admin</th>
-              <th className="pb-3 text-xs uppercase tracking-wider text-stone-400 font-medium pr-6">Author</th>
-              <th className="pb-3 text-xs uppercase tracking-wider text-stone-400 font-medium pr-6">Since</th>
+              {([
+                ["name",       "User"],
+                ["email",      "Email"],
+                ["tier",       "Tier"],
+                ["is_admin",   "Admin"],
+                ["is_author",  "Author"],
+                ["created_at", "Since"],
+              ] as [SortKey, string][]).map(([key, label]) => (
+                <th
+                  key={key}
+                  onClick={() => handleSort(key)}
+                  className="pb-3 text-xs uppercase tracking-wider text-stone-400 font-medium pr-6 cursor-pointer select-none hover:text-stone-600 transition-colors"
+                >
+                  {label}
+                  {sortKey === key && (
+                    <span className="ml-1">{sortDir === "asc" ? "▲" : "▼"}</span>
+                  )}
+                </th>
+              ))}
               <th className="pb-3 text-xs uppercase tracking-wider text-stone-400 font-medium">Actions</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-stone-100">
-            {users.map((user) => {
+            {filteredSortedUsers.map((user) => {
               const isEditing = editingId === user.user_id;
               return (
                 <tr key={user.user_id} className={isEditing ? "bg-stone-50" : ""}>
@@ -597,14 +663,18 @@ export default function UserTierTable({
                         )}
                         <div className="min-w-0">
                           <div className="flex items-center gap-1.5">
-                            <p className="font-medium text-stone-900 truncate">{user.name}</p>
+                            <Link
+                              href={`/admin/users/${user.user_id}`}
+                              className="font-medium text-stone-900 truncate hover:text-stone-600 transition-colors"
+                            >
+                              {user.name}
+                            </Link>
                             {user.is_legacy && (
                               <span className="shrink-0 text-xs font-sans font-medium uppercase tracking-wide px-1.5 py-0.5 rounded bg-stone-100 text-stone-500">
                                 Legacy
                               </span>
                             )}
                           </div>
-                          <p className="text-stone-400 text-xs truncate">{user.email}</p>
                           {user.is_legacy && user.bio && (
                             <p className="text-stone-400 text-xs truncate mt-0.5 italic">{user.bio}</p>
                           )}
@@ -613,11 +683,9 @@ export default function UserTierTable({
                     )}
                   </td>
 
-                  {/* ── ID ── */}
-                  <td className="py-3 pr-6">
-                    <code className="text-xs text-stone-400 bg-stone-100 px-1.5 py-0.5 rounded">
-                      {user.user_id}
-                    </code>
+                  {/* ── Email ── */}
+                  <td className="py-3 pr-6 text-stone-400 text-xs truncate max-w-[200px]">
+                    {user.email}
                   </td>
 
                   {/* ── Tier ── */}
@@ -790,9 +858,11 @@ export default function UserTierTable({
           </tbody>
         </table>
 
-        {users.length === 0 && (
+        {filteredSortedUsers.length === 0 && (
           <p className="py-8 text-center text-sm text-stone-400 font-sans italic">
-            No users yet — profiles are created on first sign-in, or add one manually above.
+            {search
+              ? "No users match your search."
+              : "No users yet — profiles are created on first sign-in, or add one manually above."}
           </p>
         )}
       </div>

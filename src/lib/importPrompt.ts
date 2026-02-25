@@ -270,7 +270,7 @@ export function buildArticlePrompt(
 
   return `You are parsing one specific article from a Bridge World magazine issue into structured content blocks.
 
-The text below contains the article "${articleTitle}" by ${authorName || "an unknown author"}. It may include some text from adjacent articles at the beginning or end of the excerpt. Parse ONLY the content belonging to "${articleTitle}".
+You are extracting ONLY the article titled "${articleTitle}" by ${authorName || "an unknown author"}. The text below contains this article's pages, but those pages may also contain content from other articles. Do NOT include any content from other articles. If you see a different article title, a different author, or content on a clearly different topic, skip it entirely. Extract ONLY content that belongs to "${articleTitle}".
 
 ARTICLE TEXT
 ============
@@ -549,9 +549,10 @@ CRITICAL RULES
 6. Generate unique IDs for each block (use format "b1", "b2", "b3", etc.).
 7. If a hand diagram is followed by a bidding sequence, output the BridgeHandBlock first, then the BiddingTableBlock.
 8. Inline hands in text stay as text — do NOT extract them as BridgeHandBlock.
-9. ONLY parse the article titled "${articleTitle}". Do not include content from other articles.
+9. ONLY parse the article titled "${articleTitle}". Do NOT include any content from other articles that appear on shared pages. If you see content with a different title, different author, or different topic, skip it entirely.
 10. NO DUPLICATE HANDS: A hand diagram belongs to exactly one article. Only include hands that are part of THIS article's content. If the text excerpt contains hands from an adjacent article, do NOT include them.
 11. NEXT-MONTH CONTENT: If you encounter content for a future month (e.g. "May Problems" in an April issue, "West Hands for the May Bidding Match", "East Hands for the May Bidding Match"), STOP immediately. Do NOT include any of it. This is preview content for the next issue.
+12. IGNORE all running headers and footers. "The Bridge World", the issue date (e.g. "January 1998"), and page numbers are NOT article content. Never include them as text blocks.
 
 ${JSON_OUTPUT_RULES}`;
 }
@@ -635,8 +636,9 @@ PROBLEM ARTICLE RULES:
     "3. Every hand diagram becomes a BridgeHandBlock. Every bidding sequence becomes a BiddingTableBlock. Everything else becomes a TextBlock.",
     "4. Each visible hand MUST have EXACTLY 13 cards. Count each suit carefully from the image.",
     '5. Use "T" (not "10") for tens in card holdings.',
-    `6. Only include content belonging to "${articleTitle}". Ignore content from other articles on shared pages.`,
+    `6. You are extracting ONLY the article titled "${articleTitle}". Do NOT include any content from other articles that appear on shared pages. If you see content that clearly belongs to a different article (different title, different author, different topic), skip it entirely. Each page may contain content from multiple articles — extract ONLY what belongs to "${articleTitle}".`,
     '7. Remove page cross-references like "Solution on page XX", "see page XX", "continued on page XX" — these are print artifacts.',
+    '8. IGNORE all running headers and footers on every page. These include: the magazine name "The Bridge World", the issue date (e.g. "January 1998"), and page numbers. These are NOT article content — never include them as text blocks.',
     categoryRules,
     "",
     "CONTENT BLOCK TYPES:",

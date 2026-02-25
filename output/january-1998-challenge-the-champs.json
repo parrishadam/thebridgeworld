@@ -1,0 +1,4102 @@
+{
+  "title": "Challenge the Champs",
+  "slug": "challenge-the-champs",
+  "author_name": "Philip Alder",
+  "category": "Challenge the Champs",
+  "tags": [
+    "Challenge the Champs",
+    "CTC",
+    "Philip Alder",
+    "January 1998"
+  ],
+  "level": "advanced",
+  "month": 1,
+  "year": 1998,
+  "source_page": 19,
+  "excerpt": "Bidding competition where readers challenge expert pairs.",
+  "status": "draft",
+  "content_blocks": [
+    {
+      "id": "b322",
+      "type": "text",
+      "data": {
+        "text": "the Bermuda Bowl merely as a result of taking a wrong turn in the hotel lobby.\n\nIn contrast, Edgar assumed that the reader began with an appropriate respect for the world's top players and moved on from there. If he thought someone had messed up he said so, and explained why. This novel approach brought tournament descriptions up from the old boy network to the level of at least semi-responsible reporting; once Edgar had done it, others did also. The upheaval in bridge journalism began less than two years after \"New Science\" had begun to revolutionize table behavior. It was less dramatic, but its effects were equally long lasting."
+      }
+    },
+    {
+      "id": "b323",
+      "type": "text",
+      "data": {
+        "text": "In his first big-time tournament report, arguably the best ever, Edgar used a box-score approach, daring to record his view of the exact effectiveness of each of the participants in the match between Italy and the United States that decided the 1958 Bermuda Bowl. Every educated person should be familiar with the entire document, which extended over five issues of The Bridge World (beginning in September, 1958), but here you'll have to settle for an abridgement that tries to preserve the flavor of the original. (The imps in this match are \"old imps,\" roughly twice the size of current imps; so, 5 old imps is more or less 10 current imps, etc.)"
+      }
+    },
+    {
+      "id": "b324",
+      "type": "text",
+      "data": {
+        "text": "**The 1958 World Championship**\n\nby Edgar Kaplan"
+      }
+    },
+    {
+      "id": "b325",
+      "type": "text",
+      "data": {
+        "text": "I have just finished an exhaustive analysis of all 164 hands of the 1958 World Championship match, United States vs. Italy, at Lake Como.\n\nMainly, my objective has been to assign \"charges.\" How many international match-points did each player cost his team? Who were most effective and least effective for each side?\n\nBefore presenting conclusions, let me outline my method of charging. Take, for example, Deal 100 (right col):\n\nSilodor and Rapée bid the East-West cards to the normal unbeatable contract of four spades. However, at the other table the bidding went:"
+      }
+    },
+    {
+      "id": "b326",
+      "type": "text",
+      "data": {
+        "text": "West dealer; both sides vulnerable"
+      }
+    },
+    {
+      "id": "b327",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "J95",
+            "H": "JT5",
+            "D": "AT8",
+            "C": "KT75"
+          },
+          "south": {
+            "S": "K8",
+            "H": "Q942",
+            "D": "63",
+            "C": "Q8643"
+          },
+          "east": {
+            "S": "AT7643",
+            "H": "A6",
+            "D": "Q92",
+            "C": "92"
+          },
+          "west": {
+            "S": "Q2",
+            "H": "K873",
+            "D": "KJ754",
+            "C": "AJ"
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": true,
+          "west": true
+        },
+        "dealer": "West",
+        "vulnerability": "All",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b328",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "West",
+        "bids": [
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {
+          "west": "Siniscalco",
+          "north": "Stone",
+          "east": "Forquet",
+          "south": "Roth"
+        }
+      }
+    },
+    {
+      "id": "b329",
+      "type": "text",
+      "data": {
+        "text": "With the normal club lead, three notrump is down two. But Stone led the spade nine! Roth took his king and shifted to a low club, and even now Siniscalco had only eight tricks, but on the run of spades both Stone and Roth discarded enough clubs to let declarer get his ninth trick in diamonds."
+      }
+    },
+    {
+      "id": "b330",
+      "type": "text",
+      "data": {
+        "text": "down stuff seems to work only for Norman Kay.\n\nBOBBY WOLFF: \"One heart. Why panic? Bid what is in front of your nose.\"\n\nMICHAEL ROSENBERG: \"One heart. Should bid my best suit. Two hearts or three hearts, while perhaps making things harder for them, is too likely to mislead partner. This rates to be our deal.\"\n\nMAHMOOD ZIA: \"One heart. What brilliancy can the imaginative come up with on this nothing problem?\"\n\nIf he has nothing clever to say, who could?\n\nGERALD CARAVELLI: \"One heart. I'd like to know more about the opponents' negative-double style. Could East be three-three in the majors? Nevertheless, I can't see any reason not to start bidding my suits.\"\n\nWe're sure you readers want to hear from the people who prevented the first unanimous vote since creation.\n\nDICK FREEMAN: \"One spade. Seems the best way to start in order to get all my bids in.\"\n\nWe don't like to argue with a man who wins virtually every event he enters, but give your partner doubleton-jack of both majors, or any equal-length holding, and you will see the folly of introducing your spades first.\n\nMARSHALL MILES: \"Two clubs. I have no strong feelings about this. In view of my holding, it's unlikely the opponents will play in a major suit, but perhaps my bid will encourage partner to compete to three diamonds over three clubs.\"\n\nWait a second. Eleven major-suit cards and no clubs and it's only unlikely they won't play in a major? And you want to encourage partner to compete in what?\n\nYour ex-partner hasn't been happy"
+      }
+    },
+    {
+      "id": "b331",
+      "type": "text",
+      "data": {
+        "text": "with his MSC scores lately, so here's good news for Eddie.\n\nEDDIE KANTAR: \"One heart. I've got to get a few points for this.\"\n\nYes, we'll start you off with 100."
+      }
+    },
+    {
+      "id": "b332",
+      "type": "text",
+      "data": {
+        "text": "**Problem B**\n\nIMPs; both vul. You, South, hold:"
+      }
+    },
+    {
+      "id": "b333",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "9865",
+            "H": "T8543",
+            "D": "",
+            "C": "AK962"
+          },
+          "east": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "west": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": true,
+          "east": false,
+          "west": false
+        },
+        "dealer": "",
+        "vulnerability": "",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b334",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "South",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Double",
+            "alert": null
+          },
+          {
+            "text": "?",
+            "alert": null
+          }
+        ],
+        "label": ""
+      }
+    },
+    {
+      "id": "b335",
+      "type": "text",
+      "data": {
+        "text": "[BWS: 2 NT = limit raise or better; double new-suit jump = splinter]\n\nWhat call do you make?"
+      }
+    },
+    {
+      "id": "b336",
+      "type": "mscResults",
+      "data": {
+        "results": [
+          {
+            "action": "4H",
+            "score": 100,
+            "votes": 10
+          },
+          {
+            "action": "2C",
+            "score": 90,
+            "votes": 9
+          },
+          {
+            "action": "2NT",
+            "score": 70,
+            "votes": 7
+          },
+          {
+            "action": "4D",
+            "score": 50,
+            "votes": 5
+          },
+          {
+            "action": "Redouble",
+            "score": 10,
+            "votes": 1
+          },
+          {
+            "action": "Other",
+            "score": 10,
+            "votes": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "b337",
+      "type": "text",
+      "data": {
+        "text": "A classic bridge book is titled, Bridge is a Partnership Game. This problem is a test for our panelists on that concept. Are they willing to get their partners involved (by making a bid other than four hearts), or will they bid four hearts and hope to land on their feet?\n\nIf we convince ourselves to consult with partner, what is the best method?\n\nPAUL TRENT: \"Two clubs. Set the defense first, the offense later.\"\n\nMICHAEL ROSENBERG: \"Two clubs. If I ever get to bid again, partner will know this was a lead-director. Nothing wrong with the simple four-heart bid, especially if you're a good guesser.\"\n\nRON GERARD: \"Two clubs. Any heart raise probably buys lots of competition. I'm not selling out below four hearts, but I'd rather have,\n\n♠A9xx ♥T0xxx ♦— ♣K9xxx"
+      }
+    },
+    {
+      "id": "b338",
+      "type": "text",
+      "data": {
+        "text": "down stuff seems to work only for Norman Kay.\n\nBOBBY WOLFF: \"One heart. Why panic? Bid what is in front of your nose.\"\n\nMICHAEL ROSENBERG: \"One heart. Should bid my best suit. Two hearts or three hearts, while perhaps making things harder for them, is too likely to mislead partner. This rates to be our deal.\"\n\nMAHMOOD ZIA: \"One heart. What brilliancy can the imaginative come up with on this nothing problem?\"\n\nIf he has nothing clever to say, who could?\n\nGERALD CARAVELLI: \"One heart. I'd like to know more about the opponents' negative-double style. Could East be three-three in the majors? Nevertheless, I can't see any reason not to start bidding my suits.\"\n\nWe're sure you readers want to hear from the people who prevented the first unanimous vote since creation.\n\nDICK FREEMAN: \"One spade. Seems the best way to start in order to get all my bids in.\"\n\nWe don't like to argue with a man who wins virtually every event he enters, but give your partner doubleton-jack of both majors, or any equal-length holding, and you will see the folly of introducing your spades first.\n\nMARSHALL MILES: \"Two clubs. I have no strong feelings about this. In view of my holding, it's unlikely the opponents will play in a major suit, but perhaps my bid will encourage partner to compete to three diamonds over three clubs.\"\n\nWait a second. Eleven major-suit cards and no clubs and it's only unlikely they won't play in a major? And you want to encourage partner to compete in what?\n\nYour ex-partner hasn't been happy"
+      }
+    },
+    {
+      "id": "b339",
+      "type": "text",
+      "data": {
+        "text": "with his MSC scores lately, so here's good news for Eddie.\n\nEDDIE KANTAR: \"One heart. I've got to get a few points for this.\"\n\nYes, we'll start you off with 100.\n\n**Problem B**\n\nIMPs; both vul. You, South, hold:"
+      }
+    },
+    {
+      "id": "b340",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "9865",
+            "H": "T8654",
+            "D": "",
+            "C": "AK962"
+          },
+          "east": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "west": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": true,
+          "east": false,
+          "west": false
+        },
+        "dealer": "",
+        "vulnerability": "All",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b341",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "West",
+        "bids": [
+          {
+            "text": "1D",
+            "alert": null
+          },
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "Double",
+            "alert": null
+          },
+          {
+            "text": "?",
+            "alert": null
+          }
+        ],
+        "label": ""
+      }
+    },
+    {
+      "id": "b342",
+      "type": "text",
+      "data": {
+        "text": "[BWS: 2 NT = limit raise or better; double new-suit jump = splinter]\n\nWhat call do you make?"
+      }
+    },
+    {
+      "id": "b343",
+      "type": "mscResults",
+      "data": {
+        "results": [
+          {
+            "action": "4H",
+            "score": 100,
+            "votes": 10
+          },
+          {
+            "action": "2C",
+            "score": 90,
+            "votes": 9
+          },
+          {
+            "action": "2NT",
+            "score": 70,
+            "votes": 7
+          },
+          {
+            "action": "4D",
+            "score": 50,
+            "votes": 5
+          },
+          {
+            "action": "Redouble",
+            "score": 10,
+            "votes": 1
+          },
+          {
+            "action": "Other",
+            "score": 10,
+            "votes": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "b344",
+      "type": "text",
+      "data": {
+        "text": "A classic bridge book is titled, Bridge is a Partnership Game. This problem is a test for our panelists on that concept. Are they willing to get their partners involved (by making a bid other than four hearts), or will they bid four hearts and hope to land on their feet?\n\nIf we convince ourselves to consult with partner, what is the best method?\n\nPAUL TRENT: \"Two clubs. Set the defense first, the offense later.\"\n\nMICHAEL ROSENBERG: \"Two clubs. If I ever get to bid again, partner will know this was a lead-director. Nothing wrong with the simple four-heart bid, especially if you're a good guesser.\"\n\nRON GERARD: \"Two clubs. Any heart raise probably buys lots of competition. I'm not selling out below four hearts, but I'd rather have,\n\n♠A9xx ♥10xxx ♦— ♣K9xxx"
+      }
+    },
+    {
+      "id": "b345",
+      "type": "text",
+      "data": {
+        "text": "ledger, I put those five IMP in a special column for adverse swings caused, not by error, but by bad luck or by hands especially suited to the opponents' bidding style. I kept two of these \"Act of God\" columns, one for each team, and with all the results in, comparison would show if one team was substantially luckier than the other.\n\nThe final tabulation shows three types of notations in each player's column: charges for errors, credits for brilliance, and black marks for uncharged errors. The net figure is the player's total IMP charges, less IMP credits, plus (for I am a purist) a one-point charge for each black mark. This net figure, divided by the number of boards played, gives a fraction—actually, the number of IMP lost per board played—which, in my opinion, is a reliable index of general effectiveness.\n\nSince this article will take the form of analysis of each player's performance, it will, inevitably, deal more with personalities than is the custom in bridge reports. I make no apology for this. My team has not done well enough to give us a chance to play for the U.S. next year; I am not in a glass house, and so I can afford to throw stones. But it is only fair to emphasize the obvious: opportunities for brilliance are few; for error, countless. In addition to the few brilliancies and many errors reported here, each player made thousands of sound, accurate decisions which go unheralded because the right play or bid is unspectacular.\n\n**The Italians**\n\nI was, I admit, very much surprised by my final tabulation on the Italian"
+      }
+    },
+    {
+      "id": "b346",
+      "type": "text",
+      "data": {
+        "text": "players:\n\n                 Charges  Boards   C per B\nBelladonna        13      92       .141\nAvarelli          17      92       .185\nForquet           27      144      .187\nChiaradia         23      92       .250\nSiniscalco        37      144      .257\nD'Alelio          35      92       .381"
+      }
+    },
+    {
+      "id": "b347",
+      "type": "text",
+      "data": {
+        "text": "I had always thought of Avarelli and Belladonna as the third-string Italian pair, and apparently the Italians agreed. In New York last year they played less than any of the others, and in Como they shared second billing with Chiaradia and D'Alelio. But they were clearly the best pair around this year.\n\nMy estimate is that fairly good play will lose one IMP every four boards. Par, then, is .250 (and it is not common to play well under the pressure of the World Championship match). So the record of Belladonna and Avarelli as a pair is truly remarkable.\n\nThere were very few charges against them. . . . Their system cost Belladonna and Avarelli a small loss on Deal 94 when they reached the wrong partial, but almost all of their infrequent bidding troubles seemed to arise after takeout doubles. . . . a fourth occurred on Deal 68:"
+      }
+    },
+    {
+      "id": "b348",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "east": {
+            "S": "AKQJ843",
+            "H": "J4",
+            "D": "92",
+            "C": "85"
+          },
+          "west": {
+            "S": "6",
+            "H": "KQT865",
+            "D": "KJ",
+            "C": "AT76"
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": false,
+          "east": true,
+          "west": true
+        },
+        "dealer": "",
+        "vulnerability": "",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b349",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "North",
+        "bids": [
+          {
+            "text": "1D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Double",
+            "alert": null
+          },
+          {
+            "text": "Rdbl",
+            "alert": null
+          },
+          {
+            "text": "4S",
+            "alert": null
+          },
+          {
+            "text": "Dbl",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {
+          "west": "Belladonna",
+          "east": "Avarelli"
+        }
+      }
+    },
+    {
+      "id": "b350",
+      "type": "text",
+      "data": {
+        "text": "On a singleton-club lead Avarelli had to go down two, for 500. At the other table Crawford was down one in three spades, so the U.S. gained 5 IMP."
+      }
+    },
+    {
+      "id": "b351",
+      "type": "text",
+      "data": {
+        "text": "**Master Solvers' Club**\n\nTo become a Master Solver, send your answers to the problems below with your name, address, month of problems, and score from the immediately previous month even if zero. Problems suggested by readers are frequently used and always appreciated. Answers from more than one Solver, scores for the year or for any but the immediately previous month, appeals, and problem submissions MUST be on separate sheets of paper with name and address on each. Any Solver scoring a perfect 800 will be invited to join the expert panel for a month.\n\nThe North-South players are assumed to be using Bridge World Standard."
+      }
+    },
+    {
+      "id": "b352",
+      "type": "text",
+      "data": {
+        "text": "**February 1998 Problems; Jeff Rubens, director**"
+      }
+    },
+    {
+      "id": "b353",
+      "type": "text",
+      "data": {
+        "text": "**(A) IMPs; E-W vul.**"
+      }
+    },
+    {
+      "id": "b354",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "east": {
+            "S": "A63",
+            "H": "76",
+            "D": "KQT4",
+            "C": "AK43"
+          },
+          "west": {
+            "S": "K95",
+            "H": "AKT532",
+            "D": "A6",
+            "C": "Q9"
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": false,
+          "east": true,
+          "west": true
+        },
+        "dealer": "",
+        "vulnerability": "E-W",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b355",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "West",
+        "bids": [
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": ""
+      }
+    },
+    {
+      "id": "b356",
+      "type": "text",
+      "data": {
+        "text": "Which E-W call, if any, was the earliest mistake?"
+      }
+    },
+    {
+      "id": "b357",
+      "type": "text",
+      "data": {
+        "text": "**(B) Matchpts.; both vul. You, South, hold:**"
+      }
+    },
+    {
+      "id": "b358",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "K7",
+            "H": "KQT8",
+            "D": "865",
+            "C": "K954"
+          },
+          "east": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "west": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": true,
+          "east": false,
+          "west": false
+        },
+        "dealer": "",
+        "vulnerability": "All",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b359",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "North",
+        "bids": [
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1NT",
+            "alert": null
+          },
+          {
+            "text": "2D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "?",
+            "alert": null
+          }
+        ],
+        "label": ""
+      }
+    },
+    {
+      "id": "b360",
+      "type": "text",
+      "data": {
+        "text": "What call do you make?"
+      }
+    },
+    {
+      "id": "b361",
+      "type": "text",
+      "data": {
+        "text": "**(C) IMPs; N-S vul. You, South, hold:**"
+      }
+    },
+    {
+      "id": "b362",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "Q753",
+            "H": "J742",
+            "D": "A5",
+            "C": "K76"
+          },
+          "east": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "west": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": true,
+          "east": false,
+          "west": false
+        },
+        "dealer": "",
+        "vulnerability": "N-S",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b363",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "West",
+        "bids": [
+          {
+            "text": "1C",
+            "alert": null
+          },
+          {
+            "text": "Double",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "?",
+            "alert": null
+          }
+        ],
+        "label": ""
+      }
+    },
+    {
+      "id": "b364",
+      "type": "text",
+      "data": {
+        "text": "[BWS: 2C promises rebid]\n\nWhat call do you make?"
+      }
+    },
+    {
+      "id": "b365",
+      "type": "text",
+      "data": {
+        "text": "**(D) IMPs; E-W vul. You, South, hold:**"
+      }
+    },
+    {
+      "id": "b366",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "6",
+            "H": "QT764",
+            "D": "A",
+            "C": "KT9854"
+          },
+          "east": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "west": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": true,
+          "east": false,
+          "west": false
+        },
+        "dealer": "",
+        "vulnerability": "E-W",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b367",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "South",
+        "bids": [
+          {
+            "text": "?",
+            "alert": null
+          }
+        ],
+        "label": ""
+      }
+    },
+    {
+      "id": "b368",
+      "type": "text",
+      "data": {
+        "text": "What is your plan? (a) pass; then, after three spades — pass — pass — ? (specify). (b) other (specify)."
+      }
+    },
+    {
+      "id": "b369",
+      "type": "text",
+      "data": {
+        "text": "**(E) IMPs; none vul. You, South, hold:**"
+      }
+    },
+    {
+      "id": "b370",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "AKQ6",
+            "H": "",
+            "D": "A743",
+            "C": "A9876"
+          },
+          "east": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "west": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": true,
+          "east": false,
+          "west": false
+        },
+        "dealer": "",
+        "vulnerability": "None",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b371",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "South",
+        "bids": [
+          {
+            "text": "1C",
+            "alert": null
+          },
+          {
+            "text": "Double",
+            "alert": null
+          },
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "?",
+            "alert": null
+          }
+        ],
+        "label": ""
+      }
+    },
+    {
+      "id": "b372",
+      "type": "text",
+      "data": {
+        "text": "What call do you make?"
+      }
+    },
+    {
+      "id": "b373",
+      "type": "text",
+      "data": {
+        "text": "**(F) IMPs; none vul. You, South, hold:**"
+      }
+    },
+    {
+      "id": "b374",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "AKQ63",
+            "H": "A9",
+            "D": "J75",
+            "C": "Q75"
+          },
+          "east": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "west": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": true,
+          "east": false,
+          "west": false
+        },
+        "dealer": "",
+        "vulnerability": "None",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b375",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "North",
+        "bids": [
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "?",
+            "alert": null
+          }
+        ],
+        "label": ""
+      }
+    },
+    {
+      "id": "b376",
+      "type": "text",
+      "data": {
+        "text": "(F1) Is 2S acceptable? (y|n) (F2) What call do you make?"
+      }
+    },
+    {
+      "id": "b377",
+      "type": "text",
+      "data": {
+        "text": "**(G) Matchpts.; none vul. You, South, hold:**"
+      }
+    },
+    {
+      "id": "b378",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "T",
+            "H": "J98653",
+            "D": "AJ9",
+            "C": "K97"
+          },
+          "east": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "west": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": true,
+          "east": false,
+          "west": false
+        },
+        "dealer": "",
+        "vulnerability": "None",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b379",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "North",
+        "bids": [
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "?",
+            "alert": null
+          }
+        ],
+        "label": ""
+      }
+    },
+    {
+      "id": "b380",
+      "type": "text",
+      "data": {
+        "text": "What call do you make?"
+      }
+    },
+    {
+      "id": "b381",
+      "type": "text",
+      "data": {
+        "text": "**(H) IMPs; E-W vul. You, South, hold:**"
+      }
+    },
+    {
+      "id": "b382",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "A2",
+            "H": "54",
+            "D": "A952",
+            "C": "T8654"
+          },
+          "east": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "west": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": true,
+          "east": false,
+          "west": false
+        },
+        "dealer": "",
+        "vulnerability": "E-W",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b383",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "West",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2D",
+            "alert": "0-1 controls (A = 2; K = 1)"
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "6H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": ""
+      }
+    },
+    {
+      "id": "b384",
+      "type": "text",
+      "data": {
+        "text": "What is your opening lead?"
+      }
+    },
+    {
+      "id": "b385",
+      "type": "text",
+      "data": {
+        "text": "**Master Solvers' Club**\n\nTo become a Master Solver, send your answers to the problems below with your name, address, month of problems, and score from the immediately previous month even if zero. Problems suggested by readers are frequently used and always appreciated. Answers from more than one Solver, scores for the year or for any but the immediately previous month, appeals, and problem submissions MUST be on separate sheets of paper with name and address on each. Any Solver scoring a perfect 800 will be invited to join the expert panel for a month.\n\nThe North-South players are assumed to be using Bridge World Standard."
+      }
+    },
+    {
+      "id": "b386",
+      "type": "text",
+      "data": {
+        "text": "**February 1998 Problems; Jeff Rubens, director**"
+      }
+    },
+    {
+      "id": "b387",
+      "type": "text",
+      "data": {
+        "text": "**(A) IMPs; E-W vul.**"
+      }
+    },
+    {
+      "id": "b388",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "east": {
+            "S": "A63",
+            "H": "76",
+            "D": "KQT4",
+            "C": "AK43"
+          },
+          "west": {
+            "S": "K95",
+            "H": "AKT532",
+            "D": "A6",
+            "C": "Q9"
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": false,
+          "east": true,
+          "west": true
+        },
+        "dealer": "",
+        "vulnerability": "",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b389",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "West",
+        "bids": [
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": ""
+      }
+    },
+    {
+      "id": "b390",
+      "type": "text",
+      "data": {
+        "text": "Which E-W call, if any, was the earliest mistake?"
+      }
+    },
+    {
+      "id": "b391",
+      "type": "text",
+      "data": {
+        "text": "**(B) Matchpts.; both vul. You, South, hold:**"
+      }
+    },
+    {
+      "id": "b392",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "K7",
+            "H": "KQT8",
+            "D": "865",
+            "C": "K954"
+          },
+          "east": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "west": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": true,
+          "east": false,
+          "west": false
+        },
+        "dealer": "",
+        "vulnerability": "",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b393",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "North",
+        "bids": [
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1NT",
+            "alert": null
+          },
+          {
+            "text": "2D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "?",
+            "alert": null
+          }
+        ],
+        "label": ""
+      }
+    },
+    {
+      "id": "b394",
+      "type": "text",
+      "data": {
+        "text": "What call do you make?"
+      }
+    },
+    {
+      "id": "b395",
+      "type": "text",
+      "data": {
+        "text": "**(C) IMPs; N-S vul. You, South, hold:**"
+      }
+    },
+    {
+      "id": "b396",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "Q753",
+            "H": "J742",
+            "D": "A5",
+            "C": "K76"
+          },
+          "east": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "west": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": true,
+          "east": false,
+          "west": false
+        },
+        "dealer": "",
+        "vulnerability": "",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b397",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "West",
+        "bids": [
+          {
+            "text": "1C",
+            "alert": null
+          },
+          {
+            "text": "Double",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "?",
+            "alert": null
+          }
+        ],
+        "label": ""
+      }
+    },
+    {
+      "id": "b398",
+      "type": "text",
+      "data": {
+        "text": "[BWS: 2♣ promises rebid]\nWhat call do you make?"
+      }
+    },
+    {
+      "id": "b399",
+      "type": "text",
+      "data": {
+        "text": "**(D) IMPs; E-W vul. You, South, hold:**"
+      }
+    },
+    {
+      "id": "b400",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "6",
+            "H": "QT764",
+            "D": "A",
+            "C": "KT9854"
+          },
+          "east": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "west": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": true,
+          "east": false,
+          "west": false
+        },
+        "dealer": "",
+        "vulnerability": "",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b401",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "South",
+        "bids": [
+          {
+            "text": "?",
+            "alert": null
+          }
+        ],
+        "label": ""
+      }
+    },
+    {
+      "id": "b402",
+      "type": "text",
+      "data": {
+        "text": "What is your plan? (a) pass; then, after three spades — pass — pass — ? (specify). (b) other (specify)."
+      }
+    },
+    {
+      "id": "b403",
+      "type": "text",
+      "data": {
+        "text": "**(E) IMPs; none vul. You, South, hold:**"
+      }
+    },
+    {
+      "id": "b404",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "AKQ6",
+            "H": "",
+            "D": "A743",
+            "C": "A9876"
+          },
+          "east": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "west": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": true,
+          "east": false,
+          "west": false
+        },
+        "dealer": "",
+        "vulnerability": "",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b405",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "South",
+        "bids": [
+          {
+            "text": "1C",
+            "alert": null
+          },
+          {
+            "text": "Double",
+            "alert": null
+          },
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "?",
+            "alert": null
+          }
+        ],
+        "label": ""
+      }
+    },
+    {
+      "id": "b406",
+      "type": "text",
+      "data": {
+        "text": "What call do you make?"
+      }
+    },
+    {
+      "id": "b407",
+      "type": "text",
+      "data": {
+        "text": "**(F) IMPs; none vul. You, South, hold:**"
+      }
+    },
+    {
+      "id": "b408",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "AKQ63",
+            "H": "A9",
+            "D": "J75",
+            "C": "Q75"
+          },
+          "east": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "west": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": true,
+          "east": false,
+          "west": false
+        },
+        "dealer": "",
+        "vulnerability": "",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b409",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "North",
+        "bids": [
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "?",
+            "alert": null
+          }
+        ],
+        "label": ""
+      }
+    },
+    {
+      "id": "b410",
+      "type": "text",
+      "data": {
+        "text": "(F1) Is 2♠ acceptable? (y|n) (F2) What call do you make?"
+      }
+    },
+    {
+      "id": "b411",
+      "type": "text",
+      "data": {
+        "text": "**(G) Matchpts.; none vul. You, South, hold:**"
+      }
+    },
+    {
+      "id": "b412",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "T",
+            "H": "J9865",
+            "D": "AJ9",
+            "C": "K97"
+          },
+          "east": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "west": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": true,
+          "east": false,
+          "west": false
+        },
+        "dealer": "",
+        "vulnerability": "",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b413",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "North",
+        "bids": [
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "?",
+            "alert": null
+          }
+        ],
+        "label": ""
+      }
+    },
+    {
+      "id": "b414",
+      "type": "text",
+      "data": {
+        "text": "What call do you make?"
+      }
+    },
+    {
+      "id": "b415",
+      "type": "text",
+      "data": {
+        "text": "**(H) IMPs; E-W vul. You, South, hold:**"
+      }
+    },
+    {
+      "id": "b416",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "A2",
+            "H": "54",
+            "D": "A952",
+            "C": "T8654"
+          },
+          "east": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "west": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": true,
+          "east": false,
+          "west": false
+        },
+        "dealer": "",
+        "vulnerability": "",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b417",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "West",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2D",
+            "alert": "0-1 controls (A = 2; K = 1)"
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "6H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": ""
+      }
+    },
+    {
+      "id": "b418",
+      "type": "text",
+      "data": {
+        "text": "What is your opening lead?"
+      }
+    },
+    {
+      "id": "b419",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "KQJ7654",
+            "D": "Q98",
+            "C": "962"
+          },
+          "south": {
+            "S": "Q9874",
+            "H": "T",
+            "D": "AKJT7",
+            "C": "74"
+          },
+          "east": {
+            "S": "T52",
+            "H": "A9832",
+            "D": "5",
+            "C": "AKJ5"
+          },
+          "west": {
+            "S": "AKJ63",
+            "H": "",
+            "D": "6432",
+            "C": "QT83"
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": true,
+          "west": true
+        },
+        "dealer": "",
+        "vulnerability": "",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b420",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "East",
+        "bids": [
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "Double",
+            "alert": null
+          },
+          {
+            "text": "2H",
+            "alert": null
+          },
+          {
+            "text": "Double",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {
+          "east": "Forquet",
+          "south": "Roth",
+          "west": "Siniscalco",
+          "north": "Stone"
+        }
+      }
+    },
+    {
+      "id": "b421",
+      "type": "text",
+      "data": {
+        "text": "Forquet opened a high club and shifted to his singleton diamond. Stone won in dummy and led the heart ten, which was allowed to hold. Now he played a club from dummy, and Siniscalco did not rise with his queen or duck—he played the club ten. When this held he gave Forquet a diamond ruff, was put back in by the marked underlead in clubs to his queen, and gave Forquet another ruff to set the contract. Nicely done.\n\nOf course Stone had made the defense easier than was necessary. Instead of playing a club from dummy he should ruff a spade and play the heart king. To beat the contract now Forquet must lead the club jack to be overtaken by the queen, and after ruffing a diamond must underlead again on the mere chance of finding West with the club ten.\n\nIt was ungenerous of Stone not to give Forquet the opportunity for such brilliance."
+      }
+    },
+    {
+      "id": "b422",
+      "type": "text",
+      "data": {
+        "text": "*\n\nI can start my discussion of Chiaradia and D'Alelio with this same hand, No. 14, for at the other table the auction went:"
+      }
+    },
+    {
+      "id": "b423",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "East",
+        "bids": [
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "Double",
+            "alert": null
+          },
+          {
+            "text": "2H",
+            "alert": null
+          },
+          {
+            "text": "Double",
+            "alert": null
+          },
+          {
+            "text": "3D",
+            "alert": null
+          },
+          {
+            "text": "Double",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {
+          "east": "Crawford",
+          "south": "D'Alelio",
+          "west": "Becker",
+          "north": "Chiaradia"
+        }
+      }
+    },
+    {
+      "id": "b424",
+      "type": "text",
+      "data": {
+        "text": "Becker led a trump, and D'Alelio was lucky to make five trump tricks, one spade ruff in dummy and one other trick, for down 300, a loss of three IMP.\n\nIn my view, the three diamond bid is a clear violation of partnership. North has heard the opening heart bid by East, and he knows that his run-out to two hearts shuts out possible contracts of two clubs or two diamonds; he could bid one notrump if he so chose. D'Alelio should pass two hearts doubled even with a void, and so his singleton ten is a bonanza.\n\n**The Americans**\n\nMy final tabulation of the performance of the individual Americans confirmed my preconceptions in some respects but startled me in others."
+      }
+    },
+    {
+      "id": "b425",
+      "type": "text",
+      "data": {
+        "text": "| | Charges | Boards | C per B |\n|----------|---------|--------|----------|\n| Rapée    | 15      | 92     | .163     |\n| Becker   | 25      | 124    | .202     |\n| Stone    | 19      | 92     | .207     |\n| Roth     | 25      | 92     | .272     |\n| Silodor  | 41      | 132    | .310     |\n| Crawford | 55      | 124    | .444     |\n\nI had rather expected Rapée to finish on top; in previous World Championship records I have studied he has seemed to me to have turned in the most consistently good performances. He made errors in Como, of course—even Reese in New York did not play"
+      }
+    },
+    {
+      "id": "b426",
+      "type": "text",
+      "data": {
+        "text": "**Deal 7.** F-N 51; M-M 41\nSouth dealer; both sides vulnerable"
+      }
+    },
+    {
+      "id": "b427",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "east": {
+            "S": "A874",
+            "H": "87",
+            "D": "AT86",
+            "C": "A54"
+          },
+          "west": {
+            "S": "KQJ52",
+            "H": "Q96",
+            "D": "K7",
+            "C": "987"
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": false,
+          "east": true,
+          "west": true
+        },
+        "dealer": "South",
+        "vulnerability": "All",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b428",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "South",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "Fallenius - Nilsland",
+        "players": {
+          "west": "Fallenius",
+          "east": "Nilsland"
+        },
+        "seats": [
+          "west",
+          "east"
+        ]
+      }
+    },
+    {
+      "id": "b429",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "South",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1D",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "Lars - Morten",
+        "players": {
+          "west": "Lars",
+          "east": "Morten"
+        },
+        "seats": [
+          "west",
+          "east"
+        ]
+      }
+    },
+    {
+      "id": "b430",
+      "type": "text",
+      "data": {
+        "text": "For the Incumbents, two notrump was a game-forcing raise. Three diamonds showed a minimum, so Nilsland terminated any further investigation.\n\nThe Swedes said afterwards that either West shouldn't open a non-opening bid or East shouldn't force to game. That's true, but many pairs would be in game at IMPs. Switch West's hearts and clubs and four spades is acceptable.\n\nThe Newcomers did well when Lars, West, despite his fitting king of diamonds, opted not to move over two spades. This ostensibly remarkable decision was based on real-world tactical considerations. With a fit, the Danes prefer not to pass out a passed-hand one-level response, fearing this would make entry into the auction too easy for the opponents. Thus, there was only the mildest of inferences that East did not have a rock-bottom minimum hand. (This is not to say that Lars' decision was right. It seems mighty conservative to me anyway.)\n\nBWS auction: pass — one diamond — one spade — pass.\n\nAwards: 3 ♠ 10; 2 NT 7; 3 NT 4; 4 ♠ 3."
+      }
+    },
+    {
+      "id": "b431",
+      "type": "text",
+      "data": {
+        "text": "**Deal 8.** F-N 54; M-M 51\nW. dealer; *North bids hearts*; none vul."
+      }
+    },
+    {
+      "id": "b432",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "east": {
+            "S": "AKT4",
+            "H": "K87",
+            "D": "K964",
+            "C": "K9"
+          },
+          "west": {
+            "S": "QJ5",
+            "H": "95",
+            "D": "QJT5",
+            "C": "AQ84"
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": false,
+          "east": true,
+          "west": true
+        },
+        "dealer": "West",
+        "vulnerability": "None",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b433",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "West",
+        "bids": [
+          {
+            "text": "1D",
+            "alert": null
+          },
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "Double",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "Fallenius - Nilsland",
+        "players": {
+          "west": "Fallenius",
+          "east": "Nilsland"
+        },
+        "seats": [
+          "west",
+          "east"
+        ]
+      }
+    },
+    {
+      "id": "b434",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "West",
+        "bids": [
+          {
+            "text": "1NT",
+            "alert": null
+          },
+          {
+            "text": "2H",
+            "alert": null
+          },
+          {
+            "text": "Double",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "Lars - Morten",
+        "players": {
+          "west": "Lars",
+          "east": "Morten"
+        },
+        "seats": [
+          "west",
+          "east"
+        ]
+      }
+    },
+    {
+      "id": "b435",
+      "type": "text",
+      "data": {
+        "text": "After the catchall diamond and a negative double promising four spades, Fallenius' one-spade rebid strongly suggested only three trumps in a weak-notrump hand. With four spades, he would have an unbalanced hand and would have jumped to two spades. Unwilling to assume they had nine running tricks, Nilsland made a directional asking-bid with three hearts. When Fallenius couldn't bid three notrump, Nilsland was endplayed into four spades.\n\nFor the young Danes, Lars, West, began with a weak notrump. In North America, East would presumably have bid two notrump followed by three hearts, the lebensohl route with four spades and a heart stopper. Here, though, Morten made a negative double, then offered a choice of games, while promising a heart stopper.\n\nBWS auction: one diamond — (one heart) — double — two clubs — two hearts — two spades — three diamonds — three spades — four spades — pass.\n\nAwards: 4 ♠ 10; 5 ♦ 8; 3 ♠ 6; 4 ♦ 5; 2 NT 4; 3 NT 3."
+      }
+    },
+    {
+      "id": "b436",
+      "type": "text",
+      "data": {
+        "text": "Seemingly, East-West are inextricably trapped into a diamond contract by North's diabolical one diamond opening. The Americans cleverly played with West as declarer and didn't get a diamond lead away from the ace-jack fifth, while the Italians foolishly played the hand from the East position, and South's trump lead beat them an extra trick.\n\n*\n\n. . . Incidentally, weak two-bids were almost a total loss for the Americans throughout this (as throughout every other World Championship) match. Only one of them gained, and the net average was two IMP lost for each weak two-bid used.\n\nI'll start my dossier on Crawford with one of these losses, on Deal No. 25:\n\nNorth dealer\nEast-West vulnerable"
+      }
+    },
+    {
+      "id": "b437",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "964",
+            "H": "KQ843",
+            "D": "8",
+            "C": "A864"
+          },
+          "south": {
+            "S": "732",
+            "H": "A95",
+            "D": "AK9",
+            "C": "K752"
+          },
+          "east": {
+            "S": "AKJT85",
+            "H": "J",
+            "D": "QT6432",
+            "C": ""
+          },
+          "west": {
+            "S": "Q",
+            "H": "T762",
+            "D": "J75",
+            "C": "QJT93"
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": true,
+          "west": true
+        },
+        "dealer": "North",
+        "vulnerability": "E-W",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b438",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "North",
+        "bids": [
+          {
+            "text": "2H",
+            "alert": null
+          },
+          {
+            "text": "4S",
+            "alert": null
+          },
+          {
+            "text": "5H",
+            "alert": null
+          },
+          {
+            "text": "Double",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {
+          "north": "Becker",
+          "east": "Forquet",
+          "south": "Crawford",
+          "west": "Siniscalco"
+        }
+      }
+    },
+    {
+      "id": "b439",
+      "type": "text",
+      "data": {
+        "text": "Forquet cashed two top spades and then led the ten of spades for partner to trump. Siniscalco did not give Forquet the club ruff he was angling for, but Becker had to lose a club anyway, for down 300. Since four spades was doubled and set 200 at the other table, the U. S. lost 500 points—six IMP.\n\nNow, I don't admire Becker's two-heart opening, but I have charged the whole loss to Crawford. The vagueness of the requirements for a weak two-bid and the liberties taken within even these hazy limits cause many a loss. But why here? It seems to me that Crawford should expect to beat four spades, perhaps a lot; and just as clearly he should expect five hearts to go down, no matter what sort of two-heart bid partner has. A decision like that five-heart bid can be justified only by success, and this one wasn't so justified.\n\n*\n\nIn general, Crawford's performance, especially in the first half of the match, was astonishing. Some of his errors were of the sort you just don't expect from one of the world's greatest players. . . . And on Deal 64, non-vulnerable against vulnerable, he held:\n\n♠ K 6  ♥ Q 4 2  ♦ K 7 6 4 3 2  ♣ J 7.\n\nOne club (artificial, strong) was opened at his left; pass from partner; two clubs (artificial, strong) at his right. \"Three diamonds,\" bid Crawford, undaunted by the minimum of 17 points at his left, and an ace and a king or three kings at his right. Down 1300. It's hard to believe.\n\nHowever, most of Crawford's charges are far more reasonable, . . . I have more sympathy for Crawford and"
+      }
+    },
+    {
+      "id": "b440",
+      "type": "text",
+      "data": {
+        "text": "**Deal 3.**    F-N 20; M-M 17\n\nSouth dealer; East-West vulnerable"
+      }
+    },
+    {
+      "id": "b441",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "east": {
+            "S": "AK864",
+            "H": "75",
+            "D": "A98",
+            "C": "KQ4"
+          },
+          "west": {
+            "S": "Q5",
+            "H": "AK4",
+            "D": "T3",
+            "C": "A98752"
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": false,
+          "east": true,
+          "west": true
+        },
+        "dealer": "South",
+        "vulnerability": "E-W",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b442",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "South",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "6C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "Fallenius – Nilsland",
+        "players": {
+          "west": "Fallenius",
+          "east": "Nilsland"
+        },
+        "seats": [
+          "west",
+          "east"
+        ]
+      }
+    },
+    {
+      "id": "b443",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "South",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "5D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "5NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "6H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "7C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "Lars – Morten",
+        "players": {
+          "west": "Lars",
+          "east": "Morten"
+        },
+        "seats": [
+          "west",
+          "east"
+        ]
+      }
+    },
+    {
+      "id": "b444",
+      "type": "text",
+      "data": {
+        "text": "Fallenius, West, began with a nebulous diamond. His two-club rebid guaranteed at least five clubs. Then, over Nilsland's relay, opener showed spade help. However, East felt that this denied a heart holding as good as ace-king, so he didn't think seven was feasible. (Still, if West's red-suit king is in diamonds, seven clubs is a highly desirable contract.)\n\nWhen the Newcomers have agreed a minor, they telescope the responses to Roman Key-Card Blackwood. So, five diamonds announced two key cards without the queen of clubs; six hearts showed that king, simultaneously denying the king of diamonds. The queen of spades, rather than the queen of diamonds, was a lucky bonus.\n\nBWS auction: It would be ideal to have West use RKCB. (But how?)\n\nAwards: 7 ♣ 10; 6 NT 6; 7 NT, 7 ♠ 4; 6 ♠, 6 ♣ 3; 5 NT 2; 5 ♠, 5 ♣ 1."
+      }
+    },
+    {
+      "id": "b445",
+      "type": "text",
+      "data": {
+        "text": "**Deal 4.**    F-N 23; M-M 27\n\nWest dealer; both sides vulnerable"
+      }
+    },
+    {
+      "id": "b446",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "east": {
+            "S": "AKQ4",
+            "H": "KT8",
+            "D": "AKQ54",
+            "C": "5"
+          },
+          "west": {
+            "S": "J2",
+            "H": "QJ93",
+            "D": "J6",
+            "C": "AQJ64"
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": false,
+          "east": true,
+          "west": true
+        },
+        "dealer": "West",
+        "vulnerability": "All",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b447",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "West",
+        "bids": [
+          {
+            "text": "2H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "5C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "6NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "Fallenius – Nilsland",
+        "players": {
+          "west": "Fallenius",
+          "east": "Nilsland"
+        },
+        "seats": [
+          "west",
+          "east"
+        ]
+      }
+    },
+    {
+      "id": "b448",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "West",
+        "bids": [
+          {
+            "text": "1C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "5C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "5D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "5NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "6NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "Lars – Morten",
+        "players": {
+          "west": "Lars",
+          "east": "Morten"
+        },
+        "seats": [
+          "west",
+          "east"
+        ]
+      }
+    },
+    {
+      "id": "b449",
+      "type": "text",
+      "data": {
+        "text": "Fallenius' two-heart opening showed four hearts and a longer minor with 10-13 points. In response to two relays, he described a maximum with clubs and only four-five in the two suits. Four diamonds was natural, five clubs a cuebid that denied any major-suit controls.\n\nThe Newcomers have an interesting agreement. One spade was fourth-suit forcing, but a jump to two spades instead would have been a game-force with four hearts. So, when Morten jumped to three hearts, he was known to have only three. Via two doses of RKCB, Morten learned that his brother had one key card and the queen of hearts but no side king.\n\nBWS auction: one club [?] — one diamond — one heart — one spade — one notrump — three hearts — three notrump — six notrump — pass.\n\nAwards: 6 NT (West) 10; 6 NT (East) 8; 6 ♥ (West) 7; 6 ♥ (East), 6 ♦, 6 ♠ 5; 5 NT 3; 5 ♥ 2; 5 ♠, 5 ♦ 1."
+      }
+    },
+    {
+      "id": "b450",
+      "type": "text",
+      "data": {
+        "text": "**Deal 3.**                F-N 20; M-M 17\n\nSouth dealer; East-West vulnerable"
+      }
+    },
+    {
+      "id": "b451",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "east": {
+            "S": "AK864",
+            "H": "75",
+            "D": "A98",
+            "C": "KQ4"
+          },
+          "west": {
+            "S": "Q5",
+            "H": "AK4",
+            "D": "T3",
+            "C": "A98752"
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": false,
+          "east": true,
+          "west": true
+        },
+        "dealer": "South",
+        "vulnerability": "E-W",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b452",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "South",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1D",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2C",
+            "alert": null
+          },
+          {
+            "text": "2D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2S",
+            "alert": null
+          },
+          {
+            "text": "4C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4H",
+            "alert": null
+          },
+          {
+            "text": "6C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "Fallenius – Nilsland",
+        "players": {
+          "west": "Fallenius",
+          "east": "Nilsland"
+        },
+        "seats": [
+          "west",
+          "east"
+        ]
+      }
+    },
+    {
+      "id": "b453",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "South",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1C",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2C",
+            "alert": null
+          },
+          {
+            "text": "4C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4H",
+            "alert": null
+          },
+          {
+            "text": "4NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "5D",
+            "alert": null
+          },
+          {
+            "text": "5NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "6H",
+            "alert": null
+          },
+          {
+            "text": "7C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "Lars – Morten",
+        "players": {
+          "west": "Lars",
+          "east": "Morten"
+        },
+        "seats": [
+          "west",
+          "east"
+        ]
+      }
+    },
+    {
+      "id": "b454",
+      "type": "text",
+      "data": {
+        "text": "Fallenius, West, began with a nebulous diamond. His two-club rebid guaranteed at least five clubs. Then, over Nilsland's relay, opener showed spade help. However, East felt that this denied a heart holding as good as ace-king, so he didn't think seven was feasible. (Still, if West's red-suit king is in diamonds, seven clubs is a highly desirable contract.)\n\nWhen the Newcomers have agreed a minor, they telescope the responses to Roman Key-Card Blackwood. So, five diamonds announced two key cards without the queen of clubs; six hearts showed that king, simultaneously denying the king of diamonds. The queen of spades, rather than the queen of diamonds, was a lucky bonus.\n\nBWS auction: It would be ideal to have West use RKCB. (But how?)\n\nAwards: 7 ♣ 10; 6 NT 6; 7 NT, 7 ♠ 4; 6 ♠, 6 ♣ 3; 5 NT 2; 5 ♠, 5 ♣ 1."
+      }
+    },
+    {
+      "id": "b455",
+      "type": "text",
+      "data": {
+        "text": "**Deal 4.**                F-N 23; M-M 27\n\nWest dealer; both sides vulnerable"
+      }
+    },
+    {
+      "id": "b456",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "east": {
+            "S": "AKQ4",
+            "H": "KT8",
+            "D": "AKQ54",
+            "C": "5"
+          },
+          "west": {
+            "S": "J2",
+            "H": "QJ93",
+            "D": "J6",
+            "C": "AQJ64"
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": false,
+          "east": true,
+          "west": true
+        },
+        "dealer": "West",
+        "vulnerability": "All",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b457",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "West",
+        "bids": [
+          {
+            "text": "2H",
+            "alert": null
+          },
+          {
+            "text": "2NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3H",
+            "alert": null
+          },
+          {
+            "text": "3S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3NT",
+            "alert": null
+          },
+          {
+            "text": "4D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "5C",
+            "alert": null
+          },
+          {
+            "text": "6NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "Fallenius – Nilsland",
+        "players": {
+          "west": "Fallenius",
+          "east": "Nilsland"
+        },
+        "seats": [
+          "west",
+          "east"
+        ]
+      }
+    },
+    {
+      "id": "b458",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "West",
+        "bids": [
+          {
+            "text": "1C",
+            "alert": null
+          },
+          {
+            "text": "1D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2C",
+            "alert": null
+          },
+          {
+            "text": "3H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4H",
+            "alert": null
+          },
+          {
+            "text": "4NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "5C",
+            "alert": null
+          },
+          {
+            "text": "5D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "5NT",
+            "alert": null
+          },
+          {
+            "text": "6NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "Lars – Morten",
+        "players": {
+          "west": "Lars",
+          "east": "Morten"
+        },
+        "seats": [
+          "west",
+          "east"
+        ]
+      }
+    },
+    {
+      "id": "b459",
+      "type": "text",
+      "data": {
+        "text": "Fallenius' two-heart opening showed four hearts and a longer minor with 10-13 points. In response to two relays, he described a maximum with clubs and only four-five in the two suits. Four diamonds was natural, five clubs a cuebid that denied any major-suit controls.\n\nThe Newcomers have an interesting agreement. One spade was fourth-suit forcing, but a jump to two spades instead would have been a game-force with four hearts. So, when Morten jumped to three hearts, he was known to have only three. Via two doses of RKCB, Morten learned that his brother had one key card and the queen of hearts but no side king.\n\nBWS auction: one club [?] — one diamond — one heart — one spade — one notrump — three hearts — three notrump — six notrump — pass.\n\nAwards: 6 NT (West) 10; 6 NT (East) 8; 6 ♥ (West) 7; 6 ♥ (East), 6 ♦, 6 ♠ 5; 5 NT 3; 5 ♥ 2; 5 ♠, 5 ♦ 1."
+      }
+    },
+    {
+      "id": "b460",
+      "type": "text",
+      "data": {
+        "text": "from the current American style. And, of course, this great difference causes similar discrepancies at the upper end of the scale as well.\n\nBritish experts have much more experience than their American counterparts in defending against varieties of the Multi, a two-diamond opening to show a weak two-bid in an unspecified major or, perhaps, a very strong hand of one sort or another. We are always interested in their views on how best to cope with the beast. Author Sowter has some ideas here that are worthy of discussion; we would render a verdict of \"unproven\" to his final product."
+      }
+    },
+    {
+      "id": "b461",
+      "type": "text",
+      "data": {
+        "text": "**Challenge the Champs**\n\n*conducted by Phillip Alder*\n\n*Challenge the Champs is a continuing bidding battle. Each month, two leading pairs compete, the Incumbents (they bid last month too) and the Newcomers (who will be back next month) bidding deals from actual play (taken from old tournament reports or submitted by readers). Awards assigned to final contracts are estimates of the matchpoint expectancy on a 12 top in a strong pairs contest. Awards are rounded off to the nearest full matchpoint. An award embraces all lower equivalent contracts in the same strain.*\n\n*The deals for next month's match are elsewhere in this issue.*"
+      }
+    },
+    {
+      "id": "b462",
+      "type": "text",
+      "data": {
+        "text": "**FALLENIUS-NILSLAND vs. LARS & MORTEN LUND MADSEN**\n\nThis month we have a Scandinavian battle. The Incumbents, trying for their fourth victory toward a place in the Challenge of the Decade, are Bjorn Fallenius and Mats Nilsland from Sweden. Well, Fallenius is Swedish by birth, but now he lives primarily in New York City. They use a strong-club system with five-card majors, 14-16 notrump and a nebulous one diamond. When holding at least game-going values, they usually ascend into a relay auction.\n\nThe Newcomers are brothers Lars and Morten Lund Madsen. Both are students at Copenhagen University, Lars studying economics and Morten mathematics. They were the mainstays of the Danish team that won last year's World Junior Championship, and have had several medal-winning performances in European junior events. However, Lars, at 25, is too old for further success at that level. Morten, at 23, has two more years of eligibility. The Danes use an Acol-style system but with five-card one-spade openings. They employ a variable notrump (11-14 nonvul., 15-17 vul.) and, most unusually for Europeans, weak two-bids in three suits.\n\nOur thanks to these readers who sent deals used in this match: John Uchida, Seattle, Deal 2; Michael Whitman, San Francisco, Deal 3; Martin Miller, Rochester, NY, Deal 4; L. J. Nee, Auburn, WA, Deal 7; Mark Kinzer, IL, Deal 8; Bill Ahrens, Milpitas, CA, Deal 9; John Plaut, Santiago, Deal 10. Deals 5 and 6 are from the Becker Archive."
+      }
+    },
+    {
+      "id": "b463",
+      "type": "text",
+      "data": {
+        "text": "*\n\nB. Jay Becker's record at Como I would call good, but not up to his usual standard. . . .\n\nI suppose I should give him a credit for producing a favorable swing on Deal 147. First hand, non-vulnerable vs. vulnerable, he opened three clubs on:"
+      }
+    },
+    {
+      "id": "b464",
+      "type": "text",
+      "data": {
+        "text": "♠ — ♥ 752 ♦ A942 ♣ QJT987."
+      }
+    },
+    {
+      "id": "b465",
+      "type": "text",
+      "data": {
+        "text": "Chiaradia, West, doubled; Crawford bid four clubs, and D'Alelio jumped to five diamonds. Becker passed, Chiaradia bid five hearts, Crawford passed, and D'Alelio went on to six diamonds. Why Mr. Becker didn't double I'll never know, but he passed and so did everyone else—down five. Now, at IMP scoring the difference between 500 and 1400 is relatively slight—only three IMP—but that final pass outrages me anyway. So I'll be hanged if I'll hand out a credit for bidding like that.\n\n*\n\nNo record of Becker's performance would be complete without Deal 6. He held:"
+      }
+    },
+    {
+      "id": "b466",
+      "type": "text",
+      "data": {
+        "text": "♠ JT98754 ♥ JT6 ♦ A2 ♣ A."
+      }
+    },
+    {
+      "id": "b467",
+      "type": "text",
+      "data": {
+        "text": "Crawford opened one club; Becker responded one spade. Crawford raised to two spades, and now Becker cue-bid three hearts! Hearts, that is. Picked up an IMP, too, by stopping the lead. Nowadays Mr. B. is seen playing all sorts of modern gadgets, like Stayman, and here he is psyching! Don't tell me about old dogs.\n\n*\n\nSilodor, on his record in Nationals over the past few years, is very likely the finest player in the U. S. And he was the key man on the team: he had three partners and played more boards than any of the others. So it was disappointing and costly that he was not at the top of his usually magnificent game.\n\n*\n\n. . . I'm not sure that Silodor should double four spades, but I know he shouldn't save against it. In my view, to push the opponents into a contract and then sacrifice against it is one of the gravest bidding crimes.\n\nHowever, there was no actual swing on this hand. At the other table the auction went: . . . Just as Stone was about to pay the penalty for his rashness—the difference between a rash bid and a courageous one is a matter of result—Chiaradia came to his rescue . . .\n\n*\n\nAgainst Italy, Roth and Stone did not play except as partners (Roth played briefly with Crawford, but against Argentina), so it is convenient to treat their records jointly. They were, in general, an effective pair, tossing away a little more than their share of points, especially early in the match, but playing a very active style and earning back many points. Stone, particularly, created many favorable swings for the U.S.\n\nOn the whole the Roth-Stone System was less successful than Roth and Stone were as individuals. Unluckily, many of their specialized bids and conventions simply didn't come up. . . . It was not only negative doubles that were few and far between. The cards at Como stubbornly refused to accommodate themselves to most of the Roth-Stone"
+      }
+    },
+    {
+      "id": "b468",
+      "type": "text",
+      "data": {
+        "text": "Deal 10 . . .\n\nWell, if Roth couldn't reverse on Deal 10, he certainly couldn't on Deal 76:"
+      }
+    },
+    {
+      "id": "b469",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "east": {
+            "S": "QT9875",
+            "H": "J94",
+            "D": "J",
+            "C": "863"
+          },
+          "west": {
+            "S": "A3",
+            "H": "AQ75",
+            "D": "KQ652",
+            "C": "K7"
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": false,
+          "east": true,
+          "west": true
+        },
+        "dealer": "",
+        "vulnerability": "",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b470",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "West",
+        "bids": [
+          {
+            "text": "1D",
+            "alert": null
+          },
+          {
+            "text": "1NT",
+            "alert": "!"
+          },
+          {
+            "text": "2NT",
+            "alert": null
+          },
+          {
+            "text": "4H",
+            "alert": "!"
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {
+          "west": "Roth",
+          "east": "Stone"
+        }
+      }
+    },
+    {
+      "id": "b471",
+      "type": "text",
+      "data": {
+        "text": "For a full explanation of this remarkable auction, I must refer you to the perpetrators. . . .\n\n*\n\n**General Conclusions**\n\nAfter all I have written it may come as a surprise that I consider the Italy-United States match to have been played quite well. Technically, the match was on a very high plane indeed—there were few errors of dummy play or defense; of these few, not more than three or four were really glaring. And the bidding errors were generally ones involving fine judgment, not gross overbids or underbids.\n\nSlam bidding was the worst department for both teams. The U.S. bid twelve slams—five made, seven went down. We missed four good slams that would have made, and one good one that wouldn't. One of the U.S. slams that made should have been beaten; conversely, one of those beaten should have been made. All in all, a miserable showing.\n\nThe Italians were no better. They bid only eight slams—four made, four didn't. That looks almost respectable, but they missed five good slams, and, of the four they bid and made, two were in the wrong contract and one should have been beaten. One of the slams they bid and went down on was a good contract, but they luckily stayed out of another good one that only failed because of stacked cards.\n\nI came to no conclusions about the \"battle of the systems.\" Somehow, there were very few strictly systemic swings—either pickups or losses—for the Neapolitan or Roman systems. Roth-Stone seemed to have quite a few systemic losses, but the results are inconclusive. The other Americans did fairly well with psychics, unimpressively with preempts, jump overcalls, disastrously with weak two-bids. I saw no signs that anyone was losing points through unfamiliarity with the meaning of his opponents' bidding. The swings were due to judgment, rarely to system at all.\n\nOver the long match luck was fairly even. The Americans lost, on my reckoning, 51 IMP through unlucky swings. They gained 44 IMP in lucky ones. (By luck, I mean good contracts going down, bad ones making; slams on finesses, guess situations on lead, etc.) We were, then, slightly unlucky, but not enough to make the difference.\n\nWe lost because we were outplayed; we did a few more good things than the Italians did, but a lot more bad things. But don't believe that vague impression floating around (at least here in New York) that the U.S. players performed miserably in Como. That's not true. I think they played better than almost any"
+      }
+    },
+    {
+      "id": "b472",
+      "type": "text",
+      "data": {
+        "text": "Deal 10 . . .\n\nWell, if Roth couldn't reverse on Deal 10, he certainly couldn't on Deal 76:"
+      }
+    },
+    {
+      "id": "b473",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "east": {
+            "S": "QT9875",
+            "H": "J94",
+            "D": "J",
+            "C": "863"
+          },
+          "west": {
+            "S": "A3",
+            "H": "AQ75",
+            "D": "KQ652",
+            "C": "K7"
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": false,
+          "east": true,
+          "west": true
+        },
+        "dealer": "",
+        "vulnerability": "",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b474",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "West",
+        "bids": [
+          {
+            "text": "1D",
+            "alert": null
+          },
+          {
+            "text": "1NT",
+            "alert": "!"
+          },
+          {
+            "text": "2NT",
+            "alert": null
+          },
+          {
+            "text": "4H",
+            "alert": "!"
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {
+          "west": "Roth",
+          "east": "Stone"
+        },
+        "seats": [
+          "west",
+          "east"
+        ]
+      }
+    },
+    {
+      "id": "b475",
+      "type": "text",
+      "data": {
+        "text": "For a full explanation of this remarkable auction, I must refer you to the perpetrators. . . . .\n\n*\n\n**General Conclusions**\n\nAfter all I have written it may come as a surprise that I consider the Italy-United States match to have been played quite well. Technically, the match was on a very high plane indeed—there were few errors of dummy play or defense; of these few, not more than three or four were really glaring. And the bidding errors were generally ones involving fine judgment, not gross overbids or underbids.\n\nSlam bidding was the worst department for both teams. The U.S. bid twelve slams—five made, seven went down. We missed four good slams that would have made, and one good one that wouldn't. One of the U.S. slams that made should have been beaten; conversely, one of those beaten should have been made. All in all, a miserable showing.\n\nThe Italians were no better. They bid only eight slams—four made, four didn't. That looks almost respectable, but they missed five good slams, and, of the four they bid and made, two were in the wrong contract and one should have been beaten. One of the slams they bid and went down on was a good contract, but they luckily stayed out of another good one that only failed because of stacked cards.\n\nI came to no conclusions about the \"battle of the systems.\" Somehow, there were very few strictly systemic swings—either pickups or losses—for the Neapolitan or Roman systems. Roth-Stone seemed to have quite a few systemic losses, but the results are inconclusive. The other Americans did fairly well with psychics, unimpressively with preempts, jump overcalls, disastrously with weak two-bids. I saw no signs that anyone was losing points through unfamiliarity with the meaning of his opponents' bidding. The swings were due to judgment, rarely to system at all.\n\nOver the long match luck was fairly even. The Americans lost, on my reckoning, 51 IMP through unlucky swings. They gained 44 IMP in lucky ones. (By luck, I mean good contracts going down, bad ones making; slams on finesses, guess situations on lead, etc.) We were, then, slightly unlucky, but not enough to make the difference.\n\nWe lost because we were outplayed; we did a few more good things than the Italians did, but a lot more bad things. But don't believe that vague impression floating around (at least here in New York) that the U.S. players performed miserably in Como. That's not true. I think they played better than almost any"
+      }
+    }
+  ],
+  "warnings": [
+    "Block 12 (biddingTable): Invalid bids: Double",
+    "Block 19 (biddingTable): Invalid bids: Double",
+    "Block 27 (biddingTable): Invalid bids: Double",
+    "Block 41 (biddingTable): Invalid bids: Double",
+    "Block 49 (biddingTable): Invalid bids: Double",
+    "Block 75 (biddingTable): Invalid bids: Double",
+    "Block 83 (biddingTable): Invalid bids: Double",
+    "Block 98 (biddingTable): Invalid bids: Double, Double",
+    "Block 101 (biddingTable): Invalid bids: Double, Double, Double",
+    "Block 111 (biddingTable): Invalid bids: Double",
+    "Block 112 (biddingTable): Invalid bids: Double",
+    "Block 116 (biddingTable): Invalid bids: Double",
+    "Block 148 (biddingTable): Auction must end with 3 consecutive passes (got: 2NT, 4H, Pass)"
+  ]
+}

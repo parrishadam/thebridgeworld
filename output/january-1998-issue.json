@@ -13,39 +13,37 @@
       "author_name": "",
       "category": "Editorial",
       "tags": [
+        "Editorial",
         "January 1998"
       ],
       "level": "beginner",
       "month": 1,
       "year": 1998,
       "source_page": 2,
-      "excerpt": "Monthly editorial commentary on bridge topics.",
-      "block_count": 4,
-      "warnings": [
-        "Block 1 (bridgeHand): north has 10 cards (expected 13)",
-        "Block 1 (bridgeHand): south has 12 cards (expected 13)",
-        "Block 1 (bridgeHand): east has 8 cards (expected 13)",
-        "Block 3 (bridgeHand): south has 8 cards (expected 7)"
-      ]
+      "excerpt": "Monthly editorial column discussing current bridge topics and magazine updates.",
+      "block_count": 11,
+      "warnings": []
     },
     {
-      "title": "The View from Yu-Graph by Kit Woolsey",
-      "slug": "the-view-from-yu-graph-by-kit-woolsey",
+      "title": "The View from Vu-Graph",
+      "slug": "the-view-from-vu-graph",
       "author_name": "Kit Woolsey",
       "category": "Tournament Report",
       "tags": [
-        "January 1998",
+        "Tournament Report",
         "Kit Woolsey",
-        "Yu-Graph"
+        "Vu-Graph",
+        "January 1998"
       ],
       "level": "intermediate",
       "month": 1,
       "year": 1998,
       "source_page": 5,
-      "excerpt": "Analysis of hands from recent tournaments using Yu-Graph technology.",
-      "block_count": 23,
+      "excerpt": "Analysis and commentary on high-level tournament play from the Vu-Graph perspective.",
+      "block_count": 69,
       "warnings": [
-        "Block 17 (bridgeHand): west has 9 cards (expected 12)"
+        "Block 54 (biddingTable): Auction must end with 3 consecutive passes (got: 3C, 3NT, Pass)",
+        "Block 58 (biddingTable): Invalid bids: Double, Double"
       ]
     },
     {
@@ -54,16 +52,19 @@
       "author_name": "",
       "category": "Card Play",
       "tags": [
-        "January 1998",
-        "test your play"
+        "Test Your Play",
+        "Card Play",
+        "January 1998"
       ],
       "level": "intermediate",
       "month": 1,
       "year": 1998,
       "source_page": 9,
-      "excerpt": "Card play problems to test and improve declarer technique.",
-      "block_count": 10,
-      "warnings": []
+      "excerpt": "Card play problems to test and improve declarer play skills.",
+      "block_count": 0,
+      "warnings": [
+        "No content blocks found"
+      ]
     },
     {
       "title": "Fifty Years Ago",
@@ -71,37 +72,126 @@
       "author_name": "",
       "category": "History",
       "tags": [
+        "History",
+        "Fifty Years Ago",
         "January 1998"
       ],
       "level": "intermediate",
       "month": 1,
       "year": 1998,
       "source_page": 11,
-      "excerpt": "A look back at bridge articles and events from 50 years ago.",
-      "block_count": 6,
+      "excerpt": "Looking back at bridge events and articles from 50 years ago.",
+      "block_count": 14,
       "warnings": [
-        "Block 1 (bridgeHand): north has 12 cards (expected 13)",
-        "Block 2 (biddingTable): Auction must end with 3 consecutive passes (got: Pass, 1D, 1S)"
+        "Block 4 (biddingTable): Auction must end with 3 consecutive passes (got: 1D, 1S, 2H)",
+        "Block 10 (biddingTable): Invalid bids: Double"
       ]
     },
     {
-      "title": "Kantar for the Defense by Edwin B. Kantar",
-      "slug": "kantar-for-the-defense-by-edwin-b-kantar",
+      "title": "Kantar for the Defense",
+      "slug": "kantar-for-the-defense",
       "author_name": "Edwin B. Kantar",
       "category": "Defense",
       "tags": [
-        "January 1998",
-        "Edwin B. Kantar"
+        "Defense",
+        "Edwin B. Kantar",
+        "January 1998"
       ],
       "level": "intermediate",
       "month": 1,
       "year": 1998,
       "source_page": 13,
-      "excerpt": "Defensive tips and techniques from master teacher Edwin Kantar.",
-      "block_count": 0,
+      "excerpt": "Defensive tips and techniques from expert Edwin Kantar.",
+      "block_count": 18,
       "warnings": [
-        "No content blocks found"
+        "Block 7 (biddingTable): Invalid bids: Double, Double"
       ]
+    },
+    {
+      "title": "Edgar Kaplan Remembered, II",
+      "slug": "edgar-kaplan-remembered-ii",
+      "author_name": "Jeff Rubens",
+      "category": "History",
+      "tags": [
+        "History",
+        "Edgar Kaplan",
+        "Jeff Rubens",
+        "January 1998"
+      ],
+      "level": "intermediate",
+      "month": 1,
+      "year": 1998,
+      "source_page": 31,
+      "excerpt": "Part two of a tribute remembering the life and contributions of Edgar Kaplan.",
+      "block_count": 5,
+      "warnings": []
+    },
+    {
+      "title": "Life Masters Individual",
+      "slug": "life-masters-individual",
+      "author_name": "Edgar Kaplan",
+      "category": "Tournament Report",
+      "tags": [
+        "Tournament Report",
+        "Life Masters Individual",
+        "Edgar Kaplan",
+        "January 1998"
+      ],
+      "level": "intermediate",
+      "month": 1,
+      "year": 1998,
+      "source_page": 33,
+      "excerpt": "Report on the Life Masters Individual championship tournament.",
+      "block_count": 53,
+      "warnings": [
+        "Block 2 (biddingTable): Invalid bids: Double",
+        "Block 40 (biddingTable): Invalid bids: Double",
+        "Block 42 (biddingTable): Invalid bids: Double",
+        "Block 45 (biddingTable): Auction must end with 3 consecutive passes (got: 5C, 5D, Pass)"
+      ]
+    },
+    {
+      "title": "Analysis of the 1958 World Championship",
+      "slug": "analysis-of-the-1958-world-championship",
+      "author_name": "Edgar Kaplan",
+      "category": "Tournament Report",
+      "tags": [
+        "Tournament Report",
+        "World Championship",
+        "1958",
+        "Edgar Kaplan",
+        "January 1998"
+      ],
+      "level": "intermediate",
+      "month": 1,
+      "year": 1998,
+      "source_page": 40,
+      "excerpt": "Detailed analysis of key deals from the 1958 World Championship.",
+      "block_count": 113,
+      "warnings": [
+        "Block 36 (biddingTable): Invalid bids: Double",
+        "Block 38 (biddingTable): Invalid bids: Double",
+        "Block 69 (biddingTable): Invalid bids: Double"
+      ]
+    },
+    {
+      "title": "A Jacobean Proposal",
+      "slug": "a-jacobean-proposal",
+      "author_name": "Henry Bethe",
+      "category": "Bidding",
+      "tags": [
+        "Bidding Theory",
+        "Jacobean",
+        "Henry Bethe",
+        "January 1998"
+      ],
+      "level": "intermediate",
+      "month": 1,
+      "year": 1998,
+      "source_page": 30,
+      "excerpt": "A bidding system proposal featuring Jacobean transfer concepts.",
+      "block_count": 5,
+      "warnings": []
     },
     {
       "title": "Book Reviews",
@@ -109,49 +199,48 @@
       "author_name": "",
       "category": "Book Review",
       "tags": [
+        "Book Review",
         "January 1998"
       ],
       "level": "beginner",
       "month": 1,
       "year": 1998,
-      "source_page": 31,
-      "excerpt": "Reviews of recently published bridge books.",
-      "block_count": 32,
-      "warnings": [
-        "Manual review: west in block b67: Hand has 15 cards, expected 13",
-        "Block 7 (bridgeHand): north has 14 cards (expected 13)",
-        "Block 20 (bridgeHand): south has 12 cards (expected 13)",
-        "Block 23 (bridgeHand): south has 12 cards (expected 13)",
-        "Block 23 (bridgeHand): west has 15 cards (expected 13)",
-        "Block 25 (bridgeHand): east has 5 cards (expected 12)",
-        "Block 25 (bridgeHand): west has 5 cards (expected 12)"
-      ]
+      "source_page": 17,
+      "excerpt": "Reviews of recent bridge books and publications.",
+      "block_count": 31,
+      "warnings": []
     },
     {
-      "title": "Challenge the Champs conducted by Phillip Alder",
-      "slug": "challenge-the-champs-conducted-by-phillip-alder",
-      "author_name": "Phillip Alder",
+      "title": "Challenge the Champs",
+      "slug": "challenge-the-champs",
+      "author_name": "Philip Alder",
       "category": "Challenge the Champs",
       "tags": [
-        "January 1998",
+        "Challenge the Champs",
         "CTC",
-        "Phillip Alder"
+        "Philip Alder",
+        "January 1998"
       ],
       "level": "advanced",
       "month": 1,
       "year": 1998,
-      "source_page": 33,
-      "excerpt": "Bidding challenge where readers compete against champion pairs.",
-      "block_count": 51,
+      "source_page": 19,
+      "excerpt": "Bidding competition where readers challenge expert pairs.",
+      "block_count": 154,
       "warnings": [
-        "Manual review: west in block b94: Hand has 16 cards, expected 13",
-        "Manual review: west in block b114: Hand has 26 cards, expected 22",
-        "Block 18 (bridgeHand): west has 16 cards (expected 13)",
-        "Block 38 (bridgeHand): west has 26 cards (expected 22)",
-        "Block 41 (bridgeHand): east has 14 cards (expected 13)",
-        "Block 42 (biddingTable): Invalid bids: 2♣",
-        "Block 47 (biddingTable): Invalid bids: 3♣",
-        "Block 48 (biddingTable): Invalid bids: 2♣, 2♦, 3♣"
+        "Block 12 (biddingTable): Invalid bids: Double",
+        "Block 19 (biddingTable): Invalid bids: Double",
+        "Block 27 (biddingTable): Invalid bids: Double",
+        "Block 41 (biddingTable): Invalid bids: Double",
+        "Block 49 (biddingTable): Invalid bids: Double",
+        "Block 75 (biddingTable): Invalid bids: Double",
+        "Block 83 (biddingTable): Invalid bids: Double",
+        "Block 98 (biddingTable): Invalid bids: Double, Double",
+        "Block 101 (biddingTable): Invalid bids: Double, Double, Double",
+        "Block 111 (biddingTable): Invalid bids: Double",
+        "Block 112 (biddingTable): Invalid bids: Double",
+        "Block 116 (biddingTable): Invalid bids: Double",
+        "Block 148 (biddingTable): Auction must end with 3 consecutive passes (got: 2NT, 4H, Pass)"
       ]
     },
     {
@@ -160,134 +249,24 @@
       "author_name": "",
       "category": "Master Solvers' Club",
       "tags": [
-        "January 1998",
-        "MSC"
+        "Master Solvers' Club",
+        "MSC",
+        "January 1998"
       ],
       "level": "advanced",
       "month": 1,
       "year": 1998,
       "source_page": 39,
-      "excerpt": "Monthly bidding problems with expert panel solutions and scoring.",
-      "block_count": 121,
-      "warnings": [
-        "Manual review: south in block b129: Hand has 20 cards, expected 14",
-        "Manual review: east in block b129: Hand has 34 cards, expected 14",
-        "Manual review: west in block b129: Hand has 28 cards, expected 14",
-        "Manual review: north in block b174: Hand has 15 cards, expected 13",
-        "Block 2 (bridgeHand): south has 20 cards (expected 14)",
-        "Block 2 (bridgeHand): east has 34 cards (expected 14)",
-        "Block 2 (bridgeHand): west has 28 cards (expected 14)",
-        "Block 21 (bridgeHand): south has 12 cards (expected 13)",
-        "Block 28 (bridgeHand): east has 11 cards (expected 13)",
-        "Block 41 (bridgeHand): south has 12 cards (expected 13)",
-        "Block 47 (bridgeHand): north has 15 cards (expected 13)",
-        "Block 47 (bridgeHand): west has 12 cards (expected 13)",
-        "Block 48 (biddingTable): Invalid bids: 3♦, 4♠, 4♥",
-        "Block 48 (biddingTable): Auction must end with 3 consecutive passes (got: Pass, 4♥, Pass)",
-        "Block 55 (bridgeHand): east has 4 cards (expected 13)",
-        "Block 57 (bridgeHand): east has 12 cards (expected 13)",
-        "Block 64 (bridgeHand): west has 12 cards (expected 13)",
-        "Block 74 (biddingTable): Invalid bids: 2♦",
-        "Block 90 (bridgeHand): north has 12 cards (expected 13)",
-        "Block 90 (bridgeHand): south has 12 cards (expected 13)",
-        "Block 95 (biddingTable): Invalid bids: West, North, East"
-      ]
-    },
-    {
-      "title": "A Jacobean Proposal by Henry Bethe",
-      "slug": "a-jacobean-proposal-by-henry-bethe",
-      "author_name": "Henry Bethe",
-      "category": "Bidding",
-      "tags": [
-        "January 1998",
-        "Henry Bethe"
-      ],
-      "level": "intermediate",
-      "month": 1,
-      "year": 1998,
-      "source_page": 30,
-      "excerpt": "A proposal for modifications to Jacoby transfer sequences.",
-      "block_count": 6,
+      "excerpt": "Monthly bidding problem contest for readers with expert panel scoring.",
+      "block_count": 35,
       "warnings": []
-    },
-    {
-      "title": "Analysis of the 1958 World Championship by Edgar Kaplan",
-      "slug": "analysis-of-the-1958-world-championship-by-edgar-kaplan",
-      "author_name": "Edgar Kaplan",
-      "category": "History",
-      "tags": [
-        "January 1998",
-        "Edgar Kaplan",
-        "World Championship",
-        "1958"
-      ],
-      "level": "intermediate",
-      "month": 1,
-      "year": 1998,
-      "source_page": 19,
-      "excerpt": "Historical analysis of key hands from the 1958 World Championship.",
-      "block_count": 23,
-      "warnings": [
-        "Manual review: east in block b270: Duplicate honor cards in suit(s): H",
-        "Manual review: west in block b274: Hand has 15 cards, expected 13",
-        "Manual review: north in block b278: Hand has 15 cards, expected 12",
-        "Block 2 (bridgeHand): north has 14 cards (expected 13)",
-        "Block 2 (bridgeHand): west has 14 cards (expected 13)",
-        "Block 5 (bridgeHand): north has 12 cards (expected 13)",
-        "Block 12 (bridgeHand): south has 12 cards (expected 13)",
-        "Block 12 (bridgeHand): east has 14 cards (expected 13)",
-        "Block 14 (bridgeHand): east has 13 cards (expected 14)",
-        "Block 16 (bridgeHand): west has 15 cards (expected 13)",
-        "Block 20 (bridgeHand): north has 15 cards (expected 12)",
-        "Block 20 (bridgeHand): south has 11 cards (expected 12)"
-      ]
-    },
-    {
-      "title": "Life Masters Individual by Edgar Kaplan",
-      "slug": "life-masters-individual-by-edgar-kaplan",
-      "author_name": "Edgar Kaplan",
-      "category": "Tournament Report",
-      "tags": [
-        "January 1998",
-        "Edgar Kaplan",
-        "Life Masters Individual"
-      ],
-      "level": "intermediate",
-      "month": 1,
-      "year": 1998,
-      "source_page": 17,
-      "excerpt": "Report on the Life Masters Individual tournament.",
-      "block_count": 15,
-      "warnings": [
-        "Block 10 (biddingTable): Invalid bids: 4 ♦, T0, 14"
-      ]
-    },
-    {
-      "title": "Edgar Kaplan Remembered, II by Jeff Rubens",
-      "slug": "edgar-kaplan-remembered-ii-by-jeff-rubens",
-      "author_name": "Jeff Rubens",
-      "category": "Editorial",
-      "tags": [
-        "January 1998",
-        "Jeff Rubens",
-        "Edgar Kaplan"
-      ],
-      "level": "beginner",
-      "month": 1,
-      "year": 1998,
-      "source_page": 16,
-      "excerpt": "Second part of a tribute to Edgar Kaplan.",
-      "block_count": 0,
-      "warnings": [
-        "No content blocks found"
-      ]
     }
   ],
   "stats": {
-    "totalDurationMs": 2025636,
-    "apiCalls": 22,
-    "inputTokens": 200985,
-    "outputTokens": 63163,
-    "costUsd": 7.752
+    "totalDurationMs": 3214476,
+    "apiCalls": 42,
+    "inputTokens": 343720,
+    "outputTokens": 109453,
+    "costUsd": 13.364774999999998
   }
 }

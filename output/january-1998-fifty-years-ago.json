@@ -4,37 +4,46 @@
   "author_name": "",
   "category": "History",
   "tags": [
+    "History",
+    "Fifty Years Ago",
     "January 1998"
   ],
   "level": "intermediate",
   "month": 1,
   "year": 1998,
   "source_page": 11,
-  "excerpt": "A look back at bridge articles and events from 50 years ago.",
+  "excerpt": "Looking back at bridge events and articles from 50 years ago.",
   "status": "draft",
   "content_blocks": [
     {
-      "id": "b38",
+      "id": "b81",
       "type": "text",
       "data": {
-        "text": "**Fifty Years Ago**\n\nMany of the top players of 1947 years ago had a great flair for card play. Often, they seemed to conjure up a brilliant line of play or defense with little or no calculation, as though a little birdie whispered in their ears. Four hearts was a popular contract around the room. The defense attacked spades, and most Souths discarded diamonds on the second and third rounds of the suit, keeping control—except that hearts broke five-one so the contract could not be made\n\nFishbein was the only South to make four hearts. He ruffed the second spade, cashed two clubs, and crossruffed for ten tricks. Notice that discarding at trick two and three relies on better than five-one breaks in two suits; hearts and clubs, while the winning line requires only one decent break in clubs. Still, we doubt that Fishbein calculated the exact odds."
+        "text": "with a heart honor, taking another spade finesse, and leading dummy's last diamond. Then, if North ruffed with the king of hearts and returned a trump, the eight of hearts would be the necessary entry to the ace of spades, declarer's tenth trick. Eventually, Zia did play a diamond and we thought he would make the contract, but he went wrong and ruffed low. Now, he could not successfully follow the line of play described above, because North could ruff high and kill dummy with a trump return. Instead, Zia ruffed a club and led the last diamond. Had Perron made the mistake of ruffing low, Zia could have overruffed, led a spade to dummy, and scored his last trump en passant. However, Perron correctly discarded his last spade on the diamond, and Zia was down one. A fascinating deal. The U. S. was lucky to split the board. In the Closed Room, the French judged badly and arrived at three spades, which was set one trick."
       }
     },
     {
-      "id": "b39",
+      "id": "b82",
+      "type": "text",
+      "data": {
+        "text": "**Fifty Years Ago**\n\nMany of the top players of fifty years ago had a great flair for card play. Often, they seemed to conjure up a brilliant line of play or defense with little or no calculation, as though through intuition or inspiration. No one exemplified the instinctive player more, in quality or quantity of superior plays, than Harry Fishbein. This Fishbein exploit, from the team-of-four event at the 1947 Winter Nationals, was reported in the Jaunary, 1948, issue of The Bridge World."
+      }
+    },
+    {
+      "id": "b83",
       "type": "bridgeHand",
       "data": {
         "hands": {
           "north": {
             "S": "J54",
-            "H": "",
-            "D": "KJTT",
-            "C": "J9832"
+            "H": "KJT",
+            "D": "J9852",
+            "C": "QJ"
           },
           "south": {
-            "S": "QT",
-            "H": "AQJ",
-            "D": "Q64",
+            "S": "7",
+            "H": "AQ64",
+            "D": "A63",
             "C": "AK852"
           },
           "east": {
@@ -64,7 +73,14 @@
       }
     },
     {
-      "id": "b40",
+      "id": "b84",
+      "type": "text",
+      "data": {
+        "text": "A popular start to the auction was:"
+      }
+    },
+    {
+      "id": "b85",
       "type": "biddingTable",
       "data": {
         "dealer": "South",
@@ -84,35 +100,59 @@
           {
             "text": "1S",
             "alert": null
+          },
+          {
+            "text": "2H",
+            "alert": null
           }
         ],
-        "label": "",
-        "players": {}
+        "label": ""
       }
     },
     {
-      "id": "b41",
+      "id": "b86",
       "type": "text",
       "data": {
-        "text": "A popular start to the auction was:\n\nFifty years ago had a great flair for card play. Often, they seemed to conjure up a brilliant line of play or defense with little or no calculation, as though a little birdie whispered in their ears. Four hearts was a popular contract around the room. The defense attacked spades, and most Souths discarded diamonds on the second and third rounds of the suit, keeping control—except that hearts broke five-one so the con-tract was defeated.\n\nFishbein was the only South to make four hearts. He ruffed the second spade, cashed two clubs, and crossruffed for ten tricks. Notice that discarding at trick two and three relies on better than five-one breaks in two suits, hearts and clubs, while the winning line re-quires only one decent break, in clubs. Still, we doubt that Fishbein calculated the exact odds."
+        "text": "Four hearts was a popular contract around the room. The defense attacked spades, and most Souths discarded diamonds on the second and third rounds of the suit, keeping control—except that hearts broke five-one so the contract was defeated.\n\nFishbein was the only South to make four hearts. He ruffed the second spade, cashed two clubs, and crossruffed for ten tricks. Notice that discarding at tricks two and three relies on better than five-one breaks in two suits, hearts and clubs, while the winning line requires only one decent break, in clubs. Still, we doubt that Fishy calculated the exact odds.\n\nTerence Reese broke new ground by"
       }
     },
     {
-      "id": "b42",
+      "id": "b87",
+      "type": "text",
+      "data": {
+        "text": "shows the values but makes it much harder to get to hearts; two hearts makes it too easy to get to diamonds.\"\n\nJOHN LOWENTHAL: \"Double. If I sell out to one spade, partner will have,\n\n♠ x x ♥ J x x x x x ♦ x ♣ x x x x.\n\nIf I reopen, he will have,\n\n♠ x x ♥ x x x ♦ x x x ♣ K J x x x.\n\nI choose double rather than one notrump so that partner will evaluate heart length correctly (not to mention that one notrump doesn't look like a very appetizing contract).\"\n\nBut one notrump looked quite palatable to:\n\nPAUL TRENT: \"One notrump. Best bid not to miss game. Partner has to act if interested.\"\n\nBut his action would be three notrump if he held,\n\n♠ x x ♥ x x x ♦ x x ♣ A Q J x x x.\n\nERIC RODWELL: \"One notrump. Not pass with 18 points and shape. Partner can investigate hearts if he has enough to bid. This is more descriptive (and safer) than double followed by two notrump over two clubs.\"\n\nRON GERARD: \"One notrump. Even if North passes one notrump with,\n\n♠ x x ♥ Q x x x x ♦ J x x ♣ x x x,\n\nit's only a part-score swing. If he takes out to two clubs, he should have more play than if he bids two clubs in response to a double.\"\n\nKIT WOOLSEY: \"One notrump. Doesn't this show a balanced hand too strong for an opening notrump bid? Exactly what I have. (Well, almost exactly.)\"\n\nMARSHALL MILES: \"One notrump. I think game is very unlikely, but the opponents might make one spade.\"\n\nQuite a thorough job by the panel. The arguments for all the actions make"
+      }
+    },
+    {
+      "id": "b88",
+      "type": "text",
+      "data": {
+        "text": "sense, and we suspect that this is one of those problems with no theoretically right (or wrong) answer.\n\nEDDIE KANTAR: \"One notrump. Must mix it up a bit with such a good hand.\"\n\nEddie, no need to send one of those letters of complaint. 100 points for you and 360 out of 500 so far."
+      }
+    },
+    {
+      "id": "b89",
+      "type": "text",
+      "data": {
+        "text": "**Problem F**\n\nMatchpts.; none vul. You, South, hold:"
+      }
+    },
+    {
+      "id": "b90",
       "type": "bridgeHand",
       "data": {
         "hands": {
           "north": {
-            "S": "J54",
-            "H": "",
-            "D": "KJTT",
-            "C": "J9832"
-          },
-          "south": {
             "S": "",
             "H": "",
             "D": "",
             "C": ""
+          },
+          "south": {
+            "S": "T9832",
+            "H": "AQ764",
+            "D": "8",
+            "C": "74"
           },
           "east": {
             "S": "",
@@ -128,28 +168,144 @@
           }
         },
         "visibleHands": {
-          "north": true,
-          "south": false,
+          "north": false,
+          "south": true,
           "east": false,
           "west": false
         },
         "dealer": "",
-        "vulnerability": "",
+        "vulnerability": "None",
         "contract": "",
         "lead": "",
-        "title": "World."
+        "title": ""
       }
     },
     {
-      "id": "b43",
+      "id": "b91",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "West",
+        "bids": [
+          {
+            "text": "1C",
+            "alert": null
+          },
+          {
+            "text": "3D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "5D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Double",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "?",
+            "alert": null
+          }
+        ],
+        "label": ""
+      }
+    },
+    {
+      "id": "b92",
       "type": "text",
       "data": {
-        "text": "1947 Winter Nationals, was reported in the January, 1948, issue of The Bridge World."
+        "text": "(F1) Do you agree with South's pass? (y|n)\n(F2) Is North's sequence consistent with 3=3=2=5 distribution? (y|n) (F3) What call do you make?"
+      }
+    },
+    {
+      "id": "b93",
+      "type": "mscResults",
+      "data": {
+        "results": [
+          {
+            "action": "F1:n",
+            "score": 30,
+            "votes": 22
+          },
+          {
+            "action": "F1:y",
+            "score": 10,
+            "votes": 9
+          },
+          {
+            "action": "F1:abstain",
+            "score": 0,
+            "votes": 1
+          },
+          {
+            "action": "F2:y",
+            "score": 30,
+            "votes": 23
+          },
+          {
+            "action": "F2:n",
+            "score": 10,
+            "votes": 8
+          },
+          {
+            "action": "F2:abstain",
+            "score": 0,
+            "votes": 1
+          },
+          {
+            "action": "F3:Pass",
+            "score": 40,
+            "votes": 14
+          },
+          {
+            "action": "F3:5H",
+            "score": 30,
+            "votes": 9
+          },
+          {
+            "action": "F3:6D",
+            "score": 20,
+            "votes": 5
+          },
+          {
+            "action": "F3:5S",
+            "score": 10,
+            "votes": 3
+          },
+          {
+            "action": "F3:abstain",
+            "score": 0,
+            "votes": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "b94",
+      "type": "text",
+      "data": {
+        "text": "F1 is fairly straightforward. The people who vote \"No\" (they want to make a negative double) will be happy if partner names a major after their double, distraught if he bids three notrump or passes.\n\nHENRY BETHE: \"F1. Yes. I suspect the popular vote will be for a negative double, but how will partner guess to bid a three-card major rather than to try three notrump or to pass?\""
       }
     }
   ],
   "warnings": [
-    "Block 1 (bridgeHand): north has 12 cards (expected 13)",
-    "Block 2 (biddingTable): Auction must end with 3 consecutive passes (got: Pass, 1D, 1S)"
+    "Block 4 (biddingTable): Auction must end with 3 consecutive passes (got: 1D, 1S, 2H)",
+    "Block 10 (biddingTable): Invalid bids: Double"
   ]
 }

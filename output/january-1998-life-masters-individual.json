@@ -1,0 +1,1839 @@
+{
+  "title": "Life Masters Individual",
+  "slug": "life-masters-individual",
+  "author_name": "Edgar Kaplan",
+  "category": "Tournament Report",
+  "tags": [
+    "Tournament Report",
+    "Life Masters Individual",
+    "Edgar Kaplan",
+    "January 1998"
+  ],
+  "level": "intermediate",
+  "month": 1,
+  "year": 1998,
+  "source_page": 33,
+  "excerpt": "Report on the Life Masters Individual championship tournament.",
+  "status": "draft",
+  "content_blocks": [
+    {
+      "id": "b118",
+      "type": "text",
+      "data": {
+        "text": "**Deal 1.**\n\nNorth deals, opens one heart, and rebids two hearts; neither side vulnerable"
+      }
+    },
+    {
+      "id": "b119",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "east": {
+            "S": "87",
+            "H": "J75",
+            "D": "AJ32",
+            "C": "KQ86"
+          },
+          "west": {
+            "S": "KQ432",
+            "H": "T6",
+            "D": "K4",
+            "C": "AJT5"
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": false,
+          "east": true,
+          "west": true
+        },
+        "dealer": "North",
+        "vulnerability": "None",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b120",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "North",
+        "bids": [
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2H",
+            "alert": null
+          },
+          {
+            "text": "Double",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "Fallenius – Nilsland",
+        "players": {
+          "north": "",
+          "east": "Nilsland",
+          "south": "",
+          "west": "Fallenius"
+        },
+        "seats": [
+          "west",
+          "east"
+        ]
+      }
+    },
+    {
+      "id": "b121",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "North",
+        "bids": [
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "Lars – Morten",
+        "players": {
+          "north": "",
+          "east": "Morten",
+          "south": "",
+          "west": "Lars"
+        },
+        "seats": [
+          "west",
+          "east"
+        ]
+      }
+    },
+    {
+      "id": "b122",
+      "type": "text",
+      "data": {
+        "text": "For the Incumbents, Nilsland, East, doubled two hearts to show length in the minors. Then, when his partner could do no more than three clubs, he was happy to pass. Protect the plus at pairs.\n\nMorten couldn't double two hearts because it would have been for penalties. So, when his partner was still there with three clubs, he had hidden assets to show. He tried for three notrump with his cue-bid, then subsided when Lars repeated clubs. Much of the time, this extra level wouldn't be fatal.\n\nIs it better to play East's double of two hearts for takeout or for penalty? Traditionally, over the enemy length, it is for penalties. However, the low-level penalty double is on the World Wild Life list of endangered species; some experts use this one for takeout.\n\nBWS auction: A tough nut for the system, where a double of two hearts is penalty.\n\nAwards: 3 ♣ 10; 4 ♣ 7; 2 ♠ 6; 3 ♠, 2 ♥ passed or doubled 3; 4 ♠ 2; 5 ♣ 1."
+      }
+    },
+    {
+      "id": "b123",
+      "type": "text",
+      "data": {
+        "text": "**Deal 2.** F-N 10; M-M 7\n\nEast dealer; North-South vulnerable"
+      }
+    },
+    {
+      "id": "b124",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "east": {
+            "S": "A3",
+            "H": "A874",
+            "D": "K53",
+            "C": "KQT4"
+          },
+          "west": {
+            "S": "K8642",
+            "H": "5",
+            "D": "T6",
+            "C": "A9765"
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": false,
+          "east": true,
+          "west": true
+        },
+        "dealer": "East",
+        "vulnerability": "N-S",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b125",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "East",
+        "bids": [
+          {
+            "text": "1NT",
+            "alert": null
+          },
+          {
+            "text": "2C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "5C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "Fallenius – Nilsland",
+        "players": {
+          "north": "",
+          "east": "Nilsland",
+          "south": "",
+          "west": "Fallenius"
+        },
+        "seats": [
+          "west",
+          "east"
+        ]
+      }
+    },
+    {
+      "id": "b126",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "East",
+        "bids": [
+          {
+            "text": "1C",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "5C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "Lars – Morten",
+        "players": {
+          "north": "",
+          "east": "Morten",
+          "south": "",
+          "west": "Lars"
+        },
+        "seats": [
+          "west",
+          "east"
+        ]
+      }
+    },
+    {
+      "id": "b127",
+      "type": "text",
+      "data": {
+        "text": "The Incumbents bid like Americans of yesteryear: A strong notrump followed by Stayman and an invitational two spades. Then, two notrump showed a maximum with only two spades. Three clubs was nonforcing, but opener, with good clubs and controls, had enough to raise. A fine sequence.\n\nBeing nonvulnerable, Morten could not open one notrump. (When polling pairs using variable ranges, one is tempted out of curiosity to ask for certain deals to be bid twice, once with each range.) Many Acol players would start with one heart, but the Danes sensibly bid four-card suits up the line opposite an unpassed partner. Over the strong-notrump rebid, Lars jumped to three clubs to describe his invitational five-five in the blacks. Morten was always bidding game from that point, but he dabbled with three hearts *en route*.\n\nBWS auction: As the Incumbents.\n\nAwards: 5 ♣ 10; 3 NT (E), 4 ♣ 7; 3 NT (W) 5; 4 ♣ 4; 6 ♣, 2 NT, 3 ♠ 3."
+      }
+    },
+    {
+      "id": "b128",
+      "type": "text",
+      "data": {
+        "text": "special bids. They had no preemptive jump responses at all; their two-club balancing device never came up (in fact, believe it or not, they had only one balancing auction of any sort); they had only one weak two-bid, one psychic, no psychic controls, only one strong single raise of a major, and even the forcing response of one notrump to a major suit opening seldom occurred. Infuriating!\n\n*\n\nThere was a big loss after a weak jump overcall on Deal 16. Only North-South vulnerable:"
+      }
+    },
+    {
+      "id": "b129",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "east": {
+            "S": "QJ943",
+            "H": "KT3",
+            "D": "T",
+            "C": "K876"
+          },
+          "west": {
+            "S": "K5",
+            "H": "AQ76542",
+            "D": "Q43",
+            "C": "4"
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": false,
+          "east": true,
+          "west": true
+        },
+        "dealer": "South",
+        "vulnerability": "N-S",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b130",
+      "type": "text",
+      "data": {
+        "text": "Dealer [South] passed, and Stone, second-hand, passed also! Third hand opened one diamond, and Roth jumped to two spades. Everyone passed, so Roth had bought himself a contract. He made it with an overtrick too, because the spades split; but of course the Italians bid four hearts at the other table and made it easily. Who was responsible for the four IMP loss?\n\nRoth's jump overcall is certainly atypical, but I don't think it is unreasonable on this vulnerability, facing a passed hand. Obviously, he must have felt that the hand belonged to the enemy and that it was worth a little risk to disrupt their communications. Probably the danger of his missing four hearts never occurred to him. Personally, I consider Stone to be the guilty party. Granted that he believes in \"sound\" opening bids; surely he could \"take his life in his hands\" and open this holding.\n\n*\n\nThe concept of supersound openings was costly to Roth and Stone on other hands . . . [They] paid for their solid openings in a different way when they overbid to doubtful games on Deals 33 and 106. In both cases a passed hand jumped to two notrump over a third-hand opening, and both times the original passes were normal, with 11 and 12-point hands. But in each case opener carried on to three notrump with a skinny minimum opening, clearly hoping for a strictly \"Roth-Stone\" passed hand of 13 points or better. The result? Down one; down one. Six IMP lost.\n\nDo you suppose that opener went on in these instances because he hadn't opened a very light \"third-hand\" bid? But Roth and Stone weren't opening light hands in third or fourth seat. Stone passed, third-hand:"
+      }
+    },
+    {
+      "id": "b131",
+      "type": "text",
+      "data": {
+        "text": "♠ A 6 3  ♥ Q J 9 4  ♦ A 8 6  ♣ 7 6 4"
+      }
+    },
+    {
+      "id": "b132",
+      "type": "text",
+      "data": {
+        "text": "And Roth, fourth-hand, passed out:"
+      }
+    },
+    {
+      "id": "b133",
+      "type": "text",
+      "data": {
+        "text": "♠ 10 8 6 5  ♥ A 10 9  ♦ A 6  ♣ K 9 5 4"
+      }
+    },
+    {
+      "id": "b134",
+      "type": "text",
+      "data": {
+        "text": "Maybe I'm wrong, but it seems to me that either hand above might make game opposite the sort of monsters they pass in first and second seat. Game?—why, they would pass out"
+      }
+    },
+    {
+      "id": "b135",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "east": {
+            "S": "Txxx",
+            "H": "AT9",
+            "D": "Ax",
+            "C": "K9xx"
+          },
+          "west": {
+            "S": "AQxxxxx",
+            "H": "Kx",
+            "D": "x",
+            "C": "Qxx"
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": false,
+          "east": true,
+          "west": true
+        },
+        "dealer": "",
+        "vulnerability": "",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b136",
+      "type": "text",
+      "data": {
+        "text": "even though they have a fighting chance for slam!\n\nAnother Roth-Stone quirk, a reluctance to reverse, cost twice. . . . On"
+      }
+    },
+    {
+      "id": "b137",
+      "type": "text",
+      "data": {
+        "text": "Becker on Deal 66. They held:"
+      }
+    },
+    {
+      "id": "b138",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "east": {
+            "S": "Q974",
+            "H": "7652",
+            "D": "QJ",
+            "C": "A65"
+          },
+          "west": {
+            "S": "AK8",
+            "H": "843",
+            "D": "AKT6",
+            "C": "KJT"
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": false,
+          "east": true,
+          "west": true
+        },
+        "dealer": "",
+        "vulnerability": "",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b139",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "West",
+        "bids": [
+          {
+            "text": "1D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {
+          "west": "Crawford",
+          "east": "Becker"
+        }
+      }
+    },
+    {
+      "id": "b140",
+      "type": "text",
+      "data": {
+        "text": "The Italians opened one notrump and arrived briskly at three notrump, making five. Four spades was down two. A rather silly result, but neither American did anything terrible. Crawford's hand is top-heavy for a one notrump opening (Avarelli-Belladonna play theirs as 17-20 points). I would respond one heart with Becker's hand, but one spade is surely reasonable. Crawford's rebid is a problem—perhaps a two-spade underbid or a three-spade overbid would be better, but two clubs looks all right. And by now the Americans were on the hook, for no one wanted to bid notrump without a heart stopper. Oh, Becker might bid two diamonds, not three clubs; Crawford might bid three, not four, spades. But I'm not sure it would help. A bad hand for Old Science.\n\nOn Deal 29 this pair, having a sort of heart stopper this time, decided to play notrump."
+      }
+    },
+    {
+      "id": "b141",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "A5",
+            "H": "QT9",
+            "D": "AQJ765",
+            "C": "T4"
+          },
+          "south": {
+            "S": "K42",
+            "H": "83",
+            "D": "K932",
+            "C": "AK87"
+          },
+          "east": {
+            "S": "T983",
+            "H": "A75",
+            "D": "8",
+            "C": "J9632"
+          },
+          "west": {
+            "S": "QJ76",
+            "H": "KJ642",
+            "D": "T4",
+            "C": "Q5"
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": true,
+          "west": true
+        },
+        "dealer": "North",
+        "vulnerability": "All",
+        "contract": "3NT",
+        "lead": "H5",
+        "title": ""
+      }
+    },
+    {
+      "id": "b142",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "North",
+        "bids": [
+          {
+            "text": "1D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {
+          "north": "Becker",
+          "east": "Forquet",
+          "south": "Crawford",
+          "west": "Siniscalco"
+        }
+      }
+    },
+    {
+      "id": "b143",
+      "type": "text",
+      "data": {
+        "text": "little difference; only if the lead was from three is it crucial. And a lead from three to a jack seems a little more attractive than from three to an ace. [In contrast, if you assume a heart would always be led, it is twice as likely that the opening leader's honor is not the jack than that it is.—J.R.]\n\nThe Italians also played three notrump, but South, with two little hearts, was declarer. With a small heart lead, declarer has no option—he must put in the nine. So Italy picked up a lucky nine IMP by playing from the \"wrong\" side.\n\nBut it wasn't all luck; five diamonds is on ice, and at IMP scoring there is little excuse for being in notrump. Surely Crawford should have contrived to show his diamond fit."
+      }
+    },
+    {
+      "id": "b144",
+      "type": "text",
+      "data": {
+        "text": "**Deal 5.**    F-N 31; M-M 35\nNorth dealer; North-South vulnerable"
+      }
+    },
+    {
+      "id": "b145",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "east": {
+            "S": "QJ42",
+            "H": "K854",
+            "D": "K863",
+            "C": "7"
+          },
+          "west": {
+            "S": "A3",
+            "H": "6",
+            "D": "A7",
+            "C": "AKQJT863"
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": false,
+          "east": true,
+          "west": true
+        },
+        "dealer": "North",
+        "vulnerability": "N-S",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b146",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "North",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1C",
+            "alert": null
+          },
+          {
+            "text": "2H",
+            "alert": null
+          },
+          {
+            "text": "3C",
+            "alert": null
+          },
+          {
+            "text": "3NT",
+            "alert": null
+          },
+          {
+            "text": "4C",
+            "alert": null
+          },
+          {
+            "text": "4D",
+            "alert": null
+          },
+          {
+            "text": "4NT",
+            "alert": null
+          },
+          {
+            "text": "5C",
+            "alert": null
+          },
+          {
+            "text": "6C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "Fallenius - Nilsland",
+        "players": {
+          "west": "Fallenius",
+          "east": "Nilsland"
+        },
+        "seats": [
+          "west",
+          "east"
+        ]
+      }
+    },
+    {
+      "id": "b147",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "North",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2C",
+            "alert": null
+          },
+          {
+            "text": "2H",
+            "alert": null
+          },
+          {
+            "text": "3C",
+            "alert": null
+          },
+          {
+            "text": "3D",
+            "alert": null
+          },
+          {
+            "text": "4C",
+            "alert": null
+          },
+          {
+            "text": "4D",
+            "alert": null
+          },
+          {
+            "text": "4H",
+            "alert": null
+          },
+          {
+            "text": "4NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "Lars - Morten",
+        "players": {
+          "west": "Lars",
+          "east": "Morten"
+        },
+        "seats": [
+          "west",
+          "east"
+        ]
+      }
+    },
+    {
+      "id": "b148",
+      "type": "text",
+      "data": {
+        "text": "The Newcomers were a little unlucky here. Two hearts showed two controls (two kings or an ace), and three diamonds was a relay. Four diamonds was a cue-bid, and four notrump, in answer to an asking-bid, showed a heart control with no aces. So, Lars knew he was facing both red-suit kings. Thinking a spade lead would kill a slam, he passed.\n\nFallenius knew more. The two-heart response to the strong club showed some 4-4-4-1 with 8-11 points. Then, over the natural three clubs, three notrump described 4=4=4=1 with a low singleton. Eventually, Fallenius took a slight shot, hoping the other 2-4 points would be well placed.\n\nBWS auction: two clubs — two diamonds — three clubs — three diamonds [?] — three notrump [?!] — four notrump — six clubs — pass.\n\nAwards: 6♣ 10; 6 NT 7; 5 NT 4; 5♣ 2."
+      }
+    },
+    {
+      "id": "b149",
+      "type": "text",
+      "data": {
+        "text": "**Deal 6.**    F-N 41; M-M 39\nEast dealer; East-West vulnerable"
+      }
+    },
+    {
+      "id": "b150",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "east": {
+            "S": "A",
+            "H": "AKJ65",
+            "D": "KT3",
+            "C": "AK92"
+          },
+          "west": {
+            "S": "Q62",
+            "H": "Q742",
+            "D": "A54",
+            "C": "QJ3"
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": false,
+          "east": true,
+          "west": true
+        },
+        "dealer": "East",
+        "vulnerability": "E-W",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b151",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "East",
+        "bids": [
+          {
+            "text": "1C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "5D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "5NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "6C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "7H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "Fallenius - Nilsland",
+        "players": {
+          "west": "Fallenius",
+          "east": "Nilsland"
+        },
+        "seats": [
+          "west",
+          "east"
+        ]
+      }
+    },
+    {
+      "id": "b152",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "East",
+        "bids": [
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "Lars - Morten",
+        "players": {
+          "west": "Lars",
+          "east": "Morten"
+        },
+        "seats": [
+          "west",
+          "east"
+        ]
+      }
+    },
+    {
+      "id": "b153",
+      "type": "text",
+      "data": {
+        "text": "Morten's rebid showed a slam-try with a singleton spade. Although it was Lars' invention, he forgot! They have now thrown the bid out of the system.\n\nThis deal was excellent for the Incumbents' methods: one club strong; one heart eight-plus points, no five-card major, no good five-card minor; one spade some five-card or longer major. Then Fallenius, West, used three relays to learn that Nilsland had 1=5=3=4 shape. Four clubs set hearts as trumps, four diamonds was a cue-bid, four notrump RKCB, five notrump a general grand-slam try, and six clubs a cue-bid showing that king. So, Fallenius knew he had the perfect jack—well bid!\n\nBWS auction: two clubs — two diamonds — two hearts — three hearts — four clubs — four diamonds — four spades [?] — six hearts — pass.\n\nAwards: 7♥ 10; 6♥ 6; 6 NT 4; 6♣ 3; 5♥, 5 NT 2."
+      }
+    },
+    {
+      "id": "b154",
+      "type": "text",
+      "data": {
+        "text": "flawlessly throughout the long match—but Rapée, here as ever, produced his best when it counted most.\n\nLet me start his short crime list with his much-criticized action on Deal 60. He held:\n\n♠Q ♥— ♦976542 ♣QJ9875;\n\nhe opened with three clubs. This resulted, it may be recalled, in a five club sacrifice, down 700, when five diamonds might well have been made.\n\nI charged Rapée with a substantial loss, but I have sympathy for his bid. The alternative is to pass (planning on backing in later with an unusual notrump overcall), and it seems to me that, first-hand in this vulnerability situation, the terribly weak freak holding calls for some sort of drastic preemptive action.\n\nRapée played a very active style in Como; he was always on the move, trying to create favorable swings; yet this was the only one of his \"operations\" that ended in American disaster. He psyched repeatedly and was never punished. On Deal 130 he jostled the Italians into a six-spade contract that needed a 3-3 trump split—they got it—while the Americans played in a cold six-diamond spot after an unimpeded auction; and on Deals 108 and 140, previously discussed, his psychics gained heavily. Moreover, the unsettling effect on opponents should not be discounted.\n\n*\n\nI charged Rapée for the rather ludicrous result on Deal 139:"
+      }
+    },
+    {
+      "id": "b155",
+      "type": "text",
+      "data": {
+        "text": "South dealer; neither side vulnerable"
+      }
+    },
+    {
+      "id": "b156",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "K93",
+            "H": "J86",
+            "D": "AJ842",
+            "C": "K6"
+          },
+          "south": {
+            "S": "AJ5",
+            "H": "T97",
+            "D": "53",
+            "C": "AJT97"
+          },
+          "east": {
+            "S": "2",
+            "H": "KQ5",
+            "D": "KQ7",
+            "C": "Q85432"
+          },
+          "west": {
+            "S": "QT8764",
+            "H": "A432",
+            "D": "T96",
+            "C": ""
+          }
+        },
+        "visibleHands": {
+          "north": true,
+          "south": true,
+          "east": true,
+          "west": true
+        },
+        "dealer": "South",
+        "vulnerability": "None",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b157",
+      "type": "text",
+      "data": {
+        "text": "Closed Room"
+      }
+    },
+    {
+      "id": "b158",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "South",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1D",
+            "alert": null
+          },
+          {
+            "text": "2C",
+            "alert": null
+          },
+          {
+            "text": "Double",
+            "alert": null
+          },
+          {
+            "text": "2D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {
+          "south": "Avarelli",
+          "west": "Rapée",
+          "north": "Belladonna",
+          "east": "Silodor"
+        }
+      }
+    },
+    {
+      "id": "b159",
+      "type": "text",
+      "data": {
+        "text": "Surely, if two clubs had not been doubled, Rapée would have bid two spades, with the expectation of making it. (Actually, an overtrick is available.) I don't think he should take such a dim view of his prospects because of the double. And, if he was afraid of a disaster at spades, why not run to two hearts first? I imagine he intended the two diamonds as a cue-bid for the majors, but I think that Silodor was right to play it to be a suit, at least until the bid got doubled. (These Italian partners frequently bid short diamond suits, for their one-club opening is artificial, and their one-notrump opening is very strong.)\n\nHowever, the U.S. gained one IMP on the deal, for at the other table this was the auction:"
+      }
+    },
+    {
+      "id": "b160",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "South",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1D",
+            "alert": null
+          },
+          {
+            "text": "2C",
+            "alert": null
+          },
+          {
+            "text": "Double",
+            "alert": null
+          },
+          {
+            "text": "Rdbl",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "",
+        "players": {
+          "south": "Becker",
+          "west": "Chiaradia",
+          "north": "Crawford",
+          "east": "D'Alelio"
+        }
+      }
+    },
+    {
+      "id": "b161",
+      "type": "text",
+      "data": {
+        "text": "**Deal 9.** F-N 64; M-M 54\nNorth dealer; East-West vulnerable"
+      }
+    },
+    {
+      "id": "b162",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "east": {
+            "S": "KQ76",
+            "H": "KJ85",
+            "D": "Q8543",
+            "C": ""
+          },
+          "west": {
+            "S": "A82",
+            "H": "AQ2",
+            "D": "AJ96",
+            "C": "T73"
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": false,
+          "east": true,
+          "west": true
+        },
+        "dealer": "North",
+        "vulnerability": "E-W",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b163",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "North",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2C",
+            "alert": null
+          },
+          {
+            "text": "2D",
+            "alert": null
+          },
+          {
+            "text": "3D",
+            "alert": null
+          },
+          {
+            "text": "3S",
+            "alert": null
+          },
+          {
+            "text": "5C",
+            "alert": null
+          },
+          {
+            "text": "5D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "Fallenius - Nilsland",
+        "players": {
+          "west": "Fallenius",
+          "east": "Nilsland"
+        },
+        "seats": [
+          "west",
+          "east"
+        ]
+      }
+    },
+    {
+      "id": "b164",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "North",
+        "bids": [
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "2D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3S",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "3NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "4NT",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "6D",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "Lars - Morten",
+        "players": {
+          "west": "Lars",
+          "east": "Morten"
+        },
+        "seats": [
+          "west",
+          "east"
+        ]
+      }
+    },
+    {
+      "id": "b165",
+      "type": "text",
+      "data": {
+        "text": "Nilsland could hardly open after taking his partner to task two deals earlier. Following the 14-16 notrump, Stayman and reply, three diamonds was minor-suit Stayman, implying slam interest. Three spades showed four or five diamonds and at most three clubs. Fallenius felt five clubs was a void or singleton, whereas Nilsland thought it had to be a void, by a passed hand.\n\nAfter the inverted minor-suit raise, Morten described a minimum with club shortage. Three spades asked about that suit; the reply showed either no spade control or no aces. Four clubs asked there; the answer showed either three aces or a void in clubs with no aces.\n\nBWS: one diamond — two diamonds — three diamonds — three hearts — three spades — four spades — five clubs — six diamonds — pass.\n\nAwards: 6 ♦ 10; 5 ♦, 7 ♦ 6; 4 ♠, 4 ♥ 5; 5 ♥, 5 ♠, 4 ♦ 4; 3 ♠, 3 ♥ 3; 7 ♠, 6 ♠ 2; 7 ♥, 6 ♥ 1."
+      }
+    },
+    {
+      "id": "b166",
+      "type": "text",
+      "data": {
+        "text": "**Deal 10.** F-N 70; M-M 64\nEast dealer; both sides vulnerable"
+      }
+    },
+    {
+      "id": "b167",
+      "type": "bridgeHand",
+      "data": {
+        "hands": {
+          "north": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "south": {
+            "S": "",
+            "H": "",
+            "D": "",
+            "C": ""
+          },
+          "east": {
+            "S": "QT73",
+            "H": "AK543",
+            "D": "K9",
+            "C": "KQ"
+          },
+          "west": {
+            "S": "96",
+            "H": "J7",
+            "D": "J83",
+            "C": "AJ9832"
+          }
+        },
+        "visibleHands": {
+          "north": false,
+          "south": false,
+          "east": true,
+          "west": true
+        },
+        "dealer": "East",
+        "vulnerability": "All",
+        "contract": "",
+        "lead": "",
+        "title": ""
+      }
+    },
+    {
+      "id": "b168",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "East",
+        "bids": [
+          {
+            "text": "1C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1D",
+            "alert": null
+          },
+          {
+            "text": "1S",
+            "alert": null
+          },
+          {
+            "text": "1NT",
+            "alert": null
+          },
+          {
+            "text": "2C",
+            "alert": null
+          },
+          {
+            "text": "2D",
+            "alert": null
+          },
+          {
+            "text": "2H",
+            "alert": null
+          },
+          {
+            "text": "3C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "Fallenius - Nilsland",
+        "players": {
+          "west": "Fallenius",
+          "east": "Nilsland"
+        },
+        "seats": [
+          "west",
+          "east"
+        ]
+      }
+    },
+    {
+      "id": "b169",
+      "type": "biddingTable",
+      "data": {
+        "dealer": "East",
+        "bids": [
+          {
+            "text": "1H",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "1NT",
+            "alert": null
+          },
+          {
+            "text": "2NT",
+            "alert": null
+          },
+          {
+            "text": "3C",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          },
+          {
+            "text": "Pass",
+            "alert": null
+          }
+        ],
+        "label": "Lars - Morten",
+        "players": {
+          "west": "Lars",
+          "east": "Morten"
+        },
+        "seats": [
+          "west",
+          "east"
+        ]
+      }
+    },
+    {
+      "id": "b170",
+      "type": "text",
+      "data": {
+        "text": "For the Incumbents, one club was strong and artificial, one diamond weak and artificial. One spade was nonforcing with at least four spades in an unbalanced hand. One notrump showed 4-7 points; two clubs announced both majors; two diamonds was a relay; and two hearts showed four-five. Three clubs suggested the end of the line. Nilsland thinks his final pass was timid, but that jack of clubs is a big card.\n\nThe Danes had a routine Acol auction. Morten couldn't risk three notrump opposite unknown clubs.\n\nBWS auction: The same as that produced by the Lund Madsen brothers.\n\nAwards: 3 NT 9; 2 NT 6; 3 ♣ 5; 2 ♥ 3; 4 ♣ 2; 3 ♥ 1.\n\n**Final score:** Fallenius-Nilsland 75; Lars-Morten 69.\n\nThe Swedes squeak out a close win. But for Lars' forgetfulness on Deal Six, the Danes might have won. That would have deprived the Swedes of their fourth qualifying point. Next month's deals are on pages 5 and 12."
+      }
+    }
+  ],
+  "warnings": [
+    "Block 2 (biddingTable): Invalid bids: Double",
+    "Block 40 (biddingTable): Invalid bids: Double",
+    "Block 42 (biddingTable): Invalid bids: Double",
+    "Block 45 (biddingTable): Auction must end with 3 consecutive passes (got: 5C, 5D, Pass)"
+  ]
+}

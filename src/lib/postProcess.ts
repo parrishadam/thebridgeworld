@@ -274,6 +274,22 @@ const BOILERPLATE_PHRASES = [
   "subscription rates",
   "advertise in the bridge world",
   "back issues available",
+  "our internet address",
+  "www.bridgeworld.com",
+  "please tell your friends",
+  "the bridge world",
+];
+
+/**
+ * Patterns that match boilerplate content (partial match within block text).
+ * Used for blocks that CONTAIN boilerplate but might have some surrounding text.
+ */
+const BOILERPLATE_PATTERNS = [
+  /\bour\s+internet\s+address\b/i,
+  /\bwww\.bridgeworld\.com\b/i,
+  /\bplease\s+tell\s+your\s+friends\b/i,
+  /\bsubscri(?:be|ption)\s+(?:to\s+)?(?:the\s+)?bridge\s+world\b/i,
+  /\bbridge\s+world\s+(?:po\s+box|p\.?\s*o\.?\s*box)\b/i,
 ];
 
 /**
@@ -310,6 +326,28 @@ export function stripBoilerplateBlocks(
       stripped++;
       return false;
     }
+
+    // Check pattern-based boilerplate (short blocks that are mostly boilerplate)
+    if (plain.length < 200 && BOILERPLATE_PATTERNS.some(p => p.test(plain))) {
+      stripped++;
+      return false;
+    }
+
+    // Strip running headers/footers: blocks that are just "The Bridge World" or a month+year
+    if (/^(?:the\s+)?bridge\s+world$/.test(plain)) {
+      stripped++;
+      return false;
+    }
+    if (/^(?:january|february|march|april|may|june|july|august|september|october|november|december)\s+\d{4}$/.test(plain)) {
+      stripped++;
+      return false;
+    }
+    // Bare page numbers
+    if (/^\d{1,3}$/.test(plain)) {
+      stripped++;
+      return false;
+    }
+
     return true;
   });
 
@@ -608,8 +646,9 @@ export function stripAuthorFromTitle(
   knownAuthor?: string,
 ): { title: string; extractedAuthor: string | null } {
   // Pattern: title + "conducted by / edited by / by" + author name
-  // Author name = 2-5 capitalized words, optionally with initials like "B."
-  const pattern = /\s+(?:conducted|edited|moderated|presented)?\s*by\s+([A-Z][a-zA-Z.]+(?:\s+[A-Z][a-zA-Z.]+){0,4})\s*$/;
+  // Author name = 1-5 capitalized words, optionally with initials like "B."
+  // Also handle optional trailing punctuation (period, comma)
+  const pattern = /\s+(?:conducted|edited|moderated|presented)?\s*by\s+([A-Z][a-zA-Z.'-]+(?:\s+(?:and\s+)?[A-Z][a-zA-Z.'-]+){0,4})\s*[.,]?\s*$/;
   const match = title.match(pattern);
   if (!match) return { title, extractedAuthor: null };
 
@@ -619,15 +658,9 @@ export function stripAuthorFromTitle(
   // Sanity check: don't strip if it would leave a very short title
   if (cleaned.length < 3) return { title, extractedAuthor: null };
 
-  // If we have a known author, only strip if the extracted name is similar
-  if (knownAuthor && knownAuthor.toLowerCase() !== extractedAuthor.toLowerCase()) {
-    // Check if extracted name is a subset/superset of known author
-    const extractedLower = extractedAuthor.toLowerCase();
-    const knownLower = knownAuthor.toLowerCase();
-    if (!knownLower.includes(extractedLower) && !extractedLower.includes(knownLower)) {
-      return { title, extractedAuthor: null };
-    }
-  }
+  // Always strip — the regex pattern "by CapitalizedName$" at the end of a
+  // title is reliably an author attribution. The knownAuthor is only used
+  // to cross-check for the caller's benefit, not to gate the stripping.
 
   return { title: cleaned, extractedAuthor };
 }

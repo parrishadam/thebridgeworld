@@ -4,50 +4,58 @@
   "author_name": "",
   "category": "Editorial",
   "tags": [
+    "Editorial",
     "January 1998"
   ],
   "level": "beginner",
   "month": 1,
   "year": 1998,
   "source_page": 2,
-  "excerpt": "Monthly editorial commentary on bridge topics.",
+  "excerpt": "Monthly editorial column discussing current bridge topics and magazine updates.",
   "status": "draft",
   "content_blocks": [
     {
       "id": "b1",
       "type": "text",
       "data": {
-        "text": "**JANUARY 1998**\n\ntrick two. This lets you keep all-around control, in effect to get the fourth round and clubs (as in the diagram), he will have been squeezed. You guess the suit of trumps played when it is convenient. have been squeezed. You guess the suit he has unguarded, then cash the ace of turn, ruff a club, cross to hand with a that suit to take the rest of the tricks.\n\nHowever, that line of play is overly trump, ruff a second club, return to the optimistic. West cannot be expected to Other red suit, draw trumps and claim. Only a red-suit void or a horrific club believe like a trained seal. He can tell, just as well as you, that East's hand split will doom this plan. Note that you looks something like I=0=6, Given would be slightly more exposed to a ruff or an overruff if you trumped any the opportunity, a competent West will shift to a club at trick two; bye bye clubs before losing a spade trick.\n\nSolution B squeeze!\n\nA better try is to win with the heart ace and run spades, to reach:"
+        "text": "trick two. This lets you keep all-around control, in effect to get the fourth round of trumps played when it is convenient. You plan to win the (say, red-suit) return, ruff a club, cross to hand with a trump, ruff a second club, return to the other red suit, draw trumps and claim. Only a red-suit void or a horrific club split will doom this plan. Note that you would be slightly more exposed to a ruff or an overruff if you trumped any clubs before losing a spade trick."
       }
     },
     {
       "id": "b2",
+      "type": "text",
+      "data": {
+        "text": "**Solution B**"
+      }
+    },
+    {
+      "id": "b3",
       "type": "bridgeHand",
       "data": {
         "hands": {
           "north": {
-            "S": "AT65",
-            "H": "AK",
-            "D": "",
+            "S": "AT",
+            "H": "AT865",
+            "D": "AK",
             "C": "J864"
           },
           "south": {
-            "S": "",
-            "H": "Q",
-            "D": "T9743",
-            "C": "KQ9742"
+            "S": "KQJ8753",
+            "H": "3",
+            "D": "T943",
+            "C": "A"
           },
           "east": {
-            "S": "",
-            "H": "2",
+            "S": "2",
+            "H": "",
             "D": "QJ8765",
-            "C": "5"
+            "C": "KQT753"
           },
           "west": {
             "S": "964",
-            "H": "T9864",
-            "D": "K",
-            "C": "1864"
+            "H": "KQJ9742",
+            "D": "2",
+            "C": "92"
           }
         },
         "visibleHands": {
@@ -58,66 +66,67 @@
         },
         "dealer": "",
         "vulnerability": "",
-        "contract": "",
-        "lead": "",
+        "contract": "Six notrump by South",
+        "lead": "Heart king",
         "title": ""
-      }
-    },
-    {
-      "id": "b3",
-      "type": "text",
-      "data": {
-        "text": "Now you can enjoy services and entertainment. You could win diamond leads at most two clubs; you squeeze against East. You would win diamonds to make an overtrick. Other- with the run winners, to reach: wise, East has at most two clubs; you continue with club ace, diamond king, club, to set up the dummy.\n\nOUR INTERNET ADDRESS\n\nYou can enjoy services and entertainment at our World Wide Web site: www.bridgeworld.com. Please tell your friends that there is plentiful material there for beginners as well as for players familiar with material at all other skill levels.\n\nEast can keep only three cards. If he at all other skill levels."
       }
     },
     {
       "id": "b4",
-      "type": "bridgeHand",
+      "type": "text",
       "data": {
-        "hands": {
-          "north": {
-            "S": "",
-            "H": "Q",
-            "D": "T9643",
-            "C": "A"
-          },
-          "south": {
-            "S": "",
-            "H": "K",
-            "D": "QJ8765",
-            "C": "5"
-          },
-          "east": {
-            "S": "",
-            "H": "",
-            "D": "K",
-            "C": "T9643"
-          },
-          "west": {
-            "S": "",
-            "H": "A",
-            "D": "T9 ",
-            "C": "T 9"
-          }
-        },
-        "visibleHands": {
-          "north": true,
-          "south": true,
-          "east": false,
-          "west": false
-        },
-        "dealer": "",
-        "vulnerability": "",
-        "contract": "",
-        "lead": "",
-        "title": ""
+        "text": "Suppose you duck the first trick. This would rectify the count for a criss-cross squeeze against East. You would win the return and run winners, to reach:"
+      }
+    },
+    {
+      "id": "b5",
+      "type": "text",
+      "data": {
+        "text": "**NORTH**\n♠ —\n♥ —\n♦ A\n♣ J8\n**SOUTH**\n♠ —\n♥ —\n♦ 109\n♣ A"
+      }
+    },
+    {
+      "id": "b6",
+      "type": "text",
+      "data": {
+        "text": "East can keep only three cards. If he started with the sole guard in diamonds and clubs (as in the diagram), he will have been squeezed. You guess the suit he has unguarded, then cash the ace of that suit to take the rest of the tricks.\n\nHowever, that line of play is overly optimistic. West cannot be expected to behave like a trained seal. He can tell, just as well as you, that East's hand looks something like 1=0=6=6. Given the opportunity, a competent West will shift to a club at trick two; bye bye squeeze!\n\nA better try is to win with the heart ace and run spades, to reach:"
+      }
+    },
+    {
+      "id": "b7",
+      "type": "text",
+      "data": {
+        "text": "**NORTH**\n♠ —\n♥ —\n♦ AK\n♣ J86\n**SOUTH**\n♠ —\n♥ —\n♦ 10943\n♣ A"
+      }
+    },
+    {
+      "id": "b8",
+      "type": "text",
+      "data": {
+        "text": "Assuming East has the sole minor-suit guards, he will have been squeezed. As in the standard criss-cross squeeze, described above, you must guess his shape. If East has reduced to two or fewer diamonds, you play on diamonds to make an overtrick. Otherwise, East has at most two clubs; you continue with club ace, diamond king, club, to set up the dummy."
+      }
+    },
+    {
+      "id": "b9",
+      "type": "text",
+      "data": {
+        "text": "**OUR INTERNET ADDRESS**\n\nYou can enjoy services and entertainment at our World Wide Web site: www.bridgeworld.com. Please tell your friends that there is plentiful material there for beginners as well as for players at all other skill levels."
+      }
+    },
+    {
+      "id": "b10",
+      "type": "text",
+      "data": {
+        "text": "**HOW THE EXPERTS VOTED ON THE JANUARY PROBLEMS**\n\nProblem:                              A    B    C    D    E    F    G    H"
+      }
+    },
+    {
+      "id": "b11",
+      "type": "text",
+      "data": {
+        "text": "Phillip Alder, Hobe Sound, FL      1♥   4♥   4♦   a4♦   P    nn6♦  2 NT  d\nMark J. Bartusek, CA               1♥   2♣   5♦   b4♥   1 NT  yy5♥  2♠    e\nDavid Berkowitz, NJ                1♥   2♣   5♦   a4♥   D    nyP   3♥    c\nHenry Bethe, Ithaca, NY           1♥   2♣   4♦   b4♥   P    yy5♠  2♠    c\nCam Brown, Seattle                 1♥   2 NT 5♦   a4♣   1 NT  ny5♥  3♥    b\nGerald Caravelli, Illinois        1♥   4♥   4♦   a4♥   D    nyP   3♥    a\nJohn Carruthers, Toronto          1♥   2♣   2♦   a4♥   P    nyP   2 NT  c\nLarry Cohen, Boca Raton, FL       1♥   4♥   5♦   a4♥   D    nyP   3♥    c\nBilly Eisenberg, Florida          1♥   4♦   4♦   b4♦   1 NT  yy6♦  2♠    e\nRichard Freeman, Atlanta          1♠   4♦   3♦   aA    P    yy5♠  3♥    e\nRon Gerard, White Plains, NY      1♥   2♣   4♦   a4♦   1 NT  ny5♥  3♥    c\nMary & Max Hardy, Las Vegas       1♥   4♦   4♦   b4♦   1 NT  nnP   2 NT  d\nCarl Hudecek, Perrysburg, OH      1♥   4♥   3♦   6♦    P    nyP   3♥    c\nEdwin Kantar, California          1♥   R    4♦   a4♣   1 NT  yn5♥  3♥    d\nSami R. Kehela, Toronto           1♥   2 NT 2♦   a5♣   P    yyP   3♥    d\nEric Kokish, Toronto              1♥   2 NT 4♦   b4♦   P    ny5♠  3♠    c\nJohn Lowenthal, NYC               1♥   2♣   2♦   b5♣   D    nyP   P     d\nChip Martel, Davis, CA            1♥   2 NT 3♦   a4♥   P    nyP   2♠    e\nMarshall Miles, California        2♣   4♦   3♦   a5♣   1 NT  yyP   2♠    e\nJoan Remey Moore, Troy, MI        1♥   2 NT 4♥   a5♦   D    nn5♥  2 NT  c\nArthur Robinson, Villanova, PA    1♥   4♥   P    4♣    1 NT  nn6♦  3♥    b\nEric Rodwell, Naperville, IL      1♥   2 NT 4♦   a4♦   1 NT  nyP   2♠    d\nMichael Rosenberg, NY             1♥   2♣   2♦   a5♣   P    nyP   2 NT  f\nAl Roth, Boca Raton, FL           1♥   2♣   4♦   a5♦   P    nA6♦  2♠    c\nJeff Rubens, Scarsdale, NY        1♥   2 NT 3♦   b4♥   P    yn5♥  2 NT  d\nIra Rubin, Paramus, NJ            1♥   4♥   4♦   a5♦   P    ny5♥  3♥    d\nRon Smith, San Francisco          1♥   4♦   4♦   aA    P    nn5♥  3♥    d\nPaul Trent, Katonah, NY           1♥   2♣   3♦   a4♦   1 NT  yn5♥  A     c\nSteve Weinstein, New Jersey       1♥   4♥   5♦   a4♦   D    nyP   2♠    c\nRobert Wolff, Dallas              1♥   4♥   4♦   a4♥   P    ny6♦  3♥    c\nKit Woolsey, Kensington, CA       1♥   4♥   5♦   b4♥   1 NT  nyP   2 NT  c\nMahmood Zia, NYC                  1♥   4♥   3♦   a6♦   1 NT  nyA   3♥    d"
       }
     }
   ],
-  "warnings": [
-    "Block 1 (bridgeHand): north has 10 cards (expected 13)",
-    "Block 1 (bridgeHand): south has 12 cards (expected 13)",
-    "Block 1 (bridgeHand): east has 8 cards (expected 13)",
-    "Block 3 (bridgeHand): south has 8 cards (expected 7)"
-  ]
+  "warnings": []
 }

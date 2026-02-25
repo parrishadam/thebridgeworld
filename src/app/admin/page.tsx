@@ -107,6 +107,12 @@ export default async function AdminPage() {
                 Import Issue PDF
               </Link>
               <Link
+                href="/admin/split-transcription"
+                className="font-sans text-sm border border-stone-200 text-stone-700 px-4 py-2 hover:bg-stone-50 transition-colors"
+              >
+                Split Transcription
+              </Link>
+              <Link
                 href="/admin/articles"
                 className="font-sans text-sm border border-stone-200 text-stone-700 px-4 py-2 hover:bg-stone-50 transition-colors"
               >

@@ -8,13 +8,22 @@
  *   --images <dir>     Individual page images (JPG/PNG), sorted alphabetically
  *
  * Architecture:
- *   Pass 1: TOC extraction from first pages
- *   Pass 2: Article-by-article parsing (one article per API call sequence)
- *   Pass 3: Post-processing — normalize, auto-fix, validate
+ *   PDF mode:
+ *     Pass 1: TOC extraction → Pass 2: article-by-article parsing → Pass 3: post-processing
+ *   Spreads/images mode (default):
+ *     OCR: Tesseract on each page → Pass 1: TOC extraction → Interactive TOC confirmation
+ *     → Pass 2: sequential stream (with OCR text) → Pass 3: page-based block assignment
+ *     → Pass 4: post-processing
+ *   Spreads/images mode (--no-split):
+ *     OCR: Tesseract on each page → Pass 1: TOC extraction → Pass 2: sequential stream
+ *     → single transcription JSON (for manual splitting via the Split Transcription admin page)
+ *   Spreads/images mode (--ocr-only):
+ *     OCR: Tesseract on each page → save to {slug}-ocr.txt (no API calls)
  *
  * Usage:
  *   npx tsx scripts/parse-issue.ts --pdf ~/Downloads/BW-April-2025.pdf --issue "April 2025"
  *   npx tsx scripts/parse-issue.ts --spreads ~/issues/1975/197501/ --issue "January 1975"
+ *   npx tsx scripts/parse-issue.ts --spreads ~/issues/1975/197501/ --issue "January 1975" --no-split
  */
 
 import Anthropic from "@anthropic-ai/sdk";
@@ -22,6 +31,7 @@ import { execSync } from "child_process";
 import fs from "fs";
 import path from "path";
 import os from "os";
+import readline from "readline";
 
 import sharp from "sharp";
 import { jsonrepair } from "jsonrepair";
@@ -59,6 +69,7 @@ const MAX_RETRIES = 3;
 const RETRY_BASE_MS = 60_000;
 const DPI = 300;
 const PAGES_PER_ARTICLE_CALL = 5;
+const PAGES_PER_STREAM_CALL = 2;
 const MAX_IMAGE_BYTES = 5 * 1024 * 1024; // 5 MB
 
 const PRICING: Record<string, { input: number; output: number }> = {
@@ -79,6 +90,9 @@ interface CliArgs {
   issueSlug: string;
   outputDir: string;
   resumeFrom?: number;
+  noSplit: boolean;    // --no-split: output raw transcription JSON only (no article assignment)
+  ocrOnly: boolean;    // --ocr-only: run OCR on all pages, save to file, no API calls
+  rotate?: 90 | 180 | 270;  // --rotate: rotate spread images before splitting
 }
 
 function parseArgs(): CliArgs {
@@ -89,6 +103,9 @@ function parseArgs(): CliArgs {
   let issueName = "";
   let outputDir = "";
   let resumeFrom: number | undefined;
+  let noSplit = false;
+  let ocrOnly = false;
+  let rotate: 90 | 180 | 270 | undefined;
 
   for (let i = 0; i < args.length; i++) {
     switch (args[i]) {
@@ -110,6 +127,21 @@ function parseArgs(): CliArgs {
       case "--resume":
         resumeFrom = 1; // Flag to indicate resume mode
         break;
+      case "--no-split":
+        noSplit = true;
+        break;
+      case "--ocr-only":
+        ocrOnly = true;
+        break;
+      case "--rotate": {
+        const deg = parseInt(args[++i], 10);
+        if (deg !== 90 && deg !== 180 && deg !== 270) {
+          console.error("Error: --rotate must be 90, 180, or 270.");
+          process.exit(1);
+        }
+        rotate = deg;
+        break;
+      }
       case "--help":
         console.log(`Usage:
   npx tsx scripts/parse-issue.ts --pdf <file> --issue "Month Year"
@@ -125,6 +157,10 @@ Options:
   --issue <name>     Issue name, e.g. "April 2025" (required)
   --output <dir>     Output directory (default: ./output)
   --resume           Resume from progress file (skip already-parsed articles)
+  --no-split         Output raw transcription JSON only (no article assignment)
+  --ocr-only         Run Tesseract OCR on all pages and save to file (no API calls)
+  --rotate <deg>     Rotate spread images before splitting (90, 180, or 270)
+                     180 also swaps left/right halves (reverses page order per spread)
   --help             Show this help message`);
         process.exit(0);
     }
@@ -175,7 +211,7 @@ Options:
   if (!outputDir) outputDir = "./output";
   outputDir = path.resolve(outputDir);
 
-  return { mode, inputPath, issueName, issueSlug, outputDir, resumeFrom };
+  return { mode, inputPath, issueName, issueSlug, outputDir, resumeFrom, noSplit, ocrOnly, rotate };
 }
 
 // ── Helpers ────────────────────────────────────────────────────────────────
@@ -311,6 +347,61 @@ function renderPdfPages(
   return results;
 }
 
+// ── Tesseract OCR ──────────────────────────────────────────────────────────
+
+function findTesseract(): string {
+  try {
+    return execSync("which tesseract 2>/dev/null").toString().trim();
+  } catch {
+    throw new Error(
+      "tesseract not found. Install it:\n" +
+      "  Ubuntu/Debian: sudo apt-get install -y tesseract-ocr\n" +
+      "  macOS: brew install tesseract\n" +
+      "  Windows: choco install tesseract",
+    );
+  }
+}
+
+/**
+ * Run Tesseract OCR on each page image from the pageMap.
+ * Writes each page's base64 image to a temp file, runs `tesseract <file> stdout`,
+ * and returns a Map<pageNum, ocrText>.
+ */
+async function runOcrOnPages(
+  pageMap: Map<number, PageImage>,
+  tesseractPath: string,
+): Promise<Map<number, string>> {
+  const ocrMap = new Map<number, string>();
+  const sortedPages = Array.from(pageMap.keys()).sort((a, b) => a - b);
+  const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), "ocr-"));
+
+  try {
+    for (const pageNum of sortedPages) {
+      const img = pageMap.get(pageNum)!;
+      const ext = img.mediaType === "image/png" ? "png" : "jpg";
+      const tmpFile = path.join(tmpDir, `page-${pageNum}.${ext}`);
+      fs.writeFileSync(tmpFile, Buffer.from(img.base64, "base64"));
+
+      try {
+        const text = execSync(
+          `"${tesseractPath}" "${tmpFile}" stdout 2>/dev/null`,
+          { timeout: 30_000, encoding: "utf-8" },
+        ).trim();
+        ocrMap.set(pageNum, text);
+      } catch {
+        console.log(`    Warning: OCR failed for page ${pageNum}`);
+        ocrMap.set(pageNum, "");
+      }
+
+      fs.unlinkSync(tmpFile);
+    }
+  } finally {
+    try { fs.rmdirSync(tmpDir); } catch { /* ignore */ }
+  }
+
+  return ocrMap;
+}
+
 // ── Spread image splitting (sharp) ────────────────────────────────────────
 
 interface SpreadFile {
@@ -369,21 +460,34 @@ function parseSpreadsFolder(folderPath: string): SpreadFile[] {
   return spreads;
 }
 
-async function splitSpreads(spreads: SpreadFile[]): Promise<Map<number, PageImage>> {
+async function splitSpreads(
+  spreads: SpreadFile[],
+  rotate?: 90 | 180 | 270,
+): Promise<Map<number, PageImage>> {
   const pageMap = new Map<number, PageImage>();
 
   for (const spread of spreads) {
+    // Get original dimensions, then compute post-rotation size
     const metadata = await sharp(spread.filePath).metadata();
-    const width = metadata.width!;
-    const height = metadata.height!;
+    const origW = metadata.width!;
+    const origH = metadata.height!;
+    // 90/270 rotation swaps width and height; 180 keeps them the same
+    const width = rotate === 90 || rotate === 270 ? origH : origW;
+    const height = rotate === 90 || rotate === 270 ? origW : origH;
+
+    // For 180° rotation, the left half of the rotated image was originally the right half,
+    // so we swap which page number gets which half
+    const swapHalves = rotate === 180;
 
     if (spread.singlePage) {
       // Single-page file (e.g. IFC) — don't split, just resize if needed
-      let buf = await sharp(spread.filePath).jpeg({ quality: 85 }).toBuffer();
-      buf = await ensureUnderSizeLimit(buf, width, height, "jpeg");
+      let sp = sharp(spread.filePath);
+      if (rotate) sp = sp.rotate(rotate);
+      let outBuf = await sp.jpeg({ quality: 85 }).toBuffer();
+      outBuf = await ensureUnderSizeLimit(outBuf, width, height, "jpeg");
       pageMap.set(spread.leftPage, {
         pageNum: spread.leftPage,
-        base64: buf.toString("base64"),
+        base64: outBuf.toString("base64"),
         mediaType: "image/jpeg",
       });
       continue;
@@ -391,29 +495,40 @@ async function splitSpreads(spreads: SpreadFile[]): Promise<Map<number, PageImag
 
     const halfWidth = Math.floor(width / 2);
 
-    // Left half → leftPage (use JPEG for scanned spreads — much smaller than PNG)
-    let leftBuf = await sharp(spread.filePath)
+    // After rotation: visual left half → firstPage, visual right half → secondPage
+    // With 180° rotation, visual left was originally right, so swap page assignments
+    const firstPage = swapHalves ? spread.rightPage : spread.leftPage;
+    const secondPage = swapHalves ? spread.leftPage : spread.rightPage;
+
+    // Left half of (rotated) image → firstPage
+    let pipeline1 = sharp(spread.filePath);
+    if (rotate) pipeline1 = pipeline1.rotate(rotate);
+    let leftBuf = await pipeline1
       .extract({ left: 0, top: 0, width: halfWidth, height })
       .jpeg({ quality: 85 })
       .toBuffer();
     leftBuf = await ensureUnderSizeLimit(leftBuf, halfWidth, height, "jpeg");
 
-    pageMap.set(spread.leftPage, {
-      pageNum: spread.leftPage,
-      base64: leftBuf.toString("base64"),
-      mediaType: "image/jpeg",
-    });
+    if (firstPage >= 0) {
+      pageMap.set(firstPage, {
+        pageNum: firstPage,
+        base64: leftBuf.toString("base64"),
+        mediaType: "image/jpeg",
+      });
+    }
 
-    // Right half → rightPage (skip if -1, e.g. IBC discard)
-    if (spread.rightPage >= 0) {
-      let rightBuf = await sharp(spread.filePath)
+    // Right half of (rotated) image → secondPage (skip if -1, e.g. IBC discard)
+    if (secondPage >= 0) {
+      let pipeline2 = sharp(spread.filePath);
+      if (rotate) pipeline2 = pipeline2.rotate(rotate);
+      let rightBuf = await pipeline2
         .extract({ left: halfWidth, top: 0, width: width - halfWidth, height })
         .jpeg({ quality: 85 })
         .toBuffer();
       rightBuf = await ensureUnderSizeLimit(rightBuf, width - halfWidth, height, "jpeg");
 
-      pageMap.set(spread.rightPage, {
-        pageNum: spread.rightPage,
+      pageMap.set(secondPage, {
+        pageNum: secondPage,
         base64: rightBuf.toString("base64"),
         mediaType: "image/jpeg",
       });
@@ -685,11 +800,26 @@ interface ResumeData {
   articleResults: Array<{ title: string; blocks: ContentBlock[] }>;
 }
 
+// ── Stream mode types ──────────────────────────────────────────────────────
+
+interface PageAnnotatedBlock {
+  id: string;
+  type: string;
+  data: Record<string, unknown>;
+  page: number;
+}
+
+interface StreamResumeData extends ResumeData {
+  streamBlocks?: PageAnnotatedBlock[];
+  lastStreamedPage?: number;
+  streamComplete?: boolean;
+}
+
 function getProgressPath(outputDir: string, issueSlug: string): string {
   return path.join(outputDir, `${issueSlug}-progress.json`);
 }
 
-function loadResume(progressPath: string): ResumeData | null {
+function loadResume(progressPath: string): StreamResumeData | null {
   if (fs.existsSync(progressPath)) {
     try {
       const data = JSON.parse(fs.readFileSync(progressPath, "utf-8"));
@@ -698,7 +828,12 @@ function loadResume(progressPath: string): ResumeData | null {
         console.log(`  Old page-based progress file detected — discarding (incompatible format)`);
         return null;
       }
-      return data as ResumeData;
+      // Detect old marker-based stream format and discard it
+      if (data.streamBlocks?.some((b: any) => b.type === "articleMarker")) {
+        console.log(`  Old marker-based stream progress — discarding`);
+        return null;
+      }
+      return data as StreamResumeData;
     } catch {
       return null;
     }
@@ -706,7 +841,7 @@ function loadResume(progressPath: string): ResumeData | null {
   return null;
 }
 
-function saveResume(progressPath: string, data: ResumeData): void {
+function saveResume(progressPath: string, data: ResumeData | StreamResumeData): void {
   fs.writeFileSync(progressPath, JSON.stringify(data, null, 2));
 }
 
@@ -868,6 +1003,20 @@ function expandPageRanges(articles: TocArticle[], totalPages: number): void {
   const isSmallFeature = (a: TocArticle) =>
     SMALL_FEATURES.some(k => a.title.toLowerCase().includes(k));
 
+  // Collect ALL solution pages from problem articles — these should NOT be
+  // absorbed into main articles during expansion
+  const reservedSolutionPages = new Set<number>();
+  for (const art of articles) {
+    if (art.solution_page_ranges) {
+      for (const [s, e] of art.solution_page_ranges) {
+        for (let p = s; p <= e; p++) reservedSolutionPages.add(p);
+      }
+    }
+  }
+  if (reservedSolutionPages.size > 0) {
+    console.log(`[expand] Reserved solution pages: ${Array.from(reservedSolutionPages).sort((a, b) => a - b).join(", ")}`);
+  }
+
   // ── Phase 1: Expand main (non-small-feature) articles to fill gaps ──
   // Only expand articles that are NOT small features. Small features keep
   // their TOC ranges intact in this phase.
@@ -888,16 +1037,42 @@ function expandPageRanges(articles: TocArticle[], totalPages: number): void {
     const nextStart = mi + 1 < mainSorted.length
       ? mainSorted[mi + 1].startPage
       : totalPages + 1;
-    const expandedEnd = Math.min(nextStart - 1, totalPages);
+    let expandedEnd = Math.min(nextStart - 1, totalPages);
+
+    // Don't expand into reserved solution pages that belong to other articles
+    // (unless this article owns those solution pages)
+    const ownSolPages = new Set<number>();
+    for (const [s, e] of art.solution_page_ranges || []) {
+      for (let p = s; p <= e; p++) ownSolPages.add(p);
+    }
+    while (expandedEnd > tocEnd && reservedSolutionPages.has(expandedEnd) && !ownSolPages.has(expandedEnd)) {
+      expandedEnd--;
+    }
 
     if (expandedEnd > tocEnd) {
-      const newPrimaryRange: number[] = [startPage, expandedEnd];
+      // Build ranges that skip reserved solution pages
+      const ranges: number[][] = [];
+      let runStart: number | null = startPage;
+      for (let p = startPage; p <= expandedEnd; p++) {
+        if (reservedSolutionPages.has(p) && !ownSolPages.has(p)) {
+          if (runStart !== null && p > runStart) {
+            ranges.push([runStart, p - 1]);
+          } else if (runStart !== null && p === runStart) {
+            // skip single reserved page at start of run
+          }
+          runStart = null;
+        } else {
+          if (runStart === null) runStart = p;
+        }
+      }
+      if (runStart !== null) ranges.push([runStart, expandedEnd]);
+
       const extraRanges = art.pdf_pages
         .slice(1)
         .filter(([s]) => s > expandedEnd);
-      art.pdf_pages = [newPrimaryRange, ...extraRanges]
+      art.pdf_pages = [...ranges, ...extraRanges]
         .sort((a, b) => a[0] - b[0]);
-      console.log(`[expand] "${art.title}": ${startPage}-${tocEnd} → ${startPage}-${expandedEnd}`);
+      console.log(`[expand] "${art.title}": ${startPage}-${tocEnd} → ${art.pdf_pages.map(([s, e]) => s === e ? `${s}` : `${s}-${e}`).join(", ")}`);
     }
   }
 
@@ -1037,6 +1212,154 @@ function annotateInterleavedArticles(articles: TocArticle[]): void {
   }
 }
 
+// ── Interactive terminal input ───────────────────────────────────────────────
+
+function promptUser(question: string): Promise<string> {
+  const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
+  return new Promise((resolve) => {
+    rl.question(question, (answer) => {
+      rl.close();
+      resolve(answer.trim());
+    });
+  });
+}
+
+/**
+ * Display the TOC with numbered articles and page ranges.
+ * Let the user confirm or correct page ranges interactively.
+ *
+ * Correction syntax:
+ *   <num>: <start>-<end>          — replace page range for article #num
+ *   <num>: <s1>-<e1>, <s2>-<e2>  — multiple ranges
+ *   d<num>                        — delete article #num from TOC
+ *   a <title> [<start>-<end>]     — add a new article
+ *   (empty line)                  — accept and continue
+ */
+async function interactiveTocConfirmation(
+  articles: TocArticle[],
+  issueTitle: string,
+): Promise<TocArticle[]> {
+  const result = [...articles];
+
+  const display = () => {
+    console.log(`\n  ┌─────────────────────────────────────────────────────────┐`);
+    console.log(`  │  TOC: ${issueTitle} — ${result.length} articles`);
+    console.log(`  └─────────────────────────────────────────────────────────┘`);
+    for (let i = 0; i < result.length; i++) {
+      const a = result[i];
+      const pages = a.pdf_pages
+        .map(([s, e]) => (s === e ? `${s}` : `${s}-${e}`))
+        .join(", ");
+      const author = a.author_name ? ` — ${a.author_name}` : "";
+      const interleaved = a.interleaved ? " [interleaved]" : "";
+      console.log(`    ${String(i + 1).padStart(2)}. ${a.title} [${pages}]${author}${interleaved}`);
+    }
+    console.log();
+    console.log(`  Commands:`);
+    console.log(`    <num>: <start>-<end>    — set page range (e.g. "2: 5-15")`);
+    console.log(`    <num>: <s1>-<e1>, ...   — multiple ranges (e.g. "3: 7-7, 72-72")`);
+    console.log(`    d<num>                  — delete article (e.g. "d5")`);
+    console.log(`    a <title> [<s>-<e>]     — add article (e.g. "a Letters [40-42]")`);
+    console.log(`    (press Enter to accept)`);
+  };
+
+  display();
+
+  while (true) {
+    const input = await promptUser("  > ");
+
+    if (!input) {
+      // Empty input → accept
+      break;
+    }
+
+    // Delete: d<num>
+    const deleteMatch = input.match(/^d\s*(\d+)$/i);
+    if (deleteMatch) {
+      const idx = parseInt(deleteMatch[1], 10) - 1;
+      if (idx >= 0 && idx < result.length) {
+        console.log(`    Removed: "${result[idx].title}"`);
+        result.splice(idx, 1);
+        display();
+      } else {
+        console.log(`    Invalid article number: ${idx + 1}`);
+      }
+      continue;
+    }
+
+    // Add: a <title> [<start>-<end>]
+    const addMatch = input.match(/^a\s+(.+?)\s*\[(\d[\d\s,\-]+)\]\s*$/i);
+    if (addMatch) {
+      const title = addMatch[1].trim();
+      const rangeStr = addMatch[2];
+      const ranges = parsePageRanges(rangeStr);
+      if (ranges.length > 0) {
+        result.push({
+          title,
+          author_name: "",
+          category: "",
+          tags: [],
+          source_page: ranges[0][0],
+          pdf_pages: ranges,
+          excerpt: "",
+        });
+        console.log(`    Added: "${title}" [${ranges.map(([s, e]) => s === e ? `${s}` : `${s}-${e}`).join(", ")}]`);
+        display();
+      } else {
+        console.log(`    Invalid page range format`);
+      }
+      continue;
+    }
+
+    // Correct: <num>: <ranges>
+    const correctMatch = input.match(/^(\d+)\s*:\s*(.+)$/);
+    if (correctMatch) {
+      const idx = parseInt(correctMatch[1], 10) - 1;
+      if (idx < 0 || idx >= result.length) {
+        console.log(`    Invalid article number: ${idx + 1}`);
+        continue;
+      }
+      const ranges = parsePageRanges(correctMatch[2]);
+      if (ranges.length > 0) {
+        const old = result[idx].pdf_pages
+          .map(([s, e]) => (s === e ? `${s}` : `${s}-${e}`))
+          .join(", ");
+        result[idx].pdf_pages = ranges;
+        result[idx].source_page = ranges[0][0];
+        const newStr = ranges.map(([s, e]) => (s === e ? `${s}` : `${s}-${e}`)).join(", ");
+        console.log(`    "${result[idx].title}": [${old}] → [${newStr}]`);
+      } else {
+        console.log(`    Invalid page range format`);
+      }
+      continue;
+    }
+
+    console.log(`    Unrecognized command. Try "<num>: <range>", "d<num>", "a <title> [<range>]", or Enter to accept.`);
+  }
+
+  return result;
+}
+
+function parsePageRanges(str: string): number[][] {
+  const ranges: number[][] = [];
+  // Split on commas, then parse each "start-end" or "single"
+  for (const part of str.split(",")) {
+    const trimmed = part.trim();
+    const rangeMatch = trimmed.match(/^(\d+)\s*-\s*(\d+)$/);
+    if (rangeMatch) {
+      const s = parseInt(rangeMatch[1], 10);
+      const e = parseInt(rangeMatch[2], 10);
+      if (s > 0 && e >= s) ranges.push([s, e]);
+    } else {
+      const single = parseInt(trimmed, 10);
+      if (single > 0) ranges.push([single, single]);
+    }
+  }
+  return ranges;
+}
+
+// ── Prompts ─────────────────────────────────────────────────────────────────
+
 function buildArticleParsePrompt(
   article: TocArticle,
   pageNums: number[],
@@ -1094,6 +1417,586 @@ function buildArticleParsePrompt(
   return prompt;
 }
 
+// ── Stream mode prompt ──────────────────────────────────────────────────────
+
+function buildStreamTranscriptionPrompt(
+  pageNums: number[],
+  issueName: string,
+  batchNum: number,
+  totalBatches: number,
+  ocrTexts?: Map<number, string>,
+): string {
+  const pageList = pageNums.map((p, i) => `Image ${i + 1} = page ${p}`).join(", ");
+  const batchLabel = totalBatches > 1 ? ` (batch ${batchNum}/${totalBatches})` : "";
+
+  let prompt = `You are transcribing pages from The Bridge World magazine, ${issueName} issue${batchLabel}.
+Page images provided: ${pageList}.`;
+
+  // Include OCR text when available
+  if (ocrTexts) {
+    const ocrEntries = pageNums
+      .map(pn => {
+        const text = ocrTexts.get(pn);
+        return text ? `───── PAGE ${pn} OCR TEXT ─────\n${text}` : null;
+      })
+      .filter(Boolean)
+      .join("\n\n");
+
+    if (ocrEntries) {
+      prompt += `
+
+OCR-EXTRACTED TEXT (from Tesseract — may contain errors):
+${ocrEntries}
+
+INSTRUCTIONS FOR USING OCR TEXT + IMAGES:
+- Use the TEXT for prose paragraphs and article flow. Correct obvious OCR errors using context.
+- Use the IMAGE to verify hand diagrams, bidding tables/auctions, and any content with suit symbols (♠♥♦♣).
+- When OCR text and image conflict on hands/auctions, TRUST THE IMAGE.
+- Use your knowledge of bridge notation to fix OCR artifacts (e.g., "I" → "1", "O" → "0", "S" → "5").`;
+    }
+  }
+
+  prompt += `
+
+TRANSCRIBE ALL CONTENT in reading order (top to bottom, left to right).
+
+PAGE TAGGING (CRITICAL):
+Every block MUST include a "page" field with the magazine page number it appears on.
+Use the page numbers listed above — image 1 is page ${pageNums[0]}${pageNums.length > 1 ? `, image 2 is page ${pageNums[1]}` : ""}, etc.
+
+Do NOT try to identify or separate articles. Just transcribe everything and tag each block with its page number.
+
+IGNORE:
+- Running headers/footers (e.g., "The Bridge World", "January 1998", page numbers)
+- Advertisements
+- Subscription notices and boilerplate
+
+CONTENT BLOCKS:
+Use these block types (every block must include "page"):
+- Text: { "id": "b1", "type": "text", "data": { "text": "..." }, "page": ${pageNums[0]} }
+  Use markdown: **bold** for emphasis, headings for section titles.
+- Bridge hand: { "id": "b2", "type": "bridgeHand", "data": { "hands": { "north": { "S": "...", "H": "...", "D": "...", "C": "..." }, ... }, "visibleHands": { "north": true, ... }, "dealer": "", "vulnerability": "", "contract": "", "lead": "", "title": "" }, "page": ${pageNums[0]} }
+  Use "T" for tens. Each visible hand must have exactly 13 cards.
+- Bidding table: { "id": "b3", "type": "biddingTable", "data": { "dealer": "South", "bids": [{ "text": "1NT", "alert": null }], "label": "" }, "page": ${pageNums[0]} }
+- MSC results: { "id": "b4", "type": "mscResults", "data": { "panels": [{ "action": "...", "score": 100, "experts": ["Name"] }] }, "page": ${pageNums[0]} }
+
+Return a JSON object:
+{ "blocks": [ ... ] }
+
+Return ONLY valid JSON. No markdown fences, no commentary.`;
+
+  return prompt;
+}
+
+// ── Page-based block assignment ─────────────────────────────────────────────
+
+/**
+ * Assign page-annotated blocks to articles using confirmed TOC page ranges.
+ *
+ * For exclusive pages (one claimant): all blocks go to that article.
+ * For shared pages (multiple claimants):
+ *   - If one claimant is interleaved and the other is its parent, give to parent.
+ *   - Otherwise, give to the article whose range STARTS on or closest before this page
+ *     (i.e., the article that most recently "began" — effectively switches at boundaries).
+ * Unclaimed pages: blocks discarded.
+ */
+function assignBlocksToArticles(
+  streamBlocks: PageAnnotatedBlock[],
+  tocArticles: TocArticle[],
+): Array<{ title: string; blocks: ContentBlock[] }> {
+  // Build page → claimant articles map
+  const pageToArticles = new Map<number, TocArticle[]>();
+  for (const art of tocArticles) {
+    for (const [s, e] of art.pdf_pages) {
+      for (let p = s; p <= e; p++) {
+        const list = pageToArticles.get(p) || [];
+        list.push(art);
+        pageToArticles.set(p, list);
+      }
+    }
+  }
+
+  function resolveSharedPage(page: number, claimants: TocArticle[]): TocArticle {
+    // Prefer non-interleaved article on shared pages
+    const nonInterleaved = claimants.filter(a => !a.interleaved);
+    if (nonInterleaved.length === 1) return nonInterleaved[0];
+
+    // Among non-interleaved (or all if none marked), pick the one whose start is closest ≤ page
+    const candidates = nonInterleaved.length > 0 ? nonInterleaved : claimants;
+    let best = candidates[0];
+    let bestStart = 0;
+    for (const a of candidates) {
+      const start = a.pdf_pages[0]?.[0] ?? 0;
+      if (start <= page && start >= bestStart) {
+        bestStart = start;
+        best = a;
+      }
+    }
+    return best;
+  }
+
+  // Group blocks by page
+  const blocksByPage = new Map<number, PageAnnotatedBlock[]>();
+  for (const block of streamBlocks) {
+    const list = blocksByPage.get(block.page) || [];
+    list.push(block);
+    blocksByPage.set(block.page, list);
+  }
+
+  // Assign
+  const articleMap = new Map<string, PageAnnotatedBlock[]>();
+  for (const a of tocArticles) articleMap.set(a.title, []);
+
+  let discardedCount = 0;
+  let sharedPageCount = 0;
+
+  for (const [page, blocks] of Array.from(blocksByPage.entries())) {
+    const claimants = pageToArticles.get(page);
+
+    if (!claimants || claimants.length === 0) {
+      console.log(`  [assign] Page ${page}: unclaimed (${blocks.length} blocks discarded)`);
+      discardedCount += blocks.length;
+      continue;
+    }
+
+    if (claimants.length === 1) {
+      articleMap.get(claimants[0].title)!.push(...blocks);
+    } else {
+      sharedPageCount++;
+      const winner = resolveSharedPage(page, claimants);
+      articleMap.get(winner.title)!.push(...blocks);
+      console.log(`  [assign] Page ${page}: shared by ${claimants.length} → "${winner.title}"`);
+    }
+  }
+
+  if (discardedCount > 0) {
+    console.log(`  [assign] ${discardedCount} total blocks discarded (unclaimed pages)`);
+  }
+  if (sharedPageCount > 0) {
+    console.log(`  [assign] ${sharedPageCount} shared pages resolved`);
+  }
+
+  // Build results in TOC order, strip page field, inject solution headings
+  const results: Array<{ title: string; blocks: ContentBlock[] }> = [];
+
+  for (const art of tocArticles) {
+    const rawBlocks = articleMap.get(art.title) || [];
+
+    // Sort blocks by page, preserving order within same page
+    rawBlocks.sort((a, b) => a.page - b.page);
+
+    // Determine solution page numbers for this article
+    const solutionPages = new Set<number>();
+    if (art.solution_page_ranges) {
+      for (const [s, e] of art.solution_page_ranges) {
+        for (let p = s; p <= e; p++) solutionPages.add(p);
+      }
+    }
+    const problemPages = new Set<number>();
+    for (const [s, e] of art.pdf_pages) {
+      for (let p = s; p <= e; p++) {
+        if (!solutionPages.has(p)) problemPages.add(p);
+      }
+    }
+
+    // Strip page field and inject solution headings
+    const finalBlocks: ContentBlock[] = [];
+    let inSolutionSection = false;
+
+    for (const block of rawBlocks) {
+      if (solutionPages.has(block.page) && !inSolutionSection && problemPages.size > 0) {
+        inSolutionSection = true;
+        const titleLower = art.title.toLowerCase();
+        let solHeading = "**Solutions**";
+        if (titleLower.includes("test your play")) solHeading = "**Test Your Play Solutions**";
+        else if (titleLower.includes("test your defense")) solHeading = "**Test Your Defense Solutions**";
+        else if (titleLower.includes("improve your play")) solHeading = "**Improve Your Play Solutions**";
+        else if (titleLower.includes("improve your defense")) solHeading = "**Improve Your Defense Solutions**";
+        else if (titleLower.includes("playing suit combinations")) solHeading = "**Playing Suit Combinations Solutions**";
+        else if (titleLower.includes("new critical moments")) solHeading = "**New Critical Moments Solutions**";
+
+        finalBlocks.push({
+          id: "sol-heading",
+          type: "text",
+          data: { text: solHeading },
+        } as ContentBlock);
+      }
+
+      const { page: _page, ...rest } = block;
+      finalBlocks.push(rest as ContentBlock);
+    }
+
+    results.push({ title: art.title, blocks: finalBlocks });
+  }
+
+  const totalAssigned = results.reduce((sum, r) => sum + r.blocks.length, 0);
+  const withBlocks = results.filter(r => r.blocks.length > 0).length;
+  console.log(`  [assign] ${totalAssigned} blocks assigned to ${withBlocks}/${results.length} articles`);
+
+  return results;
+}
+
+// ── Pass 2 functions ────────────────────────────────────────────────────────
+
+async function pass2ArticleByArticle(
+  tocArticles: TocArticle[],
+  allArticles: TocArticle[],
+  resume: StreamResumeData | null,
+  getPageImages: (pageNums: number[]) => PageImage[],
+  getPageTexts: (pageNums: number[]) => string[] | undefined,
+  availablePages: Set<number> | null,
+  client: Anthropic,
+  systemPrompt: string,
+  progressPath: string,
+  toc: { issue: IssueMeta; articles: TocArticle[] },
+): Promise<Array<{ title: string; blocks: ContentBlock[] }>> {
+  const articleResults: Array<{ title: string; blocks: ContentBlock[] }> =
+    resume?.articleResults || [];
+  const processedArticles = new Set(articleResults.map(r => r.title));
+
+  const articlesToProcess = tocArticles.filter(a => !processedArticles.has(a.title));
+  console.log(`  ${tocArticles.length} articles total, ${articlesToProcess.length} to process (${processedArticles.size} already done)`);
+
+  let articleIdx = 0;
+  for (const tocArticle of tocArticles) {
+    articleIdx++;
+    if (processedArticles.has(tocArticle.title)) continue;
+    if (articleIdx > 1) await sleep(DELAY_MS);
+
+    // Gather all page numbers for this article
+    const pageNums: number[] = [];
+    for (const [s, e] of tocArticle.pdf_pages) {
+      for (let p = s; p <= e; p++) {
+        if (!availablePages || availablePages.has(p)) {
+          pageNums.push(p);
+        }
+      }
+    }
+
+    if (pageNums.length === 0) {
+      console.log(`\n  [${articleIdx}/${tocArticles.length}] "${tocArticle.title}" — no pages available, skipping`);
+      articleResults.push({ title: tocArticle.title, blocks: [] });
+      continue;
+    }
+
+    console.log(`\n  [${articleIdx}/${tocArticles.length}] "${tocArticle.title}" (${pageNums.length} pages: ${pageNums.join(", ")})...`);
+
+    // Batch pages if article spans many pages
+    const pageBatches: number[][] = [];
+    for (let b = 0; b < pageNums.length; b += PAGES_PER_ARTICLE_CALL) {
+      pageBatches.push(pageNums.slice(b, b + PAGES_PER_ARTICLE_CALL));
+    }
+
+    const allBlocks: ContentBlock[] = [];
+
+    for (let bi = 0; bi < pageBatches.length; bi++) {
+      if (bi > 0) await sleep(DELAY_MS);
+
+      const batchPageNums = pageBatches[bi];
+      const images = getPageImages(batchPageNums);
+      if (images.length === 0) {
+        console.log(`    Batch ${bi + 1}/${pageBatches.length} — no images available`);
+        continue;
+      }
+
+      const texts = getPageTexts(batchPageNums);
+      const batchInfo = pageBatches.length > 1
+        ? { batchNum: bi + 1, totalBatches: pageBatches.length, pageNums: batchPageNums }
+        : undefined;
+
+      const prompt = buildArticleParsePrompt(tocArticle, batchPageNums, batchInfo, texts, allArticles);
+
+      try {
+        const batchLabel = pageBatches.length > 1 ? `batch ${bi + 1}/${pageBatches.length}` : "";
+        const result = await callClaude(client, systemPrompt, images, prompt);
+
+        const parsed = extractJson<{ content_blocks: ContentBlock[] }>(result.text);
+
+        if (!Array.isArray(parsed.content_blocks)) {
+          console.log(`    ${batchLabel} Warning: no content_blocks array in response`);
+          continue;
+        }
+
+        for (const block of parsed.content_blocks) {
+          block.id = `b${allBlocks.length + 1}`;
+          allBlocks.push(block);
+        }
+
+        const blockTypes = parsed.content_blocks.map(b => b.type);
+        const counts: Record<string, number> = {};
+        for (const t of blockTypes) counts[t] = (counts[t] || 0) + 1;
+        const countStr = Object.entries(counts).map(([k, v]) => `${v} ${k}`).join(", ");
+        console.log(`    ${batchLabel ? batchLabel + ": " : ""}${parsed.content_blocks.length} blocks (${countStr})`);
+        console.log(`    ${result.usage.inputTokens} in / ${result.usage.outputTokens} out — ${fmtUsd(result.usage.costUsd)} — ${fmtMs(result.usage.durationMs)}`);
+      } catch (err) {
+        console.error(`    Error processing "${tocArticle.title}"${pageBatches.length > 1 ? ` batch ${bi + 1}` : ""}:`, err instanceof Error ? err.message : err);
+      }
+    }
+
+    // Retry once with a simpler prompt if article got 0 blocks
+    if (allBlocks.length === 0 && pageNums.length > 0) {
+      console.log(`    0 blocks — retrying with simplified prompt...`);
+      await sleep(DELAY_MS);
+      const retryImages = getPageImages(pageNums.slice(0, PAGES_PER_ARTICLE_CALL));
+      if (retryImages.length > 0) {
+        try {
+          const retryPrompt = [
+            `Extract ALL content from these page images that belongs to the article titled "${tocArticle.title}".`,
+            `Author: ${tocArticle.author_name || "unknown"}. Category: ${tocArticle.category || "unknown"}.`,
+            "",
+            "Return a JSON object: { \"content_blocks\": [ ... ] }",
+            "Each block is one of:",
+            '- TextBlock: { "id": "b1", "type": "text", "data": { "text": "..." } }',
+            '- BridgeHandBlock: { "id": "b2", "type": "bridgeHand", "data": { "hands": {...}, "visibleHands": {...}, "dealer": "", "vulnerability": "", "contract": "", "lead": "", "title": "" } }',
+            '- BiddingTableBlock: { "id": "b3", "type": "biddingTable", "data": { "dealer": "", "bids": [...], "label": "" } }',
+            "",
+            'Use "T" for tens. Each visible hand must have 13 cards. Return ONLY valid JSON.',
+          ].join("\n");
+
+          const retryResult = await callClaude(client, systemPrompt, retryImages, retryPrompt);
+          const retryParsed = extractJson<{ content_blocks: ContentBlock[] }>(retryResult.text);
+          if (Array.isArray(retryParsed.content_blocks) && retryParsed.content_blocks.length > 0) {
+            for (const block of retryParsed.content_blocks) {
+              block.id = `b${allBlocks.length + 1}`;
+              allBlocks.push(block);
+            }
+            console.log(`    Retry succeeded: ${retryParsed.content_blocks.length} blocks`);
+            console.log(`    ${retryResult.usage.inputTokens} in / ${retryResult.usage.outputTokens} out — ${fmtUsd(retryResult.usage.costUsd)} — ${fmtMs(retryResult.usage.durationMs)}`);
+          } else {
+            console.log(`    Retry also returned 0 blocks`);
+          }
+        } catch (err) {
+          console.error(`    Retry error:`, err instanceof Error ? err.message : err);
+        }
+      }
+    }
+
+    articleResults.push({ title: tocArticle.title, blocks: allBlocks });
+    processedArticles.add(tocArticle.title);
+    saveResume(progressPath, { toc, articleResults });
+  }
+
+  return articleResults;
+}
+
+async function pass2SequentialStream(
+  toc: { issue: IssueMeta; articles: TocArticle[] },
+  resume: StreamResumeData | null,
+  pageMap: Map<number, PageImage>,
+  getPageImages: (pageNums: number[]) => PageImage[],
+  client: Anthropic,
+  systemPrompt: string,
+  progressPath: string,
+  issueName: string,
+  ocrTexts?: Map<number, string>,
+): Promise<PageAnnotatedBlock[]> {
+  // Get all available pages, sorted
+  const allPages = Array.from(pageMap.keys()).sort((a, b) => a - b);
+
+  // Check resume for stream state
+  let streamBlocks: PageAnnotatedBlock[] = resume?.streamBlocks || [];
+  const lastStreamedPage = resume?.lastStreamedPage ?? -1;
+  const streamComplete = resume?.streamComplete ?? false;
+
+  if (streamComplete && streamBlocks.length > 0) {
+    console.log(`  Stream already complete (${streamBlocks.length} blocks from resume)`);
+    return streamBlocks;
+  }
+
+  // Filter to pages not yet processed
+  const remainingPages = allPages.filter(p => p > lastStreamedPage);
+
+  if (remainingPages.length === 0 && streamBlocks.length > 0) {
+    console.log(`  All pages already streamed (${streamBlocks.length} blocks)`);
+    return streamBlocks;
+  }
+
+  console.log(`  ${allPages.length} total pages, ${remainingPages.length} remaining to stream`);
+
+  // Batch remaining pages
+  const pageBatches: number[][] = [];
+  for (let b = 0; b < remainingPages.length; b += PAGES_PER_STREAM_CALL) {
+    pageBatches.push(remainingPages.slice(b, b + PAGES_PER_STREAM_CALL));
+  }
+
+  const totalBatches = pageBatches.length;
+
+  for (let bi = 0; bi < pageBatches.length; bi++) {
+    if (bi > 0 || streamBlocks.length > 0) await sleep(DELAY_MS);
+
+    const batchPageNums = pageBatches[bi];
+    const images = getPageImages(batchPageNums);
+    if (images.length === 0) {
+      console.log(`    Batch ${bi + 1}/${totalBatches} (pages ${batchPageNums.join(", ")}) — no images available`);
+      continue;
+    }
+
+    const prompt = buildStreamTranscriptionPrompt(
+      batchPageNums,
+      issueName,
+      bi + 1,
+      totalBatches,
+      ocrTexts,
+    );
+
+    try {
+      console.log(`    Batch ${bi + 1}/${totalBatches} (pages ${batchPageNums.join(", ")})...`);
+      const result = await callClaude(client, systemPrompt, images, prompt, 16384);
+
+      const parsed = extractJson<{ blocks: PageAnnotatedBlock[] }>(result.text);
+      if (!Array.isArray(parsed.blocks)) {
+        console.log(`      Warning: no blocks array in response`);
+        continue;
+      }
+
+      // Validate and clamp page numbers
+      const minPage = batchPageNums[0];
+      const maxPage = batchPageNums[batchPageNums.length - 1];
+      for (const block of parsed.blocks) {
+        if (typeof block.page !== "number" || block.page < minPage || block.page > maxPage) {
+          const original = block.page;
+          // Clamp to nearest valid page in batch
+          block.page = typeof block.page === "number"
+            ? Math.max(minPage, Math.min(maxPage, block.page))
+            : minPage;
+          if (original !== block.page) {
+            console.log(`      Warning: block ${block.id} page ${original} clamped to ${block.page}`);
+          }
+        }
+        block.id = `s${streamBlocks.length + 1}`;
+        streamBlocks.push(block);
+      }
+
+      // Log page distribution
+      const pageDist = new Map<number, number>();
+      for (const block of parsed.blocks) {
+        pageDist.set(block.page, (pageDist.get(block.page) || 0) + 1);
+      }
+      const distStr = Array.from(pageDist.entries())
+        .sort(([a], [b]) => a - b)
+        .map(([p, n]) => `p${p}=${n}`)
+        .join(", ");
+      console.log(`      ${parsed.blocks.length} blocks (${distStr})`);
+      console.log(`      ${result.usage.inputTokens} in / ${result.usage.outputTokens} out — ${fmtUsd(result.usage.costUsd)} — ${fmtMs(result.usage.durationMs)}`);
+
+      // Save resume after each batch
+      const highestPage = batchPageNums[batchPageNums.length - 1];
+      saveResume(progressPath, {
+        toc,
+        articleResults: [],
+        streamBlocks,
+        lastStreamedPage: highestPage,
+        streamComplete: bi === pageBatches.length - 1,
+      });
+    } catch (err) {
+      console.error(`    Error in stream batch ${bi + 1}:`, err instanceof Error ? err.message : err);
+      // Save progress even on error so we can resume
+      const highestPage = batchPageNums[batchPageNums.length - 1];
+      saveResume(progressPath, {
+        toc,
+        articleResults: [],
+        streamBlocks,
+        lastStreamedPage: highestPage,
+        streamComplete: false,
+      });
+    }
+  }
+
+  // ── Retry pages with zero blocks ──────────────────────────────────────
+
+  // Collect all pages claimed by TOC articles
+  const tocPages = new Set<number>();
+  for (const art of toc.articles) {
+    for (const [s, e] of art.pdf_pages) {
+      for (let p = s; p <= e; p++) tocPages.add(p);
+    }
+  }
+
+  // Find which TOC pages produced zero blocks
+  const coveredPages = new Set<number>();
+  for (const block of streamBlocks) {
+    coveredPages.add(block.page);
+  }
+
+  const missingPages = Array.from(tocPages)
+    .filter(p => !coveredPages.has(p) && pageMap.has(p))
+    .sort((a, b) => a - b);
+
+  if (missingPages.length > 0) {
+    console.log(`\n  [retry] ${missingPages.length} TOC page(s) have zero blocks: ${missingPages.join(", ")}`);
+    console.log(`  Retrying individually...`);
+
+    for (const pageNum of missingPages) {
+      await sleep(DELAY_MS);
+
+      const images = getPageImages([pageNum]);
+      if (images.length === 0) continue;
+
+      // Build retry prompt, including OCR text if available
+      const ocrText = ocrTexts?.get(pageNum);
+      const ocrSection = ocrText ? `
+OCR-EXTRACTED TEXT (from Tesseract — may contain errors):
+───── PAGE ${pageNum} OCR TEXT ─────
+${ocrText}
+
+Use the TEXT for prose paragraphs. Use the IMAGE to verify hand diagrams, auctions, and suit symbols. When they conflict on hands/auctions, TRUST THE IMAGE.
+` : "";
+
+      const retryPrompt = `Transcribe ALL content on this page (page ${pageNum}) from The Bridge World magazine, ${issueName} issue.
+
+Include every paragraph, hand diagram, bidding table, and auction. Do not skip anything.
+${ocrSection}
+CONTENT BLOCKS (every block must include "page": ${pageNum}):
+- Text: { "id": "r1", "type": "text", "data": { "text": "..." }, "page": ${pageNum} }
+  Use markdown: **bold** for emphasis, headings for section titles.
+- Bridge hand: { "id": "r2", "type": "bridgeHand", "data": { "hands": { "north": { "S": "...", "H": "...", "D": "...", "C": "..." }, ... }, "visibleHands": { "north": true, ... }, "dealer": "", "vulnerability": "", "contract": "", "lead": "", "title": "" }, "page": ${pageNum} }
+  Use "T" for tens. Each visible hand must have exactly 13 cards.
+- Bidding table: { "id": "r3", "type": "biddingTable", "data": { "dealer": "South", "bids": [{ "text": "1NT", "alert": null }], "label": "" }, "page": ${pageNum} }
+
+IGNORE: Running headers/footers, advertisements, subscription notices.
+
+Return a JSON object: { "blocks": [ ... ] }
+Return ONLY valid JSON. No markdown fences, no commentary.`;
+
+      try {
+        console.log(`    Page ${pageNum}...`);
+        const result = await callClaude(client, systemPrompt, images, retryPrompt, 16384);
+        const parsed = extractJson<{ blocks: PageAnnotatedBlock[] }>(result.text);
+
+        if (Array.isArray(parsed.blocks) && parsed.blocks.length > 0) {
+          for (const block of parsed.blocks) {
+            block.page = pageNum;
+            block.id = `s${streamBlocks.length + 1}`;
+            streamBlocks.push(block);
+          }
+          console.log(`      ${parsed.blocks.length} blocks recovered`);
+          console.log(`      ${result.usage.inputTokens} in / ${result.usage.outputTokens} out — ${fmtUsd(result.usage.costUsd)} — ${fmtMs(result.usage.durationMs)}`);
+        } else {
+          console.log(`      Page ${pageNum}: still 0 blocks after retry`);
+        }
+      } catch (err) {
+        console.error(`      Page ${pageNum} retry failed:`, err instanceof Error ? err.message : err);
+      }
+    }
+
+    // Re-sort streamBlocks by page to maintain order after inserts
+    streamBlocks.sort((a, b) => a.page - b.page);
+
+    // Save final state
+    saveResume(progressPath, {
+      toc,
+      articleResults: [],
+      streamBlocks,
+      lastStreamedPage: allPages[allPages.length - 1],
+      streamComplete: true,
+    });
+  }
+
+  console.log(`\n  Transcription complete: ${streamBlocks.length} total blocks`);
+
+  return streamBlocks;
+}
+
 // ── Main ───────────────────────────────────────────────────────────────────
 
 async function main() {
@@ -1107,6 +2010,7 @@ async function main() {
   console.log(`  Issue:  ${args.issueName}`);
   console.log(`  Output: ${args.outputDir}`);
   console.log(`  Model:  ${MODEL}`);
+  if (args.rotate) console.log(`  Rotate: ${args.rotate}°`);
   console.log();
 
   // Load system prompt
@@ -1155,13 +2059,14 @@ async function main() {
     const prepT0 = Date.now();
     const spreads = parseSpreadsFolder(args.inputPath);
     console.log(`  Found ${spreads.length} spread files`);
+    if (args.rotate) console.log(`  Rotating ${args.rotate}°${args.rotate === 180 ? " (swapping left/right halves)" : ""}`);
 
     if (spreads.length === 0) {
       console.error("Error: No YYYYMM-LL-RR.jpg files found in the directory.");
       process.exit(1);
     }
 
-    pageMap = await splitSpreads(spreads);
+    pageMap = await splitSpreads(spreads, args.rotate);
     const allPages = Array.from(pageMap.keys()).sort((a, b) => a - b);
     totalPages = allPages[allPages.length - 1]; // Highest page number
     console.log(`  Split into ${pageMap.size} individual pages (1-${totalPages}) in ${fmtMs(Date.now() - prepT0)}`);
@@ -1192,6 +2097,50 @@ async function main() {
   function getPageTexts(pageNums: number[]): string[] | undefined {
     if (!pageTexts) return undefined;
     return pageNums.map(pn => pageTexts![pn - 1] || "");
+  }
+
+  // ── OCR step (spreads/images mode) ──────────────────────────────────────
+
+  let ocrTexts: Map<number, string> | undefined;
+
+  if (args.mode !== "pdf" && pageMap) {
+    const tesseractPath = findTesseract();
+    console.log(`\n[OCR] Running Tesseract OCR on ${pageMap.size} pages...`);
+    console.log(`  tesseract: ${tesseractPath}`);
+    const ocrT0 = Date.now();
+    ocrTexts = await runOcrOnPages(pageMap, tesseractPath);
+    const nonEmpty = Array.from(ocrTexts.values()).filter(t => t.length > 0).length;
+    console.log(`  OCR complete: ${nonEmpty}/${pageMap.size} pages produced text in ${fmtMs(Date.now() - ocrT0)}`);
+
+    // Output sample of first 3 pages
+    const samplePages = Array.from(ocrTexts.keys()).sort((a, b) => a - b).slice(0, 3);
+    console.log(`\n  ── OCR Sample (first ${samplePages.length} pages) ──`);
+    for (const pn of samplePages) {
+      const text = ocrTexts.get(pn) || "(empty)";
+      const preview = text.length > 500 ? text.slice(0, 500) + "..." : text;
+      console.log(`  ─── Page ${pn} ───`);
+      console.log(`  ${preview.split("\n").join("\n  ")}`);
+    }
+    console.log(`  ── End OCR Sample ──\n`);
+
+    // --ocr-only: write OCR text to file and exit
+    if (args.ocrOnly) {
+      const ocrLines: string[] = [];
+      const sortedPages = Array.from(ocrTexts.keys()).sort((a, b) => a - b);
+      for (const pn of sortedPages) {
+        ocrLines.push(`═══════════════ PAGE ${pn} ═══════════════`);
+        ocrLines.push(ocrTexts.get(pn) || "(empty)");
+        ocrLines.push("");
+      }
+      const ocrPath = path.join(args.outputDir, `${args.issueSlug}-ocr.txt`);
+      fs.writeFileSync(ocrPath, ocrLines.join("\n"));
+      console.log(`[OCR-Only] Wrote ${ocrPath} (${sortedPages.length} pages)`);
+      console.log(`  No API calls made. Use this file to inspect OCR quality.`);
+      process.exit(0);
+    }
+  } else if (args.ocrOnly) {
+    console.error("Error: --ocr-only is only available in spreads or images mode.");
+    process.exit(1);
   }
 
   // ── Pass 1: TOC extraction ────────────────────────────────────────────
@@ -1260,324 +2209,284 @@ async function main() {
   // Deduplicate near-identical articles (e.g. two CTC or two Vu-Graph entries)
   toc.articles = deduplicateTocArticles(toc.articles);
 
+  // Strip "by Author Name" from TOC titles early so Pass 2 prompts use clean titles
+  for (const a of toc.articles) {
+    const { title: cleanTitle, extractedAuthor } = stripAuthorFromTitle(a.title, a.author_name || undefined);
+    if (extractedAuthor) {
+      console.log(`[title] "${a.title}" → "${cleanTitle}" (author: ${extractedAuthor})`);
+      a.title = cleanTitle;
+      if (!a.author_name) a.author_name = extractedAuthor;
+    }
+  }
+
   // Annotate interleaved articles
   annotateInterleavedArticles(toc.articles);
 
-  // ── Pass 2: Article-by-article parsing ──────────────────────────────
+  // ── Page assignment debug log ─────────────────────────────────────
+  console.log(`\n[Page Assignments] Articles → Pages:`);
+  for (const a of toc.articles) {
+    const pages = a.pdf_pages.map(([s, e]: number[]) => s === e ? `${s}` : `${s}-${e}`).join(", ");
+    const solPages = a.solution_page_ranges
+      ? ` (solutions: ${a.solution_page_ranges.map(([s, e]: number[]) => s === e ? `${s}` : `${s}-${e}`).join(", ")})`
+      : "";
+    const interleaved = a.interleaved ? ` [interleaved in "${a.parent_article}"]` : "";
+    console.log(`  "${a.title}" → [${pages}]${solPages}${interleaved}`);
+  }
 
-  console.log(`\n[Pass 2] Article-by-article parsing (${PAGES_PER_ARTICLE_CALL} pages/call max)...`);
+  // ── Interactive TOC confirmation (spreads/images mode, unless --no-split) ──
 
-  // Load already-processed articles from resume
-  const articleResults: Array<{ title: string; blocks: ContentBlock[] }> =
-    resume?.articleResults || [];
-  const processedArticles = new Set(articleResults.map(r => r.title));
+  if (args.mode !== "pdf" && !args.noSplit) {
+    console.log(`\n[TOC Confirmation] Review and correct article page ranges.`);
+    toc.articles = await interactiveTocConfirmation(toc.articles, toc.issue.title);
+    // Reset and re-annotate interleaved status after user edits
+    for (const a of toc.articles) {
+      delete a.interleaved;
+      delete a.parent_article;
+    }
+    annotateInterleavedArticles(toc.articles);
+    console.log(`\n  Confirmed ${toc.articles.length} articles.`);
+  }
 
-  // Available pages for spreads/images mode
+  // ── Pass 2: Content extraction ──────────────────────────────────────
+
   const availablePages = pageMap ? new Set(pageMap.keys()) : null;
 
-  const articlesToProcess = toc.articles.filter(a => !processedArticles.has(a.title));
-  console.log(`  ${toc.articles.length} articles total, ${articlesToProcess.length} to process (${processedArticles.size} already done)`);
+  if (args.mode === "pdf") {
+    // ── PDF mode: article-by-article parsing → Pass 3 → individual files ──
 
-  let articleIdx = 0;
-  for (const tocArticle of toc.articles) {
-    articleIdx++;
-    if (processedArticles.has(tocArticle.title)) continue;
-    if (articleIdx > 1) await sleep(DELAY_MS);
+    console.log(`\n[Pass 2] Article-by-article parsing (${PAGES_PER_ARTICLE_CALL} pages/call max)...`);
+    const articleResults = await pass2ArticleByArticle(
+      toc.articles,
+      toc.articles,
+      resume,
+      getPageImages,
+      getPageTexts,
+      availablePages,
+      client,
+      systemPrompt,
+      progressPath,
+      toc,
+    );
 
-    // Gather all page numbers for this article
-    const pageNums: number[] = [];
-    for (const [s, e] of tocArticle.pdf_pages) {
-      for (let p = s; p <= e; p++) {
-        if (!availablePages || availablePages.has(p)) {
-          pageNums.push(p);
-        }
+    // ── Pass 3: Post-processing ─────────────────────────────────────────
+
+    console.log(`\n[Pass 3] Post-processing articles...`);
+
+    interface OutputArticle {
+      title: string;
+      slug: string;
+      author_name: string;
+      category: string;
+      tags: string[];
+      level: string;
+      month: number;
+      year: number;
+      source_page: number;
+      excerpt: string;
+      status: "draft";
+      content_blocks: ContentBlock[];
+      warnings: string[];
+    }
+
+    const outputArticles: OutputArticle[] = [];
+
+    // Build a lookup from article results (keyed by title from Pass 2)
+    const articleBlocksMap = new Map<string, ContentBlock[]>();
+    for (const ar of articleResults) {
+      articleBlocksMap.set(ar.title, ar.blocks);
+    }
+
+    let blockIdCounter = 1;
+
+    for (const tocArticle of toc.articles) {
+      // Blocks are already keyed by exact title from Pass 2
+      let blocks = articleBlocksMap.get(tocArticle.title) || [];
+
+      // Reassign sequential IDs
+      for (const block of blocks) {
+        block.id = `b${blockIdCounter++}`;
       }
-    }
 
-    if (pageNums.length === 0) {
-      console.log(`\n  [${articleIdx}/${toc.articles.length}] "${tocArticle.title}" — no pages available, skipping`);
-      articleResults.push({ title: tocArticle.title, blocks: [] });
-      continue;
-    }
-
-    console.log(`\n  [${articleIdx}/${toc.articles.length}] "${tocArticle.title}" (${pageNums.length} pages: ${pageNums.join(", ")})...`);
-
-    // Batch pages if article spans many pages
-    const pageBatches: number[][] = [];
-    for (let b = 0; b < pageNums.length; b += PAGES_PER_ARTICLE_CALL) {
-      pageBatches.push(pageNums.slice(b, b + PAGES_PER_ARTICLE_CALL));
-    }
-
-    const allBlocks: ContentBlock[] = [];
-
-    for (let bi = 0; bi < pageBatches.length; bi++) {
-      if (bi > 0) await sleep(DELAY_MS);
-
-      const batchPageNums = pageBatches[bi];
-      const images = getPageImages(batchPageNums);
-      if (images.length === 0) {
-        console.log(`    Batch ${bi + 1}/${pageBatches.length} — no images available`);
+      if (blocks.length === 0) {
+        console.log(`  Warning: No blocks found for "${tocArticle.title}"`);
+        const { title: emptyCleanTitle } = stripAuthorFromTitle(tocArticle.title, tocArticle.author_name || undefined);
+        outputArticles.push({
+          title: emptyCleanTitle,
+          slug: truncateSlug(slugify(emptyCleanTitle)),
+          author_name: tocArticle.author_name,
+          category: mapCategory(tocArticle.category) || inferCategoryFromTitle(emptyCleanTitle) || tocArticle.category,
+          tags: tocArticle.tags,
+          level: inferLevel(tocArticle.category, tocArticle.tags),
+          month: toc.issue.month,
+          year: toc.issue.year,
+          source_page: tocArticle.source_page,
+          excerpt: tocArticle.excerpt,
+          status: "draft",
+          content_blocks: [],
+          warnings: ["No content blocks found"],
+        });
         continue;
       }
 
-      const texts = getPageTexts(batchPageNums);
-      const batchInfo = pageBatches.length > 1
-        ? { batchNum: bi + 1, totalBatches: pageBatches.length, pageNums: batchPageNums }
-        : undefined;
+      const warnings: string[] = [];
 
-      const prompt = buildArticleParsePrompt(tocArticle, batchPageNums, batchInfo, texts, toc.articles);
+      // Post-process: normalize tens
+      blocks = normalizeTens(blocks);
 
-      try {
-        const batchLabel = pageBatches.length > 1 ? `batch ${bi + 1}/${pageBatches.length}` : "";
-        const result = await callClaude(client, systemPrompt, images, prompt);
-
-        const parsed = extractJson<{ content_blocks: ContentBlock[] }>(result.text);
-
-        if (!Array.isArray(parsed.content_blocks)) {
-          console.log(`    ${batchLabel} Warning: no content_blocks array in response`);
-          continue;
-        }
-
-        for (const block of parsed.content_blocks) {
-          block.id = `b${allBlocks.length + 1}`;
-          allBlocks.push(block);
-        }
-
-        const blockTypes = parsed.content_blocks.map(b => b.type);
-        const counts: Record<string, number> = {};
-        for (const t of blockTypes) counts[t] = (counts[t] || 0) + 1;
-        const countStr = Object.entries(counts).map(([k, v]) => `${v} ${k}`).join(", ");
-        console.log(`    ${batchLabel ? batchLabel + ": " : ""}${parsed.content_blocks.length} blocks (${countStr})`);
-        console.log(`    ${result.usage.inputTokens} in / ${result.usage.outputTokens} out — ${fmtUsd(result.usage.costUsd)} — ${fmtMs(result.usage.durationMs)}`);
-      } catch (err) {
-        console.error(`    Error processing "${tocArticle.title}"${pageBatches.length > 1 ? ` batch ${bi + 1}` : ""}:`, err instanceof Error ? err.message : err);
+      // Auto-fix hands
+      const { blocks: fixedBlocks, fixes, manualReviewFlags } = autoFixContentBlocks(blocks);
+      if (fixes.length > 0) {
+        blocks = fixedBlocks;
+        console.log(`  Auto-fixed ${fixes.length} hand(s) in "${tocArticle.title}"`);
       }
-    }
+      for (const flag of manualReviewFlags) {
+        warnings.push(`Manual review: ${flag.direction} in block ${flag.blockId}: ${flag.reason}`);
+      }
 
-    articleResults.push({ title: tocArticle.title, blocks: allBlocks });
-    processedArticles.add(tocArticle.title);
-    saveResume(progressPath, { toc, articleResults });
-  }
+      // Auto-fix auctions
+      const { blocks: auctionFixed, fixes: auctionFixes } = autoFixAuctions(blocks);
+      if (auctionFixes.length > 0) {
+        blocks = auctionFixed;
+        console.log(`  Auto-fixed ${auctionFixes.length} auction(s) in "${tocArticle.title}"`);
+      }
 
-  // ── Pass 3: Post-processing ─────────────────────────────────────────
+      // Fix MSC auctions: ensure "?" lands on South's seat
+      if (tocArticle.category.toLowerCase().includes("master solvers")) {
+        const { blocks: mscFixed, fixes: mscFixes } = fixMscAuctions(blocks);
+        if (mscFixes.length > 0) {
+          blocks = mscFixed;
+          for (const f of mscFixes) console.log(`  MSC fix: ${f}`);
+        }
+      }
 
-  console.log(`\n[Pass 3] Post-processing articles...`);
+      // Strip next-month content from within articles
+      const { blocks: monthStripped, stripped: monthStrippedCount } = stripNextMonthBlocks(blocks, toc.issue.month);
+      if (monthStrippedCount > 0) {
+        blocks = monthStripped;
+        console.log(`  Stripped ${monthStrippedCount} next-month block(s) from "${tocArticle.title}"`);
+      }
 
-  interface OutputArticle {
-    title: string;
-    slug: string;
-    author_name: string;
-    category: string;
-    tags: string[];
-    level: string;
-    month: number;
-    year: number;
-    source_page: number;
-    excerpt: string;
-    status: "draft";
-    content_blocks: ContentBlock[];
-    warnings: string[];
-  }
+      // Strip boilerplate blocks
+      const { blocks: noBoilerplate, stripped: boilerStripped } = stripBoilerplateBlocks(blocks);
+      if (boilerStripped > 0) {
+        blocks = noBoilerplate;
+        console.log(`  Stripped ${boilerStripped} boilerplate block(s) from "${tocArticle.title}"`);
+      }
 
-  const outputArticles: OutputArticle[] = [];
+      // Strip cross-references (print artifacts like "Solution on page 73")
+      const { blocks: noCrossRef, stripped: crossRefStripped } = stripCrossReferences(blocks);
+      if (crossRefStripped > 0) {
+        blocks = noCrossRef;
+        console.log(`  Stripped cross-references from ${crossRefStripped} block(s) in "${tocArticle.title}"`);
+      }
 
-  // Build a lookup from article results (keyed by title from Pass 2)
-  const articleBlocksMap = new Map<string, ContentBlock[]>();
-  for (const ar of articleResults) {
-    articleBlocksMap.set(ar.title, ar.blocks);
-  }
+      // Interleave solutions
+      const interleave = interleaveProblemSolutions(blocks);
+      if (interleave.solutionCount > 0) {
+        blocks = interleave.blocks;
+        console.log(`  Wrapped ${interleave.solutionCount} solution(s) in "${tocArticle.title}"`);
+      }
 
-  let blockIdCounter = 1;
+      // Validate
+      const blockErrors = validateContentBlocks(blocks);
+      for (const be of blockErrors) {
+        for (const e of be.errors) {
+          warnings.push(`Block ${be.blockIndex} (${be.blockType}): ${e}`);
+        }
+      }
 
-  for (const tocArticle of toc.articles) {
-    // Blocks are already keyed by exact title from Pass 2
-    let blocks = articleBlocksMap.get(tocArticle.title) || [];
+      const typeCounts: Record<string, number> = {};
+      for (const b of blocks) typeCounts[b.type] = (typeCounts[b.type] || 0) + 1;
+      console.log(`  "${tocArticle.title}": ${blocks.length} blocks (${Object.entries(typeCounts).map(([k, v]) => `${v} ${k}`).join(", ")})${warnings.length > 0 ? ` — ${warnings.length} warning(s)` : ""}`);
 
-    // Reassign sequential IDs
-    for (const block of blocks) {
-      block.id = `b${blockIdCounter++}`;
-    }
+      // Strip author from title (e.g. "Challenge the Champs conducted by Philip Alder" → "Challenge the Champs")
+      const { title: cleanTitle, extractedAuthor } = stripAuthorFromTitle(
+        tocArticle.title,
+        tocArticle.author_name || undefined,
+      );
+      if (extractedAuthor) {
+        console.log(`  Stripped author from title: "${tocArticle.title}" → "${cleanTitle}"`);
+        // If no author_name was set, use the extracted one
+        if (!tocArticle.author_name) {
+          tocArticle.author_name = extractedAuthor;
+        }
+      }
 
-    if (blocks.length === 0) {
-      console.log(`  Warning: No blocks found for "${tocArticle.title}"`);
-      const { title: emptyCleanTitle } = stripAuthorFromTitle(tocArticle.title, tocArticle.author_name || undefined);
+      // Apply category mapping and inference
+      let category = tocArticle.category
+        ? mapCategory(tocArticle.category)
+        : inferCategoryFromTitle(cleanTitle) ?? "";
+      if (!category) category = tocArticle.category;
+
+      const level = inferLevel(category, tocArticle.tags);
+
       outputArticles.push({
-        title: emptyCleanTitle,
-        slug: truncateSlug(slugify(emptyCleanTitle)),
+        title: cleanTitle,
+        slug: truncateSlug(slugify(cleanTitle)),
         author_name: tocArticle.author_name,
-        category: mapCategory(tocArticle.category) || inferCategoryFromTitle(emptyCleanTitle) || tocArticle.category,
+        category,
         tags: tocArticle.tags,
-        level: inferLevel(tocArticle.category, tocArticle.tags),
+        level,
         month: toc.issue.month,
         year: toc.issue.year,
         source_page: tocArticle.source_page,
         excerpt: tocArticle.excerpt,
         status: "draft",
-        content_blocks: [],
-        warnings: ["No content blocks found"],
+        content_blocks: blocks,
+        warnings,
       });
-      continue;
     }
 
-    const warnings: string[] = [];
+    // ── Write output (PDF mode) ────────────────────────────────────────
 
-    // Post-process: normalize tens
-    blocks = normalizeTens(blocks);
+    console.log(`\n[Output] Writing to ${args.outputDir}/`);
 
-    // Auto-fix hands
-    const { blocks: fixedBlocks, fixes, manualReviewFlags } = autoFixContentBlocks(blocks);
-    if (fixes.length > 0) {
-      blocks = fixedBlocks;
-      console.log(`  Auto-fixed ${fixes.length} hand(s) in "${tocArticle.title}"`);
-    }
-    for (const flag of manualReviewFlags) {
-      warnings.push(`Manual review: ${flag.direction} in block ${flag.blockId}: ${flag.reason}`);
+    // Write individual article files (prefixed with issue slug)
+    for (const article of outputArticles) {
+      const filename = `${args.issueSlug}-${article.slug}.json`;
+      const articlePath = path.join(args.outputDir, filename);
+      fs.writeFileSync(articlePath, JSON.stringify(article, null, 2));
     }
 
-    // Auto-fix auctions
-    const { blocks: auctionFixed, fixes: auctionFixes } = autoFixAuctions(blocks);
-    if (auctionFixes.length > 0) {
-      blocks = auctionFixed;
-      console.log(`  Auto-fixed ${auctionFixes.length} auction(s) in "${tocArticle.title}"`);
+    // Write issue summary
+    const issueSummary = {
+      issue: toc.issue,
+      articles: outputArticles.map(a => ({
+        title: a.title,
+        slug: a.slug,
+        author_name: a.author_name,
+        category: a.category,
+        tags: a.tags,
+        level: a.level,
+        month: a.month,
+        year: a.year,
+        source_page: a.source_page,
+        excerpt: a.excerpt,
+        block_count: a.content_blocks.length,
+        warnings: a.warnings,
+      })),
+      stats: {
+        totalDurationMs: Date.now() - t0,
+        apiCalls: apiCallCount,
+        inputTokens: totalUsage.inputTokens,
+        outputTokens: totalUsage.outputTokens,
+        costUsd: totalUsage.costUsd,
+      },
+    };
+
+    const summaryPath = path.join(args.outputDir, `${args.issueSlug}-issue.json`);
+    fs.writeFileSync(summaryPath, JSON.stringify(issueSummary, null, 2));
+
+    // Clean up progress file on successful completion
+    if (fs.existsSync(progressPath)) {
+      fs.unlinkSync(progressPath);
+      console.log(`  Cleaned up progress file`);
     }
 
-    // Fix MSC auctions: ensure "?" lands on South's seat
-    if (tocArticle.category.toLowerCase().includes("master solvers")) {
-      const { blocks: mscFixed, fixes: mscFixes } = fixMscAuctions(blocks);
-      if (mscFixes.length > 0) {
-        blocks = mscFixed;
-        for (const f of mscFixes) console.log(`  MSC fix: ${f}`);
-      }
-    }
+    // ── Summary (PDF mode) ───────────────────────────────────────────
 
-    // Strip next-month content from within articles
-    const { blocks: monthStripped, stripped: monthStrippedCount } = stripNextMonthBlocks(blocks, toc.issue.month);
-    if (monthStrippedCount > 0) {
-      blocks = monthStripped;
-      console.log(`  Stripped ${monthStrippedCount} next-month block(s) from "${tocArticle.title}"`);
-    }
-
-    // Strip boilerplate blocks
-    const { blocks: noBoilerplate, stripped: boilerStripped } = stripBoilerplateBlocks(blocks);
-    if (boilerStripped > 0) {
-      blocks = noBoilerplate;
-      console.log(`  Stripped ${boilerStripped} boilerplate block(s) from "${tocArticle.title}"`);
-    }
-
-    // Strip cross-references (print artifacts like "Solution on page 73")
-    const { blocks: noCrossRef, stripped: crossRefStripped } = stripCrossReferences(blocks);
-    if (crossRefStripped > 0) {
-      blocks = noCrossRef;
-      console.log(`  Stripped cross-references from ${crossRefStripped} block(s) in "${tocArticle.title}"`);
-    }
-
-    // Interleave solutions
-    const interleave = interleaveProblemSolutions(blocks);
-    if (interleave.solutionCount > 0) {
-      blocks = interleave.blocks;
-      console.log(`  Wrapped ${interleave.solutionCount} solution(s) in "${tocArticle.title}"`);
-    }
-
-    // Validate
-    const blockErrors = validateContentBlocks(blocks);
-    for (const be of blockErrors) {
-      for (const e of be.errors) {
-        warnings.push(`Block ${be.blockIndex} (${be.blockType}): ${e}`);
-      }
-    }
-
-    const typeCounts: Record<string, number> = {};
-    for (const b of blocks) typeCounts[b.type] = (typeCounts[b.type] || 0) + 1;
-    console.log(`  "${tocArticle.title}": ${blocks.length} blocks (${Object.entries(typeCounts).map(([k, v]) => `${v} ${k}`).join(", ")})${warnings.length > 0 ? ` — ${warnings.length} warning(s)` : ""}`);
-
-    // Strip author from title (e.g. "Challenge the Champs conducted by Philip Alder" → "Challenge the Champs")
-    const { title: cleanTitle, extractedAuthor } = stripAuthorFromTitle(
-      tocArticle.title,
-      tocArticle.author_name || undefined,
-    );
-    if (extractedAuthor) {
-      console.log(`  Stripped author from title: "${tocArticle.title}" → "${cleanTitle}"`);
-      // If no author_name was set, use the extracted one
-      if (!tocArticle.author_name) {
-        tocArticle.author_name = extractedAuthor;
-      }
-    }
-
-    // Apply category mapping and inference
-    let category = tocArticle.category
-      ? mapCategory(tocArticle.category)
-      : inferCategoryFromTitle(cleanTitle) ?? "";
-    if (!category) category = tocArticle.category;
-
-    const level = inferLevel(category, tocArticle.tags);
-
-    outputArticles.push({
-      title: cleanTitle,
-      slug: truncateSlug(slugify(cleanTitle)),
-      author_name: tocArticle.author_name,
-      category,
-      tags: tocArticle.tags,
-      level,
-      month: toc.issue.month,
-      year: toc.issue.year,
-      source_page: tocArticle.source_page,
-      excerpt: tocArticle.excerpt,
-      status: "draft",
-      content_blocks: blocks,
-      warnings,
-    });
-  }
-
-  // ── Write output ────────────────────────────────────────────────────
-
-  console.log(`\n[Output] Writing to ${args.outputDir}/`);
-
-  // Write individual article files (prefixed with issue slug)
-  for (const article of outputArticles) {
-    const filename = `${args.issueSlug}-${article.slug}.json`;
-    const articlePath = path.join(args.outputDir, filename);
-    fs.writeFileSync(articlePath, JSON.stringify(article, null, 2));
-  }
-
-  // Write issue summary
-  const issueSummary = {
-    issue: toc.issue,
-    articles: outputArticles.map(a => ({
-      title: a.title,
-      slug: a.slug,
-      author_name: a.author_name,
-      category: a.category,
-      tags: a.tags,
-      level: a.level,
-      month: a.month,
-      year: a.year,
-      source_page: a.source_page,
-      excerpt: a.excerpt,
-      block_count: a.content_blocks.length,
-      warnings: a.warnings,
-    })),
-    stats: {
-      totalDurationMs: Date.now() - t0,
-      apiCalls: apiCallCount,
-      inputTokens: totalUsage.inputTokens,
-      outputTokens: totalUsage.outputTokens,
-      costUsd: totalUsage.costUsd,
-    },
-  };
-
-  const summaryPath = path.join(args.outputDir, `${args.issueSlug}-issue.json`);
-  fs.writeFileSync(summaryPath, JSON.stringify(issueSummary, null, 2));
-
-  // Clean up progress file on successful completion
-  if (fs.existsSync(progressPath)) {
-    fs.unlinkSync(progressPath);
-    console.log(`  Cleaned up progress file`);
-  }
-
-  // ── Summary ─────────────────────────────────────────────────────────
-
-  const totalMs = Date.now() - t0;
-  console.log(`
+    const totalMs = Date.now() - t0;
+    console.log(`
   ══════════════════════════════════════
   DONE in ${fmtMs(totalMs)}
   Mode:          ${args.mode}
@@ -1590,6 +2499,326 @@ async function main() {
   Output:        ${args.outputDir}/
   ══════════════════════════════════════
 `);
+
+  } else {
+    // ── Spreads/images mode ─────────────────────────────────────────────
+
+    console.log(`\n[Pass 2] Sequential stream transcription (${PAGES_PER_STREAM_CALL} pages/batch)...`);
+    const streamBlocks = await pass2SequentialStream(
+      toc,
+      resume,
+      pageMap!,
+      getPageImages,
+      client,
+      systemPrompt,
+      progressPath,
+      args.issueName,
+      ocrTexts,
+    );
+
+    if (args.noSplit) {
+      // ── --no-split: transcription only → single combined file ────────
+
+      const fullTranscription = {
+        issue: toc.issue,
+        articles: toc.articles.map(a => ({
+          title: a.title,
+          author_name: a.author_name,
+          category: a.category,
+          tags: a.tags,
+          source_page: a.source_page,
+          pdf_pages: a.pdf_pages,
+          excerpt: a.excerpt,
+        })),
+        blocks: streamBlocks,
+        totalBlocks: streamBlocks.length,
+        stats: {
+          totalDurationMs: Date.now() - t0,
+          apiCalls: apiCallCount,
+          inputTokens: totalUsage.inputTokens,
+          outputTokens: totalUsage.outputTokens,
+          costUsd: totalUsage.costUsd,
+        },
+      };
+
+      const outPath = path.join(args.outputDir, `${args.issueSlug}-full-transcription.json`);
+      fs.writeFileSync(outPath, JSON.stringify(fullTranscription, null, 2));
+      console.log(`\n[Output] Wrote ${outPath}`);
+
+      if (fs.existsSync(progressPath)) {
+        fs.unlinkSync(progressPath);
+        console.log(`  Cleaned up progress file`);
+      }
+
+      const typeCounts: Record<string, number> = {};
+      for (const b of streamBlocks) typeCounts[b.type] = (typeCounts[b.type] || 0) + 1;
+      const typeStr = Object.entries(typeCounts).map(([k, v]) => `${v} ${k}`).join(", ");
+
+      const totalMs = Date.now() - t0;
+      console.log(`
+  ══════════════════════════════════════
+  DONE in ${fmtMs(totalMs)}
+  Mode:          ${args.mode} (--no-split)
+  API calls:     ${apiCallCount}
+  Input tokens:  ${totalUsage.inputTokens.toLocaleString()}
+  Output tokens: ${totalUsage.outputTokens.toLocaleString()}
+  Est. cost:     ${fmtUsd(totalUsage.costUsd)}
+  TOC articles:  ${toc.articles.length}
+  Total blocks:  ${streamBlocks.length} (${typeStr})
+  Output:        ${outPath}
+  ══════════════════════════════════════
+
+  Use the Split Transcription admin page to assign blocks to articles and import.
+`);
+
+    } else {
+      // ── Default: assign blocks to articles → Pass 3 → individual files ──
+
+      // Also write the full-transcription file as a fallback for the split UI
+      const fullTranscription = {
+        issue: toc.issue,
+        articles: toc.articles.map(a => ({
+          title: a.title,
+          author_name: a.author_name,
+          category: a.category,
+          tags: a.tags,
+          source_page: a.source_page,
+          pdf_pages: a.pdf_pages,
+          excerpt: a.excerpt,
+        })),
+        blocks: streamBlocks,
+        totalBlocks: streamBlocks.length,
+        stats: {
+          totalDurationMs: Date.now() - t0,
+          apiCalls: apiCallCount,
+          inputTokens: totalUsage.inputTokens,
+          outputTokens: totalUsage.outputTokens,
+          costUsd: totalUsage.costUsd,
+        },
+      };
+      const transcriptionPath = path.join(args.outputDir, `${args.issueSlug}-full-transcription.json`);
+      fs.writeFileSync(transcriptionPath, JSON.stringify(fullTranscription, null, 2));
+      console.log(`  Wrote full transcription: ${transcriptionPath}`);
+
+      // Pass 3: Assign blocks to articles using confirmed page ranges
+      console.log(`\n[Pass 3] Assigning blocks to articles by page number...`);
+      const articleResults = assignBlocksToArticles(streamBlocks, toc.articles);
+
+      // Pass 4: Post-processing
+      console.log(`\n[Pass 4] Post-processing articles...`);
+
+      interface OutputArticle {
+        title: string;
+        slug: string;
+        author_name: string;
+        category: string;
+        tags: string[];
+        level: string;
+        month: number;
+        year: number;
+        source_page: number;
+        excerpt: string;
+        status: "draft";
+        content_blocks: ContentBlock[];
+        warnings: string[];
+      }
+
+      const outputArticles: OutputArticle[] = [];
+
+      const articleBlocksMap = new Map<string, ContentBlock[]>();
+      for (const ar of articleResults) {
+        articleBlocksMap.set(ar.title, ar.blocks);
+      }
+
+      let blockIdCounter = 1;
+
+      for (const tocArticle of toc.articles) {
+        let blocks = articleBlocksMap.get(tocArticle.title) || [];
+
+        for (const block of blocks) {
+          block.id = `b${blockIdCounter++}`;
+        }
+
+        if (blocks.length === 0) {
+          console.log(`  Warning: No blocks found for "${tocArticle.title}"`);
+          const { title: emptyCleanTitle } = stripAuthorFromTitle(tocArticle.title, tocArticle.author_name || undefined);
+          outputArticles.push({
+            title: emptyCleanTitle,
+            slug: truncateSlug(slugify(emptyCleanTitle)),
+            author_name: tocArticle.author_name,
+            category: mapCategory(tocArticle.category) || inferCategoryFromTitle(emptyCleanTitle) || tocArticle.category,
+            tags: tocArticle.tags,
+            level: inferLevel(tocArticle.category, tocArticle.tags),
+            month: toc.issue.month,
+            year: toc.issue.year,
+            source_page: tocArticle.source_page,
+            excerpt: tocArticle.excerpt,
+            status: "draft",
+            content_blocks: [],
+            warnings: ["No content blocks found"],
+          });
+          continue;
+        }
+
+        const warnings: string[] = [];
+
+        blocks = normalizeTens(blocks);
+
+        const { blocks: fixedBlocks, fixes, manualReviewFlags } = autoFixContentBlocks(blocks);
+        if (fixes.length > 0) {
+          blocks = fixedBlocks;
+          console.log(`  Auto-fixed ${fixes.length} hand(s) in "${tocArticle.title}"`);
+        }
+        for (const flag of manualReviewFlags) {
+          warnings.push(`Manual review: ${flag.direction} in block ${flag.blockId}: ${flag.reason}`);
+        }
+
+        const { blocks: auctionFixed, fixes: auctionFixes } = autoFixAuctions(blocks);
+        if (auctionFixes.length > 0) {
+          blocks = auctionFixed;
+          console.log(`  Auto-fixed ${auctionFixes.length} auction(s) in "${tocArticle.title}"`);
+        }
+
+        if (tocArticle.category.toLowerCase().includes("master solvers")) {
+          const { blocks: mscFixed, fixes: mscFixes } = fixMscAuctions(blocks);
+          if (mscFixes.length > 0) {
+            blocks = mscFixed;
+            for (const f of mscFixes) console.log(`  MSC fix: ${f}`);
+          }
+        }
+
+        const { blocks: monthStripped, stripped: monthStrippedCount } = stripNextMonthBlocks(blocks, toc.issue.month);
+        if (monthStrippedCount > 0) {
+          blocks = monthStripped;
+          console.log(`  Stripped ${monthStrippedCount} next-month block(s) from "${tocArticle.title}"`);
+        }
+
+        const { blocks: noBoilerplate, stripped: boilerStripped } = stripBoilerplateBlocks(blocks);
+        if (boilerStripped > 0) {
+          blocks = noBoilerplate;
+          console.log(`  Stripped ${boilerStripped} boilerplate block(s) from "${tocArticle.title}"`);
+        }
+
+        const { blocks: noCrossRef, stripped: crossRefStripped } = stripCrossReferences(blocks);
+        if (crossRefStripped > 0) {
+          blocks = noCrossRef;
+          console.log(`  Stripped cross-references from ${crossRefStripped} block(s) in "${tocArticle.title}"`);
+        }
+
+        const interleave = interleaveProblemSolutions(blocks);
+        if (interleave.solutionCount > 0) {
+          blocks = interleave.blocks;
+          console.log(`  Wrapped ${interleave.solutionCount} solution(s) in "${tocArticle.title}"`);
+        }
+
+        const blockErrors = validateContentBlocks(blocks);
+        for (const be of blockErrors) {
+          for (const e of be.errors) {
+            warnings.push(`Block ${be.blockIndex} (${be.blockType}): ${e}`);
+          }
+        }
+
+        const typeCounts: Record<string, number> = {};
+        for (const b of blocks) typeCounts[b.type] = (typeCounts[b.type] || 0) + 1;
+        console.log(`  "${tocArticle.title}": ${blocks.length} blocks (${Object.entries(typeCounts).map(([k, v]) => `${v} ${k}`).join(", ")})${warnings.length > 0 ? ` — ${warnings.length} warning(s)` : ""}`);
+
+        const { title: cleanTitle, extractedAuthor } = stripAuthorFromTitle(
+          tocArticle.title,
+          tocArticle.author_name || undefined,
+        );
+        if (extractedAuthor) {
+          console.log(`  Stripped author from title: "${tocArticle.title}" → "${cleanTitle}"`);
+          if (!tocArticle.author_name) {
+            tocArticle.author_name = extractedAuthor;
+          }
+        }
+
+        let category = tocArticle.category
+          ? mapCategory(tocArticle.category)
+          : inferCategoryFromTitle(cleanTitle) ?? "";
+        if (!category) category = tocArticle.category;
+
+        const level = inferLevel(category, tocArticle.tags);
+
+        outputArticles.push({
+          title: cleanTitle,
+          slug: truncateSlug(slugify(cleanTitle)),
+          author_name: tocArticle.author_name,
+          category,
+          tags: tocArticle.tags,
+          level,
+          month: toc.issue.month,
+          year: toc.issue.year,
+          source_page: tocArticle.source_page,
+          excerpt: tocArticle.excerpt,
+          status: "draft",
+          content_blocks: blocks,
+          warnings,
+        });
+      }
+
+      // ── Write output (spreads/images split mode) ──────────────────────
+
+      console.log(`\n[Output] Writing to ${args.outputDir}/`);
+
+      for (const article of outputArticles) {
+        const filename = `${args.issueSlug}-${article.slug}.json`;
+        const articlePath = path.join(args.outputDir, filename);
+        fs.writeFileSync(articlePath, JSON.stringify(article, null, 2));
+      }
+
+      const issueSummary = {
+        issue: toc.issue,
+        articles: outputArticles.map(a => ({
+          title: a.title,
+          slug: a.slug,
+          author_name: a.author_name,
+          category: a.category,
+          tags: a.tags,
+          level: a.level,
+          month: a.month,
+          year: a.year,
+          source_page: a.source_page,
+          excerpt: a.excerpt,
+          block_count: a.content_blocks.length,
+          warnings: a.warnings,
+        })),
+        stats: {
+          totalDurationMs: Date.now() - t0,
+          apiCalls: apiCallCount,
+          inputTokens: totalUsage.inputTokens,
+          outputTokens: totalUsage.outputTokens,
+          costUsd: totalUsage.costUsd,
+        },
+      };
+
+      const summaryPath = path.join(args.outputDir, `${args.issueSlug}-issue.json`);
+      fs.writeFileSync(summaryPath, JSON.stringify(issueSummary, null, 2));
+
+      if (fs.existsSync(progressPath)) {
+        fs.unlinkSync(progressPath);
+        console.log(`  Cleaned up progress file`);
+      }
+
+      const totalMs = Date.now() - t0;
+      console.log(`
+  ══════════════════════════════════════
+  DONE in ${fmtMs(totalMs)}
+  Mode:          ${args.mode}
+  API calls:     ${apiCallCount}
+  Input tokens:  ${totalUsage.inputTokens.toLocaleString()}
+  Output tokens: ${totalUsage.outputTokens.toLocaleString()}
+  Est. cost:     ${fmtUsd(totalUsage.costUsd)}
+  Articles:      ${outputArticles.length}
+  Total blocks:  ${outputArticles.reduce((s, a) => s + a.content_blocks.length, 0)}
+  Output:        ${args.outputDir}/
+  ══════════════════════════════════════
+
+  Full transcription also saved to: ${transcriptionPath}
+  If assignment looks wrong, use --no-split and the Split Transcription admin page.
+`);
+    }
+  }
 }
 
 main().catch((err) => {

@@ -1,0 +1,56 @@
+{
+  "title": "A Jacobean Proposal",
+  "slug": "a-jacobean-proposal",
+  "author_name": "Henry Bethe",
+  "category": "Bidding",
+  "tags": [
+    "Bidding Theory",
+    "Jacobean",
+    "Henry Bethe",
+    "January 1998"
+  ],
+  "level": "intermediate",
+  "month": 1,
+  "year": 1998,
+  "source_page": 30,
+  "excerpt": "A bidding system proposal featuring Jacobean transfer concepts.",
+  "status": "draft",
+  "content_blocks": [
+    {
+      "id": "b286",
+      "type": "text",
+      "data": {
+        "text": "of our previous World Championship teams. According to my calculations our teams would have won in 1955, 1956 and 1957 if they had played as well as the U.S. team this year. It's just that the Italians put on a real championship performance and played better still.\n\nBut wait till next time."
+      }
+    },
+    {
+      "id": "b287",
+      "type": "text",
+      "data": {
+        "text": "Even though this report revolutionized bridge journalism, Edgar never again wrote one in this style—for a very good reason.\n\n*(To be continued.)*"
+      }
+    },
+    {
+      "id": "b288",
+      "type": "text",
+      "data": {
+        "text": "**A Jacobean Proposal**\n\n*by Henry Bethe, Ithaca, NY*"
+      }
+    },
+    {
+      "id": "b289",
+      "type": "text",
+      "data": {
+        "text": "The Jacoby Two-Notrump strong major-suit raise responded to the need for an efficient forcing raise after limit raises came into vogue. Developments in bidding theory since that time suggest that the original method can profitably be modified.\n\nPopular competitive-bidding theory holds that a side with a nine-card fit and half the deck should compete to the three level—so why not get there quickly? Accordingly, a current trend is the use of a direct double raise of a major with hands weaker than limit-raise strength. This, in turn has led to a search for alternative mechanisms for the limit raise. A common solution has been to devote the entire range from two of opener's major to three of opener's major to raises. Using so many bids for this purpose is not productive; my proposal, below, avoids this waste."
+      }
+    },
+    {
+      "id": "b290",
+      "type": "text",
+      "data": {
+        "text": "**A Revised Jacoby Two-Notrump**\n\nA response of two notrump to one of a major promises a limit raise or better—that is, seven-and-a-half or fewer losers in the losing trick count or a hand with four potentially working important cards; the hand may include a singleton with exactly six losers, or as few as three trumps if responder has no singleton. Opener rebids as follows:\n\n*Three clubs:* Six or more losers; a minimum. In effect, this says, \"I may be passing a limit raise.\" [If responder rebids three diamonds, a strong relay, opener shows his distribution using the \"higher-bid scheme\" for bids of three hearts or higher, shown below. Alternatively, responder may bid three of opener's major to show a limit raise, bid the other major to show six losers and some singleton (opener can relay to discover the short suit), or make a higher new-suit bid to show concentrated values in a hand marginally worth a slam try.]\n\n*Three diamonds:* Key-card Blackwood. [After the Blackwood asks are complete, the partnership can employ help-suit bids or asking bids.]\n\n*Higher-bid scheme:* Any bid above three diamonds shows five or fewer"
+      }
+    }
+  ],
+  "warnings": []
+}
