@@ -2211,7 +2211,7 @@ async function main() {
 
   // Strip "by Author Name" from TOC titles early so Pass 2 prompts use clean titles
   for (const a of toc.articles) {
-    const { title: cleanTitle, extractedAuthor } = stripAuthorFromTitle(a.title, a.author_name || undefined);
+    const { title: cleanTitle, extractedAuthor } = stripAuthorFromTitle(a.title);
     if (extractedAuthor) {
       console.log(`[title] "${a.title}" → "${cleanTitle}" (author: ${extractedAuthor})`);
       a.title = cleanTitle;
@@ -2309,7 +2309,7 @@ async function main() {
 
       if (blocks.length === 0) {
         console.log(`  Warning: No blocks found for "${tocArticle.title}"`);
-        const { title: emptyCleanTitle } = stripAuthorFromTitle(tocArticle.title, tocArticle.author_name || undefined);
+        const { title: emptyCleanTitle } = stripAuthorFromTitle(tocArticle.title);
         outputArticles.push({
           title: emptyCleanTitle,
           slug: truncateSlug(slugify(emptyCleanTitle)),
@@ -2402,7 +2402,6 @@ async function main() {
       // Strip author from title (e.g. "Challenge the Champs conducted by Philip Alder" → "Challenge the Champs")
       const { title: cleanTitle, extractedAuthor } = stripAuthorFromTitle(
         tocArticle.title,
-        tocArticle.author_name || undefined,
       );
       if (extractedAuthor) {
         console.log(`  Stripped author from title: "${tocArticle.title}" → "${cleanTitle}"`);
@@ -2641,7 +2640,7 @@ async function main() {
 
         if (blocks.length === 0) {
           console.log(`  Warning: No blocks found for "${tocArticle.title}"`);
-          const { title: emptyCleanTitle } = stripAuthorFromTitle(tocArticle.title, tocArticle.author_name || undefined);
+          const { title: emptyCleanTitle } = stripAuthorFromTitle(tocArticle.title);
           outputArticles.push({
             title: emptyCleanTitle,
             slug: truncateSlug(slugify(emptyCleanTitle)),
@@ -2724,7 +2723,6 @@ async function main() {
 
         const { title: cleanTitle, extractedAuthor } = stripAuthorFromTitle(
           tocArticle.title,
-          tocArticle.author_name || undefined,
         );
         if (extractedAuthor) {
           console.log(`  Stripped author from title: "${tocArticle.title}" → "${cleanTitle}"`);
