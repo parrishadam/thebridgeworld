@@ -643,7 +643,7 @@ function clipPageRanges(ranges: number[][], excluded: Set<number>): number[][] {
  */
 export function stripAuthorFromTitle(
   title: string,
-  knownAuthor?: string,
+  _knownAuthor?: string,
 ): { title: string; extractedAuthor: string | null } {
   // Pattern: title + "conducted by / edited by / by" + author name
   // Author name = 1-5 capitalized words, optionally with initials like "B."

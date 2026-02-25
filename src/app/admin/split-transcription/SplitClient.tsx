@@ -128,7 +128,7 @@ function postProcessBlocks(
   articleTitle: string,
 ): { blocks: ContentBlock[]; warnings: string[] } {
   let blocks: ContentBlock[] = rawBlocks.map((b, i) => {
-    const { page: _page, ...rest } = b;
+    const { page: _, ...rest } = b;
     return { ...rest, id: `b${i + 1}` } as ContentBlock;
   });
 
