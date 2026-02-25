@@ -128,8 +128,7 @@ function postProcessBlocks(
   articleTitle: string,
 ): { blocks: ContentBlock[]; warnings: string[] } {
   let blocks: ContentBlock[] = rawBlocks.map((b, i) => {
-    const { page: _, ...rest } = b;
-    return { ...rest, id: `b${i + 1}` } as ContentBlock;
+    return { type: b.type, data: b.data, id: `b${i + 1}` } as ContentBlock;
   });
 
   blocks = normalizeTens(blocks);
@@ -587,7 +586,6 @@ export default function SplitClient() {
 
         const { title: cleanTitle, extractedAuthor } = stripAuthorFromTitle(
           tocArticle.title,
-          tocArticle.author_name || undefined,
         );
         const authorName = tocArticle.author_name || extractedAuthor || "";
         const category = mapCategory(tocArticle.category) || tocArticle.category;

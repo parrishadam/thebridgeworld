@@ -643,7 +643,6 @@ function clipPageRanges(ranges: number[][], excluded: Set<number>): number[][] {
  */
 export function stripAuthorFromTitle(
   title: string,
-  _knownAuthor?: string,
 ): { title: string; extractedAuthor: string | null } {
   // Pattern: title + "conducted by / edited by / by" + author name
   // Author name = 1-5 capitalized words, optionally with initials like "B."
@@ -659,8 +658,7 @@ export function stripAuthorFromTitle(
   if (cleaned.length < 3) return { title, extractedAuthor: null };
 
   // Always strip — the regex pattern "by CapitalizedName$" at the end of a
-  // title is reliably an author attribution. The knownAuthor is only used
-  // to cross-check for the caller's benefit, not to gate the stripping.
+  // title is reliably an author attribution.
 
   return { title: cleaned, extractedAuthor };
 }

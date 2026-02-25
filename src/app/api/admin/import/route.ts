@@ -1769,7 +1769,6 @@ export async function POST(request: NextRequest) {
       {
         const { title: cleanTitle, extractedAuthor } = stripAuthorFromTitle(
           articles[i].title,
-          articles[i].author_name || undefined,
         );
         if (extractedAuthor) {
           console.log(`[import]   Stripped author from title: "${articles[i].title}" → "${cleanTitle}"`);
