@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useCallback, useRef, useMemo } from "react";
+import React, { useState, useCallback, useRef, useMemo, useEffect } from "react";
 import type { ContentBlock } from "@/types";
 import SupabaseArticleRenderer from "@/components/articles/SupabaseArticleRenderer";
 import {
@@ -93,6 +93,82 @@ const TYPE_BADGE_COLORS: Record<string, string> = {
 function isProblemArticle(title: string): boolean {
   const t = title.toLowerCase();
   return KNOWN_PAIRS.some((p) => t.includes(p));
+}
+
+// ── localStorage persistence ──────────────────────────────────────────────
+
+const STORAGE_PREFIX = "split-progress-";
+
+interface SavedProgress {
+  transcription: FullTranscription;
+  articleGroups: [string, number[]][];
+  deletedBlocks: number[];
+  savedAt: string;
+}
+
+interface SavedEntry {
+  slug: string;
+  key: string;
+  savedAt: string;
+  title: string;
+  blockCount: number;
+  assignedCount: number;
+}
+
+function getSavedProgressEntries(): SavedEntry[] {
+  const results: SavedEntry[] = [];
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    if (key?.startsWith(STORAGE_PREFIX)) {
+      try {
+        const data = JSON.parse(localStorage.getItem(key)!) as SavedProgress;
+        let assignedCount = 0;
+        for (const [, indices] of data.articleGroups) assignedCount += indices.length;
+        results.push({
+          slug: key.slice(STORAGE_PREFIX.length),
+          key,
+          savedAt: data.savedAt,
+          title: data.transcription.issue.title,
+          blockCount: data.transcription.blocks.length,
+          assignedCount,
+        });
+      } catch {
+        // skip corrupt entries
+      }
+    }
+  }
+  return results.sort((a, b) => b.savedAt.localeCompare(a.savedAt));
+}
+
+function doSaveProgress(
+  slug: string,
+  transcription: FullTranscription,
+  articleGroups: Map<string, number[]>,
+  deletedBlocks: Set<number>,
+): string {
+  const now = new Date().toISOString();
+  const data: SavedProgress = {
+    transcription,
+    articleGroups: Array.from(articleGroups.entries()),
+    deletedBlocks: Array.from(deletedBlocks),
+    savedAt: now,
+  };
+  localStorage.setItem(STORAGE_PREFIX + slug, JSON.stringify(data));
+  return now;
+}
+
+function doLoadProgress(key: string): SavedProgress | null {
+  const raw = localStorage.getItem(key);
+  if (!raw) return null;
+  try {
+    return JSON.parse(raw) as SavedProgress;
+  } catch {
+    return null;
+  }
+}
+
+function doClearProgress(key: string) {
+  localStorage.removeItem(key);
 }
 
 // ── Color palette for article assignments ────────────────────────────────
@@ -322,6 +398,60 @@ export default function SplitClient() {
   const [importResults, setImportResults] = useState<ImportResult[]>([]);
   const [loadError, setLoadError] = useState("");
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const [savedEntries, setSavedEntries] = useState<SavedEntry[]>([]);
+  const [lastSavedAt, setLastSavedAt] = useState<string | null>(null);
+
+  // ── Scan localStorage on mount ──────────────────────────────────────
+
+  useEffect(() => {
+    setSavedEntries(getSavedProgressEntries());
+  }, []);
+
+  // ── Restore saved progress ──────────────────────────────────────────
+
+  const restoreProgress = useCallback((entry: SavedEntry) => {
+    const saved = doLoadProgress(entry.key);
+    if (!saved) return;
+    setTranscription(saved.transcription);
+    setArticleGroups(new Map(saved.articleGroups));
+    setDeletedBlocks(new Set(saved.deletedBlocks));
+    setSelectionStart(null);
+    setSelectionEnd(null);
+    setBulkArticle("");
+    setImportResults([]);
+    setLoadError("");
+    setLastSavedAt(saved.savedAt);
+  }, []);
+
+  // ── Auto-save on changes ────────────────────────────────────────────
+
+  useEffect(() => {
+    if (!transcription) return;
+    // Only auto-save if there's meaningful work (assignments or deletions)
+    if (articleGroups.size === 0 && deletedBlocks.size === 0) return;
+    const slug = slugify(transcription.issue.title);
+    const now = doSaveProgress(slug, transcription, articleGroups, deletedBlocks);
+    setLastSavedAt(now);
+  }, [transcription, articleGroups, deletedBlocks]);
+
+  // ── Manual save ─────────────────────────────────────────────────────
+
+  const handleSaveProgress = useCallback(() => {
+    if (!transcription) return;
+    const slug = slugify(transcription.issue.title);
+    const now = doSaveProgress(slug, transcription, articleGroups, deletedBlocks);
+    setLastSavedAt(now);
+  }, [transcription, articleGroups, deletedBlocks]);
+
+  // ── Clear saved progress ────────────────────────────────────────────
+
+  const handleClearSavedProgress = useCallback(() => {
+    if (!transcription) return;
+    const slug = slugify(transcription.issue.title);
+    doClearProgress(STORAGE_PREFIX + slug);
+    setLastSavedAt(null);
+    setSavedEntries(getSavedProgressEntries());
+  }, [transcription]);
 
   // ── File loading ──────────────────────────────────────────────────────
 
@@ -639,19 +769,64 @@ export default function SplitClient() {
 
   if (!transcription) {
     return (
-      <div className="bg-white border border-stone-200 rounded-sm p-6">
-        <label className="block font-sans text-sm font-medium text-stone-700 mb-2">
-          Load full-transcription JSON
-        </label>
-        <input
-          ref={fileInputRef}
-          type="file"
-          accept=".json"
-          onChange={handleFileLoad}
-          className="font-sans text-sm"
-        />
-        {loadError && (
-          <p className="font-sans text-sm text-red-600 mt-2">{loadError}</p>
+      <div className="space-y-4">
+        <div className="bg-white border border-stone-200 rounded-sm p-6">
+          <label className="block font-sans text-sm font-medium text-stone-700 mb-2">
+            Load full-transcription JSON
+          </label>
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept=".json"
+            onChange={handleFileLoad}
+            className="font-sans text-sm"
+          />
+          {loadError && (
+            <p className="font-sans text-sm text-red-600 mt-2">{loadError}</p>
+          )}
+        </div>
+
+        {savedEntries.length > 0 && (
+          <div className="bg-white border border-stone-200 rounded-sm p-6">
+            <p className="font-sans text-sm font-medium text-stone-700 mb-3">
+              Saved progress
+            </p>
+            <div className="space-y-2">
+              {savedEntries.map((entry) => (
+                <div
+                  key={entry.key}
+                  className="flex items-center justify-between gap-4 border border-stone-100 rounded px-4 py-3"
+                >
+                  <div className="min-w-0">
+                    <p className="font-serif text-sm font-bold text-stone-900 truncate">
+                      {entry.title}
+                    </p>
+                    <p className="font-sans text-xs text-stone-500">
+                      {entry.blockCount} blocks &middot; {entry.assignedCount} assigned
+                      &middot; saved {new Date(entry.savedAt).toLocaleString()}
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-2 shrink-0">
+                    <button
+                      onClick={() => restoreProgress(entry)}
+                      className="font-sans text-sm px-4 py-1.5 bg-stone-900 text-white hover:bg-stone-700 rounded transition-colors"
+                    >
+                      Restore
+                    </button>
+                    <button
+                      onClick={() => {
+                        doClearProgress(entry.key);
+                        setSavedEntries(getSavedProgressEntries());
+                      }}
+                      className="font-sans text-sm px-3 py-1.5 text-stone-400 hover:text-red-500 transition-colors"
+                    >
+                      Discard
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         )}
       </div>
     );
@@ -730,6 +905,29 @@ export default function SplitClient() {
           >
             Clear All
           </button>
+          <span className="w-px h-5 bg-stone-200" />
+          <button
+            onClick={handleSaveProgress}
+            className="font-sans text-xs px-3 py-1.5 bg-stone-100 hover:bg-stone-200 text-stone-700 rounded transition-colors"
+          >
+            Save Progress
+          </button>
+          <button
+            onClick={handleClearSavedProgress}
+            disabled={!lastSavedAt}
+            className={`font-sans text-xs px-3 py-1.5 rounded transition-colors ${
+              lastSavedAt
+                ? "bg-stone-100 hover:bg-stone-200 text-stone-700"
+                : "bg-stone-50 text-stone-300 cursor-not-allowed"
+            }`}
+          >
+            Clear Saved
+          </button>
+          {lastSavedAt && (
+            <span className="font-sans text-[11px] text-stone-400">
+              Saved {new Date(lastSavedAt).toLocaleTimeString()}
+            </span>
+          )}
           <div className="flex-1" />
           <button
             onClick={handleImport}

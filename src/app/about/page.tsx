@@ -217,6 +217,126 @@ export default function AboutPage() {
             corrections, or suggestions, we&rsquo;d love to hear from you.
           </p>
         </section>
+
+        <section className="mt-12">
+          <h2 className="text-2xl font-serif font-extrabold text-gray-900 mb-4">Our Mission</h2>
+          <ul>
+            <li>To help you become a better bridge player, and a better partner.</li>
+            <li>To prepare you to succeed at the table and win more.</li>
+            <li>To increase your understanding, appreciation and enjoyment of the game.</li>
+            <li>To entertain you and to challenge you.</li>
+          </ul>
+        </section>
+
+        <section className="mt-12">
+          <h2 className="text-2xl font-serif font-extrabold text-gray-900 mb-4">Our Approach</h2>
+          <p>
+            <em>The Bridge World</em> is dedicated to helping you understand the
+            game more thoroughly, and become a smarter player. Our focus is on
+            teaching using common sense and useful thought patterns, as opposed
+            to memorization and complex rules. We strive to improve your game by
+            improving your &ldquo;bridge thinking&rdquo; and not through rote
+            learning.
+          </p>
+        </section>
+
+        <section className="mt-12">
+          <h2 className="text-2xl font-serif font-extrabold text-gray-900 mb-4">Reader Testimonials</h2>
+          <div className="not-prose space-y-6">
+            <blockquote className="border-l-4 border-stone-300 pl-4">
+              <p className="text-gray-700 italic">
+                &ldquo;I learned how to bid by reading The Bridge World&rsquo;s
+                Master Solvers&rsquo; Club.&rdquo;
+              </p>
+              <footer className="text-sm text-gray-500 mt-1">
+                &mdash; Bobby Goldman, 5-time world champion
+              </footer>
+            </blockquote>
+            <blockquote className="border-l-4 border-stone-300 pl-4">
+              <p className="text-gray-700 italic">
+                &ldquo;If bridge is the greatest addiction (and it is), then The
+                Bridge World is my monthly fix&nbsp;&mdash; pure unadulterated
+                pleasure in an irresistible read.&rdquo;
+              </p>
+              <footer className="text-sm text-gray-500 mt-1">
+                &mdash; Zia, bridge superstar
+              </footer>
+            </blockquote>
+            <blockquote className="border-l-4 border-stone-300 pl-4">
+              <p className="text-gray-700 italic">
+                &ldquo;Indispensable for anyone who wishes to stay current on
+                the theory &amp; practice of tournament bridge.&rdquo;
+              </p>
+              <footer className="text-sm text-gray-500 mt-1">
+                &mdash; John Swanson, bridge writer &amp; world champion
+              </footer>
+            </blockquote>
+            <blockquote className="border-l-4 border-stone-300 pl-4">
+              <p className="text-gray-700 italic">
+                &ldquo;For me, The Bridge World is the best publication ever.
+                It&rsquo;s a must read. Anybody interested in playing this
+                beautiful game at a higher level should get on the subscription
+                list, pronto.&rdquo;
+              </p>
+              <footer className="text-sm text-gray-500 mt-1">
+                &mdash; Eddie Kantar, bridge champion
+              </footer>
+            </blockquote>
+            <blockquote className="border-l-4 border-stone-300 pl-4">
+              <p className="text-gray-700 italic">
+                &ldquo;Reading my first Bridge World magazine in 1949 I was
+                impressed with its sophistication and its presentation. It was
+                the best then and continues to be the best now.&rdquo;
+              </p>
+              <footer className="text-sm text-gray-500 mt-1">
+                &mdash; Bobby Wolff
+              </footer>
+            </blockquote>
+            <blockquote className="border-l-4 border-stone-300 pl-4">
+              <p className="text-gray-700 italic">
+                &ldquo;Most top players would rate The Bridge World as the #1
+                bridge magazine in the world.&rdquo;
+              </p>
+              <footer className="text-sm text-gray-500 mt-1">
+                &mdash; Ron Klinger, author
+              </footer>
+            </blockquote>
+          </div>
+        </section>
+
+        <section className="mt-12">
+          <h2 className="text-2xl font-serif font-extrabold text-gray-900 mb-4">Cover Gallery</h2>
+          <div className="not-prose grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+            {[
+              { src: "/images/covers/193301-OFC.jpg", date: "January 1933" },
+              { src: "/images/covers/193312-OFC.jpg", date: "December 1933" },
+              { src: "/images/covers/193709-OFC.jpg", date: "September 1937" },
+              { src: "/images/covers/194709-OFC.jpg", date: "September 1947" },
+              { src: "/images/covers/196311-OFC.jpg", date: "November 1963" },
+              { src: "/images/covers/196402-OFC.jpg", date: "February 1964" },
+              { src: "/images/covers/196506-OFC.jpg", date: "June 1965" },
+              { src: "/images/covers/198706-OFC.jpg", date: "June 1987" },
+              { src: "/images/covers/199302-OFC.jpg", date: "February 1993" },
+              { src: "/images/covers/200104-OFC.jpg", date: "April 2001" },
+              { src: "/images/covers/200311-OFC.jpg", date: "November 2003" },
+              { src: "/images/covers/200701-OFC.jpg", date: "January 2007" },
+              { src: "/images/covers/202208-OFC.jpg", date: "August 2022" },
+            ].map((cover) => (
+              <figure key={cover.src}>
+                <Image
+                  src={cover.src}
+                  alt={`The Bridge World cover, ${cover.date}`}
+                  width={200}
+                  height={280}
+                  className="w-full rounded-lg shadow-md border border-stone-200"
+                />
+                <figcaption className="text-sm text-gray-500 mt-2 text-center">
+                  {cover.date}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
       </div>
     </main>
       <Footer />
